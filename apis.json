@@ -1,0 +1,71 @@
+{
+    "name": "TVmaze",
+    "description": "<p>Founded in 2014, TVmaze is the leading tv meta-data provider on the web. Serving hundreds of apps and services accoss the web. Providing management tools for users to keep track of their favorite shows.<\/p>",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/tvm-header-logo.png",
+    "tags": [
+        "general data",
+        "have api",
+        "have swagger",
+        "pedestal",
+        "televisions"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/tvmaze\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "TVmaze user",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/tvm-header-logo.png",
+            "humanURL": "http:\/\/www.tvmaze.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/tvmaze-user.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/tvmaze-user-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Website",
+            "url": "http:\/\/www.tvmaze.com"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/www.tvmaze.com\/api"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/tvmaze"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/28524-2019-09-04-02-48-55.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/28524-2019-09-04-03-31-33.json"
+        },
+        {
+            "type": "Rate Limits",
+            "url": "https:\/\/www.tvmaze.com\/api#rate-limiting"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/tvmaze"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/tvmaze.com"
+        }
+    ]
+}
