@@ -1,0 +1,448 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0",
+        "title": "TVmaze user",
+        "description": "Access to the user API is only possible for users with a [premium](http:\/\/www.tvmaze.com\/premium) account. A user can only access their own user data.\n\nAuthentication uses HTTP Basic. Use the TVmaze username as authentication username, and the TVmaze API key as authentication password. Your API key can be found on your [dashboard](http:\/\/www.tvmaze.com\/dashboard). To try out these API calls from this page, click the \"Authorize\" button on top and input your credentials.\n",
+        "termsOfService": ""
+    },
+    "servers": [
+        "httpsapi.tvmaze.com\/v1"
+    ],
+    "paths": {
+        "\/user\/episodes": {
+            "get": {
+                "summary": "Get User Episodes",
+                "description": "Get user episodes.",
+                "operationId": "GetUserEpisodes",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "show_id",
+                        "in": "query",
+                        "description": "Only return episodes from this specific show"
+                    }
+                ]
+            }
+        },
+        "\/user\/episodes\/{episode_id}": {
+            "delete": {
+                "summary": "Delete User Episodes",
+                "description": "Delete user episodes.",
+                "operationId": "DeleteUserEpisodesEpisode",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get User Episodes",
+                "description": "Get user episodes.",
+                "operationId": "GetUserEpisodesEpisode",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "parameters": {
+                "summary": "Parameters User Episodes",
+                "description": "Parameters user episodes.",
+                "operationId": "ParametersUserEpisodesEpisode",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "put": {
+                "summary": "Put User Episodes",
+                "description": "Set `marked_at` to `NULL` or leave it out to use the current time.",
+                "operationId": "PutUserEpisodesEpisode",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/user\/follows\/networks": {
+            "get": {
+                "summary": "Get User Follows Networks",
+                "description": "Get user follows networks.",
+                "operationId": "GetUserFollowsNetworks",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "embed",
+                        "in": "query",
+                        "description": "Embed full network info"
+                    }
+                ]
+            }
+        },
+        "\/user\/follows\/networks\/{network_id}": {
+            "delete": {
+                "summary": "Delete User Follows Networks",
+                "description": "Delete user follows networks.",
+                "operationId": "DeleteUserFollowsNetworksNetwork",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get User Follows Networks",
+                "description": "Get user follows networks.",
+                "operationId": "GetUserFollowsNetworksNetwork",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "parameters": {
+                "summary": "Parameters User Follows Networks",
+                "description": "Parameters user follows networks.",
+                "operationId": "ParametersUserFollowsNetworksNetwork",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "put": {
+                "summary": "Put User Follows Networks",
+                "description": "Put user follows networks.",
+                "operationId": "PutUserFollowsNetworksNetwork",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/user\/follows\/people": {
+            "get": {
+                "summary": "Get User Follows People",
+                "description": "Get user follows people.",
+                "operationId": "GetUserFollowsPeople",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "embed",
+                        "in": "query",
+                        "description": "Embed full network info"
+                    }
+                ]
+            }
+        },
+        "\/user\/follows\/people\/{person_id}": {
+            "delete": {
+                "summary": "Delete User Follows People Person",
+                "description": "Delete user follows people person.",
+                "operationId": "DeleteUserFollowsPeoplePerson",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get User Follows People Person",
+                "description": "Get user follows people person.",
+                "operationId": "GetUserFollowsPeoplePerson",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "parameters": {
+                "summary": "Parameters User Follows People Person",
+                "description": "Parameters user follows people person.",
+                "operationId": "ParametersUserFollowsPeoplePerson",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "put": {
+                "summary": "Put User Follows People Person",
+                "description": "Put user follows people person.",
+                "operationId": "PutUserFollowsPeoplePerson",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/user\/follows\/shows": {
+            "get": {
+                "summary": "Get User Follows Shows",
+                "description": "Get user follows shows.",
+                "operationId": "GetUserFollowsShows",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "embed",
+                        "in": "query",
+                        "description": "Embed full network info"
+                    }
+                ]
+            }
+        },
+        "\/user\/follows\/shows\/{show_id}": {
+            "delete": {
+                "summary": "Delete User Follows Shows",
+                "description": "Delete user follows shows.",
+                "operationId": "DeleteUserFollowsShowsShow",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get User Follows Shows",
+                "description": "Get user follows shows.",
+                "operationId": "GetUserFollowsShowsShow",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "parameters": {
+                "summary": "Parameters User Follows Shows",
+                "description": "Parameters user follows shows.",
+                "operationId": "ParametersUserFollowsShowsShow",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "put": {
+                "summary": "Put User Follows Shows",
+                "description": "Put user follows shows.",
+                "operationId": "PutUserFollowsShowsShow",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/user\/follows\/webchannels": {
+            "get": {
+                "summary": "Get User Follows Webchannels",
+                "description": "Get user follows webchannels.",
+                "operationId": "GetUserFollowsWebchannels",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "embed",
+                        "in": "query",
+                        "description": "Embed full network info"
+                    }
+                ]
+            }
+        },
+        "\/user\/follows\/webchannels\/{webchannel_id}": {
+            "delete": {
+                "summary": "Delete User Follows Webchannels Webchannel",
+                "description": "Delete user follows webchannels webchannel.",
+                "operationId": "DeleteUserFollowsWebchannelsWebchannel",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get User Follows Webchannels Webchannel",
+                "description": "Get user follows webchannels webchannel.",
+                "operationId": "GetUserFollowsWebchannelsWebchannel",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "parameters": {
+                "summary": "Parameters User Follows Webchannels Webchannel",
+                "description": "Parameters user follows webchannels webchannel.",
+                "operationId": "ParametersUserFollowsWebchannelsWebchannel",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "put": {
+                "summary": "Put User Follows Webchannels Webchannel",
+                "description": "Put user follows webchannels webchannel.",
+                "operationId": "PutUserFollowsWebchannelsWebchannel",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/user\/votes\/episodes": {
+            "get": {
+                "summary": "Get User Votes Episodes",
+                "description": "Get user votes episodes.",
+                "operationId": "GetUserVotesEpisodes",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/user\/votes\/episodes\/{episode_id}": {
+            "delete": {
+                "summary": "Delete User Votes Episodes",
+                "description": "Delete user votes episodes.",
+                "operationId": "DeleteUserVotesEpisodesEpisode",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get User Votes Episodes",
+                "description": "Get user votes episodes.",
+                "operationId": "GetUserVotesEpisodesEpisode",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "parameters": {
+                "summary": "Parameters User Votes Episodes",
+                "description": "Parameters user votes episodes.",
+                "operationId": "ParametersUserVotesEpisodesEpisode",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "put": {
+                "summary": "Put User Votes Episodes",
+                "description": "Put user votes episodes.",
+                "operationId": "PutUserVotesEpisodesEpisode",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/user\/votes\/shows": {
+            "get": {
+                "summary": "Get User Votes Shows",
+                "description": "Get user votes shows.",
+                "operationId": "GetUserVotesShows",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "embed",
+                        "in": "query",
+                        "description": "Embed full network info"
+                    }
+                ]
+            }
+        },
+        "\/user\/votes\/shows\/{show_id}": {
+            "delete": {
+                "summary": "Delete User Votes Shows",
+                "description": "Delete user votes shows.",
+                "operationId": "DeleteUserVotesShowsShow",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get User Votes Shows",
+                "description": "Get user votes shows.",
+                "operationId": "GetUserVotesShowsShow",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "parameters": {
+                "summary": "Parameters User Votes Shows",
+                "description": "Parameters user votes shows.",
+                "operationId": "ParametersUserVotesShowsShow",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "put": {
+                "summary": "Put User Votes Shows",
+                "description": "Set `voted_at` to `NULL` or leave it out to use the current time.",
+                "operationId": "PutUserVotesShowsShow",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ""
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "EpisodeVote": {
+                "type": "object",
+                "properties": {
+                    "episode_id": {
+                        "description": "",
+                        "type": "put"
+                    },
+                    "vote": {
+                        "description": "",
+                        "type": "put"
+                    },
+                    "voted_at": {
+                        "description": "",
+                        "type": "put"
+                    }
+                }
+            },
+            "MarkedEpisode": {
+                "type": "object",
+                "properties": {
+                    "episode_id": {
+                        "description": "",
+                        "type": "put"
+                    },
+                    "marked_at": {
+                        "description": "",
+                        "type": "put"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "put"
+                    }
+                }
+            },
+            "NetworkFollow": {
+                "type": "object",
+                "properties": {
+                    "_embedded": {
+                        "description": "",
+                        "type": "put"
+                    },
+                    "network_id": {
+                        "description": "",
+                        "type": "put"
+                    }
+                }
+            },
+            "PersonFollow": {
+                "type": "object",
+                "properties": {
+                    "_embedded": {
+                        "description": "",
+                        "type": "put"
+                    },
+                    "person_id": {
+                        "description": "",
+                        "type": "put"
+                    }
+                }
+            },
+            "ShowFollow": {
+                "type": "object",
+                "properties": {
+                    "_embedded": {
+                        "description": "",
+                        "type": "put"
+                    },
+                    "show_id": {
+                        "description": "",
+                        "type": "put"
+                    }
+                }
+            },
+            "ShowVote": {
+                "type": "object",
+                "properties": {
+                    "show_id": {
+                        "description": "",
+                        "type": "put"
+                    },
+                    "vote": {
+                        "description": "",
+                        "type": "put"
+                    },
+                    "voted_at": {
+                        "description": "",
+                        "type": "put"
+                    }
+                }
+            },
+            "WebchannelFollow": {
+                "type": "object",
+                "properties": {
+                    "_embedded": {
+                        "description": "",
+                        "type": "put"
+                    },
+                    "webchannel_id": {
+                        "description": "",
+                        "type": "put"
+                    }
+                }
+            }
+        }
+    }
+}
