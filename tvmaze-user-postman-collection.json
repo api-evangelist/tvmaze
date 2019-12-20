@@ -1,0 +1,890 @@
+{
+    "id": "20882ef6da05b562105f9209ee63bb74",
+    "name": "TVmaze user",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "9eb632b10e73d5000974817efa21f69b",
+            "name": "Get User Episodes",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/episodes",
+            "description": "Get user episodes.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "show_id",
+                    "description": "Only return episodes from this specific show",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "8f126ab72c13e5f1357778fd68723fc4",
+            "name": "Delete User Episodes",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/episodes\/{episode_id}",
+            "description": "Delete user episodes.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "3b80130e580c0eda040d9b9d4213d330",
+            "name": "Get User Episodes",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/episodes\/{episode_id}",
+            "description": "Get user episodes.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "329eb316d5a58d8c3a6928c0d572210b",
+            "name": "Parameters User Episodes",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/episodes\/{episode_id}",
+            "description": "Parameters user episodes.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "61784f0238f82914b0b68a98607feb1b",
+            "name": "Put User Episodes",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/episodes\/{episode_id}",
+            "description": "Set `marked_at` to `NULL` or leave it out to use the current time.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "body",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "66a6ca9fb8a7204712bc455a009dfb65",
+            "name": "Get User Follows Networks",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/networks",
+            "description": "Get user follows networks.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "embed",
+                    "description": "Embed full network info",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "4584b5246fb2285642a92d14c051bf06",
+            "name": "Delete User Follows Networks",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/networks\/{network_id}",
+            "description": "Delete user follows networks.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "5db614963dc898c8a2f6497984d95a8f",
+            "name": "Get User Follows Networks",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/networks\/{network_id}",
+            "description": "Get user follows networks.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "ea3ba2a2b25089661d07d054f64bd7d9",
+            "name": "Parameters User Follows Networks",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/networks\/{network_id}",
+            "description": "Parameters user follows networks.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "53356c28c9ccbc1a85e94bdea45aa3e9",
+            "name": "Put User Follows Networks",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/networks\/{network_id}",
+            "description": "Put user follows networks.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "7e592e6e0d63b2f14891e61e70f9f529",
+            "name": "Get User Follows People",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/people",
+            "description": "Get user follows people.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "embed",
+                    "description": "Embed full network info",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "1cd5489071623975f756be61f2109ea8",
+            "name": "Delete User Follows People Person",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/people\/{person_id}",
+            "description": "Delete user follows people person.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "83aa73a43400e3337e2fe80f34f8788f",
+            "name": "Get User Follows People Person",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/people\/{person_id}",
+            "description": "Get user follows people person.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "e4df55142c7cecf4b271bb2c4d356e0b",
+            "name": "Parameters User Follows People Person",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/people\/{person_id}",
+            "description": "Parameters user follows people person.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "92a0a0ef7c84ba384bc2c1c69ab03647",
+            "name": "Put User Follows People Person",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/people\/{person_id}",
+            "description": "Put user follows people person.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "7ffe48154209867f509ace9f4a7d2a51",
+            "name": "Get User Follows Shows",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/shows",
+            "description": "Get user follows shows.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "embed",
+                    "description": "Embed full network info",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "db5e334babcc809f0b39db2260ab6622",
+            "name": "Delete User Follows Shows",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/shows\/{show_id}",
+            "description": "Delete user follows shows.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "40b62c889d8bd3bc359ea45249cebf48",
+            "name": "Get User Follows Shows",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/shows\/{show_id}",
+            "description": "Get user follows shows.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "47288ac37424b80f59ff9a0f444d961e",
+            "name": "Parameters User Follows Shows",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/shows\/{show_id}",
+            "description": "Parameters user follows shows.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "b1af34671b55942baac3065826091757",
+            "name": "Put User Follows Shows",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/shows\/{show_id}",
+            "description": "Put user follows shows.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "da65c97d7ad38fa5997d2254bd09bd41",
+            "name": "Get User Follows Webchannels",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/webchannels",
+            "description": "Get user follows webchannels.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "embed",
+                    "description": "Embed full network info",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "444598ef40b925b6e00fcfabc3f0b0de",
+            "name": "Delete User Follows Webchannels Webchannel",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/webchannels\/{webchannel_id}",
+            "description": "Delete user follows webchannels webchannel.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "e8311866b10e58b8c962d7be2a2e5205",
+            "name": "Get User Follows Webchannels Webchannel",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/webchannels\/{webchannel_id}",
+            "description": "Get user follows webchannels webchannel.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "79289637967c66fc3a0ab69a7064d876",
+            "name": "Parameters User Follows Webchannels Webchannel",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/webchannels\/{webchannel_id}",
+            "description": "Parameters user follows webchannels webchannel.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "7b11d9dfc33477099a37556db262751d",
+            "name": "Put User Follows Webchannels Webchannel",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/webchannels\/{webchannel_id}",
+            "description": "Put user follows webchannels webchannel.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "5c593c4ecfaf3812bc36bc3a6d36aefb",
+            "name": "Get User Votes Episodes",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/episodes",
+            "description": "Get user votes episodes.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "da141f9a9c5ec8f9dd98ce2e9781a2ac",
+            "name": "Delete User Votes Episodes",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/episodes\/{episode_id}",
+            "description": "Delete user votes episodes.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "a9a927043ccc6f1eaf7c6db7ea7655a2",
+            "name": "Get User Votes Episodes",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/episodes\/{episode_id}",
+            "description": "Get user votes episodes.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "86f9d526fa3a6bfa9c629405744631ad",
+            "name": "Parameters User Votes Episodes",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/episodes\/{episode_id}",
+            "description": "Parameters user votes episodes.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "b73a0f26f0b6710f428794d53cb4929f",
+            "name": "Put User Votes Episodes",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/episodes\/{episode_id}",
+            "description": "Put user votes episodes.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "body",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "4c133ee0ac067bf177825fff138dcd10",
+            "name": "Get User Votes Shows",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/shows",
+            "description": "Get user votes shows.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "embed",
+                    "description": "Embed full network info",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "c32ea02a8a3d0bce7ad95eff927977ad",
+            "name": "Delete User Votes Shows",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/shows\/{show_id}",
+            "description": "Delete user votes shows.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "1f774a0940f7552feb972292d76a76aa",
+            "name": "Get User Votes Shows",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/shows\/{show_id}",
+            "description": "Get user votes shows.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "b30ed9a76230c045be632aca4361c432",
+            "name": "Parameters User Votes Shows",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/shows\/{show_id}",
+            "description": "Parameters user votes shows.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        },
+        {
+            "id": "6f39b37e39362e383d504e61c57b9ce1",
+            "name": "Put User Votes Shows",
+            "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/shows\/{show_id}",
+            "description": "Set `voted_at` to `NULL` or leave it out to use the current time.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "body",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "rawModeData": ""
+        }
+    ]
+}
