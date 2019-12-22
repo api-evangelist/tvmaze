@@ -1,5 +1,5 @@
 {
-    "id": "20882ef6da05b562105f9209ee63bb74",
+    "id": "556c3fa159866cd0f1cd263f9d1cf123",
     "name": "TVmaze user",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "9eb632b10e73d5000974817efa21f69b",
+            "id": "ff50de898cc2f65dc0f07af596e87b00",
             "name": "Get User Episodes",
             "url": "httpsapi.tvmaze.com\/v1\/user\/episodes",
             "description": "Get user episodes.",
@@ -37,11 +37,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "8f126ab72c13e5f1357778fd68723fc4",
+            "id": "28773a1857cb6b16cbce4197297cf5ce",
             "name": "Delete User Episodes",
             "url": "httpsapi.tvmaze.com\/v1\/user\/episodes\/{episode_id}",
             "description": "Delete user episodes.",
@@ -60,11 +60,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "3b80130e580c0eda040d9b9d4213d330",
+            "id": "21a16d45dbc8d0b510491d3231b9955a",
             "name": "Get User Episodes",
             "url": "httpsapi.tvmaze.com\/v1\/user\/episodes\/{episode_id}",
             "description": "Get user episodes.",
@@ -83,11 +83,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "329eb316d5a58d8c3a6928c0d572210b",
+            "id": "26c0d4003841d69bae6fec70bcb64712",
             "name": "Parameters User Episodes",
             "url": "httpsapi.tvmaze.com\/v1\/user\/episodes\/{episode_id}",
             "description": "Parameters user episodes.",
@@ -106,11 +106,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "61784f0238f82914b0b68a98607feb1b",
+            "id": "a43a23b22d6f1677922e79795488e909",
             "name": "Put User Episodes",
             "url": "httpsapi.tvmaze.com\/v1\/user\/episodes\/{episode_id}",
             "description": "Set `marked_at` to `NULL` or leave it out to use the current time.",
@@ -137,11 +137,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "66a6ca9fb8a7204712bc455a009dfb65",
+            "id": "2e37e9bc80f54a20fa359ce9a005fcfe",
             "name": "Get User Follows Networks",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/networks",
             "description": "Get user follows networks.",
@@ -168,11 +168,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "4584b5246fb2285642a92d14c051bf06",
+            "id": "8710aac1e5295d1c5332e14eb9e2d20e",
             "name": "Delete User Follows Networks",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/networks\/{network_id}",
             "description": "Delete user follows networks.",
@@ -191,11 +191,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "5db614963dc898c8a2f6497984d95a8f",
+            "id": "7850d0ac2f5439ac4cb7654c23e87a3d",
             "name": "Get User Follows Networks",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/networks\/{network_id}",
             "description": "Get user follows networks.",
@@ -214,11 +214,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "ea3ba2a2b25089661d07d054f64bd7d9",
+            "id": "3e521b7c634f2bc6df6ba60d3572ddfd",
             "name": "Parameters User Follows Networks",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/networks\/{network_id}",
             "description": "Parameters user follows networks.",
@@ -237,11 +237,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "53356c28c9ccbc1a85e94bdea45aa3e9",
+            "id": "18af585c406e6c029c9381391b55e61c",
             "name": "Put User Follows Networks",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/networks\/{network_id}",
             "description": "Put user follows networks.",
@@ -260,11 +260,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "7e592e6e0d63b2f14891e61e70f9f529",
+            "id": "dbdf9f379915b1daa0d1a3782318831c",
             "name": "Get User Follows People",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/people",
             "description": "Get user follows people.",
@@ -291,11 +291,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "1cd5489071623975f756be61f2109ea8",
+            "id": "3631d7faf0dcbbab21d86389031595c8",
             "name": "Delete User Follows People Person",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/people\/{person_id}",
             "description": "Delete user follows people person.",
@@ -314,11 +314,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "83aa73a43400e3337e2fe80f34f8788f",
+            "id": "52113b100c302714df2e14f27b3e2ff1",
             "name": "Get User Follows People Person",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/people\/{person_id}",
             "description": "Get user follows people person.",
@@ -337,11 +337,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "e4df55142c7cecf4b271bb2c4d356e0b",
+            "id": "4d9ab0625ef782a1360646e0789389e6",
             "name": "Parameters User Follows People Person",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/people\/{person_id}",
             "description": "Parameters user follows people person.",
@@ -360,11 +360,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "92a0a0ef7c84ba384bc2c1c69ab03647",
+            "id": "502b487f6c1c6938d1c3af17836378d9",
             "name": "Put User Follows People Person",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/people\/{person_id}",
             "description": "Put user follows people person.",
@@ -383,11 +383,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "7ffe48154209867f509ace9f4a7d2a51",
+            "id": "5e09757e567fde22ccdca967bc6c8852",
             "name": "Get User Follows Shows",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/shows",
             "description": "Get user follows shows.",
@@ -414,11 +414,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "db5e334babcc809f0b39db2260ab6622",
+            "id": "43b83a03914379b94327c242e648709d",
             "name": "Delete User Follows Shows",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/shows\/{show_id}",
             "description": "Delete user follows shows.",
@@ -437,11 +437,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "40b62c889d8bd3bc359ea45249cebf48",
+            "id": "dc270910fc4cb4ce0cfd870b9e75b559",
             "name": "Get User Follows Shows",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/shows\/{show_id}",
             "description": "Get user follows shows.",
@@ -460,11 +460,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "47288ac37424b80f59ff9a0f444d961e",
+            "id": "515bc9e622e691c939fb7e636c6c4ed2",
             "name": "Parameters User Follows Shows",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/shows\/{show_id}",
             "description": "Parameters user follows shows.",
@@ -483,11 +483,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "b1af34671b55942baac3065826091757",
+            "id": "588787ac8c793a31c72e5bf044219f44",
             "name": "Put User Follows Shows",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/shows\/{show_id}",
             "description": "Put user follows shows.",
@@ -506,11 +506,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "da65c97d7ad38fa5997d2254bd09bd41",
+            "id": "4989e3fae19ce0e5251eff3ce11ce39a",
             "name": "Get User Follows Webchannels",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/webchannels",
             "description": "Get user follows webchannels.",
@@ -537,11 +537,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "444598ef40b925b6e00fcfabc3f0b0de",
+            "id": "adda4baa43f42dc191f672315dcd1d78",
             "name": "Delete User Follows Webchannels Webchannel",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/webchannels\/{webchannel_id}",
             "description": "Delete user follows webchannels webchannel.",
@@ -560,11 +560,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "e8311866b10e58b8c962d7be2a2e5205",
+            "id": "ad78f3e44b6a3b727d775fdebfee9ddd",
             "name": "Get User Follows Webchannels Webchannel",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/webchannels\/{webchannel_id}",
             "description": "Get user follows webchannels webchannel.",
@@ -583,11 +583,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "79289637967c66fc3a0ab69a7064d876",
+            "id": "d9cd80ee5381364438862d5c0a99e3a3",
             "name": "Parameters User Follows Webchannels Webchannel",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/webchannels\/{webchannel_id}",
             "description": "Parameters user follows webchannels webchannel.",
@@ -606,11 +606,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "7b11d9dfc33477099a37556db262751d",
+            "id": "2cc79c1e72da8d3bdd60057f05db51a5",
             "name": "Put User Follows Webchannels Webchannel",
             "url": "httpsapi.tvmaze.com\/v1\/user\/follows\/webchannels\/{webchannel_id}",
             "description": "Put user follows webchannels webchannel.",
@@ -629,11 +629,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "5c593c4ecfaf3812bc36bc3a6d36aefb",
+            "id": "e45aba6e78beb9af1f6411e4094c4cd9",
             "name": "Get User Votes Episodes",
             "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/episodes",
             "description": "Get user votes episodes.",
@@ -652,11 +652,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "da141f9a9c5ec8f9dd98ce2e9781a2ac",
+            "id": "847b5011e97b95c3245cb502f93155c0",
             "name": "Delete User Votes Episodes",
             "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/episodes\/{episode_id}",
             "description": "Delete user votes episodes.",
@@ -675,11 +675,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "a9a927043ccc6f1eaf7c6db7ea7655a2",
+            "id": "864a79af1632557a3e15e4c0c16d06e4",
             "name": "Get User Votes Episodes",
             "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/episodes\/{episode_id}",
             "description": "Get user votes episodes.",
@@ -698,11 +698,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "86f9d526fa3a6bfa9c629405744631ad",
+            "id": "e651f6ec0141a42afbc3aa9afd8e4246",
             "name": "Parameters User Votes Episodes",
             "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/episodes\/{episode_id}",
             "description": "Parameters user votes episodes.",
@@ -721,11 +721,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "b73a0f26f0b6710f428794d53cb4929f",
+            "id": "eae783312d49d105ebf396c0e75c354d",
             "name": "Put User Votes Episodes",
             "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/episodes\/{episode_id}",
             "description": "Put user votes episodes.",
@@ -752,11 +752,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "4c133ee0ac067bf177825fff138dcd10",
+            "id": "d4eaed8aec1e01a84dbfbdfabf1d3b55",
             "name": "Get User Votes Shows",
             "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/shows",
             "description": "Get user votes shows.",
@@ -783,11 +783,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "c32ea02a8a3d0bce7ad95eff927977ad",
+            "id": "caebfb4bdc263cadaa715448232b6fb5",
             "name": "Delete User Votes Shows",
             "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/shows\/{show_id}",
             "description": "Delete user votes shows.",
@@ -806,11 +806,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "1f774a0940f7552feb972292d76a76aa",
+            "id": "d461809153b3a58c19d52ad82005a8ad",
             "name": "Get User Votes Shows",
             "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/shows\/{show_id}",
             "description": "Get user votes shows.",
@@ -829,11 +829,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "b30ed9a76230c045be632aca4361c432",
+            "id": "2287acba6c660b03ce3239ed36f4f031",
             "name": "Parameters User Votes Shows",
             "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/shows\/{show_id}",
             "description": "Parameters user votes shows.",
@@ -852,11 +852,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         },
         {
-            "id": "6f39b37e39362e383d504e61c57b9ce1",
+            "id": "d01d1d81063bd04c52b4d328c5be40d5",
             "name": "Put User Votes Shows",
             "url": "httpsapi.tvmaze.com\/v1\/user\/votes\/shows\/{show_id}",
             "description": "Set `voted_at` to `NULL` or leave it out to use the current time.",
@@ -883,7 +883,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "20882ef6da05b562105f9209ee63bb74",
+            "collectionId": "556c3fa159866cd0f1cd263f9d1cf123",
             "rawModeData": ""
         }
     ]
