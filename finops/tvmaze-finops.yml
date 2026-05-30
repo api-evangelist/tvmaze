@@ -1,0 +1,108 @@
+finopsFramework: '2025'
+focusDataSpec: '1.2'
+provider:
+  id: tvmaze
+  name: TVmaze
+  url: https://www.tvmaze.com/premium
+metadata:
+  asOf: '2026-05-30'
+  currency: USD
+  notes: >-
+    TVmaze's billing surface is intentionally simple — there is no usage-based
+    billing for the public API, and the Premium tier is a flat-rate subscription.
+    This file maps the surface to the FinOps Framework / FOCUS spec for
+    completeness even though most allocation, optimization, and rate-card
+    dimensions are not applicable.
+
+billingModel:
+  primary: subscription
+  secondary: none
+  meterTypes: []
+  invoiceCadence: monthly | annual
+  trueUp: none
+  overages: not-applicable
+
+subscriptionTiers:
+  - sku: tvmaze-public
+    name: Public API
+    priceUSD: 0
+    cycle: free
+    serviceCategory: Identity & Access
+    serviceSubCategory: Data API
+    chargeCategory: Usage
+    chargeSubCategory: Included
+    notes: Anonymous access; not invoiced.
+
+  - sku: tvmaze-bronze-monthly
+    name: Premium Bronze (monthly)
+    priceUSD: 2.50
+    cycle: monthly
+    chargeCategory: Subscription
+    chargeSubCategory: Committed
+
+  - sku: tvmaze-bronze-annual
+    name: Premium Bronze (annual)
+    priceUSD: 25.00
+    cycle: annual
+    chargeCategory: Subscription
+    chargeSubCategory: Committed
+
+  - sku: tvmaze-silver-annual
+    name: Premium Silver (annual)
+    priceUSD: 50.00
+    cycle: annual
+    chargeCategory: Subscription
+    chargeSubCategory: Committed
+
+  - sku: tvmaze-gold-annual
+    name: Premium Gold (annual)
+    priceUSD: 100.00
+    cycle: annual
+    chargeCategory: Subscription
+    chargeSubCategory: Committed
+
+focusMapping:
+  serviceName: TVmaze Premium
+  serviceCategory: Media & Entertainment Data
+  providerName: TVmaze
+  publisherName: TVmaze
+  invoiceIssuerName: TVmaze
+  billingAccountId: TVmaze user account
+  billingAccountName: TVmaze username
+  chargeFrequency: Recurring
+  pricingCategory: Standard
+  commitmentDiscountType: None
+  consumedQuantity: not-applicable
+  consumedUnit: not-applicable
+
+allocation:
+  tagging:
+    notes: >-
+      No first-party cost-allocation tagging is exposed; allocation must be
+      derived from the consumer's own ledger (e.g. department, project, cost
+      center) at invoice ingestion time.
+
+optimization:
+  opportunities:
+    - id: prefer-annual
+      description: Annual billing reduces monthly equivalent by ~17% vs monthly billing.
+    - id: tier-rightsizing
+      description: >-
+        Most API integrations only need the Bronze user-API surface.
+        Silver/Gold add iCal/RSS feeds and product-influence perks, not API entitlement.
+    - id: cache-respect
+      description: >-
+        Public endpoints are edge-cached for 60 minutes; honoring caches reduces
+        operational overhead and helps stay under the 20-req / 10-sec rate limit.
+
+forecasting:
+  signals:
+    - committed-spend equals tier price × subscriber count × cycle.
+    - no per-call charges, so usage growth has zero direct cost impact below the rate limit.
+
+reporting:
+  cadence: monthly invoice
+  format: TVmaze account receipt (no FOCUS-native export)
+  recommendation: >-
+    Re-export receipts into the consumer's own FOCUS-formatted ledger; map each
+    Premium subscription line to the SKUs above.

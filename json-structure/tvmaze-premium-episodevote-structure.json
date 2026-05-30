@@ -1,0 +1,25 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/episodevote.json",
+  "title": "EpisodeVote",
+  "description": "Structural description of the EpisodeVote object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "EpisodeVote",
+    "type": "object",
+    "fields": [
+      {
+        "name": "episode_id",
+        "type": "integer"
+      },
+      {
+        "name": "vote",
+        "type": "integer",
+        "description": "The vote number"
+      },
+      {
+        "name": "voted_at",
+        "type": "integer",
+        "description": "Epoch timestamp for when the user voted for the episode"
+      }
+    ]
+  }
+}

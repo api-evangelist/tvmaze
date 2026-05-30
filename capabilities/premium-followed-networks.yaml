@@ -1,0 +1,203 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "TVmaze Premium User API \u2014 Followed Networks"
+  description: "TVmaze Premium User API \u2014 followed networks. 4 operations. Lead operation: List the Followed Networks.\
+    \ Self-contained Naftiko capability covering one TVmaze business surface."
+  tags:
+  - TVmaze
+  - Premium User API
+  - Followed Networks
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVMAZE_USERNAME: TVMAZE_USERNAME
+    TVMAZE_API_KEY: TVMAZE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: premium-followed-networks
+    baseUri: https://api.tvmaze.com/v1
+    description: "TVmaze Premium User API \u2014 Followed Networks business capability. Self-contained, no shared references."
+    resources:
+    - name: user-follows-networks
+      path: /user/follows/networks
+      operations:
+      - name: getUserFollowsNetworks
+        method: GET
+        description: List the Followed Networks
+        inputParameters:
+        - name: embed
+          in: query
+          type: string
+          required: false
+          description: Embed full network info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-follows-networks-network-id
+      path: /user/follows/networks/{network_id}
+      operations:
+      - name: deleteUserFollowsNetworksNetworkId
+        method: DELETE
+        description: Unfollow a Network
+        inputParameters:
+        - name: network_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getUserFollowsNetworksNetworkId
+        method: GET
+        description: Check if a Network is Followed
+        inputParameters:
+        - name: network_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putUserFollowsNetworksNetworkId
+        method: PUT
+        description: Follow a Network
+        inputParameters:
+        - name: network_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.TVMAZE_USERNAME}}'
+      password: '{{env.TVMAZE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: premium-followed-networks-rest
+    port: 8080
+    description: "REST adapter for TVmaze Premium User API \u2014 Followed Networks. One Spectral-compliant resource per consumed\
+      \ operation, prefixed with /v1."
+    resources:
+    - path: /v1/user/follows/networks
+      name: user-follows-networks
+      description: REST surface for /user/follows/networks.
+      operations:
+      - method: GET
+        name: getUserFollowsNetworks
+        description: List the Followed Networks
+        call: premium-followed-networks.getUserFollowsNetworks
+        with:
+          embed: rest.embed
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/follows/networks/{network_id}
+      name: user-follows-networks-network-id
+      description: REST surface for /user/follows/networks/{network_id}.
+      operations:
+      - method: DELETE
+        name: deleteUserFollowsNetworksNetworkId
+        description: Unfollow a Network
+        call: premium-followed-networks.deleteUserFollowsNetworksNetworkId
+        with:
+          network_id: rest.network_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/follows/networks/{network_id}
+      name: user-follows-networks-network-id
+      description: REST surface for /user/follows/networks/{network_id}.
+      operations:
+      - method: GET
+        name: getUserFollowsNetworksNetworkId
+        description: Check if a Network is Followed
+        call: premium-followed-networks.getUserFollowsNetworksNetworkId
+        with:
+          network_id: rest.network_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/follows/networks/{network_id}
+      name: user-follows-networks-network-id
+      description: REST surface for /user/follows/networks/{network_id}.
+      operations:
+      - method: PUT
+        name: putUserFollowsNetworksNetworkId
+        description: Follow a Network
+        call: premium-followed-networks.putUserFollowsNetworksNetworkId
+        with:
+          network_id: rest.network_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: premium-followed-networks-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for TVmaze Premium User API \u2014 Followed Networks. One tool per consumed operation, routed\
+      \ inline through this capability's consumes block."
+    tools:
+    - name: list-followed-networks
+      description: List the Followed Networks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-followed-networks.getUserFollowsNetworks
+      with:
+        embed: tools.embed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: unfollow-network
+      description: Unfollow a Network
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: premium-followed-networks.deleteUserFollowsNetworksNetworkId
+      with:
+        network_id: tools.network_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: check-if-network-is-followed
+      description: Check if a Network is Followed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-followed-networks.getUserFollowsNetworksNetworkId
+      with:
+        network_id: tools.network_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: follow-network
+      description: Follow a Network
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: premium-followed-networks.putUserFollowsNetworksNetworkId
+      with:
+        network_id: tools.network_id
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,210 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "TVmaze Premium User API \u2014 Voted Shows"
+  description: "TVmaze Premium User API \u2014 voted shows. 4 operations. Lead operation: List the Shows Voted For. Self-contained\
+    \ Naftiko capability covering one TVmaze business surface."
+  tags:
+  - TVmaze
+  - Premium User API
+  - Voted Shows
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVMAZE_USERNAME: TVMAZE_USERNAME
+    TVMAZE_API_KEY: TVMAZE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: premium-voted-shows
+    baseUri: https://api.tvmaze.com/v1
+    description: "TVmaze Premium User API \u2014 Voted Shows business capability. Self-contained, no shared references."
+    resources:
+    - name: user-votes-shows
+      path: /user/votes/shows
+      operations:
+      - name: getUserVotesShows
+        method: GET
+        description: List the Shows Voted For
+        inputParameters:
+        - name: embed
+          in: query
+          type: string
+          required: false
+          description: Embed full show info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-votes-shows-show-id
+      path: /user/votes/shows/{show_id}
+      operations:
+      - name: deleteUserVotesShowsShowId
+        method: DELETE
+        description: Remove a Show Vote
+        inputParameters:
+        - name: show_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getUserVotesShowsShowId
+        method: GET
+        description: Check if a Show is Voted For
+        inputParameters:
+        - name: show_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putUserVotesShowsShowId
+        method: PUT
+        description: Vote for a Show
+        inputParameters:
+        - name: show_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        - name: body
+          in: body
+          type: object
+          required: false
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.TVMAZE_USERNAME}}'
+      password: '{{env.TVMAZE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: premium-voted-shows-rest
+    port: 8080
+    description: "REST adapter for TVmaze Premium User API \u2014 Voted Shows. One Spectral-compliant resource per consumed\
+      \ operation, prefixed with /v1."
+    resources:
+    - path: /v1/user/votes/shows
+      name: user-votes-shows
+      description: REST surface for /user/votes/shows.
+      operations:
+      - method: GET
+        name: getUserVotesShows
+        description: List the Shows Voted For
+        call: premium-voted-shows.getUserVotesShows
+        with:
+          embed: rest.embed
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/votes/shows/{show_id}
+      name: user-votes-shows-show-id
+      description: REST surface for /user/votes/shows/{show_id}.
+      operations:
+      - method: DELETE
+        name: deleteUserVotesShowsShowId
+        description: Remove a Show Vote
+        call: premium-voted-shows.deleteUserVotesShowsShowId
+        with:
+          show_id: rest.show_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/votes/shows/{show_id}
+      name: user-votes-shows-show-id
+      description: REST surface for /user/votes/shows/{show_id}.
+      operations:
+      - method: GET
+        name: getUserVotesShowsShowId
+        description: Check if a Show is Voted For
+        call: premium-voted-shows.getUserVotesShowsShowId
+        with:
+          show_id: rest.show_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/votes/shows/{show_id}
+      name: user-votes-shows-show-id
+      description: REST surface for /user/votes/shows/{show_id}.
+      operations:
+      - method: PUT
+        name: putUserVotesShowsShowId
+        description: Vote for a Show
+        call: premium-voted-shows.putUserVotesShowsShowId
+        with:
+          show_id: rest.show_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: premium-voted-shows-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for TVmaze Premium User API \u2014 Voted Shows. One tool per consumed operation, routed inline\
+      \ through this capability's consumes block."
+    tools:
+    - name: list-shows-voted
+      description: List the Shows Voted For
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-voted-shows.getUserVotesShows
+      with:
+        embed: tools.embed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-show-vote
+      description: Remove a Show Vote
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: premium-voted-shows.deleteUserVotesShowsShowId
+      with:
+        show_id: tools.show_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: check-if-show-is-voted
+      description: Check if a Show is Voted For
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-voted-shows.getUserVotesShowsShowId
+      with:
+        show_id: tools.show_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: vote-show
+      description: Vote for a Show
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: premium-voted-shows.putUserVotesShowsShowId
+      with:
+        show_id: tools.show_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

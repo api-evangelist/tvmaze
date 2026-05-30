@@ -1,0 +1,36 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/markedepisode.json",
+  "title": "MarkedEpisode",
+  "description": "Structural description of the MarkedEpisode object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "MarkedEpisode",
+    "type": "object",
+    "fields": [
+      {
+        "name": "_embedded",
+        "type": "object",
+        "fields": [
+          {
+            "name": "episode",
+            "type": "reference",
+            "ref": "#/components/schemas/Episode"
+          }
+        ]
+      },
+      {
+        "name": "episode_id",
+        "type": "integer"
+      },
+      {
+        "name": "marked_at",
+        "type": "integer",
+        "description": "Epoch timestamp for when the user watched the episode, or 0 for unknown."
+      },
+      {
+        "name": "type",
+        "type": "reference",
+        "ref": "#/components/schemas/MarkType"
+      }
+    ]
+  }
+}

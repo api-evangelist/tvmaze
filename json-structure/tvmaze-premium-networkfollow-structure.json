@@ -1,0 +1,26 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/networkfollow.json",
+  "title": "NetworkFollow",
+  "description": "Structural description of the NetworkFollow object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "NetworkFollow",
+    "type": "object",
+    "fields": [
+      {
+        "name": "_embedded",
+        "type": "object",
+        "fields": [
+          {
+            "name": "network",
+            "type": "reference",
+            "ref": "#/components/schemas/Network"
+          }
+        ]
+      },
+      {
+        "name": "network_id",
+        "type": "integer"
+      }
+    ]
+  }
+}

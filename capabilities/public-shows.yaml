@@ -1,0 +1,530 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "TVmaze Public API \u2014 Shows"
+  description: "TVmaze Public API \u2014 Shows. 11 operations. Lead operation: List Shows. Self-contained Naftiko capability\
+    \ covering one TVmaze business surface."
+  tags:
+  - TVmaze
+  - Public API
+  - Shows
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds: []
+capability:
+  consumes:
+  - type: http
+    namespace: public-shows
+    baseUri: https://api.tvmaze.com
+    description: "TVmaze Public API \u2014 Shows business capability. Self-contained, no shared references."
+    resources:
+    - name: shows
+      path: /shows
+      operations:
+      - name: listShows
+        method: GET
+        description: List Shows
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shows-id
+      path: /shows/{id}
+      operations:
+      - name: getShow
+        method: GET
+        description: Get Show
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: ''
+        - name: embed
+          in: query
+          type: array
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shows-id-episodes
+      path: /shows/{id}/episodes
+      operations:
+      - name: getShowEpisodes
+        method: GET
+        description: Get Show Episodes
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: ''
+        - name: specials
+          in: query
+          type: integer
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shows-id-episodebynumber
+      path: /shows/{id}/episodebynumber
+      operations:
+      - name: getShowEpisodeByNumber
+        method: GET
+        description: Get Show Episode By Number
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: ''
+        - name: season
+          in: query
+          type: integer
+          required: true
+          description: ''
+        - name: number
+          in: query
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shows-id-episodesbydate
+      path: /shows/{id}/episodesbydate
+      operations:
+      - name: getShowEpisodesByDate
+        method: GET
+        description: Get Show Episodes By Date
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: ''
+        - name: date
+          in: query
+          type: string
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shows-id-seasons
+      path: /shows/{id}/seasons
+      operations:
+      - name: getShowSeasons
+        method: GET
+        description: Get Show Seasons
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shows-id-cast
+      path: /shows/{id}/cast
+      operations:
+      - name: getShowCast
+        method: GET
+        description: Get Show Cast
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shows-id-crew
+      path: /shows/{id}/crew
+      operations:
+      - name: getShowCrew
+        method: GET
+        description: Get Show Crew
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shows-id-akas
+      path: /shows/{id}/akas
+      operations:
+      - name: getShowAkas
+        method: GET
+        description: Get Show Akas
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shows-id-images
+      path: /shows/{id}/images
+      operations:
+      - name: getShowImages
+        method: GET
+        description: Get Show Images
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shows-id-alternatelists
+      path: /shows/{id}/alternatelists
+      operations:
+      - name: getShowAlternateLists
+        method: GET
+        description: Get Show Alternate Lists
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: public-shows-rest
+    port: 8080
+    description: "REST adapter for TVmaze Public API \u2014 Shows. One Spectral-compliant resource per consumed operation,\
+      \ prefixed with /v1."
+    resources:
+    - path: /v1/shows
+      name: shows
+      description: REST surface for /shows.
+      operations:
+      - method: GET
+        name: listShows
+        description: List Shows
+        call: public-shows.listShows
+        with:
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shows/{id}
+      name: shows-id
+      description: REST surface for /shows/{id}.
+      operations:
+      - method: GET
+        name: getShow
+        description: Get Show
+        call: public-shows.getShow
+        with:
+          null: rest.None
+          embed: rest.embed
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shows/{id}/episodes
+      name: shows-id-episodes
+      description: REST surface for /shows/{id}/episodes.
+      operations:
+      - method: GET
+        name: getShowEpisodes
+        description: Get Show Episodes
+        call: public-shows.getShowEpisodes
+        with:
+          null: rest.None
+          specials: rest.specials
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shows/{id}/episodebynumber
+      name: shows-id-episodebynumber
+      description: REST surface for /shows/{id}/episodebynumber.
+      operations:
+      - method: GET
+        name: getShowEpisodeByNumber
+        description: Get Show Episode By Number
+        call: public-shows.getShowEpisodeByNumber
+        with:
+          null: rest.None
+          season: rest.season
+          number: rest.number
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shows/{id}/episodesbydate
+      name: shows-id-episodesbydate
+      description: REST surface for /shows/{id}/episodesbydate.
+      operations:
+      - method: GET
+        name: getShowEpisodesByDate
+        description: Get Show Episodes By Date
+        call: public-shows.getShowEpisodesByDate
+        with:
+          null: rest.None
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shows/{id}/seasons
+      name: shows-id-seasons
+      description: REST surface for /shows/{id}/seasons.
+      operations:
+      - method: GET
+        name: getShowSeasons
+        description: Get Show Seasons
+        call: public-shows.getShowSeasons
+        with:
+          null: rest.None
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shows/{id}/cast
+      name: shows-id-cast
+      description: REST surface for /shows/{id}/cast.
+      operations:
+      - method: GET
+        name: getShowCast
+        description: Get Show Cast
+        call: public-shows.getShowCast
+        with:
+          null: rest.None
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shows/{id}/crew
+      name: shows-id-crew
+      description: REST surface for /shows/{id}/crew.
+      operations:
+      - method: GET
+        name: getShowCrew
+        description: Get Show Crew
+        call: public-shows.getShowCrew
+        with:
+          null: rest.None
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shows/{id}/akas
+      name: shows-id-akas
+      description: REST surface for /shows/{id}/akas.
+      operations:
+      - method: GET
+        name: getShowAkas
+        description: Get Show Akas
+        call: public-shows.getShowAkas
+        with:
+          null: rest.None
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shows/{id}/images
+      name: shows-id-images
+      description: REST surface for /shows/{id}/images.
+      operations:
+      - method: GET
+        name: getShowImages
+        description: Get Show Images
+        call: public-shows.getShowImages
+        with:
+          null: rest.None
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shows/{id}/alternatelists
+      name: shows-id-alternatelists
+      description: REST surface for /shows/{id}/alternatelists.
+      operations:
+      - method: GET
+        name: getShowAlternateLists
+        description: Get Show Alternate Lists
+        call: public-shows.getShowAlternateLists
+        with:
+          null: rest.None
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: public-shows-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for TVmaze Public API \u2014 Shows. One tool per consumed operation, routed inline through this\
+      \ capability's consumes block."
+    tools:
+    - name: list-shows
+      description: List Shows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.listShows
+      with:
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-show
+      description: Get Show
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.getShow
+      with:
+        null: tools.None
+        embed: tools.embed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-show-episodes
+      description: Get Show Episodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.getShowEpisodes
+      with:
+        null: tools.None
+        specials: tools.specials
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-show-episode-number
+      description: Get Show Episode By Number
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.getShowEpisodeByNumber
+      with:
+        null: tools.None
+        season: tools.season
+        number: tools.number
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-show-episodes-date
+      description: Get Show Episodes By Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.getShowEpisodesByDate
+      with:
+        null: tools.None
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-show-seasons
+      description: Get Show Seasons
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.getShowSeasons
+      with:
+        null: tools.None
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-show-cast
+      description: Get Show Cast
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.getShowCast
+      with:
+        null: tools.None
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-show-crew
+      description: Get Show Crew
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.getShowCrew
+      with:
+        null: tools.None
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-show-akas
+      description: Get Show Akas
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.getShowAkas
+      with:
+        null: tools.None
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-show-images
+      description: Get Show Images
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.getShowImages
+      with:
+        null: tools.None
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-show-alternate-lists
+      description: Get Show Alternate Lists
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-shows.getShowAlternateLists
+      with:
+        null: tools.None
+      outputParameters:
+      - type: object
+        mapping: $.

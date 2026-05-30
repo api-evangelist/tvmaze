@@ -1,0 +1,33 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/character.json",
+  "title": "Character",
+  "description": "Structural description of the Character object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "Character",
+    "type": "object",
+    "fields": [
+      {
+        "name": "id",
+        "type": "integer"
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "format": "uri"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "image",
+        "type": "reference"
+      },
+      {
+        "name": "_links",
+        "type": "reference",
+        "ref": "#/components/schemas/Links"
+      }
+    ]
+  }
+}

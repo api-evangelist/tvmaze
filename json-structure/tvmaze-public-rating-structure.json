@@ -1,0 +1,15 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/rating.json",
+  "title": "Rating",
+  "description": "Structural description of the Rating object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "Rating",
+    "type": "object",
+    "fields": [
+      {
+        "name": "average",
+        "type": "number"
+      }
+    ]
+  }
+}

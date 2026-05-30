@@ -1,0 +1,26 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/showfollow.json",
+  "title": "ShowFollow",
+  "description": "Structural description of the ShowFollow object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "ShowFollow",
+    "type": "object",
+    "fields": [
+      {
+        "name": "_embedded",
+        "type": "object",
+        "fields": [
+          {
+            "name": "show",
+            "type": "reference",
+            "ref": "#/components/schemas/Show"
+          }
+        ]
+      },
+      {
+        "name": "show_id",
+        "type": "integer"
+      }
+    ]
+  }
+}

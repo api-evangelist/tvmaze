@@ -1,0 +1,19 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/aka.json",
+  "title": "Aka",
+  "description": "Structural description of the Aka object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "Aka",
+    "type": "object",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "country",
+        "type": "reference"
+      }
+    ]
+  }
+}

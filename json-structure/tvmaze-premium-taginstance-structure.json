@@ -1,0 +1,26 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/taginstance.json",
+  "title": "TagInstance",
+  "description": "Structural description of the TagInstance object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "TagInstance",
+    "type": "object",
+    "fields": [
+      {
+        "name": "_embedded",
+        "type": "object",
+        "fields": [
+          {
+            "name": "show",
+            "type": "reference",
+            "ref": "#/components/schemas/Show"
+          }
+        ]
+      },
+      {
+        "name": "show_id",
+        "type": "integer"
+      }
+    ]
+  }
+}

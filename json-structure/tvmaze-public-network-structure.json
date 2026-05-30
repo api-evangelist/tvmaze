@@ -1,0 +1,28 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/network.json",
+  "title": "Network",
+  "description": "Structural description of the Network object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "Network",
+    "type": "object",
+    "fields": [
+      {
+        "name": "id",
+        "type": "integer"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "country",
+        "type": "reference",
+        "ref": "#/components/schemas/Country"
+      },
+      {
+        "name": "officialSite",
+        "type": "string"
+      }
+    ]
+  }
+}

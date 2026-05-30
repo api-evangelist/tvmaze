@@ -1,0 +1,345 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "TVmaze Premium User API \u2014 Tagged Shows"
+  description: "TVmaze Premium User API \u2014 tagged shows. 7 operations. Lead operation: List All Tags. Self-contained Naftiko\
+    \ capability covering one TVmaze business surface."
+  tags:
+  - TVmaze
+  - Premium User API
+  - Tagged Shows
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVMAZE_USERNAME: TVMAZE_USERNAME
+    TVMAZE_API_KEY: TVMAZE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: premium-tagged-shows
+    baseUri: https://api.tvmaze.com/v1
+    description: "TVmaze Premium User API \u2014 Tagged Shows business capability. Self-contained, no shared references."
+    resources:
+    - name: user-tags
+      path: /user/tags
+      operations:
+      - name: getUserTags
+        method: GET
+        description: List All Tags
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: postUserTags
+        method: POST
+        description: Create a New Tag
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: false
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-tags-tag-id
+      path: /user/tags/{tag_id}
+      operations:
+      - name: deleteUserTagsTagId
+        method: DELETE
+        description: Delete a Specific Tag
+        inputParameters:
+        - name: tag_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchUserTagsTagId
+        method: PATCH
+        description: Update a Specific Tag
+        inputParameters:
+        - name: tag_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        - name: body
+          in: body
+          type: object
+          required: false
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-tags-tag-id-shows
+      path: /user/tags/{tag_id}/shows
+      operations:
+      - name: getUserTagsTagIdShows
+        method: GET
+        description: List All Shows Under This Tag
+        inputParameters:
+        - name: tag_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        - name: embed
+          in: query
+          type: string
+          required: false
+          description: Embed full show info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-tags-tag-id-shows-show-id
+      path: /user/tags/{tag_id}/shows/{show_id}
+      operations:
+      - name: deleteUserTagsTagIdShowsShowId
+        method: DELETE
+        description: Untag a Show
+        inputParameters:
+        - name: tag_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        - name: show_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putUserTagsTagIdShowsShowId
+        method: PUT
+        description: Tag a Show
+        inputParameters:
+        - name: tag_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        - name: show_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.TVMAZE_USERNAME}}'
+      password: '{{env.TVMAZE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: premium-tagged-shows-rest
+    port: 8080
+    description: "REST adapter for TVmaze Premium User API \u2014 Tagged Shows. One Spectral-compliant resource per consumed\
+      \ operation, prefixed with /v1."
+    resources:
+    - path: /v1/user/tags
+      name: user-tags
+      description: REST surface for /user/tags.
+      operations:
+      - method: GET
+        name: getUserTags
+        description: List All Tags
+        call: premium-tagged-shows.getUserTags
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/tags
+      name: user-tags
+      description: REST surface for /user/tags.
+      operations:
+      - method: POST
+        name: postUserTags
+        description: Create a New Tag
+        call: premium-tagged-shows.postUserTags
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/tags/{tag_id}
+      name: user-tags-tag-id
+      description: REST surface for /user/tags/{tag_id}.
+      operations:
+      - method: DELETE
+        name: deleteUserTagsTagId
+        description: Delete a Specific Tag
+        call: premium-tagged-shows.deleteUserTagsTagId
+        with:
+          tag_id: rest.tag_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/tags/{tag_id}
+      name: user-tags-tag-id
+      description: REST surface for /user/tags/{tag_id}.
+      operations:
+      - method: PATCH
+        name: patchUserTagsTagId
+        description: Update a Specific Tag
+        call: premium-tagged-shows.patchUserTagsTagId
+        with:
+          tag_id: rest.tag_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/tags/{tag_id}/shows
+      name: user-tags-tag-id-shows
+      description: REST surface for /user/tags/{tag_id}/shows.
+      operations:
+      - method: GET
+        name: getUserTagsTagIdShows
+        description: List All Shows Under This Tag
+        call: premium-tagged-shows.getUserTagsTagIdShows
+        with:
+          tag_id: rest.tag_id
+          embed: rest.embed
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/tags/{tag_id}/shows/{show_id}
+      name: user-tags-tag-id-shows-show-id
+      description: REST surface for /user/tags/{tag_id}/shows/{show_id}.
+      operations:
+      - method: DELETE
+        name: deleteUserTagsTagIdShowsShowId
+        description: Untag a Show
+        call: premium-tagged-shows.deleteUserTagsTagIdShowsShowId
+        with:
+          tag_id: rest.tag_id
+          show_id: rest.show_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/tags/{tag_id}/shows/{show_id}
+      name: user-tags-tag-id-shows-show-id
+      description: REST surface for /user/tags/{tag_id}/shows/{show_id}.
+      operations:
+      - method: PUT
+        name: putUserTagsTagIdShowsShowId
+        description: Tag a Show
+        call: premium-tagged-shows.putUserTagsTagIdShowsShowId
+        with:
+          tag_id: rest.tag_id
+          show_id: rest.show_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: premium-tagged-shows-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for TVmaze Premium User API \u2014 Tagged Shows. One tool per consumed operation, routed inline\
+      \ through this capability's consumes block."
+    tools:
+    - name: list-all-tags
+      description: List All Tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-tagged-shows.getUserTags
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-new-tag
+      description: Create a New Tag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: premium-tagged-shows.postUserTags
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-specific-tag
+      description: Delete a Specific Tag
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: premium-tagged-shows.deleteUserTagsTagId
+      with:
+        tag_id: tools.tag_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-specific-tag
+      description: Update a Specific Tag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: premium-tagged-shows.patchUserTagsTagId
+      with:
+        tag_id: tools.tag_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-all-shows-under-this
+      description: List All Shows Under This Tag
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-tagged-shows.getUserTagsTagIdShows
+      with:
+        tag_id: tools.tag_id
+        embed: tools.embed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: untag-show
+      description: Untag a Show
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: premium-tagged-shows.deleteUserTagsTagIdShowsShowId
+      with:
+        tag_id: tools.tag_id
+        show_id: tools.show_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tag-show
+      description: Tag a Show
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: premium-tagged-shows.putUserTagsTagIdShowsShowId
+      with:
+        tag_id: tools.tag_id
+        show_id: tools.show_id
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,21 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/image.json",
+  "title": "Image",
+  "description": "Structural description of the Image object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "Image",
+    "type": "object",
+    "fields": [
+      {
+        "name": "medium",
+        "type": "string",
+        "format": "uri"
+      },
+      {
+        "name": "original",
+        "type": "string",
+        "format": "uri"
+      }
+    ]
+  }
+}

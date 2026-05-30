@@ -1,0 +1,56 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/person.json",
+  "title": "Person",
+  "description": "Structural description of the Person object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "Person",
+    "type": "object",
+    "fields": [
+      {
+        "name": "id",
+        "type": "integer"
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "format": "uri"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "country",
+        "type": "reference"
+      },
+      {
+        "name": "birthday",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "deathday",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "gender",
+        "type": "string"
+      },
+      {
+        "name": "image",
+        "type": "reference"
+      },
+      {
+        "name": "updated",
+        "type": "integer",
+        "format": "int64"
+      },
+      {
+        "name": "_links",
+        "type": "reference",
+        "ref": "#/components/schemas/Links"
+      }
+    ]
+  }
+}

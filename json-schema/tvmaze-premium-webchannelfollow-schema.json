@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tvmaze.com/tvmaze-premium/webchannelfollow.json",
+  "title": "WebchannelFollow",
+  "description": "WebchannelFollow resource from TVmaze tvmaze-premium API.",
+  "properties": {
+    "_embedded": {
+      "properties": {
+        "webchannel": {
+          "$ref": "#/definitions/Webchannel"
+        }
+      },
+      "type": "object"
+    },
+    "webchannel_id": {
+      "type": "integer"
+    }
+  },
+  "type": "object",
+  "definitions": {
+    "BulkResponse": {
+      "description": "A list of responses to your bulk input, ordered the same as your input",
+      "items": {
+        "properties": {
+          "code": {
+            "description": "The HTTP code that corresponds to this item",
+            "type": "integer"
+          },
+          "errors": {
+            "description": "A list of validation errors for this item (in case of error)",
+            "type": "object"
+          },
+          "input": {
+            "description": "The request data that belonged to this response (in case of error)",
+            "type": "object"
+          },
+          "message": {
+            "description": "A human-readable error message (in case of error)",
+            "type": "string"
+          },
+          "result": {
+            "description": "The resulting created/updated object (in case of success)",
+            "type": "object"
+          }
+        }
+      },
+      "type": "array"
+    },
+    "Episode": {
+      "type": "object"
+    },
+    "EpisodeVote": {
+      "properties": {
+        "episode_id": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "vote": {
+          "description": "The vote number",
+          "maximum": 10,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "voted_at": {
+          "description": "Epoch timestamp for when the user voted for the episode",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "MarkType": {
+      "description": "0 for watched, 1 for acquired, 2 for skipped"
+    },
+    "MarkedEpisode": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "episode": {
+              "$ref": "#/definitions/Episode"
+            }
+          },
+          "type": "object"
+        },
+        "episode_id": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "marked_at": {
+          "description": "Epoch timestamp for when the user watched the episode, or 0 for unknown.",
+          "type": "integer"
+        },
+        "type": {
+          "$ref": "#/definitions/MarkType"
+        }
+      },
+      "type": "object"
+    },
+    "Network": {
+      "type": "object"
+    },
+    "NetworkFollow": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "network": {
+              "$ref": "#/definitions/Network"
+            }
+          },
+          "type": "object"
+        },
+        "network_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Person": {
+      "type": "object"
+    },
+    "PersonFollow": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "person": {
+              "$ref": "#/definitions/Person"
+            }
+          },
+          "type": "object"
+        },
+        "person_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Show": {
+      "type": "object"
+    },
+    "ShowFollow": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "show": {
+              "$ref": "#/definitions/Show"
+            }
+          },
+          "type": "object"
+        },
+        "show_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ShowVote": {
+      "properties": {
+        "show_id": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "vote": {
+          "description": "The vote number",
+          "maximum": 10,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "voted_at": {
+          "description": "Epoch timestamp for when the user voted for the episode",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Tag": {
+      "properties": {
+        "id": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TagInstance": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "show": {
+              "$ref": "#/definitions/Show"
+            }
+          },
+          "type": "object"
+        },
+        "show_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Webchannel": {
+      "type": "object"
+    },
+    "WebchannelFollow": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "webchannel": {
+              "$ref": "#/definitions/Webchannel"
+            }
+          },
+          "type": "object"
+        },
+        "webchannel_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

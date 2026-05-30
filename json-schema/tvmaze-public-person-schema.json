@@ -1,0 +1,524 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.tvmaze.com/tvmaze-public/person.json",
+  "title": "Person",
+  "description": "Person resource from TVmaze tvmaze-public API.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "name": {
+      "type": "string"
+    },
+    "country": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Country"
+        }
+      ],
+      "nullable": true
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date",
+      "nullable": true
+    },
+    "deathday": {
+      "type": "string",
+      "format": "date",
+      "nullable": true
+    },
+    "gender": {
+      "type": "string",
+      "nullable": true
+    },
+    "image": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Image"
+        }
+      ],
+      "nullable": true
+    },
+    "updated": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "_links": {
+      "$ref": "#/definitions/Links"
+    }
+  },
+  "definitions": {
+    "Country": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        }
+      }
+    },
+    "Network": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "country": {
+          "$ref": "#/definitions/Country"
+        },
+        "officialSite": {
+          "type": "string",
+          "nullable": true
+        }
+      }
+    },
+    "WebChannel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Network"
+        }
+      ]
+    },
+    "Image": {
+      "type": "object",
+      "properties": {
+        "medium": {
+          "type": "string",
+          "format": "uri"
+        },
+        "original": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "Schedule": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string"
+        },
+        "days": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Rating": {
+      "type": "object",
+      "properties": {
+        "average": {
+          "type": "number",
+          "nullable": true
+        }
+      }
+    },
+    "Externals": {
+      "type": "object",
+      "properties": {
+        "tvrage": {
+          "type": "integer",
+          "nullable": true
+        },
+        "thetvdb": {
+          "type": "integer",
+          "nullable": true
+        },
+        "imdb": {
+          "type": "string",
+          "nullable": true
+        }
+      }
+    },
+    "Links": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Show": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "description": "e.g. Scripted, Reality, Documentary"
+        },
+        "language": {
+          "type": "string",
+          "nullable": true
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "string",
+          "description": "e.g. Running, Ended, To Be Determined"
+        },
+        "runtime": {
+          "type": "integer",
+          "nullable": true
+        },
+        "averageRuntime": {
+          "type": "integer",
+          "nullable": true
+        },
+        "premiered": {
+          "type": "string",
+          "format": "date",
+          "nullable": true
+        },
+        "ended": {
+          "type": "string",
+          "format": "date",
+          "nullable": true
+        },
+        "officialSite": {
+          "type": "string",
+          "nullable": true
+        },
+        "schedule": {
+          "$ref": "#/definitions/Schedule"
+        },
+        "rating": {
+          "$ref": "#/definitions/Rating"
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "network": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Network"
+            }
+          ],
+          "nullable": true
+        },
+        "webChannel": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WebChannel"
+            }
+          ],
+          "nullable": true
+        },
+        "dvdCountry": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Country"
+            }
+          ],
+          "nullable": true
+        },
+        "externals": {
+          "$ref": "#/definitions/Externals"
+        },
+        "image": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Image"
+            }
+          ],
+          "nullable": true
+        },
+        "summary": {
+          "type": "string",
+          "nullable": true,
+          "description": "HTML summary"
+        },
+        "updated": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        }
+      }
+    },
+    "Episode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "name": {
+          "type": "string"
+        },
+        "season": {
+          "type": "integer"
+        },
+        "number": {
+          "type": "integer",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "regular, significant_special, insignificant_special"
+        },
+        "airdate": {
+          "type": "string",
+          "format": "date",
+          "nullable": true
+        },
+        "airtime": {
+          "type": "string",
+          "nullable": true
+        },
+        "airstamp": {
+          "type": "string",
+          "format": "date-time",
+          "nullable": true
+        },
+        "runtime": {
+          "type": "integer",
+          "nullable": true
+        },
+        "rating": {
+          "$ref": "#/definitions/Rating"
+        },
+        "image": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Image"
+            }
+          ],
+          "nullable": true
+        },
+        "summary": {
+          "type": "string",
+          "nullable": true
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        }
+      }
+    },
+    "Season": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "number": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "episodeOrder": {
+          "type": "integer",
+          "nullable": true
+        },
+        "premiereDate": {
+          "type": "string",
+          "format": "date",
+          "nullable": true
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date",
+          "nullable": true
+        },
+        "network": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Network"
+            }
+          ],
+          "nullable": true
+        },
+        "webChannel": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WebChannel"
+            }
+          ],
+          "nullable": true
+        },
+        "image": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Image"
+            }
+          ],
+          "nullable": true
+        },
+        "summary": {
+          "type": "string",
+          "nullable": true
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        }
+      }
+    },
+    "Person": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "name": {
+          "type": "string"
+        },
+        "country": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Country"
+            }
+          ],
+          "nullable": true
+        },
+        "birthday": {
+          "type": "string",
+          "format": "date",
+          "nullable": true
+        },
+        "deathday": {
+          "type": "string",
+          "format": "date",
+          "nullable": true
+        },
+        "gender": {
+          "type": "string",
+          "nullable": true
+        },
+        "image": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Image"
+            }
+          ],
+          "nullable": true
+        },
+        "updated": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        }
+      }
+    },
+    "Character": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Image"
+            }
+          ],
+          "nullable": true
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        }
+      }
+    },
+    "CastCredit": {
+      "type": "object",
+      "properties": {
+        "person": {
+          "$ref": "#/definitions/Person"
+        },
+        "character": {
+          "$ref": "#/definitions/Character"
+        },
+        "self": {
+          "type": "boolean"
+        },
+        "voice": {
+          "type": "boolean"
+        }
+      }
+    },
+    "CrewCredit": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Crew role type, e.g. Director, Writer"
+        },
+        "person": {
+          "$ref": "#/definitions/Person"
+        }
+      }
+    },
+    "Aka": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "country": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Country"
+            }
+          ],
+          "nullable": true
+        }
+      }
+    }
+  }
+}

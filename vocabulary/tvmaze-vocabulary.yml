@@ -1,0 +1,127 @@
+name: TVmaze Vocabulary
+description: >-
+  Controlled vocabulary covering the operational dimensions, capability surfaces,
+  and resource taxonomy of the TVmaze public and premium APIs.
+url: https://www.tvmaze.com/api
+created: '2026-05-30'
+modified: '2026-05-30'
+
+domains:
+  - name: Television
+    description: TV shows, seasons, episodes — the core domain TVmaze indexes.
+  - name: People
+    description: Actors, crew, characters — the human and fictional entities credited to shows.
+  - name: Schedule
+    description: Broadcast and streaming schedules across countries and networks.
+
+resources:
+  - name: Show
+    description: A TV series, including miniseries, anthologies, and ongoing programs.
+    aliases: [Series, Programme, Program]
+  - name: Episode
+    description: An individual episode of a show, identified by season and number or by airdate.
+    aliases: [Installment, Chapter]
+  - name: Season
+    description: A grouping of episodes within a show.
+    aliases: [Series-cycle]
+  - name: Person
+    description: A real-world individual credited in front of or behind the camera.
+    aliases: [Actor, CrewMember, Talent]
+  - name: Character
+    description: A fictional or real role portrayed within a show.
+  - name: Network
+    description: A traditional broadcast or cable channel that airs a show.
+    aliases: [Channel, Broadcaster]
+  - name: WebChannel
+    description: A streaming or web-only distribution platform.
+    aliases: [StreamingService, Platform, OTT]
+  - name: CastCredit
+    description: Association between a person and the character they portray on a show or episode.
+  - name: CrewCredit
+    description: Association between a person and a behind-the-scenes role on a show.
+  - name: Aka
+    description: Alternate title for a show, often localized per country.
+  - name: Image
+    description: Show, episode, or person artwork in multiple resolutions.
+  - name: Update
+    description: Timestamp record marking when a show or person was last modified.
+
+operations:
+  - name: Search
+    description: Free-text fuzzy search across shows or people.
+  - name: SingleSearch
+    description: Return the single best matching show for a query.
+  - name: Lookup
+    description: Resolve a show from a TVRage, TheTVDB, or IMDb external identifier.
+  - name: Schedule
+    description: Retrieve daily broadcast schedules by country.
+  - name: WebSchedule
+    description: Retrieve daily web/streaming release schedules.
+  - name: FullSchedule
+    description: Retrieve all known future episodes (large response).
+  - name: Index
+    description: Paginated walk through every show or person on TVmaze.
+  - name: Get
+    description: Retrieve a single resource by TVmaze ID.
+  - name: Embed
+    description: Expand related resources inline using the `?embed=` query parameter.
+  - name: Updates
+    description: Retrieve incremental change timestamps for sync.
+
+premiumOperations:
+  - name: Follow
+    description: Track a show, person, network, or web channel as a premium user.
+  - name: Unfollow
+    description: Stop tracking a previously followed entity.
+  - name: Mark
+    description: Record an episode as watched, acquired, or skipped.
+  - name: Vote
+    description: Rate a show or episode on a 1-10 scale.
+  - name: Tag
+    description: Apply a user-defined tag to a show.
+  - name: Scrobble
+    description: Submit a viewing event for an episode in bulk or singly.
+
+statusValues:
+  - Running
+  - Ended
+  - To Be Determined
+  - In Development
+
+showTypes:
+  - Scripted
+  - Reality
+  - Talk Show
+  - Documentary
+  - Animation
+  - Variety
+  - Game Show
+  - News
+  - Sports
+  - Award Show
+
+episodeTypes:
+  - regular
+  - significant_special
+  - insignificant_special
+
+premiumTiers:
+  - name: Bronze
+    level: 1
+    description: Entry tier — user API access, weekly calendar, bulk episode marking, no ads.
+  - name: Silver
+    level: 2
+    description: Mid tier — adds custom iCal feeds and RSS feeds.
+  - name: Gold
+    level: 3
+    description: Top tier — adds influence over pending features and development support.
+
+tags:
+  - Video
+  - Television
+  - Streaming
+  - Schedule
+  - Metadata
+  - Entertainment
+  - Public APIs
+  - CC BY-SA

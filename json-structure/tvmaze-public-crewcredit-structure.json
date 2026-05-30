@@ -1,0 +1,21 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/crewcredit.json",
+  "title": "CrewCredit",
+  "description": "Structural description of the CrewCredit object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "CrewCredit",
+    "type": "object",
+    "fields": [
+      {
+        "name": "type",
+        "type": "string",
+        "description": "Crew role type, e.g. Director, Writer"
+      },
+      {
+        "name": "person",
+        "type": "reference",
+        "ref": "#/components/schemas/Person"
+      }
+    ]
+  }
+}

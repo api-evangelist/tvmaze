@@ -1,0 +1,23 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/schedule.json",
+  "title": "Schedule",
+  "description": "Structural description of the Schedule object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "Schedule",
+    "type": "object",
+    "fields": [
+      {
+        "name": "time",
+        "type": "string"
+      },
+      {
+        "name": "days",
+        "type": "array",
+        "items": {
+          "name": "item",
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/externals.json",
+  "title": "Externals",
+  "description": "Structural description of the Externals object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "Externals",
+    "type": "object",
+    "fields": [
+      {
+        "name": "tvrage",
+        "type": "integer"
+      },
+      {
+        "name": "thetvdb",
+        "type": "integer"
+      },
+      {
+        "name": "imdb",
+        "type": "string"
+      }
+    ]
+  }
+}

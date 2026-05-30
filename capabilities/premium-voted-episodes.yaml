@@ -1,0 +1,201 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "TVmaze Premium User API \u2014 Voted Episodes"
+  description: "TVmaze Premium User API \u2014 voted episodes. 4 operations. Lead operation: List the Episodes Voted For.\
+    \ Self-contained Naftiko capability covering one TVmaze business surface."
+  tags:
+  - TVmaze
+  - Premium User API
+  - Voted Episodes
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVMAZE_USERNAME: TVMAZE_USERNAME
+    TVMAZE_API_KEY: TVMAZE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: premium-voted-episodes
+    baseUri: https://api.tvmaze.com/v1
+    description: "TVmaze Premium User API \u2014 Voted Episodes business capability. Self-contained, no shared references."
+    resources:
+    - name: user-votes-episodes
+      path: /user/votes/episodes
+      operations:
+      - name: getUserVotesEpisodes
+        method: GET
+        description: List the Episodes Voted For
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-votes-episodes-episode-id
+      path: /user/votes/episodes/{episode_id}
+      operations:
+      - name: deleteUserVotesEpisodesEpisodeId
+        method: DELETE
+        description: Remove an Episode Vote
+        inputParameters:
+        - name: episode_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getUserVotesEpisodesEpisodeId
+        method: GET
+        description: Check if an Episode is Voted For
+        inputParameters:
+        - name: episode_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putUserVotesEpisodesEpisodeId
+        method: PUT
+        description: Vote for an Episode
+        inputParameters:
+        - name: episode_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        - name: body
+          in: body
+          type: object
+          required: false
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.TVMAZE_USERNAME}}'
+      password: '{{env.TVMAZE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: premium-voted-episodes-rest
+    port: 8080
+    description: "REST adapter for TVmaze Premium User API \u2014 Voted Episodes. One Spectral-compliant resource per consumed\
+      \ operation, prefixed with /v1."
+    resources:
+    - path: /v1/user/votes/episodes
+      name: user-votes-episodes
+      description: REST surface for /user/votes/episodes.
+      operations:
+      - method: GET
+        name: getUserVotesEpisodes
+        description: List the Episodes Voted For
+        call: premium-voted-episodes.getUserVotesEpisodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/votes/episodes/{episode_id}
+      name: user-votes-episodes-episode-id
+      description: REST surface for /user/votes/episodes/{episode_id}.
+      operations:
+      - method: DELETE
+        name: deleteUserVotesEpisodesEpisodeId
+        description: Remove an Episode Vote
+        call: premium-voted-episodes.deleteUserVotesEpisodesEpisodeId
+        with:
+          episode_id: rest.episode_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/votes/episodes/{episode_id}
+      name: user-votes-episodes-episode-id
+      description: REST surface for /user/votes/episodes/{episode_id}.
+      operations:
+      - method: GET
+        name: getUserVotesEpisodesEpisodeId
+        description: Check if an Episode is Voted For
+        call: premium-voted-episodes.getUserVotesEpisodesEpisodeId
+        with:
+          episode_id: rest.episode_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/votes/episodes/{episode_id}
+      name: user-votes-episodes-episode-id
+      description: REST surface for /user/votes/episodes/{episode_id}.
+      operations:
+      - method: PUT
+        name: putUserVotesEpisodesEpisodeId
+        description: Vote for an Episode
+        call: premium-voted-episodes.putUserVotesEpisodesEpisodeId
+        with:
+          episode_id: rest.episode_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: premium-voted-episodes-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for TVmaze Premium User API \u2014 Voted Episodes. One tool per consumed operation, routed inline\
+      \ through this capability's consumes block."
+    tools:
+    - name: list-episodes-voted
+      description: List the Episodes Voted For
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-voted-episodes.getUserVotesEpisodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-episode-vote
+      description: Remove an Episode Vote
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: premium-voted-episodes.deleteUserVotesEpisodesEpisodeId
+      with:
+        episode_id: tools.episode_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: check-if-episode-is-voted
+      description: Check if an Episode is Voted For
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-voted-episodes.getUserVotesEpisodesEpisodeId
+      with:
+        episode_id: tools.episode_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: vote-episode
+      description: Vote for an Episode
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: premium-voted-episodes.putUserVotesEpisodesEpisodeId
+      with:
+        episode_id: tools.episode_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

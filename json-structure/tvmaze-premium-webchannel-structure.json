@@ -1,0 +1,9 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/webchannel.json",
+  "title": "Webchannel",
+  "description": "Structural description of the Webchannel object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "Webchannel",
+    "type": "object"
+  }
+}

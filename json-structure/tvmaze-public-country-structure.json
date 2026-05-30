@@ -1,0 +1,23 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/country.json",
+  "title": "Country",
+  "description": "Structural description of the Country object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "Country",
+    "type": "object",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "code",
+        "type": "string"
+      },
+      {
+        "name": "timezone",
+        "type": "string"
+      }
+    ]
+  }
+}

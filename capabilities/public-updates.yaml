@@ -1,0 +1,117 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "TVmaze Public API \u2014 Updates"
+  description: "TVmaze Public API \u2014 Updates. 2 operations. Lead operation: Get Show Updates. Self-contained Naftiko capability\
+    \ covering one TVmaze business surface."
+  tags:
+  - TVmaze
+  - Public API
+  - Updates
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds: []
+capability:
+  consumes:
+  - type: http
+    namespace: public-updates
+    baseUri: https://api.tvmaze.com
+    description: "TVmaze Public API \u2014 Updates business capability. Self-contained, no shared references."
+    resources:
+    - name: updates-shows
+      path: /updates/shows
+      operations:
+      - name: getShowUpdates
+        method: GET
+        description: Get Show Updates
+        inputParameters:
+        - name: since
+          in: query
+          type: string
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: updates-people
+      path: /updates/people
+      operations:
+      - name: getPersonUpdates
+        method: GET
+        description: Get Person Updates
+        inputParameters:
+        - name: since
+          in: query
+          type: string
+          required: false
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: public-updates-rest
+    port: 8080
+    description: "REST adapter for TVmaze Public API \u2014 Updates. One Spectral-compliant resource per consumed operation,\
+      \ prefixed with /v1."
+    resources:
+    - path: /v1/updates/shows
+      name: updates-shows
+      description: REST surface for /updates/shows.
+      operations:
+      - method: GET
+        name: getShowUpdates
+        description: Get Show Updates
+        call: public-updates.getShowUpdates
+        with:
+          since: rest.since
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/updates/people
+      name: updates-people
+      description: REST surface for /updates/people.
+      operations:
+      - method: GET
+        name: getPersonUpdates
+        description: Get Person Updates
+        call: public-updates.getPersonUpdates
+        with:
+          since: rest.since
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: public-updates-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for TVmaze Public API \u2014 Updates. One tool per consumed operation, routed inline through\
+      \ this capability's consumes block."
+    tools:
+    - name: get-show-updates
+      description: Get Show Updates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-updates.getShowUpdates
+      with:
+        since: tools.since
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-person-updates
+      description: Get Person Updates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-updates.getPersonUpdates
+      with:
+        since: tools.since
+      outputParameters:
+      - type: object
+        mapping: $.

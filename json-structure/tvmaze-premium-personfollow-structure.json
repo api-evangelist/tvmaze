@@ -1,0 +1,26 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/personfollow.json",
+  "title": "PersonFollow",
+  "description": "Structural description of the PersonFollow object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "PersonFollow",
+    "type": "object",
+    "fields": [
+      {
+        "name": "_embedded",
+        "type": "object",
+        "fields": [
+          {
+            "name": "person",
+            "type": "reference",
+            "ref": "#/components/schemas/Person"
+          }
+        ]
+      },
+      {
+        "name": "person_id",
+        "type": "integer"
+      }
+    ]
+  }
+}

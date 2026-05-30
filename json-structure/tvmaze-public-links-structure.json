@@ -1,0 +1,9 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/links.json",
+  "title": "Links",
+  "description": "Structural description of the Links object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "Links",
+    "type": "object"
+  }
+}

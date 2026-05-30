@@ -1,0 +1,25 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/showvote.json",
+  "title": "ShowVote",
+  "description": "Structural description of the ShowVote object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "ShowVote",
+    "type": "object",
+    "fields": [
+      {
+        "name": "show_id",
+        "type": "integer"
+      },
+      {
+        "name": "vote",
+        "type": "integer",
+        "description": "The vote number"
+      },
+      {
+        "name": "voted_at",
+        "type": "integer",
+        "description": "Epoch timestamp for when the user voted for the episode"
+      }
+    ]
+  }
+}

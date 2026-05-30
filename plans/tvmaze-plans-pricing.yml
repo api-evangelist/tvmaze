@@ -1,0 +1,123 @@
+apiCommonsPlans: '0.1'
+provider:
+  id: tvmaze
+  name: TVmaze
+  url: https://www.tvmaze.com
+  description: >-
+    TVmaze provides a free, anonymous public REST API for TV show, episode,
+    cast, crew, and schedule data. A paid Premium subscription unlocks a separate
+    user-scoped API for managing follows, votes, marks, tags, and scrobbling.
+metadata:
+  source: https://www.tvmaze.com/premium
+  currency: USD
+  billingCycles: [monthly, annual]
+  asOf: '2026-05-30'
+  notes: >-
+    The public API has no plan — it is unconditionally free for personal use under
+    CC BY-SA attribution. Commercial use of the data requires a Premium subscription.
+
+plans:
+  - id: public
+    name: Public API
+    description: Free, anonymous REST API for personal use. CC BY-SA attribution required.
+    price:
+      monthly: 0
+      annual: 0
+    audience: Personal, hobbyist, open-source
+    authentication: None
+    features:
+      - Anonymous access (no API key)
+      - Full read access to shows, episodes, seasons, people, schedules
+      - 60-minute HTTP cache on most endpoints; 24-hour cache on /schedule/full
+      - CORS enabled
+      - HTTPS and HTTP supported
+    limits:
+      - 20 requests per 10 seconds per IP (minimum)
+      - Caching may serve responses up to 60 minutes stale
+    restrictions:
+      - Commercial use requires Premium subscription
+      - Attribution to tvmaze.com required (CC BY-SA 4.0)
+
+  - id: bronze
+    name: Premium Bronze
+    description: Entry-tier Premium subscription. Unlocks the user-scoped API.
+    price:
+      monthly: 2.50
+      annual: 25.00
+    audience: Individual power users
+    authentication: HTTP Basic (username + API key)
+    features:
+      - No ads, no tracking on tvmaze.com
+      - Weekly and advanced calendars
+      - Personalized schedule
+      - Bulk episode marking
+      - User API access (read-write)
+      - Alternate airdates support
+      - Bronze achievement badge
+    limits:
+      - Same anonymous rate limit (20 req / 10 sec / IP)
+      - User API scoped to own data only
+
+  - id: silver
+    name: Premium Silver
+    description: Mid-tier Premium subscription. Includes Bronze features plus calendar feeds.
+    price:
+      monthly: 5.00
+      annual: 50.00
+    audience: Individual users who want feed integrations
+    authentication: HTTP Basic (username + API key)
+    features:
+      - All Bronze features
+      - Custom iCal feeds
+      - RSS feeds
+      - Silver forum & comment badge
+    limits:
+      - Same as Bronze
+
+  - id: gold
+    name: Premium Gold
+    description: Top-tier Premium subscription. Includes Silver features plus product influence.
+    price:
+      monthly: 10.00
+      annual: 100.00
+    audience: Power users and supporters
+    authentication: HTTP Basic (username + API key)
+    features:
+      - All Silver features
+      - Influence pending features
+      - Support feature development
+      - Gold forum & comment badge
+    limits:
+      - Same as Bronze
+
+  - id: enterprise
+    name: Enterprise / Commercial
+    description: >-
+      Custom commercial licensing for high-volume or commercial use of TVmaze data
+      beyond CC BY-SA personal use. Pricing on application; contact TVmaze sales.
+    price: contact-sales
+    audience: Companies redistributing or productizing TVmaze data
+    authentication: HTTP Basic + negotiated allowances
+    features:
+      - Custom rate-limit allowance
+      - Commercial-use license to the dataset
+      - Negotiated SLA and support
+    limits: negotiated
+
+acquisition:
+  signupUrl: https://www.tvmaze.com/account/register
+  loginUrl: https://www.tvmaze.com/account/login
+  premiumUrl: https://www.tvmaze.com/premium
+  dashboardUrl: https://www.tvmaze.com/dashboard
+  apiKeyLocation: User dashboard after Premium subscription
+
+billing:
+  cycles: [monthly, annual]
+  defaultCycle: annual
+  discount: >-
+    Monthly prices listed are annual-billing equivalents; explicit monthly billing is
+    available via the `?monthly=1` toggle on the Premium page. Exact prices fetched
+    above are illustrative — confirm current pricing at https://www.tvmaze.com/premium.
+  paymentMethods:
+    - Credit card
+    - PayPal

@@ -1,32 +1,318 @@
 aid: tvmaze
-name: TVMaze
-description: "TV Show Data"
-url: http://www.tvmaze.com/api
+name: TVmaze
+description: >-
+  TVmaze is a community-driven TV show database that publishes a free RESTful API
+  for TV show, episode, season, cast, crew, and broadcast/streaming schedule data.
+  The public API is anonymous, CORS-enabled, and licensed under CC BY-SA 4.0.
+  A paid Premium subscription unlocks a separate user-scoped API for managing
+  follows, votes, marks, tags, and scrobbling.
+url: https://www.tvmaze.com/api
+image: https://static.tvmaze.com/images/api/tvm_api.png
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-30'
 x-source: public-apis/public-apis
-x-category: "Video"
-x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+x-category: Video
+x-tier: 2
+x-tier-reason: profiled-public-and-premium-apis
+x-type: company
 tags:
   - Video
+  - Television
+  - Streaming
+  - Schedule
+  - Metadata
+  - Entertainment
   - Public APIs
 apis:
-  - name: TVMaze
-    description: "TV Show Data"
-    humanURL: http://www.tvmaze.com/api
-    baseURL: http://www.tvmaze.com/api
+  - name: TVmaze Public API
+    description: >-
+      Anonymous, free REST API for shows, episodes, seasons, cast, crew, schedules,
+      and incremental updates. Rate limit is at least 20 calls every 10 seconds per
+      IP. Most endpoints are edge-cached for 60 minutes. Licensed under CC BY-SA 4.0
+      with attribution to tvmaze.com required.
+    humanURL: https://www.tvmaze.com/api
+    baseURL: https://api.tvmaze.com
     tags:
       - Video
+      - Television
+      - Schedule
     properties:
       - type: Documentation
-        url: http://www.tvmaze.com/api
+        url: https://www.tvmaze.com/api
+      - type: OpenAPI
+        url: openapi/tvmaze-public-openapi.yml
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-show-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-episode-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-season-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-person-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-character-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-castcredit-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-crewcredit-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-network-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-webchannel-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-country-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-image-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-schedule-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-rating-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-externals-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-links-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-public-aka-schema.json
+      - type: NaftikoCapability
+        url: capabilities/public-search.yaml
+      - type: NaftikoCapability
+        url: capabilities/public-schedule.yaml
+      - type: NaftikoCapability
+        url: capabilities/public-shows.yaml
+      - type: NaftikoCapability
+        url: capabilities/public-seasons.yaml
+      - type: NaftikoCapability
+        url: capabilities/public-episodes.yaml
+      - type: NaftikoCapability
+        url: capabilities/public-people.yaml
+      - type: NaftikoCapability
+        url: capabilities/public-updates.yaml
+      - type: Example
+        url: examples/public-get-show-example.json
+      - type: Example
+        url: examples/public-get-show-episodes-example.json
+      - type: Example
+        url: examples/public-get-show-seasons-example.json
+      - type: Example
+        url: examples/public-get-show-cast-example.json
+      - type: Example
+        url: examples/public-get-episode-example.json
+      - type: Example
+        url: examples/public-get-season-example.json
+      - type: Example
+        url: examples/public-get-person-example.json
+      - type: Example
+        url: examples/public-search-shows-example.json
+      - type: Example
+        url: examples/public-get-schedule-example.json
+      - type: Example
+        url: examples/public-get-show-updates-example.json
+      - type: RateLimits
+        url: rate-limits/tvmaze-rate-limits.yml
+
+  - name: TVmaze Premium User API
+    description: >-
+      User-scoped REST API available only to Premium subscribers. Provides read-write
+      access to a user's followed shows/people/networks/web-channels, marked episodes,
+      voted shows and episodes, tagged shows, and scrobbling. Authenticated via HTTP
+      Basic using the TVmaze username and API key, with a complementary device-pairing
+      flow exposed at /v1/auth/start and /v1/auth/poll. Available even for free users
+      on the scrobbling endpoints.
+    humanURL: https://static.tvmaze.com/apidoc/
+    baseURL: https://api.tvmaze.com/v1
+    tags:
+      - Video
+      - Television
+      - Premium
+      - User
+    properties:
+      - type: Documentation
+        url: https://static.tvmaze.com/apidoc/
+      - type: OpenAPI
+        url: openapi/tvmaze-premium-openapi.yml
+      - type: Authentication
+        url: https://static.tvmaze.com/apidoc/
+      - type: Pricing
+        url: https://www.tvmaze.com/premium
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-show-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-episode-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-person-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-network-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-webchannel-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-markedepisode-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-showfollow-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-personfollow-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-networkfollow-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-showvote-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-episodevote-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-tag-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-taginstance-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-marktype-schema.json
+      - type: JSONSchema
+        url: json-schema/tvmaze-premium-bulkresponse-schema.json
+      - type: NaftikoCapability
+        url: capabilities/premium-auth.yaml
+      - type: NaftikoCapability
+        url: capabilities/premium-scrobbling.yaml
+      - type: NaftikoCapability
+        url: capabilities/premium-marked-episodes.yaml
+      - type: NaftikoCapability
+        url: capabilities/premium-followed-networks.yaml
+      - type: NaftikoCapability
+        url: capabilities/premium-followed-people.yaml
+      - type: NaftikoCapability
+        url: capabilities/premium-followed-shows.yaml
+      - type: NaftikoCapability
+        url: capabilities/premium-followed-webchannels.yaml
+      - type: NaftikoCapability
+        url: capabilities/premium-tagged-shows.yaml
+      - type: NaftikoCapability
+        url: capabilities/premium-voted-episodes.yaml
+      - type: NaftikoCapability
+        url: capabilities/premium-voted-shows.yaml
+      - type: RateLimits
+        url: rate-limits/tvmaze-rate-limits.yml
+
 common:
   - type: Website
-    url: http://www.tvmaze.com/api
-  - type: PublicAPIsListing
-    url: https://github.com/public-apis/public-apis
+    url: https://www.tvmaze.com
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: APIReference
+    url: https://static.tvmaze.com/apidoc/
+  - type: SignUp
+    url: https://www.tvmaze.com/account/register
+  - type: Login
+    url: https://www.tvmaze.com/account/login
+  - type: Console
+    url: https://www.tvmaze.com/dashboard
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: Plans
+    url: plans/tvmaze-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: FinOps
+    url: finops/tvmaze-finops.yml
+  - type: Support
+    url: https://www.tvmaze.com/request/create
+  - type: FAQ
+    url: https://www.tvmaze.com/faqs
+  - type: ChangeLog
+    url: https://www.tvmaze.com/threads/4/api-changelog
+  - type: Blog
+    url: https://www.tvmaze.com/blog
+  - type: TermsOfService
+    url: https://www.tvmaze.com/site/tos
+  - type: PrivacyPolicy
+    url: https://www.tvmaze.com/site/privacy
+  - type: Legal
+    url: https://www.tvmaze.com/site/copyright
+  - type: DataPrivacy
+    url: https://www.tvmaze.com/faqs/9/data-policies
+  - type: GitHubOrganization
+    url: https://github.com/tvmaze
+  - type: SDK
+    url: https://github.com/tvmaze/tvmaze
+    title: Python TVmaze SDK (community, maintained by the TVmaze GitHub org)
+  - type: SpectralRules
+    url: rules/tvmaze-rules.yml
+  - type: Vocabulary
+    url: vocabulary/tvmaze-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/tvmaze-context.jsonld
+  - type: Features
+    data:
+      - name: Free Public API
+        description: No API key required for read access to shows, episodes, schedules, cast, crew, people.
+      - name: Premium User API
+        description: HTTP-Basic authenticated user-scoped API for follows, marks, votes, tags, and scrobbling.
+      - name: Device Auth Pairing
+        description: /v1/auth/start + /v1/auth/poll flow lets third-party apps obtain a user's API key without prompting for the password.
+      - name: External ID Lookup
+        description: Resolve a show by TVRage, TheTVDB, or IMDb identifier.
+      - name: Embedded Related Resources
+        description: Use ?embed= to fold cast, episodes, seasons, nextepisode, or previousepisode into a single show response.
+      - name: Incremental Sync
+        description: /updates/shows and /updates/people return timestamp maps for efficient catch-up jobs.
+      - name: Country-Aware Schedules
+        description: /schedule and /schedule/web accept an ISO country code and date to produce localized listings.
+      - name: Full Future Schedule
+        description: /schedule/full returns every known future episode for bulk ingestion (cached 24h).
+      - name: Bulk Scrobbling
+        description: Submit batches of viewing events through /v1/scrobble/episodes — available to free users too.
+      - name: CC BY-SA Licensed Data
+        description: Data is freely usable with attribution to tvmaze.com.
+  - type: UseCases
+    data:
+      - name: TV Calendar Apps
+        description: Build a personal TV calendar driven by /schedule and Premium /v1/user/follows/shows.
+      - name: Streaming Discovery
+        description: Power show search and recommendation flows with /search/shows and ?embed= calls.
+      - name: Media Center Integrations
+        description: Sync show, episode, and image metadata into Plex, Kodi, Emby, Jellyfin, or Stremio plugins.
+      - name: Trakt-Style Scrobblers
+        description: Use /v1/scrobble/episodes to record viewing history from media players.
+      - name: AI Agents and Chatbots
+        description: Front the public API through MCP servers (e.g. mcp-tvmaze) to give LLM agents structured TV knowledge.
+      - name: Data Science / Research
+        description: Bulk-ingest /shows, /people, and /schedule/full pages for analytics and ML training.
+  - type: Integrations
+    data:
+      - name: Trakt.tv
+        description: Many Trakt-style workflows mirror TVmaze IDs and metadata.
+      - name: Plex / Kodi / Emby
+        description: Media-center plugins read TVmaze metadata for show artwork, episode info, and airdates.
+      - name: Stremio
+        description: Stremio addons (e.g. tvmaze-addon) surface TVmaze schedules in the catalog UI.
+      - name: Sonarr / Radarr family
+        description: Several PVR ecosystems consume TVmaze as a fallback metadata provider.
+      - name: Model Context Protocol (MCP)
+        description: Community MCP servers (mcp-tvmaze, tvmaze-mcp-server, 3cat-tvmaze-mcp) expose TVmaze as agent tools.
+      - name: Apify TVmaze Scraper
+        description: Apify hosts a TVmaze scraper actor with its own OpenAPI definition.
+  - type: Solutions
+    data:
+      - name: Free Personal Use
+        description: Anonymous public API for hobby projects, dashboards, and personal calendars.
+      - name: Premium Bronze
+        description: Entry-tier subscription unlocking the user API and tracking features.
+      - name: Premium Silver
+        description: Adds custom iCal and RSS calendar feeds.
+      - name: Premium Gold
+        description: Tops the tier with influence over feature development.
+      - name: Enterprise / Commercial
+        description: Custom commercial licensing for high-volume or redistributive use beyond CC BY-SA personal use.
+  - type: Tools
+    data:
+      - name: mcp-tvmaze
+        description: Community MCP server exposing TVmaze public endpoints as agent tools — https://github.com/pipeworx-io/mcp-tvmaze
+      - name: tvmaze-mcp-server (vivekjne)
+        description: Alternate community MCP server — https://github.com/vivekjne/tvmaze-mcp-server
+      - name: tvmaze-mcp-server (DudaAraujo14)
+        description: Spring AI + TVmaze MCP server — https://github.com/DudaAraujo14/tvmaze-mcp-server
+      - name: 3cat-tvmaze-mcp
+        description: 3Cat Formacio MCP server — https://github.com/Formacio-3Cat/3cat-tvmaze-mcp
+      - name: tvmaze (Python SDK)
+        description: Official-org-hosted Python library for the TVmaze API — https://github.com/tvmaze/tvmaze
+
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

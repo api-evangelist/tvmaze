@@ -1,0 +1,29 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-public/castcredit.json",
+  "title": "CastCredit",
+  "description": "Structural description of the CastCredit object in the TVmaze tvmaze-public API.",
+  "root": {
+    "name": "CastCredit",
+    "type": "object",
+    "fields": [
+      {
+        "name": "person",
+        "type": "reference",
+        "ref": "#/components/schemas/Person"
+      },
+      {
+        "name": "character",
+        "type": "reference",
+        "ref": "#/components/schemas/Character"
+      },
+      {
+        "name": "self",
+        "type": "boolean"
+      },
+      {
+        "name": "voice",
+        "type": "boolean"
+      }
+    ]
+  }
+}

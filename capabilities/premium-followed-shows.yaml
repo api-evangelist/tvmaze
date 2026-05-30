@@ -1,0 +1,203 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "TVmaze Premium User API \u2014 Followed Shows"
+  description: "TVmaze Premium User API \u2014 followed shows. 4 operations. Lead operation: List the Followed Shows. Self-contained\
+    \ Naftiko capability covering one TVmaze business surface."
+  tags:
+  - TVmaze
+  - Premium User API
+  - Followed Shows
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVMAZE_USERNAME: TVMAZE_USERNAME
+    TVMAZE_API_KEY: TVMAZE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: premium-followed-shows
+    baseUri: https://api.tvmaze.com/v1
+    description: "TVmaze Premium User API \u2014 Followed Shows business capability. Self-contained, no shared references."
+    resources:
+    - name: user-follows-shows
+      path: /user/follows/shows
+      operations:
+      - name: getUserFollowsShows
+        method: GET
+        description: List the Followed Shows
+        inputParameters:
+        - name: embed
+          in: query
+          type: string
+          required: false
+          description: Embed full show info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-follows-shows-show-id
+      path: /user/follows/shows/{show_id}
+      operations:
+      - name: deleteUserFollowsShowsShowId
+        method: DELETE
+        description: Unfollow a Show
+        inputParameters:
+        - name: show_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getUserFollowsShowsShowId
+        method: GET
+        description: Check if a Show is Followed
+        inputParameters:
+        - name: show_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putUserFollowsShowsShowId
+        method: PUT
+        description: Follow a Show
+        inputParameters:
+        - name: show_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.TVMAZE_USERNAME}}'
+      password: '{{env.TVMAZE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: premium-followed-shows-rest
+    port: 8080
+    description: "REST adapter for TVmaze Premium User API \u2014 Followed Shows. One Spectral-compliant resource per consumed\
+      \ operation, prefixed with /v1."
+    resources:
+    - path: /v1/user/follows/shows
+      name: user-follows-shows
+      description: REST surface for /user/follows/shows.
+      operations:
+      - method: GET
+        name: getUserFollowsShows
+        description: List the Followed Shows
+        call: premium-followed-shows.getUserFollowsShows
+        with:
+          embed: rest.embed
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/follows/shows/{show_id}
+      name: user-follows-shows-show-id
+      description: REST surface for /user/follows/shows/{show_id}.
+      operations:
+      - method: DELETE
+        name: deleteUserFollowsShowsShowId
+        description: Unfollow a Show
+        call: premium-followed-shows.deleteUserFollowsShowsShowId
+        with:
+          show_id: rest.show_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/follows/shows/{show_id}
+      name: user-follows-shows-show-id
+      description: REST surface for /user/follows/shows/{show_id}.
+      operations:
+      - method: GET
+        name: getUserFollowsShowsShowId
+        description: Check if a Show is Followed
+        call: premium-followed-shows.getUserFollowsShowsShowId
+        with:
+          show_id: rest.show_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/follows/shows/{show_id}
+      name: user-follows-shows-show-id
+      description: REST surface for /user/follows/shows/{show_id}.
+      operations:
+      - method: PUT
+        name: putUserFollowsShowsShowId
+        description: Follow a Show
+        call: premium-followed-shows.putUserFollowsShowsShowId
+        with:
+          show_id: rest.show_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: premium-followed-shows-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for TVmaze Premium User API \u2014 Followed Shows. One tool per consumed operation, routed inline\
+      \ through this capability's consumes block."
+    tools:
+    - name: list-followed-shows
+      description: List the Followed Shows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-followed-shows.getUserFollowsShows
+      with:
+        embed: tools.embed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: unfollow-show
+      description: Unfollow a Show
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: premium-followed-shows.deleteUserFollowsShowsShowId
+      with:
+        show_id: tools.show_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: check-if-show-is-followed
+      description: Check if a Show is Followed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-followed-shows.getUserFollowsShowsShowId
+      with:
+        show_id: tools.show_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: follow-show
+      description: Follow a Show
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: premium-followed-shows.putUserFollowsShowsShowId
+      with:
+        show_id: tools.show_id
+      outputParameters:
+      - type: object
+        mapping: $.

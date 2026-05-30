@@ -1,0 +1,9 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/network.json",
+  "title": "Network",
+  "description": "Structural description of the Network object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "Network",
+    "type": "object"
+  }
+}

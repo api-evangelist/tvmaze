@@ -1,0 +1,26 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/webchannelfollow.json",
+  "title": "WebchannelFollow",
+  "description": "Structural description of the WebchannelFollow object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "WebchannelFollow",
+    "type": "object",
+    "fields": [
+      {
+        "name": "_embedded",
+        "type": "object",
+        "fields": [
+          {
+            "name": "webchannel",
+            "type": "reference",
+            "ref": "#/components/schemas/Webchannel"
+          }
+        ]
+      },
+      {
+        "name": "webchannel_id",
+        "type": "integer"
+      }
+    ]
+  }
+}

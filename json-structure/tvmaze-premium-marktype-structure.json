@@ -1,0 +1,10 @@
+{
+  "$id": "https://structures.tvmaze.com/tvmaze-premium/marktype.json",
+  "title": "MarkType",
+  "description": "Structural description of the MarkType object in the TVmaze tvmaze-premium API.",
+  "root": {
+    "name": "MarkType",
+    "type": "reference",
+    "description": "0 for watched, 1 for acquired, 2 for skipped"
+  }
+}

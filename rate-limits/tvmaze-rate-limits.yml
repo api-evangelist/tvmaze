@@ -1,0 +1,104 @@
+apiCommonsRateLimits: '0.1'
+provider:
+  id: tvmaze
+  name: TVmaze
+  url: https://www.tvmaze.com/api
+metadata:
+  source: https://www.tvmaze.com/api
+  asOf: '2026-05-30'
+  notes: >-
+    TVmaze publishes a single global rate limit applied per source IP. The same
+    limit applies to both anonymous public API calls and authenticated Premium
+    User API calls. HTTP 429 is returned when the limit is exceeded.
+
+policies:
+  - id: public-ip-throttle
+    description: Per-IP request-rate ceiling on the public API.
+    appliesTo:
+      - api: TVmaze Public API
+      - api: TVmaze Premium User API
+    type: requestRate
+    window:
+      duration: 10
+      unit: second
+    limit:
+      value: 20
+      unit: request
+    scope: ip
+    bucketStrategy: sliding-window-minimum
+    documentedAs: "at least 20 calls every 10 seconds per IP address"
+    backoffGuidance: >-
+      On HTTP 429, back off with exponential delay (recommended 1s, 2s, 4s, 8s)
+      and respect any `Retry-After` header the load balancer may set. TVmaze
+      explicitly recommends graceful backoff over retry-storms.
+    enforcement:
+      response: 429
+      header: Retry-After (when present)
+
+caching:
+  - id: default-edge-cache
+    description: Most public endpoints are cached at the HTTP load balancer.
+    appliesTo:
+      - "/search/shows"
+      - "/singlesearch/shows"
+      - "/lookup/shows"
+      - "/search/people"
+      - "/shows/{id}"
+      - "/shows/{id}/episodes"
+      - "/shows/{id}/seasons"
+      - "/shows/{id}/cast"
+      - "/shows/{id}/crew"
+      - "/seasons/{id}"
+      - "/episodes/{id}"
+      - "/people/{id}"
+      - "/people/{id}/castcredits"
+      - "/people/{id}/crewcredits"
+      - "/schedule"
+      - "/schedule/web"
+      - "/updates/shows"
+      - "/updates/people"
+    duration:
+      value: 60
+      unit: minute
+    notes: >-
+      Stale-while-revalidate behavior; responses may be served up to 60 minutes
+      after the underlying data changed.
+
+  - id: full-schedule-cache
+    description: The /schedule/full endpoint is cached for 24 hours due to response size.
+    appliesTo:
+      - "/schedule/full"
+    duration:
+      value: 24
+      unit: hour
+
+  - id: show-index-cache
+    description: The /shows index endpoint is cached up to 24 hours.
+    appliesTo:
+      - "/shows"
+      - "/people"
+    duration:
+      value: 24
+      unit: hour
+
+  - id: image-cache
+    description: Static image URLs at static.tvmaze.com can be cached indefinitely.
+    appliesTo:
+      - "https://static.tvmaze.com/uploads/images/*"
+    duration: indefinite
+
+quotas: []
+
+concurrency:
+  notes: >-
+    TVmaze does not publish a separate per-connection concurrency limit. The
+    20-req / 10-sec / IP envelope is the only published constraint.
+
+fairUse:
+  notes: >-
+    TVmaze data is licensed under CC BY-SA 4.0 for personal use. Commercial /
+    bulk use requires a separate license from TVmaze sales.
+
+contact:
+  rateLimitHelp: https://www.tvmaze.com/request/create
+  forum: https://www.tvmaze.com/forums/4/api

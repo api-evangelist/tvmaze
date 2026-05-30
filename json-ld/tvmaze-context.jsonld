@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "tvmaze": "https://www.tvmaze.com/ns#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Show": "schema:TVSeries",
+    "Episode": "schema:TVEpisode",
+    "Season": "schema:TVSeason",
+    "Person": "schema:Person",
+    "Character": "schema:PerformingGroup",
+    "Network": "schema:TelevisionChannel",
+    "WebChannel": "schema:BroadcastChannel",
+    "Country": "schema:Country",
+    "Image": "schema:ImageObject",
+    "CastCredit": "schema:PerformanceRole",
+    "CrewCredit": "schema:PerformanceRole",
+
+    "id": "schema:identifier",
+    "url": { "@id": "schema:url", "@type": "@id" },
+    "name": "schema:name",
+    "summary": "schema:description",
+    "type": "schema:additionalType",
+    "language": "schema:inLanguage",
+    "genres": { "@id": "schema:genre", "@container": "@set" },
+    "status": "tvmaze:status",
+    "runtime": "schema:duration",
+    "averageRuntime": "tvmaze:averageRuntime",
+    "premiered": { "@id": "schema:datePublished", "@type": "xsd:date" },
+    "ended": { "@id": "schema:dateEnded", "@type": "xsd:date" },
+    "officialSite": { "@id": "schema:url", "@type": "@id" },
+    "rating": "schema:aggregateRating",
+    "weight": "tvmaze:popularityWeight",
+    "network": "schema:productionCompany",
+    "webChannel": "schema:provider",
+    "dvdCountry": "tvmaze:dvdCountry",
+    "externals": "tvmaze:externalIdentifiers",
+    "image": "schema:image",
+    "updated": "schema:dateModified",
+
+    "season": "schema:seasonNumber",
+    "number": "schema:episodeNumber",
+    "airdate": { "@id": "schema:datePublished", "@type": "xsd:date" },
+    "airtime": "tvmaze:airtime",
+    "airstamp": { "@id": "schema:datePublished", "@type": "xsd:dateTime" },
+    "episodeOrder": "schema:numberOfEpisodes",
+    "premiereDate": { "@id": "schema:startDate", "@type": "xsd:date" },
+    "endDate": { "@id": "schema:endDate", "@type": "xsd:date" },
+
+    "person": "schema:performer",
+    "character": "schema:character",
+    "self": "tvmaze:isSelf",
+    "voice": "tvmaze:isVoice",
+
+    "country": "schema:addressCountry",
+    "code": "schema:identifier",
+    "timezone": "schema:timeZone",
+
+    "birthday": { "@id": "schema:birthDate", "@type": "xsd:date" },
+    "deathday": { "@id": "schema:deathDate", "@type": "xsd:date" },
+    "gender": "schema:gender",
+
+    "medium": { "@id": "schema:thumbnailUrl", "@type": "@id" },
+    "original": { "@id": "schema:contentUrl", "@type": "@id" },
+
+    "tvrage": "tvmaze:tvrageId",
+    "thetvdb": "tvmaze:tvdbId",
+    "imdb": "tvmaze:imdbId",
+
+    "_links": "schema:potentialAction",
+    "_embedded": "tvmaze:embedded"
+  }
+}

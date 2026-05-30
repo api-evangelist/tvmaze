@@ -1,0 +1,146 @@
+# Spectral ruleset enforcing TVmaze API conventions.
+#
+# Derived from analyzing the public and premium TVmaze OpenAPI specifications.
+# These rules codify the patterns the provider already follows so contributors and
+# downstream consumers stay aligned with the published surface.
+extends:
+  - spectral:oas
+
+functions:
+  - length
+
+rules:
+  # All operations should have descriptive Title Case summaries.
+  operation-summary-title-case:
+    description: Operation summaries should be in Title Case.
+    message: "{{property}} summary should be Title Case"
+    given: $.paths[*][get,post,put,delete,patch].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z0-9][A-Za-z0-9 /()_'-]*$"
+
+  # Every operation must have an operationId.
+  operation-id-required:
+    description: Every operation must declare an operationId.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: error
+    then:
+      field: operationId
+      function: truthy
+
+  # operationIds are lowerCamelCase verbs like getShow, listShows, searchPeople.
+  operation-id-lower-camel:
+    description: operationId should be lowerCamelCase.
+    given: $.paths[*][get,post,put,delete,patch].operationId
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][A-Za-z0-9]*$"
+
+  # Every operation must declare at least one tag.
+  operation-tags-required:
+    description: Every operation must declare at least one tag.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: warn
+    then:
+      field: tags
+      function: truthy
+
+  # Public TVmaze uses RESTful collection / item paths — disallow .json suffix or trailing slashes.
+  paths-no-extension:
+    description: Paths should not include a file extension.
+    given: $.paths[*]~
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "\\.(json|xml|yaml|yml)$"
+
+  paths-no-trailing-slash:
+    description: Paths should not end with a trailing slash.
+    given: $.paths[*]~
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/$"
+
+  # Public TVmaze uses lowercase, hyphen-free path segments (singlesearch, episodebynumber).
+  path-segment-lowercase:
+    description: Path segments should be lowercase, with no underscores.
+    given: $.paths[*]~
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "[A-Z]"
+
+  # IDs are integers in TVmaze.
+  path-id-integer:
+    description: "Path parameters named `id` (or `*_id`) should be integers."
+    given: "$.paths[*].parameters[?(@.in=='path' && (@.name=='id' || @.name=~/_id$/))].schema"
+    severity: warn
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values: [integer]
+
+  # All success responses should declare an application/json content type.
+  response-json-required:
+    description: 2xx responses must offer application/json content.
+    given: "$.paths[*][get,post,put,delete,patch].responses[?(@property.match(/^2/))]"
+    severity: warn
+    then:
+      field: content.application/json
+      function: truthy
+
+  # 429 should be a documented response anywhere — TVmaze applies 20 req / 10 sec / IP.
+  response-rate-limit-documented:
+    description: GET endpoints should document 429 because TVmaze rate-limits at 20 req / 10 sec / IP.
+    given: $.paths[*].get.responses
+    severity: info
+    then:
+      field: "429"
+      function: truthy
+
+  # Premium API: every authenticated path lives under /v1/user, /v1/scrobble or /v1/auth.
+  premium-paths-namespace:
+    description: Premium endpoints should live under /v1/user, /v1/scrobble, or /v1/auth.
+    given: $.paths[*]~
+    severity: info
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/(search|singlesearch|lookup|shows|seasons|episodes|people|schedule|updates|user|scrobble|auth)(/|$)"
+
+  # info.license is required and should be CC BY-SA for TVmaze.
+  info-license-required:
+    description: info.license is required.
+    given: $.info
+    severity: error
+    then:
+      field: license
+      function: truthy
+
+  info-license-creative-commons:
+    description: TVmaze data is CC BY-SA 4.0; the license field should reflect that.
+    given: $.info.license
+    severity: info
+    then:
+      field: name
+      function: pattern
+      functionOptions:
+        match: "CC BY-SA"
+
+  # Components.schemas should be defined and operations should reference them, not inline blobs.
+  components-schemas-required:
+    description: components.schemas should be defined so payloads are reusable.
+    given: $.components
+    severity: warn
+    then:
+      field: schemas
+      function: truthy

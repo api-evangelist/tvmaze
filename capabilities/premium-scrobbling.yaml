@@ -1,0 +1,244 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "TVmaze Premium User API \u2014 Scrobbling"
+  description: "TVmaze Premium User API \u2014 scrobbling. 4 operations. Lead operation: Mark Episodes as Acquired or Watched\
+    \ Based on Their IDs. Self-contained Naftiko capability covering one TVmaze business surface."
+  tags:
+  - TVmaze
+  - Premium User API
+  - Scrobbling
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVMAZE_USERNAME: TVMAZE_USERNAME
+    TVMAZE_API_KEY: TVMAZE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: premium-scrobbling
+    baseUri: https://api.tvmaze.com/v1
+    description: "TVmaze Premium User API \u2014 Scrobbling business capability. Self-contained, no shared references."
+    resources:
+    - name: scrobble-episodes
+      path: /scrobble/episodes
+      operations:
+      - name: postScrobbleEpisodes
+        method: POST
+        description: Mark Episodes as Acquired or Watched Based on Their IDs
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: false
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: scrobble-episodes-episode-id
+      path: /scrobble/episodes/{episode_id}
+      operations:
+      - name: putScrobbleEpisodesEpisodeId
+        method: PUT
+        description: Mark an Episode as Acquired or Watched Based on Its ID
+        inputParameters:
+        - name: episode_id
+          in: path
+          type: integer
+          required: true
+          description: ''
+        - name: body
+          in: body
+          type: object
+          required: false
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: scrobble-shows
+      path: /scrobble/shows
+      operations:
+      - name: postScrobbleShows
+        method: POST
+        description: Mark Episodes Within a Show as Acquired or Watched Based on Their Attributes
+        inputParameters:
+        - name: tvmaze_id
+          in: query
+          type: integer
+          required: false
+          description: The show's TVmaze ID
+        - name: thetvdb_id
+          in: query
+          type: integer
+          required: false
+          description: The show's TheTVDB ID
+        - name: imdb_id
+          in: query
+          type: integer
+          required: false
+          description: The show's IMDB ID
+        - name: body
+          in: body
+          type: object
+          required: false
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: scrobble-shows-show-id
+      path: /scrobble/shows/{show_id}
+      operations:
+      - name: getScrobbleShowsShowId
+        method: GET
+        description: List Watched and Acquired Episodes for a Show
+        inputParameters:
+        - name: show_id
+          in: path
+          type: integer
+          required: true
+          description: ID of the target show
+        - name: embed
+          in: query
+          type: string
+          required: false
+          description: Embed full episode info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.TVMAZE_USERNAME}}'
+      password: '{{env.TVMAZE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: premium-scrobbling-rest
+    port: 8080
+    description: "REST adapter for TVmaze Premium User API \u2014 Scrobbling. One Spectral-compliant resource per consumed\
+      \ operation, prefixed with /v1."
+    resources:
+    - path: /v1/scrobble/episodes
+      name: scrobble-episodes
+      description: REST surface for /scrobble/episodes.
+      operations:
+      - method: POST
+        name: postScrobbleEpisodes
+        description: Mark Episodes as Acquired or Watched Based on Their IDs
+        call: premium-scrobbling.postScrobbleEpisodes
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/scrobble/episodes/{episode_id}
+      name: scrobble-episodes-episode-id
+      description: REST surface for /scrobble/episodes/{episode_id}.
+      operations:
+      - method: PUT
+        name: putScrobbleEpisodesEpisodeId
+        description: Mark an Episode as Acquired or Watched Based on Its ID
+        call: premium-scrobbling.putScrobbleEpisodesEpisodeId
+        with:
+          episode_id: rest.episode_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/scrobble/shows
+      name: scrobble-shows
+      description: REST surface for /scrobble/shows.
+      operations:
+      - method: POST
+        name: postScrobbleShows
+        description: Mark Episodes Within a Show as Acquired or Watched Based on Their Attributes
+        call: premium-scrobbling.postScrobbleShows
+        with:
+          tvmaze_id: rest.tvmaze_id
+          thetvdb_id: rest.thetvdb_id
+          imdb_id: rest.imdb_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/scrobble/shows/{show_id}
+      name: scrobble-shows-show-id
+      description: REST surface for /scrobble/shows/{show_id}.
+      operations:
+      - method: GET
+        name: getScrobbleShowsShowId
+        description: List Watched and Acquired Episodes for a Show
+        call: premium-scrobbling.getScrobbleShowsShowId
+        with:
+          show_id: rest.show_id
+          embed: rest.embed
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: premium-scrobbling-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for TVmaze Premium User API \u2014 Scrobbling. One tool per consumed operation, routed inline\
+      \ through this capability's consumes block."
+    tools:
+    - name: mark-episodes-acquired-watched-based
+      description: Mark Episodes as Acquired or Watched Based on Their IDs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: premium-scrobbling.postScrobbleEpisodes
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-episode-acquired-watched-based
+      description: Mark an Episode as Acquired or Watched Based on Its ID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: premium-scrobbling.putScrobbleEpisodesEpisodeId
+      with:
+        episode_id: tools.episode_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-episodes-within-show-acquired
+      description: Mark Episodes Within a Show as Acquired or Watched Based on Their Attributes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: premium-scrobbling.postScrobbleShows
+      with:
+        tvmaze_id: tools.tvmaze_id
+        thetvdb_id: tools.thetvdb_id
+        imdb_id: tools.imdb_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-watched-acquired-episodes-show
+      description: List Watched and Acquired Episodes for a Show
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: premium-scrobbling.getScrobbleShowsShowId
+      with:
+        show_id: tools.show_id
+        embed: tools.embed
+      outputParameters:
+      - type: object
+        mapping: $.
