@@ -1,0 +1,3028 @@
+{
+  "item": [
+    {
+      "id": "6a9be796-58af-4d6b-b635-2ad9693c2df3",
+      "name": "Search",
+      "description": {
+        "content": "Free-text search and lookup endpoints for shows and people.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5b1f2b9-f7f4-435f-84eb-1903e22baad0",
+          "name": "Search Shows",
+          "request": {
+            "name": "Search Shows",
+            "description": {
+              "content": "Search for shows using a fuzzy text query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "shows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Search query string."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41e13d2a-2b4a-4914-84b2-79d9f9c4ab12",
+              "name": "List of show search hits scored by match.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"score\": 0.902979,\n    \"show\": {\n      \"id\": 139,\n      \"url\": \"https://www.tvmaze.com/shows/139/girls\",\n      \"name\": \"Girls\",\n      \"type\": \"Scripted\",\n      \"language\": \"English\",\n      \"genres\": [\n        \"Drama\",\n        \"Romance\"\n      ],\n      \"status\": \"Ended\",\n      \"runtime\": 30,\n      \"averageRuntime\": 30,\n      \"premiered\": \"2012-04-15\",\n      \"ended\": \"2017-04-16\",\n      \"officialSite\": \"http://www.hbo.com/girls\",\n      \"schedule\": {\n        \"time\": \"22:00\",\n        \"days\": [\n          \"Sunday\"\n        ]\n      },\n      \"rating\": {\n        \"average\": 6.5\n      },\n      \"weight\": 98,\n      \"network\": {\n        \"id\": 8,\n        \"name\": \"HBO\",\n        \"country\": {\n          \"name\": \"United States\",\n          \"code\": \"US\",\n          \"timezone\": \"America/New_York\"\n        },\n        \"officialSite\": \"https://www.hbo.com/\"\n      },\n      \"webChannel\": null,\n      \"dvdCountry\": null,\n      \"externals\": {\n        \"tvrage\": 30124,\n        \"thetvdb\": 220411,\n        \"imdb\": \"tt1723816\"\n      },\n      \"image\": {\n        \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/31/78286.jpg\",\n        \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/31/78286.jpg\"\n      },\n      \"summary\": \"<p>This Emmy winning series is a comic look at the assorted humiliations and rare triumphs of a group of girls in their 20s.</p>\",\n      \"updated\": 1704794122,\n      \"_links\": {\n        \"self\": {\n          \"href\": \"https://api.tvmaze.com/shows/139\"\n        },\n        \"previousepisode\": {\n          \"href\": \"https://api.tvmaze.com/episodes/1079686\",\n          \"name\": \"Latching\"\n        }\n      }\n    }\n  },\n  {\n    \"score\": 0.8784869,\n    \"show\": {\n      \"id\": 41734,\n      \"url\": \"https://www.tvmaze.com/shows/41734/girls\",\n      \"name\": \"GIRLS\",\n      \"type\": \"Scripted\",\n      \"language\": \"Mongolian\",\n      \"genres\": [\n        \"Comedy\"\n      ],\n      \"status\": \"Ended\",\n      \"runtime\": 41,\n      \"averageRuntime\": 41,\n      \"premiered\": \"2018-06-15\",\n      \"ended\": \"2019-10-14\",\n      \"officialSite\": \"https://www.ubstv.mn/tech-blog/index1.html\",\n      \"schedule\": {\n        \"time\": \"\",\n        \"days\": [\n          \"Thursday\"\n        ]\n      },\n      \"rating\": {\n        \"average\": null\n      },\n      \"weight\": 59,\n      \"network\": {\n        \"id\": 1672,\n        \"name\": \"UBS\",\n        \"country\": {\n          \"name\": \"Mongolia\",\n          \"code\": \"MN\",\n          \"timezone\": \"Asia/Ulaanbaatar\"\n        },\n        \"officialSite\": null\n      },\n      \"webChannel\": null,\n      \"dvdCountry\": null,\n      \"externals\": {\n        \"tvrage\": null,\n        \"thetvdb\": null,\n        \"imdb\": \"tt8709752\"\n      },\n      \"image\": {\n        \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/191/478539.jpg\",\n        \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/191/478539.jpg\"\n      },\n      \"summary\": null,\n      \"updated\": 1743150150,\n      \"_links\": {\n        \"self\": {\n          \"href\": \"https://api.tvmaze.com/shows/41734\"\n        },\n        \"previousepisode\": {\n          \"href\": \"https://api.tvmaze.com/episodes/3187423\",\n          \"name\": \"Episode 1\"\n        }\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4408e748-b36a-4673-b092-fd2b2358c796",
+          "name": "Single Search Shows",
+          "request": {
+            "name": "Single Search Shows",
+            "description": {
+              "content": "Return the single best matching show for a query, optionally embedding related data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "singlesearch",
+                "shows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "embed",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "486eec35-f759-47ce-af3e-e416ba8161ab",
+              "name": "A single show record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "singlesearch",
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embed",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1915,\n  \"url\": \"https://EvtqBKCOLtFDwYEriMAkVuDiuOhU.tiiqjFBmxOG\",\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"language\": \"string\",\n  \"genres\": [\n    \"string\",\n    \"string\"\n  ],\n  \"status\": \"string\",\n  \"runtime\": 3344,\n  \"averageRuntime\": 4689,\n  \"premiered\": \"2005-08-15\",\n  \"ended\": \"1979-12-12\",\n  \"officialSite\": \"string\",\n  \"schedule\": {\n    \"time\": \"string\",\n    \"days\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"rating\": {\n    \"average\": 9838.618343749922\n  },\n  \"weight\": 2544,\n  \"network\": {\n    \"id\": 3397,\n    \"name\": \"string\",\n    \"country\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"officialSite\": \"string\"\n  },\n  \"webChannel\": {\n    \"id\": 5688,\n    \"name\": \"string\",\n    \"country\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"officialSite\": \"string\"\n  },\n  \"dvdCountry\": {\n    \"name\": \"string\",\n    \"code\": \"string\",\n    \"timezone\": \"string\"\n  },\n  \"externals\": {\n    \"tvrage\": 7239,\n    \"thetvdb\": 7765,\n    \"imdb\": \"string\"\n  },\n  \"image\": {\n    \"medium\": \"https://QjxYwkDPyeATqfIQQueXRkRVH.nleaWz8Sx-SplsRnIPAzJu2j\",\n    \"original\": \"http://PLHxPfblUnpzFblALeNqCtmgmguLN.ectqIYBDeVkEkGmN6nJ9dBZGxIopuyBZbK6MDTeZEWWfeHKf82P.iRS5oLQXnt2G2zQnidlBAzjAdl8\"\n  },\n  \"summary\": \"string\",\n  \"updated\": 7379,\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"https://gTAysSpUGBGhVBkQlwHuUzcjpmWbktr.dtGjbgfo3VD1MEQCFHkZlcHoW3ofnWzn\",\n      \"name\": \"string\"\n    },\n    \"key_1\": {\n      \"href\": \"https://RtaaxqSYjFChQcxqjSMVVDnKnCWoftIMP.xljkgNIhZlx14+rROfpLyPZeVwH8xcYnCQVKegk-4+9B\",\n      \"name\": \"string\"\n    },\n    \"key_2\": {\n      \"href\": \"https://TEwxXNiHqnTBsGFUzWLCXvNGFFDJZ.ioTTi.l6CpnXO3hFelQMUDIBaWe0rq68f9\",\n      \"name\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b35fcc49-37d5-4c1c-9756-d03408289435",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "singlesearch",
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embed",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "120994fd-99fc-4742-a506-83fc5e43fe6c",
+          "name": "Lookup Shows By External ID",
+          "request": {
+            "name": "Lookup Shows By External ID",
+            "description": {
+              "content": "Look up a show using a TVRage, TheTVDB, or IMDb identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup",
+                "shows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tvrage",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "thetvdb",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "imdb",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3fc4cab-d2f7-4829-8f68-cba2771bb39f",
+              "name": "Matching show.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup",
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tvrage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "thetvdb",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "imdb",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1915,\n  \"url\": \"https://EvtqBKCOLtFDwYEriMAkVuDiuOhU.tiiqjFBmxOG\",\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"language\": \"string\",\n  \"genres\": [\n    \"string\",\n    \"string\"\n  ],\n  \"status\": \"string\",\n  \"runtime\": 3344,\n  \"averageRuntime\": 4689,\n  \"premiered\": \"2005-08-15\",\n  \"ended\": \"1979-12-12\",\n  \"officialSite\": \"string\",\n  \"schedule\": {\n    \"time\": \"string\",\n    \"days\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"rating\": {\n    \"average\": 9838.618343749922\n  },\n  \"weight\": 2544,\n  \"network\": {\n    \"id\": 3397,\n    \"name\": \"string\",\n    \"country\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"officialSite\": \"string\"\n  },\n  \"webChannel\": {\n    \"id\": 5688,\n    \"name\": \"string\",\n    \"country\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"officialSite\": \"string\"\n  },\n  \"dvdCountry\": {\n    \"name\": \"string\",\n    \"code\": \"string\",\n    \"timezone\": \"string\"\n  },\n  \"externals\": {\n    \"tvrage\": 7239,\n    \"thetvdb\": 7765,\n    \"imdb\": \"string\"\n  },\n  \"image\": {\n    \"medium\": \"https://QjxYwkDPyeATqfIQQueXRkRVH.nleaWz8Sx-SplsRnIPAzJu2j\",\n    \"original\": \"http://PLHxPfblUnpzFblALeNqCtmgmguLN.ectqIYBDeVkEkGmN6nJ9dBZGxIopuyBZbK6MDTeZEWWfeHKf82P.iRS5oLQXnt2G2zQnidlBAzjAdl8\"\n  },\n  \"summary\": \"string\",\n  \"updated\": 7379,\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"https://gTAysSpUGBGhVBkQlwHuUzcjpmWbktr.dtGjbgfo3VD1MEQCFHkZlcHoW3ofnWzn\",\n      \"name\": \"string\"\n    },\n    \"key_1\": {\n      \"href\": \"https://RtaaxqSYjFChQcxqjSMVVDnKnCWoftIMP.xljkgNIhZlx14+rROfpLyPZeVwH8xcYnCQVKegk-4+9B\",\n      \"name\": \"string\"\n    },\n    \"key_2\": {\n      \"href\": \"https://TEwxXNiHqnTBsGFUzWLCXvNGFFDJZ.ioTTi.l6CpnXO3hFelQMUDIBaWe0rq68f9\",\n      \"name\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e0725b8-944f-4d57-a330-4ee65338f65d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup",
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tvrage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "thetvdb",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "imdb",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b769c744-55d5-4876-aa53-b96ce0102b34",
+          "name": "Search People",
+          "request": {
+            "name": "Search People",
+            "description": {
+              "content": "Search for people (actors, crew) using a fuzzy text query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5126b43-4a1e-4683-8ab0-43183921ae57",
+              "name": "List of person search hits.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"score\": 1812.573611182995,\n    \"person\": {\n      \"id\": 6967,\n      \"url\": \"https://HC.mwcmAroJDWVIM1TMmGdP4W,M69pANW.2gKGJpFxFyNNjAKTciI93EpTjq36YXaqwQD\",\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": \"string\",\n        \"code\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"birthday\": \"1958-03-07\",\n      \"deathday\": \"2006-11-07\",\n      \"gender\": \"string\",\n      \"image\": {\n        \"medium\": \"http://NLMPKHXGFroRbiVDzOYEgJTjlpVeJq.qfVw3euLKBkcI\",\n        \"original\": \"https://ZhTUQDSkLbWvCboQsdiuTupDFvRLB.bjyLwMUsHTQhXvtnTCEfIMocVujrhbaZ3Yp.vKl4mlmPpteciZo8FxtklybuWr\"\n      },\n      \"updated\": 8516,\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"http://PyZqyrFhFdSxXSjeIoCBJmYYqfqvqtS.hmmtTsYn1kfbV4c\",\n          \"name\": \"string\"\n        },\n        \"key_1\": {\n          \"href\": \"https://viYTuYKltmqDZrqgDrtAZuLi.gqmNYBBVSQ7ZQk8BgTsoufoJkw-SuNVKUNeZsRTApqej\",\n          \"name\": \"string\"\n        },\n        \"key_2\": {\n          \"href\": \"https://sWVVHGGsiLXUPhHzLcvccWgK.amsoj-W1ASrKuNP,vsrRv96hWoi0jJqsBwgJrOpNSYBou3B5uYq5ZCCrsXs1OnqX36xlIeAgX9\",\n          \"name\": \"string\"\n        },\n        \"key_3\": {\n          \"href\": \"https://pcrOzWwXZmnJtvqBHisksm.ccQ3N-,3JM0RysUMxR4uuJsJX\",\n          \"name\": \"string\"\n        },\n        \"key_4\": {\n          \"href\": \"https://eul.wckvL7GpphxExU,e4avy4PSpXLscoIbLlOqneX2Wf,EaMqAOqgI\",\n          \"name\": \"string\"\n        }\n      }\n    }\n  },\n  {\n    \"score\": 488.56212658791145,\n    \"person\": {\n      \"id\": 2734,\n      \"url\": \"http://zHzKRUEOLnJNTmqtstiQBtQwvsk.glxFGDZI8GR9-XdRp6+Xfui,v0njFK0Do9TT\",\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": \"string\",\n        \"code\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"birthday\": \"1961-04-07\",\n      \"deathday\": \"2020-11-02\",\n      \"gender\": \"string\",\n      \"image\": {\n        \"medium\": \"http://vIWzpmvzLiZtVVXBmoVtWRPeIMtMnVd.iezbd.q.zMLQyjgz,OmGhkmVk4HINkw\",\n        \"original\": \"https://KDisNBsprKKZPDLvKPnLfVfVMaPu.myybilJmBiLoeFaRuZAL5GdzqX6DGSpEzgOluHbCS-bjwaKTV41aTVeL.\"\n      },\n      \"updated\": 6467,\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"https://itTDxuWkhkINNsflWRZIcmgjPzfwK.grkjCKnkvcDvVG17Pb88BgChq7Acr08v.jv0LqK3Xd5AD9Efrzak6f0Z6NR+l..,jXVhWMx80LS\",\n          \"name\": \"string\"\n        }\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "392ba3b0-b951-4064-970e-194bd42fb766",
+      "name": "Schedule",
+      "description": {
+        "content": "Daily and rolling TV and web/streaming schedules.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dbc2af86-4716-4027-b05a-1da7658bae56",
+          "name": "Get Schedule",
+          "request": {
+            "name": "Get Schedule",
+            "description": {
+              "content": "Return the TV schedule for a country on a given date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "ISO 3166-1 alpha-2 country code (default US)."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "ISO 8601 date (default today)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23acfa29-d9ac-46ec-ae97-c2316c4a1873",
+              "name": "Array of scheduled episodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3623136,\n    \"url\": \"https://www.tvmaze.com/episodes/3623136/the-story-is-with-elex-michaelson-2026-05-29-episode-105\",\n    \"name\": \"Episode 105\",\n    \"season\": 2026,\n    \"number\": 105,\n    \"type\": \"regular\",\n    \"airdate\": \"2026-05-29\",\n    \"airtime\": \"00:00\",\n    \"airstamp\": \"2026-05-30T04:00:00+00:00\",\n    \"runtime\": 120,\n    \"rating\": {\n      \"average\": null\n    },\n    \"image\": null,\n    \"summary\": null,\n    \"show\": {\n      \"id\": 87855,\n      \"url\": \"https://www.tvmaze.com/shows/87855/the-story-is-with-elex-michaelson\",\n      \"name\": \"The Story Is with Elex Michaelson\",\n      \"type\": \"News\",\n      \"language\": \"English\",\n      \"genres\": [],\n      \"status\": \"Running\",\n      \"runtime\": 120,\n      \"averageRuntime\": 123,\n      \"premiered\": \"2025-10-27\",\n      \"ended\": null,\n      \"officialSite\": null,\n      \"schedule\": {\n        \"time\": \"00:00\",\n        \"days\": [\n          \"Monday\",\n          \"Tuesday\",\n          \"Wednesday\",\n          \"Thursday\",\n          \"Friday\"\n        ]\n      },\n      \"rating\": {\n        \"average\": null\n      },\n      \"weight\": 55,\n      \"network\": {\n        \"id\": 40,\n        \"name\": \"CNN\",\n        \"country\": {\n          \"name\": \"United States\",\n          \"code\": \"US\",\n          \"timezone\": \"America/New_York\"\n        },\n        \"officialSite\": null\n      },\n      \"webChannel\": null,\n      \"dvdCountry\": null,\n      \"externals\": {\n        \"tvrage\": null,\n        \"thetvdb\": null,\n        \"imdb\": null\n      },\n      \"image\": {\n        \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/614/1536142.jpg\",\n        \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/614/1536142.jpg\"\n      },\n      \"summary\": \"<p><b>The Story Is</b> will feature live nightly panels and debates on set featuring a range of voices including attorneys Gloria Allred and Areva Martin, conservative talk radio hosts Larry Elder and Jennifer Horn, progressive podcast host Brian Tyler Cohen, former California GOP chair Jessica Millan Patterson and journalists Peter Hamby from Puck and POLITICO's Melanie Mason.</p>\",\n      \"updated\": 1779503802,\n      \"_links\": {\n        \"self\": {\n          \"href\": \"https://api.tvmaze.com/shows/87855\"\n        },\n        \"previousepisode\": {\n          \"href\": \"https://api.tvmaze.com/episodes/3623136\",\n          \"name\": \"Episode 105\"\n        },\n        \"nextepisode\": {\n          \"href\": \"https://api.tvmaze.com/episodes/3623137\",\n          \"name\": \"Episode 106\"\n        }\n      }\n    },\n    \"_links\": {\n      \"self\": {\n        \"href\": \"https://api.tvmaze.com/episodes/3623136\"\n      },\n      \"show\": {\n        \"href\": \"https://api.tvmaze.com/shows/87855\",\n        \"name\": \"The Story Is with Elex Michaelson\"\n      }\n    }\n  },\n  {\n    \"id\": 3624338,\n    \"url\": \"https://www.tvmaze.com/episodes/3624338/bloomberg-the-opening-trade-2026-05-29-episode-106\",\n    \"name\": \"Episode 106\",\n    \"season\": 2026,\n    \"number\": 106,\n    \"type\": \"regular\",\n    \"airdate\": \"2026-05-29\",\n    \"airtime\": \"02:00\",\n    \"airstamp\": \"2026-05-30T06:00:00+00:00\",\n    \"runtime\": 120,\n    \"rating\": {\n      \"average\": null\n    },\n    \"image\": null,\n    \"summary\": null,\n    \"show\": {\n      \"id\": 85938,\n      \"url\": \"https://www.tvmaze.com/shows/85938/bloomberg-the-opening-trade\",\n      \"name\": \"Bloomberg The Opening Trade\",\n      \"type\": \"News\",\n      \"language\": \"English\",\n      \"genres\": [],\n      \"status\": \"Running\",\n      \"runtime\": 120,\n      \"averageRuntime\": 115,\n      \"premiered\": \"2024-07-01\",\n      \"ended\": null,\n      \"officialSite\": \"https://www.bloomberg.com/btv/series/the-opening-trade\",\n      \"schedule\": {\n        \"time\": \"02:00\",\n        \"days\": [\n          \"Monday\",\n          \"Tuesday\",\n          \"Wednesday\",\n          \"Thursday\",\n          \"Friday\"\n        ]\n      },\n      \"rating\": {\n        \"average\": null\n      },\n      \"weight\": 57,\n      \"network\": {\n        \"id\": 172,\n        \"name\": \"Bloomberg TV\",\n        \"country\": {\n          \"name\": \"United States\",\n          \"code\": \"US\",\n          \"timezone\": \"America/New_York\"\n        },\n        \"officialSite\": null\n      },\n      \"webChannel\": null,\n      \"dvdCountry\": null,\n      \"externals\": {\n        \"tvrage\": null,\n        \"thetvdb\": null,\n        \"imdb\": null\n      },\n      \"image\": {\n        \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/578/1445883.jpg\",\n        \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/578/1445883.jpg\"\n      },\n      \"summary\": \"<p>Everything you need to know as markets open across Europe. With analysis you won't find anywhere else, we break down the biggest stories of the day and speak to top guests who have skin in the game. Hosted by Anna Edwards, Guy Johnson and Kriti Gupta.</p>\",\n      \"updated\": 1779661117,\n      \"_links\": {\n        \"self\": {\n          \"href\": \"https://api.tvmaze.com/shows/85938\"\n        },\n        \"previousepisode\": {\n          \"href\": \"https://api.tvmaze.com/episodes/3624338\",\n          \"name\": \"Episode 106\"\n        },\n        \"nextepisode\": {\n          \"href\": \"https://api.tvmaze.com/episodes/3624339\",\n          \"name\": \"Episode 107\"\n        }\n      }\n    },\n    \"_links\": {\n      \"self\": {\n        \"href\": \"https://api.tvmaze.com/episodes/3624338\"\n      },\n      \"show\": {\n        \"href\": \"https://api.tvmaze.com/shows/85938\",\n        \"name\": \"Bloomberg The Opening Trade\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "805e6ff6-db32-4246-afb2-db88fe7daad6",
+          "name": "Get Web Schedule",
+          "request": {
+            "name": "Get Web Schedule",
+            "description": {
+              "content": "Return the web/streaming schedule for a country (or worldwide) on a given date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "schedule",
+                "web"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0aa1ffc8-e7d0-429b-a872-44d2dc73001f",
+              "name": "Array of web-released episodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "web"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5889,\n    \"url\": \"http://iIIPqOOAmMBy.demcwM24klTqPMWPGTAF8NRA4WLCH4gruWzz+Jno1FmwWOl64BVRmJvH\",\n    \"name\": \"string\",\n    \"season\": 5137,\n    \"number\": 686,\n    \"type\": \"string\",\n    \"airdate\": \"2014-04-10\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1965-03-13T01:10:11.032Z\",\n    \"runtime\": 2333,\n    \"rating\": {\n      \"average\": 7250.9040734202845\n    },\n    \"image\": {\n      \"medium\": \"http://IDBtkTjeLVGquOZNfOiqQOUUMLc.rskMZXh3YnV2RT6bwyZWL1f1Aa8ELsjdzZ8wiv3\",\n      \"original\": \"https://lgarbIvf.tniTCZ9EY3jnThfmPer.wNF1MOmyrIAzenDb-fLQ1RK.Sgg\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"https://FFnXvBNRdWlBpRthTNXbxrQrQUHbNBX.rwDt-HH5.8XitZigFzWISkuDlIAxZGbu28,eR,2\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"http://nYRbOPTMYJTb.nhoBZHCISQo2KRWlYuW-m6DVCE2JskiUtsuCFsMVK7NMA1\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 7466,\n    \"url\": \"https://pItMAQXoLUkMzUhWGqaCJMr.mgbnVymrp.GSJTD0\",\n    \"name\": \"string\",\n    \"season\": 1686,\n    \"number\": 7625,\n    \"type\": \"string\",\n    \"airdate\": \"1955-06-21\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1979-10-02T08:53:34.317Z\",\n    \"runtime\": 500,\n    \"rating\": {\n      \"average\": 1021.6103932464804\n    },\n    \"image\": {\n      \"medium\": \"https://LETXpRaCDDZCk.vssE0TZFv70GN-nWsaTFGf+WCuRb8G5CYTIWPss9k0hs1gSMqFVpUU944ZOj\",\n      \"original\": \"http://PnUXJnSMYjVIJCMHwFlbSLgQEKGjxqFQ.baj0+GxUD5yd+xqDfn-I7DqgLo\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"http://iZWIGhplesnkdJFGfsCcHMEpbTKL.umoaDSwZZb+-GUAPwW8jKI7wNJRKm2MO,.oBoS,HwBPMxGK0kUF65GPBQT,iQqQgyQlN2rGEl2\",\n        \"name\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1649ee71-9ff5-4533-886b-8d7f2a3039ef",
+          "name": "Get Full Schedule",
+          "request": {
+            "name": "Get Full Schedule",
+            "description": {
+              "content": "Return all future scheduled episodes (large response, cached 24h).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "schedule",
+                "full"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a3b1b56-a8f5-4b14-8a9f-b7d89ffe0469",
+              "name": "Array of future episodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5889,\n    \"url\": \"http://iIIPqOOAmMBy.demcwM24klTqPMWPGTAF8NRA4WLCH4gruWzz+Jno1FmwWOl64BVRmJvH\",\n    \"name\": \"string\",\n    \"season\": 5137,\n    \"number\": 686,\n    \"type\": \"string\",\n    \"airdate\": \"2014-04-10\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1965-03-13T01:10:11.032Z\",\n    \"runtime\": 2333,\n    \"rating\": {\n      \"average\": 7250.9040734202845\n    },\n    \"image\": {\n      \"medium\": \"http://IDBtkTjeLVGquOZNfOiqQOUUMLc.rskMZXh3YnV2RT6bwyZWL1f1Aa8ELsjdzZ8wiv3\",\n      \"original\": \"https://lgarbIvf.tniTCZ9EY3jnThfmPer.wNF1MOmyrIAzenDb-fLQ1RK.Sgg\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"https://FFnXvBNRdWlBpRthTNXbxrQrQUHbNBX.rwDt-HH5.8XitZigFzWISkuDlIAxZGbu28,eR,2\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"http://nYRbOPTMYJTb.nhoBZHCISQo2KRWlYuW-m6DVCE2JskiUtsuCFsMVK7NMA1\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 7466,\n    \"url\": \"https://pItMAQXoLUkMzUhWGqaCJMr.mgbnVymrp.GSJTD0\",\n    \"name\": \"string\",\n    \"season\": 1686,\n    \"number\": 7625,\n    \"type\": \"string\",\n    \"airdate\": \"1955-06-21\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1979-10-02T08:53:34.317Z\",\n    \"runtime\": 500,\n    \"rating\": {\n      \"average\": 1021.6103932464804\n    },\n    \"image\": {\n      \"medium\": \"https://LETXpRaCDDZCk.vssE0TZFv70GN-nWsaTFGf+WCuRb8G5CYTIWPss9k0hs1gSMqFVpUU944ZOj\",\n      \"original\": \"http://PnUXJnSMYjVIJCMHwFlbSLgQEKGjxqFQ.baj0+GxUD5yd+xqDfn-I7DqgLo\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"http://iZWIGhplesnkdJFGfsCcHMEpbTKL.umoaDSwZZb+-GUAPwW8jKI7wNJRKm2MO,.oBoS,HwBPMxGK0kUF65GPBQT,iQqQgyQlN2rGEl2\",\n        \"name\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c575919e-4da5-4af6-bc8f-69f488e54bf9",
+      "name": "Shows",
+      "description": {
+        "content": "Show metadata, episodes, seasons, cast, crew, images, and aliases.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "65ccb56a-da8c-424c-ad2f-946600695a80",
+          "name": "List Shows",
+          "request": {
+            "name": "List Shows",
+            "description": {
+              "content": "Paginated index of every show on TVmaze (250 per page).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f350f620-7d17-4d70-a37b-5c8d509c3626",
+              "name": "Array of shows for the requested page.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4043,\n    \"url\": \"http://ykEtLESXCctUtDiij.ziZajdLxkCqi9mHVJ7GgtTDEHDRrGje5jlKtj2UayhxG4DFfirPj\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"language\": \"string\",\n    \"genres\": [\n      \"string\",\n      \"string\"\n    ],\n    \"status\": \"string\",\n    \"runtime\": 7798,\n    \"averageRuntime\": 1477,\n    \"premiered\": \"1968-09-01\",\n    \"ended\": \"1956-07-20\",\n    \"officialSite\": \"string\",\n    \"schedule\": {\n      \"time\": \"string\",\n      \"days\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"rating\": {\n      \"average\": 4670.020435065553\n    },\n    \"weight\": 1421,\n    \"network\": {\n      \"id\": 7168,\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": \"string\",\n        \"code\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"officialSite\": \"string\"\n    },\n    \"webChannel\": {\n      \"id\": 6646,\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"code\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timezone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"officialSite\": \"string\"\n    },\n    \"dvdCountry\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"externals\": {\n      \"tvrage\": 628,\n      \"thetvdb\": 3188,\n      \"imdb\": \"string\"\n    },\n    \"image\": {\n      \"medium\": \"https://YVtixiHWQBiemDjQFSsvCPnLBsTGh.nxtDLApvFWOP7QVZ4n2fu2X,\",\n      \"original\": \"http://lOMIEYmEkrSdOmppfcGw.srwoG0bErYITlQaBx5DBAW,IRAafTxxgH4QYdXnOPfZSQ7sj4Mutt.JnwVPFK\"\n    },\n    \"summary\": \"string\",\n    \"updated\": 2315,\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"https://mSV.lrWDPTIoOpyvnpNx08BNOWidZGjtg2o53JZVYW-EAW0Z2CyCGHBH4fQQzaH\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"https://gRempuZJmlLDSgOwbUhwxZ.slmwRIl\",\n        \"name\": \"string\"\n      },\n      \"key_2\": {\n        \"href\": \"https://NLnPKleZRSYlyFNEjlIPM.ggssbc1nZwhIiTEx3oLW7TYXnNT+\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 2169,\n    \"url\": \"http://eQkfDuObNBTalNYLJmkbbIvOzBdSmw.ssstnlFIb9TnanMwQS1Wls6pUwRDTCZCfLNdby6n4NoAYY0xmutbz1n\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"language\": \"string\",\n    \"genres\": [\n      \"string\",\n      \"string\"\n    ],\n    \"status\": \"string\",\n    \"runtime\": 3901,\n    \"averageRuntime\": 9318,\n    \"premiered\": \"2023-05-23\",\n    \"ended\": \"1978-07-09\",\n    \"officialSite\": \"string\",\n    \"schedule\": {\n      \"time\": \"string\",\n      \"days\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"rating\": {\n      \"average\": 1520.8078988666696\n    },\n    \"weight\": 4056,\n    \"network\": {\n      \"id\": 4199,\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": \"string\",\n        \"code\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"officialSite\": \"string\"\n    },\n    \"webChannel\": {\n      \"id\": 5299,\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"code\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timezone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"officialSite\": \"string\"\n    },\n    \"dvdCountry\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"externals\": {\n      \"tvrage\": 6593,\n      \"thetvdb\": 5858,\n      \"imdb\": \"string\"\n    },\n    \"image\": {\n      \"medium\": \"https://nfUVZxG.ljkfFVtyXf,eviyFZMiRPF4DHicMIPaUsOThbMbgYGhSNliPl3JYObPv3xBdntPGUWOH\",\n      \"original\": \"http://jlmllaBDdC.oqsy1k34I0h\"\n    },\n    \"summary\": \"string\",\n    \"updated\": 2708,\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"http://jYcVEAsUwErUSfqZAqMspqLpF.qrsJhxoCS2SYWcgYvdj9MFe\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"https://YzfvL.lpjrhelWRgYq-jt\",\n        \"name\": \"string\"\n      },\n      \"key_2\": {\n        \"href\": \"https://hIqGSGsTzGkApQkqYuCBbAWZTPsGyN.fbqjkVQLil5FVhjjVO3Lmzlxv1HF3cUe3..DxJQTZgVg3-WeHPE8ScQW59hdInkV5x\",\n        \"name\": \"string\"\n      },\n      \"key_3\": {\n        \"href\": \"http://gmvOjlSmyrmT.needG6rubhHCsIqJYYcd+1XZlG+G33-dZWhwZfbxTRE8bNV7ynEh8Ol\",\n        \"name\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d4970ea-6b4e-41e3-84d8-8d9d31d209a0",
+              "name": "Page out of range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f70d8bd-c32d-4682-986b-0df0fdc11406",
+          "name": "Get Show",
+          "request": {
+            "name": "Get Show",
+            "description": {
+              "content": "Return a single show, optionally embedding related resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "embed",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "embed",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) TVmaze show identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9ff49c0-0856-4e20-b2d7-7f1b597e18c0",
+              "name": "Show record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "embed",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embed",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"url\": \"https://www.tvmaze.com/shows/1/under-the-dome\",\n  \"name\": \"Under the Dome\",\n  \"type\": \"Scripted\",\n  \"language\": \"English\",\n  \"genres\": [\n    \"Drama\",\n    \"Science-Fiction\",\n    \"Thriller\"\n  ],\n  \"status\": \"Ended\",\n  \"runtime\": 60,\n  \"averageRuntime\": 60,\n  \"premiered\": \"2013-06-24\",\n  \"ended\": \"2015-09-10\",\n  \"officialSite\": \"http://www.cbs.com/shows/under-the-dome/\",\n  \"schedule\": {\n    \"time\": \"22:00\",\n    \"days\": [\n      \"Thursday\"\n    ]\n  },\n  \"rating\": {\n    \"average\": 6.6\n  },\n  \"weight\": 99,\n  \"network\": {\n    \"id\": 2,\n    \"name\": \"CBS\",\n    \"country\": {\n      \"name\": \"United States\",\n      \"code\": \"US\",\n      \"timezone\": \"America/New_York\"\n    },\n    \"officialSite\": \"https://www.cbs.com/\"\n  },\n  \"webChannel\": null,\n  \"dvdCountry\": null,\n  \"externals\": {\n    \"tvrage\": 25988,\n    \"thetvdb\": 264492,\n    \"imdb\": \"tt1553656\"\n  },\n  \"image\": {\n    \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/610/1525272.jpg\",\n    \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/610/1525272.jpg\"\n  },\n  \"summary\": \"<p><b>Under the Dome</b> is the story of a small town that is suddenly and inexplicably sealed off from the rest of the world by an enormous transparent dome. The town's inhabitants must deal with surviving the post-apocalyptic conditions while searching for answers about the dome, where it came from and if and when it will go away.</p>\",\n  \"updated\": 1769177765,\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://api.tvmaze.com/shows/1\"\n    },\n    \"previousepisode\": {\n      \"href\": \"https://api.tvmaze.com/episodes/185054\",\n      \"name\": \"The Enemy Within\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db61aaa5-1c0c-4a05-bb98-a295c9dbac48",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "embed",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embed",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2a1b0c7-9509-4d2f-9502-1f38bc38b13c",
+          "name": "Get Show Episodes",
+          "request": {
+            "name": "Get Show Episodes",
+            "description": {
+              "content": "List every episode of a show, optionally including specials.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                "episodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "specials",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) TVmaze show identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57ab073a-2686-4842-8fb3-3d4434e8e16a",
+              "name": "Array of episodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    "episodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "specials",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"url\": \"https://www.tvmaze.com/episodes/1/under-the-dome-1x01-pilot\",\n    \"name\": \"Pilot\",\n    \"season\": 1,\n    \"number\": 1,\n    \"type\": \"regular\",\n    \"airdate\": \"2013-06-24\",\n    \"airtime\": \"22:00\",\n    \"airstamp\": \"2013-06-25T02:00:00+00:00\",\n    \"runtime\": 60,\n    \"rating\": {\n      \"average\": 7\n    },\n    \"image\": {\n      \"medium\": \"https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg\",\n      \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/1/4388.jpg\"\n    },\n    \"summary\": \"<p>When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.</p>\",\n    \"_links\": {\n      \"self\": {\n        \"href\": \"https://api.tvmaze.com/episodes/1\"\n      },\n      \"show\": {\n        \"href\": \"https://api.tvmaze.com/shows/1\",\n        \"name\": \"Under the Dome\"\n      }\n    }\n  },\n  {\n    \"id\": 2,\n    \"url\": \"https://www.tvmaze.com/episodes/2/under-the-dome-1x02-the-fire\",\n    \"name\": \"The Fire\",\n    \"season\": 1,\n    \"number\": 2,\n    \"type\": \"regular\",\n    \"airdate\": \"2013-07-01\",\n    \"airtime\": \"22:00\",\n    \"airstamp\": \"2013-07-02T02:00:00+00:00\",\n    \"runtime\": 60,\n    \"rating\": {\n      \"average\": 6.8\n    },\n    \"image\": {\n      \"medium\": \"https://static.tvmaze.com/uploads/images/medium_landscape/1/4389.jpg\",\n      \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/1/4389.jpg\"\n    },\n    \"summary\": \"<p>While the residents of Chester's Mill face the uncertainty of life in the dome, panic is heightened when a house goes up in flames and their fire department is outside of the dome.</p>\",\n    \"_links\": {\n      \"self\": {\n        \"href\": \"https://api.tvmaze.com/episodes/2\"\n      },\n      \"show\": {\n        \"href\": \"https://api.tvmaze.com/shows/1\",\n        \"name\": \"Under the Dome\"\n      }\n    }\n  },\n  {\n    \"id\": 3,\n    \"url\": \"https://www.tvmaze.com/episodes/3/under-the-dome-1x03-manhunt\",\n    \"name\": \"Manhunt\",\n    \"season\": 1,\n    \"number\": 3,\n    \"type\": \"regular\",\n    \"airdate\": \"2013-07-08\",\n    \"airtime\": \"22:00\",\n    \"airstamp\": \"2013-07-09T02:00:00+00:00\",\n    \"runtime\": 60,\n    \"rating\": {\n      \"average\": 6.5\n    },\n    \"image\": {\n      \"medium\": \"https://static.tvmaze.com/uploads/images/medium_landscape/1/4390.jpg\",\n      \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/1/4390.jpg\"\n    },\n    \"summary\": \"<p>When a former deputy goes rogue, Big Jim recruits Barbie to join the manhunt to keep the town safe. Meanwhile, Junior is determined to escape the dome by going underground.</p>\",\n    \"_links\": {\n      \"self\": {\n        \"href\": \"https://api.tvmaze.com/episodes/3\"\n      },\n      \"show\": {\n        \"href\": \"https://api.tvmaze.com/shows/1\",\n        \"name\": \"Under the Dome\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45254f9a-3c24-4cce-870e-fde15de6ef72",
+          "name": "Get Show Episode By Number",
+          "request": {
+            "name": "Get Show Episode By Number",
+            "description": {
+              "content": "Return the specific episode for a show by season and episode number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                "episodebynumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "season",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) TVmaze show identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d070067f-b29c-4ad3-9498-26534469d947",
+              "name": "Episode record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    "episodebynumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "season",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8518,\n  \"url\": \"https://PJhReHVWJBcDefcTrQBMn.htvXrnmmyLvAnDqXXEltZ\",\n  \"name\": \"string\",\n  \"season\": 4103,\n  \"number\": 3679,\n  \"type\": \"string\",\n  \"airdate\": \"1999-12-06\",\n  \"airtime\": \"string\",\n  \"airstamp\": \"1967-05-26T13:01:56.238Z\",\n  \"runtime\": 9689,\n  \"rating\": {\n    \"average\": 9094.067053864539\n  },\n  \"image\": {\n    \"medium\": \"https://AOiVqkCqtfVyzuTSCgQxCdnkzUk.fdufJLtBExkvJNsSwSD9SxsGM7.bjnQbHaey1WNCN,LeTTpGkIygtOyOk24IYyLQ4O-34Ol1cy-wgCZUOZ0WT\",\n    \"original\": \"https://k.swGozrHnErtCE+HtbVB77SmGS6zBc44Esmk4FT914cfZVJRY7M\"\n  },\n  \"summary\": \"string\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"https://EAjKcKyRrjDfKSX.idzA8tx1mAN++ug4NO2Fb3FRIUXc0H7khe\",\n      \"name\": \"string\"\n    },\n    \"key_1\": {\n      \"href\": \"https://snySHWxIha.pvDJDsqcC8yD\",\n      \"name\": \"string\"\n    },\n    \"key_2\": {\n      \"href\": \"http://sDPCmYAnTW.sdhNBVQfNor3nJVMV1W0oNoDBqcsAWzOmO\",\n      \"name\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7e01a83-c376-481d-9039-f2a5568db7f0",
+          "name": "Get Show Episodes By Date",
+          "request": {
+            "name": "Get Show Episodes By Date",
+            "description": {
+              "content": "Return episodes that aired on a specific date for a show.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                "episodesbydate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) TVmaze show identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d013401-3811-4e0a-a621-336506a06b7d",
+              "name": "Array of episodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    "episodesbydate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5889,\n    \"url\": \"http://iIIPqOOAmMBy.demcwM24klTqPMWPGTAF8NRA4WLCH4gruWzz+Jno1FmwWOl64BVRmJvH\",\n    \"name\": \"string\",\n    \"season\": 5137,\n    \"number\": 686,\n    \"type\": \"string\",\n    \"airdate\": \"2014-04-10\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1965-03-13T01:10:11.032Z\",\n    \"runtime\": 2333,\n    \"rating\": {\n      \"average\": 7250.9040734202845\n    },\n    \"image\": {\n      \"medium\": \"http://IDBtkTjeLVGquOZNfOiqQOUUMLc.rskMZXh3YnV2RT6bwyZWL1f1Aa8ELsjdzZ8wiv3\",\n      \"original\": \"https://lgarbIvf.tniTCZ9EY3jnThfmPer.wNF1MOmyrIAzenDb-fLQ1RK.Sgg\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"https://FFnXvBNRdWlBpRthTNXbxrQrQUHbNBX.rwDt-HH5.8XitZigFzWISkuDlIAxZGbu28,eR,2\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"http://nYRbOPTMYJTb.nhoBZHCISQo2KRWlYuW-m6DVCE2JskiUtsuCFsMVK7NMA1\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 7466,\n    \"url\": \"https://pItMAQXoLUkMzUhWGqaCJMr.mgbnVymrp.GSJTD0\",\n    \"name\": \"string\",\n    \"season\": 1686,\n    \"number\": 7625,\n    \"type\": \"string\",\n    \"airdate\": \"1955-06-21\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1979-10-02T08:53:34.317Z\",\n    \"runtime\": 500,\n    \"rating\": {\n      \"average\": 1021.6103932464804\n    },\n    \"image\": {\n      \"medium\": \"https://LETXpRaCDDZCk.vssE0TZFv70GN-nWsaTFGf+WCuRb8G5CYTIWPss9k0hs1gSMqFVpUU944ZOj\",\n      \"original\": \"http://PnUXJnSMYjVIJCMHwFlbSLgQEKGjxqFQ.baj0+GxUD5yd+xqDfn-I7DqgLo\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"http://iZWIGhplesnkdJFGfsCcHMEpbTKL.umoaDSwZZb+-GUAPwW8jKI7wNJRKm2MO,.oBoS,HwBPMxGK0kUF65GPBQT,iQqQgyQlN2rGEl2\",\n        \"name\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bf30143-3b25-4822-9af1-dc27dfc36cd4",
+          "name": "Get Show Seasons",
+          "request": {
+            "name": "Get Show Seasons",
+            "description": {
+              "content": "Return the list of seasons for a show.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                "seasons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) TVmaze show identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "519f3c25-6114-434e-ab00-75d5f1cfa140",
+              "name": "Array of seasons.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    "seasons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"url\": \"https://www.tvmaze.com/seasons/1/under-the-dome-season-1\",\n    \"number\": 1,\n    \"name\": \"\",\n    \"episodeOrder\": 13,\n    \"premiereDate\": \"2013-06-24\",\n    \"endDate\": \"2013-09-16\",\n    \"network\": {\n      \"id\": 2,\n      \"name\": \"CBS\",\n      \"country\": {\n        \"name\": \"United States\",\n        \"code\": \"US\",\n        \"timezone\": \"America/New_York\"\n      },\n      \"officialSite\": \"https://www.cbs.com/\"\n    },\n    \"webChannel\": null,\n    \"image\": {\n      \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/24/60941.jpg\",\n      \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/24/60941.jpg\"\n    },\n    \"summary\": \"\",\n    \"_links\": {\n      \"self\": {\n        \"href\": \"https://api.tvmaze.com/seasons/1\"\n      }\n    }\n  },\n  {\n    \"id\": 2,\n    \"url\": \"https://www.tvmaze.com/seasons/2/under-the-dome-season-2\",\n    \"number\": 2,\n    \"name\": \"\",\n    \"episodeOrder\": 13,\n    \"premiereDate\": \"2014-06-30\",\n    \"endDate\": \"2014-09-22\",\n    \"network\": {\n      \"id\": 2,\n      \"name\": \"CBS\",\n      \"country\": {\n        \"name\": \"United States\",\n        \"code\": \"US\",\n        \"timezone\": \"America/New_York\"\n      },\n      \"officialSite\": \"https://www.cbs.com/\"\n    },\n    \"webChannel\": null,\n    \"image\": {\n      \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/24/60942.jpg\",\n      \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/24/60942.jpg\"\n    },\n    \"summary\": \"\",\n    \"_links\": {\n      \"self\": {\n        \"href\": \"https://api.tvmaze.com/seasons/2\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27b09540-99ae-478b-bb69-1360ddeb9ff2",
+          "name": "Get Show Cast",
+          "request": {
+            "name": "Get Show Cast",
+            "description": {
+              "content": "Return the main cast of a show.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                "cast"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) TVmaze show identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f2fd6b5-b36c-45dc-9d98-93cc77f33b55",
+              "name": "Array of cast entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    "cast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"person\": {\n      \"id\": 1,\n      \"url\": \"https://www.tvmaze.com/people/1/mike-vogel\",\n      \"name\": \"Mike Vogel\",\n      \"country\": {\n        \"name\": \"United States\",\n        \"code\": \"US\",\n        \"timezone\": \"America/New_York\"\n      },\n      \"birthday\": \"1979-07-17\",\n      \"deathday\": null,\n      \"gender\": \"Male\",\n      \"image\": {\n        \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/0/1815.jpg\",\n        \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/0/1815.jpg\"\n      },\n      \"updated\": 1779526576,\n      \"_links\": {\n        \"self\": {\n          \"href\": \"https://api.tvmaze.com/people/1\"\n        }\n      }\n    },\n    \"character\": {\n      \"id\": 1,\n      \"url\": \"https://www.tvmaze.com/characters/1/under-the-dome-dale-barbie-barbara\",\n      \"name\": \"Dale \\\"Barbie\\\" Barbara\",\n      \"image\": {\n        \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/0/3.jpg\",\n        \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/0/3.jpg\"\n      },\n      \"_links\": {\n        \"self\": {\n          \"href\": \"https://api.tvmaze.com/characters/1\"\n        }\n      }\n    },\n    \"self\": false,\n    \"voice\": false\n  },\n  {\n    \"person\": {\n      \"id\": 2,\n      \"url\": \"https://www.tvmaze.com/people/2/rachelle-lefevre\",\n      \"name\": \"Rachelle Lefevre\",\n      \"country\": {\n        \"name\": \"Canada\",\n        \"code\": \"CA\",\n        \"timezone\": \"America/Toronto\"\n      },\n      \"birthday\": \"1979-02-01\",\n      \"deathday\": null,\n      \"gender\": \"Female\",\n      \"image\": {\n        \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/82/207417.jpg\",\n        \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/82/207417.jpg\"\n      },\n      \"updated\": 1748315017,\n      \"_links\": {\n        \"self\": {\n          \"href\": \"https://api.tvmaze.com/people/2\"\n        }\n      }\n    },\n    \"character\": {\n      \"id\": 2,\n      \"url\": \"https://www.tvmaze.com/characters/2/under-the-dome-julia-shumway\",\n      \"name\": \"Julia Shumway\",\n      \"image\": {\n        \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/0/6.jpg\",\n        \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/0/6.jpg\"\n      },\n      \"_links\": {\n        \"self\": {\n          \"href\": \"https://api.tvmaze.com/characters/2\"\n        }\n      }\n    },\n    \"self\": false,\n    \"voice\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c60426c1-dcfd-4f6d-95bb-1edf000c7e76",
+          "name": "Get Show Crew",
+          "request": {
+            "name": "Get Show Crew",
+            "description": {
+              "content": "Return the crew of a show.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                "crew"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) TVmaze show identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6cc0bfee-ba2a-4355-9eba-123721e78518",
+              "name": "Array of crew entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    "crew"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"string\",\n    \"person\": {\n      \"id\": 6350,\n      \"url\": \"https://exDYJdPEhaaYFDSlqGlHSfea.xuwoVQ4y\",\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": \"string\",\n        \"code\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"birthday\": \"2001-09-26\",\n      \"deathday\": \"1963-10-09\",\n      \"gender\": \"string\",\n      \"image\": {\n        \"medium\": \"http://KAyZedLoMhZ.csnfnBOYIAPrHcvbrg-EzLbGw.mZJYyP\",\n        \"original\": \"https://hAcjhDETcAuHhcAyEyiRhXTmEuAbh.ugXOZguTzm0eh1qhErfgvHxI37wZfynWOR9lIbFXFwCpKz+l8Tt1X8OSxGrFYCvk4L\"\n      },\n      \"updated\": 4356,\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"http://rsnWUDIsFF.keTHJNUrFpE9rWebovSfJ9txyV-Nmp6RD-NMFhZ88sNzPT-Xy\",\n          \"name\": \"string\"\n        }\n      }\n    }\n  },\n  {\n    \"type\": \"string\",\n    \"person\": {\n      \"id\": 6985,\n      \"url\": \"http://BXcTtjwQTCBHUnAkgtMvTM.furjK0BTMhEn6H2.+kgB4Xf1PmSDEpPuG7D3cFnj4iLOUrfoN9PLfis\",\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": \"string\",\n        \"code\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"birthday\": \"1961-06-29\",\n      \"deathday\": \"2009-09-25\",\n      \"gender\": \"string\",\n      \"image\": {\n        \"medium\": \"http://u.cxte+XYSq-MJ67Xm0kJBP0G26TMm8xt7DOQ+6V\",\n        \"original\": \"https://gOtNcRenXfTYOAMTSzbvKIADE.sivtT,dEwvzY1XyIttEjyLJgnH4+.sOjdXq8.znAatgmpQoqlRxX-NOgsZErcVom-qk+IR9Gfg6DYxVw\"\n      },\n      \"updated\": 6638,\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"http://zXWdgbrkD.yuv11PfrMxny8UmPlx,zbhFW3HYK\",\n          \"name\": \"string\"\n        }\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d7e71c5-43e6-41cd-bfec-0fea18ed4344",
+          "name": "Get Show Akas",
+          "request": {
+            "name": "Get Show Akas",
+            "description": {
+              "content": "Return alternate titles (also-known-as) for a show.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                "akas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) TVmaze show identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9d11d60-83ad-4160-9fa2-d98cda424163",
+              "name": "Array of aliases.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    "akas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"country\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    }\n  },\n  {\n    \"name\": \"string\",\n    \"country\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acab8218-e271-4ece-850e-79bbc754329b",
+          "name": "Get Show Images",
+          "request": {
+            "name": "Get Show Images",
+            "description": {
+              "content": "Return image assets associated with a show.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                "images"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) TVmaze show identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d6584a7-e2d6-40e5-88a8-d44ee83ce9f1",
+              "name": "Array of images.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"medium\": \"http://afSuPXiFSEhnDgDQjnyLfaAiE.elgjLfAfJTsttCiywV+JWWvCcYw3QquPlEgDqL+Kv833HDRklzDN\",\n    \"original\": \"https://icIIgfzNwKDUsSujdWWKUaoZAViBul.tpRrDqH1drHx0Zts7zRiIhCKwF0R33Ey0de6DSp-HGROjkAP,MTRtt\"\n  },\n  {\n    \"medium\": \"https://ckRHN.oecpG6VVJB6JA5Ubi0J0ElZV1Zo4B1QxSjPKeGct9Jt0iAMoA,N8\",\n    \"original\": \"http://XUztUuXdQHVGUectINmaOiHAh.tff4FNT.N-P-\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34669c2b-5516-4f28-b470-1270eacbbb11",
+          "name": "Get Show Alternate Lists",
+          "request": {
+            "name": "Get Show Alternate Lists",
+            "description": {
+              "content": "Return alternate episode orderings for a show.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shows",
+                ":id",
+                "alternatelists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) TVmaze show identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f48000bc-1eed-4a1f-9ad0-92088844d67e",
+              "name": "Array of alternate-list metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shows",
+                    ":id",
+                    "alternatelists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c6d4fcc8-3aee-40f4-82cc-478e64449b53",
+      "name": "Episodes",
+      "description": {
+        "content": "Individual episode details including guest cast and crew.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5bb380d-b1c7-4980-8767-cca790642820",
+          "name": "Get Episode",
+          "request": {
+            "name": "Get Episode",
+            "description": {
+              "content": "Return a single episode, optionally embedding related resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "embed",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "embed",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d777ae8-7acd-4135-a40f-30c6a47c6b45",
+              "name": "Episode record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "embed",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embed",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"url\": \"https://www.tvmaze.com/episodes/1/under-the-dome-1x01-pilot\",\n  \"name\": \"Pilot\",\n  \"season\": 1,\n  \"number\": 1,\n  \"type\": \"regular\",\n  \"airdate\": \"2013-06-24\",\n  \"airtime\": \"22:00\",\n  \"airstamp\": \"2013-06-25T02:00:00+00:00\",\n  \"runtime\": 60,\n  \"rating\": {\n    \"average\": 7\n  },\n  \"image\": {\n    \"medium\": \"https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg\",\n    \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/1/4388.jpg\"\n  },\n  \"summary\": \"<p>When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.</p>\",\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://api.tvmaze.com/episodes/1\"\n    },\n    \"show\": {\n      \"href\": \"https://api.tvmaze.com/shows/1\",\n      \"name\": \"Under the Dome\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04414724-4cbb-42d0-9072-038b595a8805",
+          "name": "Get Episode Guest Cast",
+          "request": {
+            "name": "Get Episode Guest Cast",
+            "description": {
+              "content": "Return the guest cast for an episode.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                ":id",
+                "guestcast"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3712e6c8-ea93-47d5-bda1-b3984cdbf088",
+              "name": "Array of guest-cast entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    ":id",
+                    "guestcast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"person\": {\n      \"id\": 9199,\n      \"url\": \"https://VrsLdgrEgZVhbFxRWcSdBgUIn.eociWsFGAZKn3G6T-Kb+nXrGY0t9+Q8ku3jOIAG05zRoIak+HU8AgRvLVSO8Nn,5OcaYjgXFrpT\",\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": \"string\",\n        \"code\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"birthday\": \"1950-09-18\",\n      \"deathday\": \"1982-05-13\",\n      \"gender\": \"string\",\n      \"image\": {\n        \"medium\": \"http://iOtYlYyqFAY.ppkrl1HlOwY7ELfKZWpXq\",\n        \"original\": \"https://FJERYapTkA.dxmcKMJmQ2XKkovhqbpgVgGyMNgd5U\"\n      },\n      \"updated\": 7877,\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"https://ZZ.sfgzP6mnaw6VQD\",\n          \"name\": \"string\"\n        }\n      }\n    },\n    \"character\": {\n      \"id\": 7958,\n      \"url\": \"http://HsLKvnsETMuPovrtVMWO.aeauVfU6a1gUqrFkmfaDNZD4HlXdYPNosRtCTKjrHmZv\",\n      \"name\": \"string\",\n      \"image\": {\n        \"medium\": \"http://ZAZTZkWAIlSYlKggKexWnpIJpXiUrSn.gpmUA-.BIwDyqLC\",\n        \"original\": \"https://ICmpDPGlVnRQezlJJkHgCUyLRQKNzWJsj.owaGNdBsodarjRC8x89qZERuBi7ipR6E8u1hMZes\"\n      },\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"https://kqLBSkCWfJLhHEKbCXtcJwVa.hfmezb24ZoH\",\n          \"name\": \"string\"\n        },\n        \"key_1\": {\n          \"href\": \"http://JBhZpWBwfTkUct.pihuhyfcPMZtTVWtsLgyt5fTfFPW3v6FhuYWk\",\n          \"name\": \"string\"\n        },\n        \"key_2\": {\n          \"href\": \"https://LVsCZlWjtXmGsYIdY.kckwLR,1dZtJ5qd7Lhq4NqoGrHSA,c9Q\",\n          \"name\": \"string\"\n        }\n      }\n    },\n    \"self\": false,\n    \"voice\": true\n  },\n  {\n    \"person\": {\n      \"id\": 6547,\n      \"url\": \"https://J.glT,dxUqDLND5LdDxixmT0Efgeq0hb8XxOcP5H5EYewBXw,UF9w5i\",\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": \"string\",\n        \"code\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"birthday\": \"2007-09-12\",\n      \"deathday\": \"1983-04-27\",\n      \"gender\": \"string\",\n      \"image\": {\n        \"medium\": \"https://rvZ.htnbvEBf,Mml1xSFE\",\n        \"original\": \"http://oDhfDxbYtjtTErV.ethtcJQMN2JZZEKOU\"\n      },\n      \"updated\": 4604,\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"http://BctRyLCzocmBBGnqEmyE.ekoqxwFH\",\n          \"name\": \"string\"\n        }\n      }\n    },\n    \"character\": {\n      \"id\": 1594,\n      \"url\": \"http://vnzTtoIqKufpSBxjBxsNjkxLcYlLhn.epyhA4I\",\n      \"name\": \"string\",\n      \"image\": {\n        \"medium\": \"https://zjTRnajvEKAILI.uhoZY6S-JS0tAngbaZ5gGbI+.9sH5djfhKbklM.l32TOGZGntZCZ6+du\",\n        \"original\": \"https://sDOEXMOhFiWRNxisHO.krdbGZ4nyt-ve.TE4Y7WdO.Dm4gIgHqeHTyw207flYB\"\n      },\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"http://IRlTOtFyZdswfGmIBYnQu.geuJG.SUS6eJJMx.finCBLYTAo2\",\n          \"name\": \"string\"\n        }\n      }\n    },\n    \"self\": false,\n    \"voice\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5c96d6e-d1b6-4e87-8d4f-e11431dbf6e5",
+          "name": "Get Episode Guest Crew",
+          "request": {
+            "name": "Get Episode Guest Crew",
+            "description": {
+              "content": "Return the guest crew for an episode.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                ":id",
+                "guestcrew"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b54204f-972a-4366-9da7-6b7cb4a3571c",
+              "name": "Array of guest-crew entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    ":id",
+                    "guestcrew"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"string\",\n    \"person\": {\n      \"id\": 6350,\n      \"url\": \"https://exDYJdPEhaaYFDSlqGlHSfea.xuwoVQ4y\",\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": \"string\",\n        \"code\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"birthday\": \"2001-09-26\",\n      \"deathday\": \"1963-10-09\",\n      \"gender\": \"string\",\n      \"image\": {\n        \"medium\": \"http://KAyZedLoMhZ.csnfnBOYIAPrHcvbrg-EzLbGw.mZJYyP\",\n        \"original\": \"https://hAcjhDETcAuHhcAyEyiRhXTmEuAbh.ugXOZguTzm0eh1qhErfgvHxI37wZfynWOR9lIbFXFwCpKz+l8Tt1X8OSxGrFYCvk4L\"\n      },\n      \"updated\": 4356,\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"http://rsnWUDIsFF.keTHJNUrFpE9rWebovSfJ9txyV-Nmp6RD-NMFhZ88sNzPT-Xy\",\n          \"name\": \"string\"\n        }\n      }\n    }\n  },\n  {\n    \"type\": \"string\",\n    \"person\": {\n      \"id\": 6985,\n      \"url\": \"http://BXcTtjwQTCBHUnAkgtMvTM.furjK0BTMhEn6H2.+kgB4Xf1PmSDEpPuG7D3cFnj4iLOUrfoN9PLfis\",\n      \"name\": \"string\",\n      \"country\": {\n        \"name\": \"string\",\n        \"code\": \"string\",\n        \"timezone\": \"string\"\n      },\n      \"birthday\": \"1961-06-29\",\n      \"deathday\": \"2009-09-25\",\n      \"gender\": \"string\",\n      \"image\": {\n        \"medium\": \"http://u.cxte+XYSq-MJ67Xm0kJBP0G26TMm8xt7DOQ+6V\",\n        \"original\": \"https://gOtNcRenXfTYOAMTSzbvKIADE.sivtT,dEwvzY1XyIttEjyLJgnH4+.sOjdXq8.znAatgmpQoqlRxX-NOgsZErcVom-qk+IR9Gfg6DYxVw\"\n      },\n      \"updated\": 6638,\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"http://zXWdgbrkD.yuv11PfrMxny8UmPlx,zbhFW3HYK\",\n          \"name\": \"string\"\n        }\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "decf9d39-b355-41f0-bf8a-77374245d39d",
+      "name": "Seasons",
+      "description": {
+        "content": "Season-level metadata and episode listings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "018c07be-085f-473f-9c6e-b284178880a1",
+          "name": "Get Season",
+          "request": {
+            "name": "Get Season",
+            "description": {
+              "content": "Return a single season.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seasons",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f5358f8-adfe-4a8c-8042-2e6acb3eb562",
+              "name": "Season record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"url\": \"https://www.tvmaze.com/seasons/1/under-the-dome-season-1\",\n  \"number\": 1,\n  \"name\": \"\",\n  \"episodeOrder\": 13,\n  \"premiereDate\": \"2013-06-24\",\n  \"endDate\": \"2013-09-16\",\n  \"network\": {\n    \"id\": 2,\n    \"name\": \"CBS\",\n    \"country\": {\n      \"name\": \"United States\",\n      \"code\": \"US\",\n      \"timezone\": \"America/New_York\"\n    },\n    \"officialSite\": \"https://www.cbs.com/\"\n  },\n  \"webChannel\": null,\n  \"image\": {\n    \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/24/60941.jpg\",\n    \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/24/60941.jpg\"\n  },\n  \"summary\": \"\",\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://api.tvmaze.com/seasons/1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3f0dbc0-d6dd-40de-bd54-bee5556fc134",
+          "name": "Get Season Episodes",
+          "request": {
+            "name": "Get Season Episodes",
+            "description": {
+              "content": "Return the episodes of a season.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seasons",
+                ":id",
+                "episodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "134fbc50-b704-4c86-bdc6-286cd7be34d7",
+              "name": "Array of episodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id",
+                    "episodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5889,\n    \"url\": \"http://iIIPqOOAmMBy.demcwM24klTqPMWPGTAF8NRA4WLCH4gruWzz+Jno1FmwWOl64BVRmJvH\",\n    \"name\": \"string\",\n    \"season\": 5137,\n    \"number\": 686,\n    \"type\": \"string\",\n    \"airdate\": \"2014-04-10\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1965-03-13T01:10:11.032Z\",\n    \"runtime\": 2333,\n    \"rating\": {\n      \"average\": 7250.9040734202845\n    },\n    \"image\": {\n      \"medium\": \"http://IDBtkTjeLVGquOZNfOiqQOUUMLc.rskMZXh3YnV2RT6bwyZWL1f1Aa8ELsjdzZ8wiv3\",\n      \"original\": \"https://lgarbIvf.tniTCZ9EY3jnThfmPer.wNF1MOmyrIAzenDb-fLQ1RK.Sgg\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"https://FFnXvBNRdWlBpRthTNXbxrQrQUHbNBX.rwDt-HH5.8XitZigFzWISkuDlIAxZGbu28,eR,2\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"http://nYRbOPTMYJTb.nhoBZHCISQo2KRWlYuW-m6DVCE2JskiUtsuCFsMVK7NMA1\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 7466,\n    \"url\": \"https://pItMAQXoLUkMzUhWGqaCJMr.mgbnVymrp.GSJTD0\",\n    \"name\": \"string\",\n    \"season\": 1686,\n    \"number\": 7625,\n    \"type\": \"string\",\n    \"airdate\": \"1955-06-21\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1979-10-02T08:53:34.317Z\",\n    \"runtime\": 500,\n    \"rating\": {\n      \"average\": 1021.6103932464804\n    },\n    \"image\": {\n      \"medium\": \"https://LETXpRaCDDZCk.vssE0TZFv70GN-nWsaTFGf+WCuRb8G5CYTIWPss9k0hs1gSMqFVpUU944ZOj\",\n      \"original\": \"http://PnUXJnSMYjVIJCMHwFlbSLgQEKGjxqFQ.baj0+GxUD5yd+xqDfn-I7DqgLo\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"http://iZWIGhplesnkdJFGfsCcHMEpbTKL.umoaDSwZZb+-GUAPwW8jKI7wNJRKm2MO,.oBoS,HwBPMxGK0kUF65GPBQT,iQqQgyQlN2rGEl2\",\n        \"name\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "dcec5f5b-276e-4037-b01c-7a60f5f9260e",
+      "name": "People",
+      "description": {
+        "content": "Person profiles, cast credits, and crew credits.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "10d1e05c-a6e5-48e8-b014-9940fffdfde7",
+          "name": "List People",
+          "request": {
+            "name": "List People",
+            "description": {
+              "content": "Paginated index of every person on TVmaze (1000 per page).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08457de8-8d22-4c16-a0a3-adfdf2a92fd2",
+              "name": "Array of people.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2200,\n    \"url\": \"https://zbravqHtSwtiHkCgwPHhkPAIAmAabdnGs.bdLcYoVaRHANSJ\",\n    \"name\": \"string\",\n    \"country\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"birthday\": \"1946-08-31\",\n    \"deathday\": \"1957-09-28\",\n    \"gender\": \"string\",\n    \"image\": {\n      \"medium\": \"https://TPuTVuBWnbNfUXevULIvyXQkGKkcUucpI.anDQU.qVQNEJ0VNcxXhdCveJ4peYn25.BU7Anlz,UBh+mKuB\",\n      \"original\": \"https://PanNtgnRddJpMYiJSPaAiJFHq.sgxh4J4equzo+glkAA9rQk+sIUJSYU3KaJn8OPMgeEGvMAK\"\n    },\n    \"updated\": 8521,\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"https://QjssLQpnInIxAJvmUQbyfFbLPQ.gpuH+WFfz8plf,6J0DE4ow-kKL0+C8KfV66wO7u1B0BcPoxEqXW\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"https://ETMZBVcTaRxJjHhudPtozjQZnqDcngmE.azlxPfJhuqZgizu8uo0qidPY-yfRULw,mDvlybbSY7t8BK6\",\n        \"name\": \"string\"\n      },\n      \"key_2\": {\n        \"href\": \"http://ZmZNfvBquLtIPLSnFWcTztMrFjoH.kqsbgS8Wa2UjExe3N7SK8QsPf4DoQoIgyCHSx8rh-H2sLJXlLrgh6wEQLurXyro\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 8225,\n    \"url\": \"http://uYMoaCONotPPrGmTUJmPyi.zymkog73unYVcuRXEPxatxIpmFx4WWpbPEzdhf-0BV7G.Wm1k\",\n    \"name\": \"string\",\n    \"country\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"birthday\": \"1962-05-19\",\n    \"deathday\": \"1958-03-08\",\n    \"gender\": \"string\",\n    \"image\": {\n      \"medium\": \"https://YqGVpDOCcOzZWQIJIdUCCEwuIxlYBPEOZ.zpqiduMWgT0,fqjEPaoiFyuyCx+8gHRSfNmNDHa09MlkoVhyxJfm0WirkYN+Mm1zAD\",\n      \"original\": \"https://jtRnXbB.gynR8wq0ojzO5mNwgGi30ecaePSM8XEttTnRV1Z8IuaDi+zdZ6Zpr\"\n    },\n    \"updated\": 1505,\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"https://semxSLHJKSpfQxMyhFHeocCAuFTH.tootiVJ6tU9fskIE6ES435j4HVsQySW5eHEj2vb+QttcEjLXV,L9,J7KoxOzZC3hy\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"http://hkFEfpUPEZLRIcwjKKQ.koxkgMrGwt7iAOzhF7Tr.rI0.6.EMiofVOt\",\n        \"name\": \"string\"\n      },\n      \"key_2\": {\n        \"href\": \"http://BYGG.bgnVHx7HsKtPfdOAvzTrzPHsLL1hfCQ1MsH5V2n61MUdk8jNFFoFrbT\",\n        \"name\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ba51384-2676-41fb-bfce-7522e3fb218d",
+              "name": "Page out of range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3aa34e65-1fde-4ab4-b2bf-a535371322a1",
+          "name": "Get Person",
+          "request": {
+            "name": "Get Person",
+            "description": {
+              "content": "Return a single person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bfb48292-fc6f-461f-abfb-1f38da4e77d7",
+              "name": "Person record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"url\": \"https://www.tvmaze.com/people/1/mike-vogel\",\n  \"name\": \"Mike Vogel\",\n  \"country\": {\n    \"name\": \"United States\",\n    \"code\": \"US\",\n    \"timezone\": \"America/New_York\"\n  },\n  \"birthday\": \"1979-07-17\",\n  \"deathday\": null,\n  \"gender\": \"Male\",\n  \"image\": {\n    \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/0/1815.jpg\",\n    \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/0/1815.jpg\"\n  },\n  \"updated\": 1779526576,\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://api.tvmaze.com/people/1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c539508-5aa5-4b62-9309-733fa2352b36",
+          "name": "Get Person Cast Credits",
+          "request": {
+            "name": "Get Person Cast Credits",
+            "description": {
+              "content": "Return show-level cast credits for a person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people",
+                ":id",
+                "castcredits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a39629a4-21d3-44ba-941a-a7216b492185",
+              "name": "Array of cast credits.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    ":id",
+                    "castcredits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df6b92c2-600d-4c78-b16d-65e639cebb93",
+          "name": "Get Person Crew Credits",
+          "request": {
+            "name": "Get Person Crew Credits",
+            "description": {
+              "content": "Return show-level crew credits for a person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people",
+                ":id",
+                "crewcredits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8685d93-b96a-43c6-a0b5-9a69fcfb17fb",
+              "name": "Array of crew credits.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    ":id",
+                    "crewcredits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "899047f6-ae01-4def-9600-ae1142645522",
+          "name": "Get Person Guest Cast Credits",
+          "request": {
+            "name": "Get Person Guest Cast Credits",
+            "description": {
+              "content": "Return episode-level guest cast credits for a person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people",
+                ":id",
+                "guestcastcredits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d69ef4d-a25b-4a31-ab13-5bdcdd745fb7",
+              "name": "Array of guest cast credits.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    ":id",
+                    "guestcastcredits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "16a20979-27e8-4c70-aa0e-4a4d371bbd4d",
+      "name": "Updates",
+      "description": {
+        "content": "Bulk timestamps useful for incremental sync of shows and people.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c92a64e-4528-47b5-8fa6-990a0ef66b38",
+          "name": "Get Show Updates",
+          "request": {
+            "name": "Get Show Updates",
+            "description": {
+              "content": "Return a map of show IDs to last-updated timestamps for incremental sync.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "updates",
+                "shows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0d42464-9797-4232-9532-dc57b4d81eed",
+              "name": "Object keyed by show ID with timestamp values.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "updates",
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"81\": 1780096192,\n  \"240\": 1780096286,\n  \"279\": 1780134751,\n  \"289\": 1780109768,\n  \"675\": 1780088592\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8db1732-c5c7-4e0d-a950-b72a636a7bc9",
+          "name": "Get Person Updates",
+          "request": {
+            "name": "Get Person Updates",
+            "description": {
+              "content": "Return a map of person IDs to last-updated timestamps for incremental sync.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "updates",
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e380c014-a232-4988-986b-4099ead72232",
+              "name": "Object keyed by person ID with timestamp values.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "updates",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 6945,\n  \"key_1\": 1177,\n  \"key_2\": 4612\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tvmaze.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9b26b45b-c8b1-4510-b8b3-4bb30e5c5ca0",
+    "name": "TVmaze Public API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The TVmaze API is a free RESTful API that returns rich television show, episode, season,\ncast, crew, and schedule data. The public endpoints require no authentication and are\nlicensed under CC BY-SA — attribution to tvmaze.com is required. A paid Premium tier\nunlocks a separate user-scoped API documented as `tvmaze-premium-openapi.yml`.\n\nRate limit: at least 20 calls every 10 seconds per IP. HTTP 429 indicates the limit\nwas exceeded.\n\n\nContact Support:\n Name: TVmaze",
+      "type": "text/plain"
+    }
+  }
+}

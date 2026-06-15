@@ -1,0 +1,667 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Public API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Shows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/search/shows",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query string."
+              }
+            ]
+          },
+          "docs": "Search for shows using a fuzzy text query."
+        },
+        {
+          "info": {
+            "name": "Single Search Shows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/singlesearch/shows",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return the single best matching show for a query, optionally embedding related data."
+        },
+        {
+          "info": {
+            "name": "Lookup Shows By External ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/lookup/shows",
+            "params": [
+              {
+                "name": "tvrage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "thetvdb",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "imdb",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Look up a show using a TVRage, TheTVDB, or IMDb identifier."
+        },
+        {
+          "info": {
+            "name": "Search People",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/search/people",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for people (actors, crew) using a fuzzy text query."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Schedule",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/schedule",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "ISO 3166-1 alpha-2 country code (default US)."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 date (default today)."
+              }
+            ]
+          },
+          "docs": "Return the TV schedule for a country on a given date."
+        },
+        {
+          "info": {
+            "name": "Get Web Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/schedule/web",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return the web/streaming schedule for a country (or worldwide) on a given date."
+        },
+        {
+          "info": {
+            "name": "Get Full Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/schedule/full"
+          },
+          "docs": "Return all future scheduled episodes (large response, cached 24h)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Shows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Shows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Paginated index of every show on TVmaze (250 per page)."
+        },
+        {
+          "info": {
+            "name": "Get Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "TVmaze show identifier."
+              },
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return a single show, optionally embedding related resources."
+        },
+        {
+          "info": {
+            "name": "Get Show Episodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows/:id/episodes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "TVmaze show identifier."
+              },
+              {
+                "name": "specials",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List every episode of a show, optionally including specials."
+        },
+        {
+          "info": {
+            "name": "Get Show Episode By Number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows/:id/episodebynumber",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "TVmaze show identifier."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return the specific episode for a show by season and episode number."
+        },
+        {
+          "info": {
+            "name": "Get Show Episodes By Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows/:id/episodesbydate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "TVmaze show identifier."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return episodes that aired on a specific date for a show."
+        },
+        {
+          "info": {
+            "name": "Get Show Seasons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows/:id/seasons",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "TVmaze show identifier."
+              }
+            ]
+          },
+          "docs": "Return the list of seasons for a show."
+        },
+        {
+          "info": {
+            "name": "Get Show Cast",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows/:id/cast",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "TVmaze show identifier."
+              }
+            ]
+          },
+          "docs": "Return the main cast of a show."
+        },
+        {
+          "info": {
+            "name": "Get Show Crew",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows/:id/crew",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "TVmaze show identifier."
+              }
+            ]
+          },
+          "docs": "Return the crew of a show."
+        },
+        {
+          "info": {
+            "name": "Get Show Akas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows/:id/akas",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "TVmaze show identifier."
+              }
+            ]
+          },
+          "docs": "Return alternate titles (also-known-as) for a show."
+        },
+        {
+          "info": {
+            "name": "Get Show Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows/:id/images",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "TVmaze show identifier."
+              }
+            ]
+          },
+          "docs": "Return image assets associated with a show."
+        },
+        {
+          "info": {
+            "name": "Get Show Alternate Lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/shows/:id/alternatelists",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "TVmaze show identifier."
+              }
+            ]
+          },
+          "docs": "Return alternate episode orderings for a show."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Seasons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/seasons/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a single season."
+        },
+        {
+          "info": {
+            "name": "Get Season Episodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/seasons/:id/episodes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return the episodes of a season."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Episodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/episodes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return a single episode, optionally embedding related resources."
+        },
+        {
+          "info": {
+            "name": "Get Episode Guest Cast",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/episodes/:id/guestcast",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return the guest cast for an episode."
+        },
+        {
+          "info": {
+            "name": "Get Episode Guest Crew",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/episodes/:id/guestcrew",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return the guest crew for an episode."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "People",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List People",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/people",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Paginated index of every person on TVmaze (1000 per page)."
+        },
+        {
+          "info": {
+            "name": "Get Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/people/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a single person."
+        },
+        {
+          "info": {
+            "name": "Get Person Cast Credits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/people/:id/castcredits",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return show-level cast credits for a person."
+        },
+        {
+          "info": {
+            "name": "Get Person Crew Credits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/people/:id/crewcredits",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return show-level crew credits for a person."
+        },
+        {
+          "info": {
+            "name": "Get Person Guest Cast Credits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/people/:id/guestcastcredits",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return episode-level guest cast credits for a person."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Updates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Show Updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/updates/shows",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return a map of show IDs to last-updated timestamps for incremental sync."
+        },
+        {
+          "info": {
+            "name": "Get Person Updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/updates/people",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return a map of person IDs to last-updated timestamps for incremental sync."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

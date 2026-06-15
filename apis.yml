@@ -1,11 +1,10 @@
 aid: tvmaze
 name: TVmaze
 description: >-
-  TVmaze is a community-driven TV show database that publishes a free RESTful API
-  for TV show, episode, season, cast, crew, and broadcast/streaming schedule data.
-  The public API is anonymous, CORS-enabled, and licensed under CC BY-SA 4.0.
-  A paid Premium subscription unlocks a separate user-scoped API for managing
-  follows, votes, marks, tags, and scrobbling.
+  TVmaze is a community-driven TV show database that publishes a free RESTful API for TV show, episode, season, cast,
+  crew, and broadcast/streaming schedule data. The public API is anonymous, CORS-enabled, and licensed under CC BY-SA
+  4.0. A paid Premium subscription unlocks a separate user-scoped API for managing follows, votes, marks, tags, and
+  scrobbling.
 url: https://www.tvmaze.com/api
 image: https://static.tvmaze.com/images/api/tvm_api.png
 specificationVersion: '0.20'
@@ -27,10 +26,9 @@ tags:
 apis:
   - name: TVmaze Public API
     description: >-
-      Anonymous, free REST API for shows, episodes, seasons, cast, crew, schedules,
-      and incremental updates. Rate limit is at least 20 calls every 10 seconds per
-      IP. Most endpoints are edge-cached for 60 minutes. Licensed under CC BY-SA 4.0
-      with attribution to tvmaze.com required.
+      Anonymous, free REST API for shows, episodes, seasons, cast, crew, schedules, and incremental updates. Rate limit
+      is at least 20 calls every 10 seconds per IP. Most endpoints are edge-cached for 60 minutes. Licensed under CC
+      BY-SA 4.0 with attribution to tvmaze.com required.
     humanURL: https://www.tvmaze.com/api
     baseURL: https://api.tvmaze.com
     tags:
@@ -74,20 +72,6 @@ apis:
         url: json-schema/tvmaze-public-links-schema.json
       - type: JSONSchema
         url: json-schema/tvmaze-public-aka-schema.json
-      - type: NaftikoCapability
-        url: capabilities/public-search.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-schedule.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-shows.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-seasons.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-episodes.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-people.yaml
-      - type: NaftikoCapability
-        url: capabilities/public-updates.yaml
       - type: Example
         url: examples/public-get-show-example.json
       - type: Example
@@ -110,15 +94,12 @@ apis:
         url: examples/public-get-show-updates-example.json
       - type: RateLimits
         url: rate-limits/tvmaze-rate-limits.yml
-
   - name: TVmaze Premium User API
     description: >-
-      User-scoped REST API available only to Premium subscribers. Provides read-write
-      access to a user's followed shows/people/networks/web-channels, marked episodes,
-      voted shows and episodes, tagged shows, and scrobbling. Authenticated via HTTP
-      Basic using the TVmaze username and API key, with a complementary device-pairing
-      flow exposed at /v1/auth/start and /v1/auth/poll. Available even for free users
-      on the scrobbling endpoints.
+      User-scoped REST API available only to Premium subscribers. Provides read-write access to a user's followed
+      shows/people/networks/web-channels, marked episodes, voted shows and episodes, tagged shows, and scrobbling.
+      Authenticated via HTTP Basic using the TVmaze username and API key, with a complementary device-pairing flow
+      exposed at /v1/auth/start and /v1/auth/poll. Available even for free users on the scrobbling endpoints.
     humanURL: https://static.tvmaze.com/apidoc/
     baseURL: https://api.tvmaze.com/v1
     tags:
@@ -167,29 +148,8 @@ apis:
         url: json-schema/tvmaze-premium-marktype-schema.json
       - type: JSONSchema
         url: json-schema/tvmaze-premium-bulkresponse-schema.json
-      - type: NaftikoCapability
-        url: capabilities/premium-auth.yaml
-      - type: NaftikoCapability
-        url: capabilities/premium-scrobbling.yaml
-      - type: NaftikoCapability
-        url: capabilities/premium-marked-episodes.yaml
-      - type: NaftikoCapability
-        url: capabilities/premium-followed-networks.yaml
-      - type: NaftikoCapability
-        url: capabilities/premium-followed-people.yaml
-      - type: NaftikoCapability
-        url: capabilities/premium-followed-shows.yaml
-      - type: NaftikoCapability
-        url: capabilities/premium-followed-webchannels.yaml
-      - type: NaftikoCapability
-        url: capabilities/premium-tagged-shows.yaml
-      - type: NaftikoCapability
-        url: capabilities/premium-voted-episodes.yaml
-      - type: NaftikoCapability
-        url: capabilities/premium-voted-shows.yaml
       - type: RateLimits
         url: rate-limits/tvmaze-rate-limits.yml
-
 common:
   - type: Website
     url: https://www.tvmaze.com
@@ -245,7 +205,9 @@ common:
       - name: Premium User API
         description: HTTP-Basic authenticated user-scoped API for follows, marks, votes, tags, and scrobbling.
       - name: Device Auth Pairing
-        description: /v1/auth/start + /v1/auth/poll flow lets third-party apps obtain a user's API key without prompting for the password.
+        description: >-
+          /v1/auth/start + /v1/auth/poll flow lets third-party apps obtain a user's API key without prompting for the
+          password.
       - name: External ID Lookup
         description: Resolve a show by TVRage, TheTVDB, or IMDb identifier.
       - name: Embedded Related Resources
@@ -303,7 +265,9 @@ common:
   - type: Tools
     data:
       - name: mcp-tvmaze
-        description: Community MCP server exposing TVmaze public endpoints as agent tools — https://github.com/pipeworx-io/mcp-tvmaze
+        description: >-
+          Community MCP server exposing TVmaze public endpoints as agent tools —
+          https://github.com/pipeworx-io/mcp-tvmaze
       - name: tvmaze-mcp-server (vivekjne)
         description: Alternate community MCP server — https://github.com/vivekjne/tvmaze-mcp-server
       - name: tvmaze-mcp-server (DudaAraujo14)
@@ -312,7 +276,6 @@ common:
         description: 3Cat Formacio MCP server — https://github.com/Formacio-3Cat/3cat-tvmaze-mcp
       - name: tvmaze (Python SDK)
         description: Official-org-hosted Python library for the TVmaze API — https://github.com/tvmaze/tvmaze
-
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

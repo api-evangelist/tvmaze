@@ -1,0 +1,886 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Poll Whether an Authentication Request Was Confirmed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tvmaze.com/v1/auth/poll",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Using the token acquired in the `start` endpoint, you can start polling this endpoint once every 10 seconds.\n\nWhen the user has confirmed the authentication request on their end, this endpoint will return the user's API key that you can use in subsequent authenticated endpoints. Note that it'll do so only once, subsequent requests after the initial 200 response will return a 404.\n\nFor as long as the user did not yet confirm their authentication request, this endpoint will return a 403.\n"
+        },
+        {
+          "info": {
+            "name": "Start an Authentication Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tvmaze.com/v1/auth/start",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "If you want to access the TVmaze API on behalf of a user without querying them for their password, use this endpoint.\n\nTo get started, send a POST request containing the user's email address. The response will contain a `token`, which you can use as input to the `poll` endpoint. The user will receive an email prompting them to confirm the authentication request.\n\nAlternatively, if you expect the user to be logged in to TVmaze on the device they are currently interacting with, you can set `email_"
+        },
+        {
+          "info": {
+            "name": "Validate Your Authentication Credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/auth/validate"
+          },
+          "docs": "If the credentials supplied as HTTP basic are valid, the user's level of premium - if any - is returned."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "scrobbling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mark Episodes as Acquired or Watched Based on Their IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tvmaze.com/v1/scrobble/episodes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint can be used by all users, even without premium"
+        },
+        {
+          "info": {
+            "name": "Mark an Episode as Acquired or Watched Based on Its ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/scrobble/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint can be used by all users, even without premium"
+        },
+        {
+          "info": {
+            "name": "Mark Episodes Within a Show as Acquired or Watched Based on Their Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tvmaze.com/v1/scrobble/shows",
+            "params": [
+              {
+                "name": "tvmaze_id",
+                "value": "",
+                "type": "query",
+                "description": "The show's TVmaze ID"
+              },
+              {
+                "name": "thetvdb_id",
+                "value": "",
+                "type": "query",
+                "description": "The show's TheTVDB ID"
+              },
+              {
+                "name": "imdb_id",
+                "value": "",
+                "type": "query",
+                "description": "The show's IMDB ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "To specify a show, supply either `tvmaze_id`, `thetvdb_id` or `imdb_id`. To specify an episode, supply either both `season` and `episode`, or `airdate`.\n\nThis endpoint can be used by all users, even without premium.\n"
+        },
+        {
+          "info": {
+            "name": "List Watched and Acquired Episodes for a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/scrobble/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the target show"
+              },
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full episode info"
+              }
+            ]
+          },
+          "docs": "This endpoint can be used by all users, even without premium"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "marked episodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Marked Episodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/episodes",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return episodes from this specific show"
+              }
+            ]
+          },
+          "docs": "List the Marked Episodes"
+        },
+        {
+          "info": {
+            "name": "Check if an Episode is Marked",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if an Episode is Marked"
+        },
+        {
+          "info": {
+            "name": "Mark an Episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set `marked_at` to `NULL` or leave it out to use the current time."
+        },
+        {
+          "info": {
+            "name": "Unmark an Episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unmark an Episode"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "followed networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Followed Networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/networks",
+            "params": [
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full network info"
+              }
+            ]
+          },
+          "docs": "List the Followed Networks"
+        },
+        {
+          "info": {
+            "name": "Check if a Network is Followed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/networks/:network_id",
+            "params": [
+              {
+                "name": "network_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if a Network is Followed"
+        },
+        {
+          "info": {
+            "name": "Follow a Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/follows/networks/:network_id",
+            "params": [
+              {
+                "name": "network_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Follow a Network"
+        },
+        {
+          "info": {
+            "name": "Unfollow a Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/follows/networks/:network_id",
+            "params": [
+              {
+                "name": "network_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unfollow a Network"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "followed people",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Followed People",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/people",
+            "params": [
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full person info"
+              }
+            ]
+          },
+          "docs": "List the Followed People"
+        },
+        {
+          "info": {
+            "name": "Check if a Person is Followed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/people/:person_id",
+            "params": [
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if a Person is Followed"
+        },
+        {
+          "info": {
+            "name": "Follow a Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/follows/people/:person_id",
+            "params": [
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Follow a Person"
+        },
+        {
+          "info": {
+            "name": "Unfollow a Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/follows/people/:person_id",
+            "params": [
+              {
+                "name": "person_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unfollow a Person"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "followed shows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Followed Shows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/shows",
+            "params": [
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full show info"
+              }
+            ]
+          },
+          "docs": "List the Followed Shows"
+        },
+        {
+          "info": {
+            "name": "Check if a Show is Followed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if a Show is Followed"
+        },
+        {
+          "info": {
+            "name": "Follow a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/follows/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Follow a Show"
+        },
+        {
+          "info": {
+            "name": "Unfollow a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/follows/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unfollow a Show"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "followed webchannels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Followed Webchannels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/webchannels",
+            "params": [
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full webchannel info"
+              }
+            ]
+          },
+          "docs": "List the Followed Webchannels"
+        },
+        {
+          "info": {
+            "name": "Check if a Webchannel is Followed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/webchannels/:webchannel_id",
+            "params": [
+              {
+                "name": "webchannel_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if a Webchannel is Followed"
+        },
+        {
+          "info": {
+            "name": "Follow a Webchannel",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/follows/webchannels/:webchannel_id",
+            "params": [
+              {
+                "name": "webchannel_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Follow a Webchannel"
+        },
+        {
+          "info": {
+            "name": "Unfollow a Webchannel",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/follows/webchannels/:webchannel_id",
+            "params": [
+              {
+                "name": "webchannel_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unfollow a Webchannel"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "tagged shows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/tags"
+          },
+          "docs": "List All Tags"
+        },
+        {
+          "info": {
+            "name": "Create a New Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tvmaze.com/v1/user/tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a New Tag"
+        },
+        {
+          "info": {
+            "name": "Update a Specific Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.tvmaze.com/v1/user/tags/:tag_id",
+            "params": [
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Specific Tag"
+        },
+        {
+          "info": {
+            "name": "Delete a Specific Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/tags/:tag_id",
+            "params": [
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a Specific Tag"
+        },
+        {
+          "info": {
+            "name": "List All Shows Under This Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/tags/:tag_id/shows",
+            "params": [
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full show info"
+              }
+            ]
+          },
+          "docs": "List All Shows Under This Tag"
+        },
+        {
+          "info": {
+            "name": "Tag a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/tags/:tag_id/shows/:show_id",
+            "params": [
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Tag a Show"
+        },
+        {
+          "info": {
+            "name": "Untag a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/tags/:tag_id/shows/:show_id",
+            "params": [
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Untag a Show"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "voted episodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Episodes Voted For",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/votes/episodes"
+          },
+          "docs": "List the Episodes Voted For"
+        },
+        {
+          "info": {
+            "name": "Check if an Episode is Voted For",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/votes/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if an Episode is Voted For"
+        },
+        {
+          "info": {
+            "name": "Vote for an Episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/votes/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Vote for an Episode"
+        },
+        {
+          "info": {
+            "name": "Remove an Episode Vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/votes/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove an Episode Vote"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "voted shows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Shows Voted For",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/votes/shows",
+            "params": [
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full show info"
+              }
+            ]
+          },
+          "docs": "List the Shows Voted For"
+        },
+        {
+          "info": {
+            "name": "Check if a Show is Voted For",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/votes/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if a Show is Voted For"
+        },
+        {
+          "info": {
+            "name": "Vote for a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/votes/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set `voted_at` to `NULL` or leave it out to use the current time."
+        },
+        {
+          "info": {
+            "name": "Remove a Show Vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/votes/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a Show Vote"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
