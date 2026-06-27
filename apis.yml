@@ -72,25 +72,25 @@ apis:
         url: json-schema/tvmaze-public-links-schema.json
       - type: JSONSchema
         url: json-schema/tvmaze-public-aka-schema.json
-      - type: Example
+      - type: Examples
         url: examples/public-get-show-example.json
-      - type: Example
+      - type: Examples
         url: examples/public-get-show-episodes-example.json
-      - type: Example
+      - type: Examples
         url: examples/public-get-show-seasons-example.json
-      - type: Example
+      - type: Examples
         url: examples/public-get-show-cast-example.json
-      - type: Example
+      - type: Examples
         url: examples/public-get-episode-example.json
-      - type: Example
+      - type: Examples
         url: examples/public-get-season-example.json
-      - type: Example
+      - type: Examples
         url: examples/public-get-person-example.json
-      - type: Example
+      - type: Examples
         url: examples/public-search-shows-example.json
-      - type: Example
+      - type: Examples
         url: examples/public-get-schedule-example.json
-      - type: Example
+      - type: Examples
         url: examples/public-get-show-updates-example.json
       - type: RateLimits
         url: rate-limits/tvmaze-rate-limits.yml
@@ -157,7 +157,7 @@ common:
     url: https://www.tvmaze.com/api
   - type: APIReference
     url: https://static.tvmaze.com/apidoc/
-  - type: SignUp
+  - type: Signup
     url: https://www.tvmaze.com/account/register
   - type: Login
     url: https://www.tvmaze.com/account/login
@@ -189,7 +189,7 @@ common:
     url: https://www.tvmaze.com/faqs/9/data-policies
   - type: GitHubOrganization
     url: https://github.com/tvmaze
-  - type: SDK
+  - type: SDKs
     url: https://github.com/tvmaze/tvmaze
     title: Python TVmaze SDK (community, maintained by the TVmaze GitHub org)
   - type: SpectralRules
