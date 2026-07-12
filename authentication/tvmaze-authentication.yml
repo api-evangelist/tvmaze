@@ -1,0 +1,12 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/tvmaze-premium-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: usertoken
+  type: http
+  scheme: basic
+  sources:
+  - openapi/tvmaze-premium-openapi.yml
