@@ -151,6 +151,8 @@ apis:
       - type: RateLimits
         url: rate-limits/tvmaze-rate-limits.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/tvmaze-agentic-access.yml
   - type: DomainSecurity
     url: security/tvmaze-domain-security.yml
   - type: Authentication
