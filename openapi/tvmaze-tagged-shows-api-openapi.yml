@@ -1,0 +1,207 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth tagged shows API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: tagged shows
+paths:
+  /user/tags:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Tag'
+                type: array
+          description: An array of tags
+      summary: List All Tags
+      tags:
+      - tagged shows
+    post:
+      requestBody:
+        $ref: '#/components/requestBodies/Tag'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+          description: The newly created tag
+        '422':
+          description: invalid input data
+      summary: Create a New Tag
+      tags:
+      - tagged shows
+  /user/tags/{tag_id}:
+    delete:
+      parameters:
+      - in: path
+        name: tag_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: The tag was deleted
+        '404':
+          description: The tag does not exist
+      summary: Delete a Specific Tag
+      tags:
+      - tagged shows
+    patch:
+      parameters:
+      - in: path
+        name: tag_id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/Tag'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+          description: The tag was updated
+        '404':
+          description: The tag does not exist
+        '422':
+          description: The tag could not be updated
+      summary: Update a Specific Tag
+      tags:
+      - tagged shows
+  /user/tags/{tag_id}/shows:
+    get:
+      parameters:
+      - in: path
+        name: tag_id
+        required: true
+        schema:
+          type: integer
+      - description: Embed full show info
+        in: query
+        name: embed
+        required: false
+        schema:
+          enum:
+          - show
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/TagInstance'
+                type: array
+          description: A list of tagged shows
+        '404':
+          description: The tag does not exist
+      summary: List All Shows Under This Tag
+      tags:
+      - tagged shows
+  /user/tags/{tag_id}/shows/{show_id}:
+    delete:
+      parameters:
+      - in: path
+        name: tag_id
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: show_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: The show was untagged
+        '404':
+          description: The show was not tagged
+      summary: Untag a Show
+      tags:
+      - tagged shows
+    put:
+      parameters:
+      - in: path
+        name: tag_id
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: show_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagInstance'
+          description: The show was tagged
+        '404':
+          description: The show or tag does not exist
+      summary: Tag a Show
+      tags:
+      - tagged shows
+components:
+  schemas:
+    Show:
+      type: object
+    TagInstance:
+      properties:
+        _embedded:
+          properties:
+            show:
+              $ref: '#/components/schemas/Show'
+          type: object
+        show_id:
+          type: integer
+      type: object
+    Tag:
+      properties:
+        id:
+          readOnly: true
+          type: integer
+        name:
+          type: string
+      type: object
+  requestBodies:
+    Tag:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Tag'
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

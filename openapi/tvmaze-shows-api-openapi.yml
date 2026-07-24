@@ -1,0 +1,841 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth Shows API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: Shows
+  description: Show metadata, episodes, seasons, cast, crew, images, and aliases.
+paths:
+  /shows:
+    get:
+      tags:
+      - Shows
+      operationId: listShows
+      summary: List Shows
+      description: Paginated index of every show on TVmaze (250 per page).
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+      responses:
+        '200':
+          description: Array of shows for the requested page.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Show'
+        '404':
+          description: Page out of range
+  /shows/{id}:
+    get:
+      tags:
+      - Shows
+      operationId: getShow
+      summary: Get Show
+      description: Return a single show, optionally embedding related resources.
+      parameters:
+      - $ref: '#/components/parameters/ShowId'
+      - name: embed
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - episodes
+            - cast
+            - seasons
+            - nextepisode
+            - previousepisode
+        style: form
+        explode: true
+      responses:
+        '200':
+          description: Show record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Show'
+              examples:
+                default:
+                  summary: Example response for /shows/{id}
+                  value:
+                    id: 1
+                    url: https://www.tvmaze.com/shows/1/under-the-dome
+                    name: Under the Dome
+                    type: Scripted
+                    language: English
+                    genres:
+                    - Drama
+                    - Science-Fiction
+                    - Thriller
+                    status: Ended
+                    runtime: 60
+                    averageRuntime: 60
+                    premiered: '2013-06-24'
+                    ended: '2015-09-10'
+                    officialSite: http://www.cbs.com/shows/under-the-dome/
+                    schedule:
+                      time: 1320
+                      days:
+                      - Thursday
+                    rating:
+                      average: 6.6
+                    weight: 99
+                    network:
+                      id: 2
+                      name: CBS
+                      country:
+                        name: United States
+                        code: US
+                        timezone: America/New_York
+                      officialSite: https://www.cbs.com/
+                    webChannel: null
+                    dvdCountry: null
+                    externals:
+                      tvrage: 25988
+                      thetvdb: 264492
+                      imdb: tt1553656
+                    image:
+                      medium: https://static.tvmaze.com/uploads/images/medium_portrait/610/1525272.jpg
+                      original: https://static.tvmaze.com/uploads/images/original_untouched/610/1525272.jpg
+                    summary: <p><b>Under the Dome</b> is the story of a small town that is suddenly and inexplicably sealed off from the rest of the world by an enormous transparent dome. The town's inhabitants must deal with surviving the post-apocalyptic conditions while searching for answers about the dome, where it came from and if and when it will go away.</p>
+                    updated: 1769177765
+                    _links:
+                      self:
+                        href: https://api.tvmaze.com/shows/1
+                      previousepisode:
+                        href: https://api.tvmaze.com/episodes/185054
+                        name: The Enemy Within
+        '404':
+          description: Not Found
+      x-microcks-operation:
+        defaultExample: default
+      x-microcks-default: default
+  /shows/{id}/episodes:
+    get:
+      tags:
+      - Shows
+      operationId: getShowEpisodes
+      summary: Get Show Episodes
+      description: List every episode of a show, optionally including specials.
+      parameters:
+      - $ref: '#/components/parameters/ShowId'
+      - name: specials
+        in: query
+        required: false
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+      responses:
+        '200':
+          description: Array of episodes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Episode'
+              examples:
+                default:
+                  summary: Example response for /shows/{id}/episodes
+                  value:
+                  - id: 1
+                    url: https://www.tvmaze.com/episodes/1/under-the-dome-1x01-pilot
+                    name: Pilot
+                    season: 1
+                    number: 1
+                    type: regular
+                    airdate: '2013-06-24'
+                    airtime: 1320
+                    airstamp: '2013-06-25T02:00:00+00:00'
+                    runtime: 60
+                    rating:
+                      average: 7
+                    image:
+                      medium: https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg
+                      original: https://static.tvmaze.com/uploads/images/original_untouched/1/4388.jpg
+                    summary: <p>When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.</p>
+                    _links:
+                      self:
+                        href: https://api.tvmaze.com/episodes/1
+                      show:
+                        href: https://api.tvmaze.com/shows/1
+                        name: Under the Dome
+                  - id: 2
+                    url: https://www.tvmaze.com/episodes/2/under-the-dome-1x02-the-fire
+                    name: The Fire
+                    season: 1
+                    number: 2
+                    type: regular
+                    airdate: '2013-07-01'
+                    airtime: 1320
+                    airstamp: '2013-07-02T02:00:00+00:00'
+                    runtime: 60
+                    rating:
+                      average: 6.8
+                    image:
+                      medium: https://static.tvmaze.com/uploads/images/medium_landscape/1/4389.jpg
+                      original: https://static.tvmaze.com/uploads/images/original_untouched/1/4389.jpg
+                    summary: <p>While the residents of Chester's Mill face the uncertainty of life in the dome, panic is heightened when a house goes up in flames and their fire department is outside of the dome.</p>
+                    _links:
+                      self:
+                        href: https://api.tvmaze.com/episodes/2
+                      show:
+                        href: https://api.tvmaze.com/shows/1
+                        name: Under the Dome
+                  - id: 3
+                    url: https://www.tvmaze.com/episodes/3/under-the-dome-1x03-manhunt
+                    name: Manhunt
+                    season: 1
+                    number: 3
+                    type: regular
+                    airdate: '2013-07-08'
+                    airtime: 1320
+                    airstamp: '2013-07-09T02:00:00+00:00'
+                    runtime: 60
+                    rating:
+                      average: 6.5
+                    image:
+                      medium: https://static.tvmaze.com/uploads/images/medium_landscape/1/4390.jpg
+                      original: https://static.tvmaze.com/uploads/images/original_untouched/1/4390.jpg
+                    summary: <p>When a former deputy goes rogue, Big Jim recruits Barbie to join the manhunt to keep the town safe. Meanwhile, Junior is determined to escape the dome by going underground.</p>
+                    _links:
+                      self:
+                        href: https://api.tvmaze.com/episodes/3
+                      show:
+                        href: https://api.tvmaze.com/shows/1
+                        name: Under the Dome
+      x-microcks-operation:
+        defaultExample: default
+      x-microcks-default: default
+  /shows/{id}/episodebynumber:
+    get:
+      tags:
+      - Shows
+      operationId: getShowEpisodeByNumber
+      summary: Get Show Episode By Number
+      description: Return the specific episode for a show by season and episode number.
+      parameters:
+      - $ref: '#/components/parameters/ShowId'
+      - name: season
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: number
+        in: query
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Episode record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Episode'
+  /shows/{id}/episodesbydate:
+    get:
+      tags:
+      - Shows
+      operationId: getShowEpisodesByDate
+      summary: Get Show Episodes By Date
+      description: Return episodes that aired on a specific date for a show.
+      parameters:
+      - $ref: '#/components/parameters/ShowId'
+      - name: date
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: Array of episodes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Episode'
+  /shows/{id}/seasons:
+    get:
+      tags:
+      - Shows
+      operationId: getShowSeasons
+      summary: Get Show Seasons
+      description: Return the list of seasons for a show.
+      parameters:
+      - $ref: '#/components/parameters/ShowId'
+      responses:
+        '200':
+          description: Array of seasons.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Season'
+              examples:
+                default:
+                  summary: Example response for /shows/{id}/seasons
+                  value:
+                  - id: 1
+                    url: https://www.tvmaze.com/seasons/1/under-the-dome-season-1
+                    number: 1
+                    name: ''
+                    episodeOrder: 13
+                    premiereDate: '2013-06-24'
+                    endDate: '2013-09-16'
+                    network:
+                      id: 2
+                      name: CBS
+                      country:
+                        name: United States
+                        code: US
+                        timezone: America/New_York
+                      officialSite: https://www.cbs.com/
+                    webChannel: null
+                    image:
+                      medium: https://static.tvmaze.com/uploads/images/medium_portrait/24/60941.jpg
+                      original: https://static.tvmaze.com/uploads/images/original_untouched/24/60941.jpg
+                    summary: ''
+                    _links:
+                      self:
+                        href: https://api.tvmaze.com/seasons/1
+                  - id: 2
+                    url: https://www.tvmaze.com/seasons/2/under-the-dome-season-2
+                    number: 2
+                    name: ''
+                    episodeOrder: 13
+                    premiereDate: '2014-06-30'
+                    endDate: '2014-09-22'
+                    network:
+                      id: 2
+                      name: CBS
+                      country:
+                        name: United States
+                        code: US
+                        timezone: America/New_York
+                      officialSite: https://www.cbs.com/
+                    webChannel: null
+                    image:
+                      medium: https://static.tvmaze.com/uploads/images/medium_portrait/24/60942.jpg
+                      original: https://static.tvmaze.com/uploads/images/original_untouched/24/60942.jpg
+                    summary: ''
+                    _links:
+                      self:
+                        href: https://api.tvmaze.com/seasons/2
+      x-microcks-operation:
+        defaultExample: default
+      x-microcks-default: default
+  /shows/{id}/cast:
+    get:
+      tags:
+      - Shows
+      operationId: getShowCast
+      summary: Get Show Cast
+      description: Return the main cast of a show.
+      parameters:
+      - $ref: '#/components/parameters/ShowId'
+      responses:
+        '200':
+          description: Array of cast entries.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CastCredit'
+              examples:
+                default:
+                  summary: Example response for /shows/{id}/cast
+                  value:
+                  - person:
+                      id: 1
+                      url: https://www.tvmaze.com/people/1/mike-vogel
+                      name: Mike Vogel
+                      country:
+                        name: United States
+                        code: US
+                        timezone: America/New_York
+                      birthday: '1979-07-17'
+                      deathday: null
+                      gender: Male
+                      image:
+                        medium: https://static.tvmaze.com/uploads/images/medium_portrait/0/1815.jpg
+                        original: https://static.tvmaze.com/uploads/images/original_untouched/0/1815.jpg
+                      updated: 1779526576
+                      _links:
+                        self:
+                          href: https://api.tvmaze.com/people/1
+                    character:
+                      id: 1
+                      url: https://www.tvmaze.com/characters/1/under-the-dome-dale-barbie-barbara
+                      name: Dale "Barbie" Barbara
+                      image:
+                        medium: https://static.tvmaze.com/uploads/images/medium_portrait/0/3.jpg
+                        original: https://static.tvmaze.com/uploads/images/original_untouched/0/3.jpg
+                      _links:
+                        self:
+                          href: https://api.tvmaze.com/characters/1
+                    self: false
+                    voice: false
+                  - person:
+                      id: 2
+                      url: https://www.tvmaze.com/people/2/rachelle-lefevre
+                      name: Rachelle Lefevre
+                      country:
+                        name: Canada
+                        code: CA
+                        timezone: America/Toronto
+                      birthday: '1979-02-01'
+                      deathday: null
+                      gender: Female
+                      image:
+                        medium: https://static.tvmaze.com/uploads/images/medium_portrait/82/207417.jpg
+                        original: https://static.tvmaze.com/uploads/images/original_untouched/82/207417.jpg
+                      updated: 1748315017
+                      _links:
+                        self:
+                          href: https://api.tvmaze.com/people/2
+                    character:
+                      id: 2
+                      url: https://www.tvmaze.com/characters/2/under-the-dome-julia-shumway
+                      name: Julia Shumway
+                      image:
+                        medium: https://static.tvmaze.com/uploads/images/medium_portrait/0/6.jpg
+                        original: https://static.tvmaze.com/uploads/images/original_untouched/0/6.jpg
+                      _links:
+                        self:
+                          href: https://api.tvmaze.com/characters/2
+                    self: false
+                    voice: false
+      x-microcks-operation:
+        defaultExample: default
+      x-microcks-default: default
+  /shows/{id}/crew:
+    get:
+      tags:
+      - Shows
+      operationId: getShowCrew
+      summary: Get Show Crew
+      description: Return the crew of a show.
+      parameters:
+      - $ref: '#/components/parameters/ShowId'
+      responses:
+        '200':
+          description: Array of crew entries.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CrewCredit'
+  /shows/{id}/akas:
+    get:
+      tags:
+      - Shows
+      operationId: getShowAkas
+      summary: Get Show Akas
+      description: Return alternate titles (also-known-as) for a show.
+      parameters:
+      - $ref: '#/components/parameters/ShowId'
+      responses:
+        '200':
+          description: Array of aliases.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Aka'
+  /shows/{id}/images:
+    get:
+      tags:
+      - Shows
+      operationId: getShowImages
+      summary: Get Show Images
+      description: Return image assets associated with a show.
+      parameters:
+      - $ref: '#/components/parameters/ShowId'
+      responses:
+        '200':
+          description: Array of images.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Image'
+  /shows/{id}/alternatelists:
+    get:
+      tags:
+      - Shows
+      operationId: getShowAlternateLists
+      summary: Get Show Alternate Lists
+      description: Return alternate episode orderings for a show.
+      parameters:
+      - $ref: '#/components/parameters/ShowId'
+      responses:
+        '200':
+          description: Array of alternate-list metadata.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+components:
+  schemas:
+    Season:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        number:
+          type: integer
+        name:
+          type: string
+        episodeOrder:
+          type: integer
+          nullable: true
+        premiereDate:
+          type: string
+          format: date
+          nullable: true
+        endDate:
+          type: string
+          format: date
+          nullable: true
+        network:
+          allOf:
+          - $ref: '#/components/schemas/Network'
+          nullable: true
+        webChannel:
+          allOf:
+          - $ref: '#/components/schemas/WebChannel'
+          nullable: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        summary:
+          type: string
+          nullable: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    Aka:
+      type: object
+      properties:
+        name:
+          type: string
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+          nullable: true
+    CrewCredit:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Crew role type, e.g. Director, Writer
+        person:
+          $ref: '#/components/schemas/Person'
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        timezone:
+          type: string
+    Show:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        type:
+          type: string
+          description: e.g. Scripted, Reality, Documentary
+        language:
+          type: string
+          nullable: true
+        genres:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          description: e.g. Running, Ended, To Be Determined
+        runtime:
+          type: integer
+          nullable: true
+        averageRuntime:
+          type: integer
+          nullable: true
+        premiered:
+          type: string
+          format: date
+          nullable: true
+        ended:
+          type: string
+          format: date
+          nullable: true
+        officialSite:
+          type: string
+          nullable: true
+        schedule:
+          $ref: '#/components/schemas/Schedule'
+        rating:
+          $ref: '#/components/schemas/Rating'
+        weight:
+          type: integer
+        network:
+          allOf:
+          - $ref: '#/components/schemas/Network'
+          nullable: true
+        webChannel:
+          allOf:
+          - $ref: '#/components/schemas/WebChannel'
+          nullable: true
+        dvdCountry:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+          nullable: true
+        externals:
+          $ref: '#/components/schemas/Externals'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        summary:
+          type: string
+          nullable: true
+          description: HTML summary
+        updated:
+          type: integer
+          format: int64
+        _links:
+          $ref: '#/components/schemas/Links'
+    Character:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    Episode:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        season:
+          type: integer
+        number:
+          type: integer
+          nullable: true
+        type:
+          type: string
+          description: regular, significant_special, insignificant_special
+        airdate:
+          type: string
+          format: date
+          nullable: true
+        airtime:
+          type: string
+          nullable: true
+        airstamp:
+          type: string
+          format: date-time
+          nullable: true
+        runtime:
+          type: integer
+          nullable: true
+        rating:
+          $ref: '#/components/schemas/Rating'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        summary:
+          type: string
+          nullable: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    WebChannel:
+      allOf:
+      - $ref: '#/components/schemas/Network'
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
+    Schedule:
+      type: object
+      properties:
+        time:
+          type: string
+        days:
+          type: array
+          items:
+            type: string
+    Image:
+      type: object
+      properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri
+    CastCredit:
+      type: object
+      properties:
+        person:
+          $ref: '#/components/schemas/Person'
+        character:
+          $ref: '#/components/schemas/Character'
+        self:
+          type: boolean
+        voice:
+          type: boolean
+    Rating:
+      type: object
+      properties:
+        average:
+          type: number
+          nullable: true
+    Network:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        country:
+          $ref: '#/components/schemas/Country'
+        officialSite:
+          type: string
+          nullable: true
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+          nullable: true
+        birthday:
+          type: string
+          format: date
+          nullable: true
+        deathday:
+          type: string
+          format: date
+          nullable: true
+        gender:
+          type: string
+          nullable: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        updated:
+          type: integer
+          format: int64
+        _links:
+          $ref: '#/components/schemas/Links'
+    Externals:
+      type: object
+      properties:
+        tvrage:
+          type: integer
+          nullable: true
+        thetvdb:
+          type: integer
+          nullable: true
+        imdb:
+          type: string
+          nullable: true
+  parameters:
+    ShowId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: TVmaze show identifier.
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

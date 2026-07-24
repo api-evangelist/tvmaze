@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth followed networks API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: followed networks
+paths:
+  /user/follows/networks:
+    get:
+      parameters:
+      - description: Embed full network info
+        in: query
+        name: embed
+        required: false
+        schema:
+          enum:
+          - network
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/NetworkFollow'
+                type: array
+          description: An array of followed networks
+      summary: List the Followed Networks
+      tags:
+      - followed networks
+  /user/follows/networks/{network_id}:
+    parameters:
+    - in: path
+      name: network_id
+      required: true
+      schema:
+        type: integer
+    delete:
+      responses:
+        '200':
+          description: the network is now unfollowed
+        '404':
+          description: this network was not followed
+      summary: Unfollow a Network
+      tags:
+      - followed networks
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NetworkFollow'
+          description: The followed network
+        '404':
+          description: this network is not followed
+      summary: Check if a Network is Followed
+      tags:
+      - followed networks
+    put:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NetworkFollow'
+          description: this network is now followed
+        '404':
+          description: this network does not exist
+      summary: Follow a Network
+      tags:
+      - followed networks
+components:
+  schemas:
+    NetworkFollow:
+      properties:
+        _embedded:
+          properties:
+            network:
+              $ref: '#/components/schemas/Network'
+          type: object
+        network_id:
+          type: integer
+      type: object
+    Network:
+      type: object
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

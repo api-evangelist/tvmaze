@@ -1,0 +1,116 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth voted episodes API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: voted episodes
+paths:
+  /user/votes/episodes:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EpisodeVote'
+                type: array
+          description: An array of episode votes
+      summary: List the Episodes Voted For
+      tags:
+      - voted episodes
+  /user/votes/episodes/{episode_id}:
+    parameters:
+    - in: path
+      name: episode_id
+      required: true
+      schema:
+        type: integer
+    delete:
+      responses:
+        '200':
+          description: The episode vote is now removed
+        '404':
+          description: This episode was not voted for
+      summary: Remove an Episode Vote
+      tags:
+      - voted episodes
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EpisodeVote'
+          description: The episode vote
+        '404':
+          description: This episode is not voted for
+      summary: Check if an Episode is Voted For
+      tags:
+      - voted episodes
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EpisodeVote'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EpisodeVote'
+          description: This episode is now voted for
+        '404':
+          description: This episode does not exist
+        '422':
+          description: Invalid vote
+      summary: Vote for an Episode
+      tags:
+      - voted episodes
+components:
+  schemas:
+    EpisodeVote:
+      properties:
+        episode_id:
+          readOnly: true
+          type: integer
+        vote:
+          description: The vote number
+          maximum: 10
+          minimum: 1
+          type: integer
+        voted_at:
+          description: Epoch timestamp for when the user voted for the episode
+          readOnly: true
+          type: integer
+      type: object
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

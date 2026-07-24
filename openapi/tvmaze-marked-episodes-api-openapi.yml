@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth marked episodes API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: marked episodes
+paths:
+  /user/episodes:
+    get:
+      parameters:
+      - description: Only return episodes from this specific show
+        in: query
+        name: show_id
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MarkedEpisode'
+                type: array
+          description: An array of marked episodes
+      summary: List the Marked Episodes
+      tags:
+      - marked episodes
+  /user/episodes/{episode_id}:
+    parameters:
+    - in: path
+      name: episode_id
+      required: true
+      schema:
+        type: integer
+    delete:
+      responses:
+        '200':
+          description: the episode is now unmarked
+        '404':
+          description: this episode was not marked
+      summary: Unmark an Episode
+      tags:
+      - marked episodes
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarkedEpisode'
+          description: The marked episode
+        '404':
+          description: This episode is not marked
+      summary: Check if an Episode is Marked
+      tags:
+      - marked episodes
+    put:
+      description: Set `marked_at` to `NULL` or leave it out to use the current time.
+      requestBody:
+        $ref: '#/components/requestBodies/MarkedEpisode'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarkedEpisode'
+          description: this episode is now marked
+        '404':
+          description: this episode does not exist
+        '422':
+          description: invalid input data
+      summary: Mark an Episode
+      tags:
+      - marked episodes
+components:
+  schemas:
+    MarkedEpisode:
+      properties:
+        _embedded:
+          properties:
+            episode:
+              $ref: '#/components/schemas/Episode'
+          type: object
+        episode_id:
+          readOnly: true
+          type: integer
+        marked_at:
+          description: Epoch timestamp for when the user watched the episode, or 0 for unknown.
+          type: integer
+        type:
+          $ref: '#/components/schemas/MarkType'
+      type: object
+    Episode:
+      type: object
+    MarkType:
+      description: 0 for watched, 1 for acquired, 2 for skipped
+  requestBodies:
+    MarkedEpisode:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MarkedEpisode'
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

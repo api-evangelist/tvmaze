@@ -1,0 +1,291 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth Episodes API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: Episodes
+  description: Individual episode details including guest cast and crew.
+paths:
+  /episodes/{id}:
+    get:
+      tags:
+      - Episodes
+      operationId: getEpisode
+      summary: Get Episode
+      description: Return a single episode, optionally embedding related resources.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: embed
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - show
+            - guestcast
+            - guestcrew
+        style: form
+        explode: true
+      responses:
+        '200':
+          description: Episode record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Episode'
+              examples:
+                default:
+                  summary: Example response for /episodes/{id}
+                  value:
+                    id: 1
+                    url: https://www.tvmaze.com/episodes/1/under-the-dome-1x01-pilot
+                    name: Pilot
+                    season: 1
+                    number: 1
+                    type: regular
+                    airdate: '2013-06-24'
+                    airtime: 1320
+                    airstamp: '2013-06-25T02:00:00+00:00'
+                    runtime: 60
+                    rating:
+                      average: 7
+                    image:
+                      medium: https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg
+                      original: https://static.tvmaze.com/uploads/images/original_untouched/1/4388.jpg
+                    summary: <p>When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.</p>
+                    _links:
+                      self:
+                        href: https://api.tvmaze.com/episodes/1
+                      show:
+                        href: https://api.tvmaze.com/shows/1
+                        name: Under the Dome
+      x-microcks-operation:
+        defaultExample: default
+      x-microcks-default: default
+  /episodes/{id}/guestcast:
+    get:
+      tags:
+      - Episodes
+      operationId: getEpisodeGuestCast
+      summary: Get Episode Guest Cast
+      description: Return the guest cast for an episode.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Array of guest-cast entries.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CastCredit'
+  /episodes/{id}/guestcrew:
+    get:
+      tags:
+      - Episodes
+      operationId: getEpisodeGuestCrew
+      summary: Get Episode Guest Crew
+      description: Return the guest crew for an episode.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Array of guest-crew entries.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CrewCredit'
+components:
+  schemas:
+    CrewCredit:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Crew role type, e.g. Director, Writer
+        person:
+          $ref: '#/components/schemas/Person'
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        timezone:
+          type: string
+    Character:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    Episode:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        season:
+          type: integer
+        number:
+          type: integer
+          nullable: true
+        type:
+          type: string
+          description: regular, significant_special, insignificant_special
+        airdate:
+          type: string
+          format: date
+          nullable: true
+        airtime:
+          type: string
+          nullable: true
+        airstamp:
+          type: string
+          format: date-time
+          nullable: true
+        runtime:
+          type: integer
+          nullable: true
+        rating:
+          $ref: '#/components/schemas/Rating'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        summary:
+          type: string
+          nullable: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
+    Image:
+      type: object
+      properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri
+    CastCredit:
+      type: object
+      properties:
+        person:
+          $ref: '#/components/schemas/Person'
+        character:
+          $ref: '#/components/schemas/Character'
+        self:
+          type: boolean
+        voice:
+          type: boolean
+    Rating:
+      type: object
+      properties:
+        average:
+          type: number
+          nullable: true
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+          nullable: true
+        birthday:
+          type: string
+          format: date
+          nullable: true
+        deathday:
+          type: string
+          format: date
+          nullable: true
+        gender:
+          type: string
+          nullable: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        updated:
+          type: integer
+          format: int64
+        _links:
+          $ref: '#/components/schemas/Links'
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

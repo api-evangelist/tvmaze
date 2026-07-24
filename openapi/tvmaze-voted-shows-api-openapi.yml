@@ -1,0 +1,126 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth voted shows API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: voted shows
+paths:
+  /user/votes/shows:
+    get:
+      parameters:
+      - description: Embed full show info
+        in: query
+        name: embed
+        required: false
+        schema:
+          enum:
+          - show
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ShowVote'
+                type: array
+          description: An array of show votes
+      summary: List the Shows Voted For
+      tags:
+      - voted shows
+  /user/votes/shows/{show_id}:
+    parameters:
+    - in: path
+      name: show_id
+      required: true
+      schema:
+        type: integer
+    delete:
+      responses:
+        '200':
+          description: The show vote is now removed
+        '404':
+          description: This show was not voted for
+      summary: Remove a Show Vote
+      tags:
+      - voted shows
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShowVote'
+          description: The show vote
+        '404':
+          description: This show is not voted for
+      summary: Check if a Show is Voted For
+      tags:
+      - voted shows
+    put:
+      description: Set `voted_at` to `NULL` or leave it out to use the current time.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShowVote'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShowVote'
+          description: This show is now voted for
+        '404':
+          description: This show does not exist
+        '422':
+          description: Invalid vote
+      summary: Vote for a Show
+      tags:
+      - voted shows
+components:
+  schemas:
+    ShowVote:
+      properties:
+        show_id:
+          readOnly: true
+          type: integer
+        vote:
+          description: The vote number
+          maximum: 10
+          minimum: 1
+          type: integer
+        voted_at:
+          description: Epoch timestamp for when the user voted for the episode
+          readOnly: true
+          type: integer
+      type: object
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

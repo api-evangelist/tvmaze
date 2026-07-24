@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth followed people API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: followed people
+paths:
+  /user/follows/people:
+    get:
+      parameters:
+      - description: Embed full person info
+        in: query
+        name: embed
+        required: false
+        schema:
+          enum:
+          - person
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PersonFollow'
+                type: array
+          description: An array of followed people
+      summary: List the Followed People
+      tags:
+      - followed people
+  /user/follows/people/{person_id}:
+    parameters:
+    - in: path
+      name: person_id
+      required: true
+      schema:
+        type: integer
+    delete:
+      responses:
+        '200':
+          description: the person is now unfollowed
+        '404':
+          description: this person was not followed
+      summary: Unfollow a Person
+      tags:
+      - followed people
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonFollow'
+          description: The followed person
+        '404':
+          description: this person is not followed
+      summary: Check if a Person is Followed
+      tags:
+      - followed people
+    put:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonFollow'
+          description: this person is now followed
+        '404':
+          description: this person does not exist
+      summary: Follow a Person
+      tags:
+      - followed people
+components:
+  schemas:
+    PersonFollow:
+      properties:
+        _embedded:
+          properties:
+            person:
+              $ref: '#/components/schemas/Person'
+          type: object
+        person_id:
+          type: integer
+      type: object
+    Person:
+      type: object
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: auth
+paths:
+  /auth/poll:
+    post:
+      description: 'Using the token acquired in the `start` endpoint, you can start polling this endpoint once every 10 seconds.
+
+
+        When the user has confirmed the authentication request on their end, this endpoint will return the user''s API key that you can use in subsequent authenticated endpoints. Note that it''ll do so only once, subsequent requests after the initial 200 response will return a 404.
+
+
+        For as long as the user did not yet confirm their authentication request, this endpoint will return a 403.
+
+        '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                token:
+                  type: string
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  apikey:
+                    description: The user's API key
+                    type: string
+                  username:
+                    description: The user's username
+                    type: string
+                type: object
+          description: The user confirmed the authentication request
+        '403':
+          description: The authentication request was not confirmed yet
+        '404':
+          description: The authentication request was not found
+        '429':
+          description: You are polling too quickly, please back off
+      summary: Poll Whether an Authentication Request Was Confirmed
+      tags:
+      - auth
+  /auth/start:
+    post:
+      description: 'If you want to access the TVmaze API on behalf of a user without querying them for their password, use this endpoint.
+
+
+        To get started, send a POST request containing the user''s email address. The response will contain a `token`, which you can use as input to the `poll` endpoint. The user will receive an email prompting them to confirm the authentication request.
+
+
+        Alternatively, if you expect the user to be logged in to TVmaze on the device they are currently interacting with, you can set `email_confirmation` to false and redirect them to the `confirm_url` URL. If they are logged in to TVmaze, they will be able to confirm the authentication request instantly.
+
+        '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                email:
+                  description: The user's email address
+                  type: string
+                email_confirmation:
+                  default: true
+                  description: Whether to email the user a confirmation link
+                  type: boolean
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  confirm_url:
+                    description: URL where the user can confirm the authentication request
+                    type: string
+                  token:
+                    description: Authentication token to use in the `poll` endpoint
+                    type: string
+                type: object
+          description: The authentication request was succesfully started
+        '401':
+          description: The email address was found, but not confirmed
+        '404':
+          description: The email address was not found
+        '429':
+          description: You are starting authentication requests too quickly, please back off
+      summary: Start an Authentication Request
+      tags:
+      - auth
+  /auth/validate:
+    get:
+      description: If the credentials supplied as HTTP basic are valid, the user's level of premium - if any - is returned.
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  premium:
+                    description: The user's premium level; 1 for Bronze, 2 for Silver, 3 for Gold; or 0 for none
+                    type: integer
+                type: object
+          description: The supplied credentials are valid
+        '401':
+          description: The supplied credentials are not valid
+      summary: Validate Your Authentication Credentials
+      tags:
+      - auth
+components:
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

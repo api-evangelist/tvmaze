@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth followed webchannels API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: followed webchannels
+paths:
+  /user/follows/webchannels:
+    get:
+      parameters:
+      - description: Embed full webchannel info
+        in: query
+        name: embed
+        required: false
+        schema:
+          enum:
+          - webchannel
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WebchannelFollow'
+                type: array
+          description: An array of followed webchannels
+      summary: List the Followed Webchannels
+      tags:
+      - followed webchannels
+  /user/follows/webchannels/{webchannel_id}:
+    parameters:
+    - in: path
+      name: webchannel_id
+      required: true
+      schema:
+        type: integer
+    delete:
+      responses:
+        '200':
+          description: the webchannel is now unfollowed
+        '404':
+          description: this webchannel was not followed
+      summary: Unfollow a Webchannel
+      tags:
+      - followed webchannels
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebchannelFollow'
+          description: The followed webchannel
+        '404':
+          description: this webchannel is not followed
+      summary: Check if a Webchannel is Followed
+      tags:
+      - followed webchannels
+    put:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebchannelFollow'
+          description: this webchannel is now followed
+        '404':
+          description: this webchannel does not exist
+      summary: Follow a Webchannel
+      tags:
+      - followed webchannels
+components:
+  schemas:
+    Webchannel:
+      type: object
+    WebchannelFollow:
+      properties:
+        _embedded:
+          properties:
+            webchannel:
+              $ref: '#/components/schemas/Webchannel'
+          type: object
+        webchannel_id:
+          type: integer
+      type: object
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

@@ -1,0 +1,243 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth Seasons API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: Seasons
+  description: Season-level metadata and episode listings.
+paths:
+  /seasons/{id}:
+    get:
+      tags:
+      - Seasons
+      operationId: getSeason
+      summary: Get Season
+      description: Return a single season.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Season record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Season'
+              examples:
+                default:
+                  summary: Example response for /seasons/{id}
+                  value:
+                    id: 1
+                    url: https://www.tvmaze.com/seasons/1/under-the-dome-season-1
+                    number: 1
+                    name: ''
+                    episodeOrder: 13
+                    premiereDate: '2013-06-24'
+                    endDate: '2013-09-16'
+                    network:
+                      id: 2
+                      name: CBS
+                      country:
+                        name: United States
+                        code: US
+                        timezone: America/New_York
+                      officialSite: https://www.cbs.com/
+                    webChannel: null
+                    image:
+                      medium: https://static.tvmaze.com/uploads/images/medium_portrait/24/60941.jpg
+                      original: https://static.tvmaze.com/uploads/images/original_untouched/24/60941.jpg
+                    summary: ''
+                    _links:
+                      self:
+                        href: https://api.tvmaze.com/seasons/1
+      x-microcks-operation:
+        defaultExample: default
+      x-microcks-default: default
+  /seasons/{id}/episodes:
+    get:
+      tags:
+      - Seasons
+      operationId: getSeasonEpisodes
+      summary: Get Season Episodes
+      description: Return the episodes of a season.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Array of episodes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Episode'
+components:
+  schemas:
+    Season:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        number:
+          type: integer
+        name:
+          type: string
+        episodeOrder:
+          type: integer
+          nullable: true
+        premiereDate:
+          type: string
+          format: date
+          nullable: true
+        endDate:
+          type: string
+          format: date
+          nullable: true
+        network:
+          allOf:
+          - $ref: '#/components/schemas/Network'
+          nullable: true
+        webChannel:
+          allOf:
+          - $ref: '#/components/schemas/WebChannel'
+          nullable: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        summary:
+          type: string
+          nullable: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        timezone:
+          type: string
+    Episode:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        season:
+          type: integer
+        number:
+          type: integer
+          nullable: true
+        type:
+          type: string
+          description: regular, significant_special, insignificant_special
+        airdate:
+          type: string
+          format: date
+          nullable: true
+        airtime:
+          type: string
+          nullable: true
+        airstamp:
+          type: string
+          format: date-time
+          nullable: true
+        runtime:
+          type: integer
+          nullable: true
+        rating:
+          $ref: '#/components/schemas/Rating'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        summary:
+          type: string
+          nullable: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    WebChannel:
+      allOf:
+      - $ref: '#/components/schemas/Network'
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
+    Image:
+      type: object
+      properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri
+    Rating:
+      type: object
+      properties:
+        average:
+          type: number
+          nullable: true
+    Network:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        country:
+          $ref: '#/components/schemas/Country'
+        officialSite:
+          type: string
+          nullable: true
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http

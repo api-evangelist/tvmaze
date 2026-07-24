@@ -1,0 +1,104 @@
+openapi: 3.0.0
+info:
+  title: TVmaze Premium User auth Updates API
+  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+
+    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+
+    their own data.
+
+
+    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+
+    the API key (visible on the user dashboard) is the basic-auth password. There is
+
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
+
+    '
+  version: '1.0'
+  contact:
+    name: TVmaze
+    url: https://www.tvmaze.com
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://api.tvmaze.com/v1
+- url: http://api.tvmaze.com/v1
+security:
+- usertoken: []
+tags:
+- name: Updates
+  description: Bulk timestamps useful for incremental sync of shows and people.
+paths:
+  /updates/shows:
+    get:
+      tags:
+      - Updates
+      operationId: getShowUpdates
+      summary: Get Show Updates
+      description: Return a map of show IDs to last-updated timestamps for incremental sync.
+      parameters:
+      - name: since
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+      responses:
+        '200':
+          description: Object keyed by show ID with timestamp values.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                  format: int64
+              examples:
+                default:
+                  summary: Example response for /updates/shows
+                  value:
+                    '81': 1780096192
+                    '240': 1780096286
+                    '279': 1780134751
+                    '289': 1780109768
+                    '675': 1780088592
+      x-microcks-operation:
+        defaultExample: default
+      x-microcks-default: default
+  /updates/people:
+    get:
+      tags:
+      - Updates
+      operationId: getPersonUpdates
+      summary: Get Person Updates
+      description: Return a map of person IDs to last-updated timestamps for incremental sync.
+      parameters:
+      - name: since
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+      responses:
+        '200':
+          description: Object keyed by person ID with timestamp values.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                  format: int64
+components:
+  securitySchemes:
+    usertoken:
+      scheme: basic
+      type: http
