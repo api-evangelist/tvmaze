@@ -6,6 +6,19 @@ description: >-
   4.0. A paid Premium subscription unlocks a separate user-scoped API for managing follows, votes, marks, tags, and
   scrobbling.
 url: https://www.tvmaze.com/api
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://static.tvmaze.com/images/api/tvm_api.png
 specificationVersion: '0.20'
 created: '2026-05-28'
@@ -24,133 +37,1777 @@ tags:
   - Entertainment
   - Public APIs
 apis:
-  - name: TVmaze Public API
-    description: >-
-      Anonymous, free REST API for shows, episodes, seasons, cast, crew, schedules, and incremental updates. Rate limit
-      is at least 20 calls every 10 seconds per IP. Most endpoints are edge-cached for 60 minutes. Licensed under CC
-      BY-SA 4.0 with attribution to tvmaze.com required.
-    humanURL: https://www.tvmaze.com/api
-    baseURL: https://api.tvmaze.com
-    tags:
-      - Video
-      - Television
-      - Schedule
-    properties:
-      - type: Documentation
-        url: https://www.tvmaze.com/api
-      - type: OpenAPI
-        url: openapi/tvmaze-public-openapi.yml
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-show-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-episode-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-season-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-person-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-character-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-castcredit-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-crewcredit-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-network-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-webchannel-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-country-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-image-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-schedule-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-rating-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-externals-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-links-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-public-aka-schema.json
-      - type: Examples
-        url: examples/public-get-show-example.json
-      - type: Examples
-        url: examples/public-get-show-episodes-example.json
-      - type: Examples
-        url: examples/public-get-show-seasons-example.json
-      - type: Examples
-        url: examples/public-get-show-cast-example.json
-      - type: Examples
-        url: examples/public-get-episode-example.json
-      - type: Examples
-        url: examples/public-get-season-example.json
-      - type: Examples
-        url: examples/public-get-person-example.json
-      - type: Examples
-        url: examples/public-search-shows-example.json
-      - type: Examples
-        url: examples/public-get-schedule-example.json
-      - type: Examples
-        url: examples/public-get-show-updates-example.json
-      - type: RateLimits
-        url: rate-limits/tvmaze-rate-limits.yml
-  - name: TVmaze Premium User API
-    description: >-
-      User-scoped REST API available only to Premium subscribers. Provides read-write access to a user's followed
-      shows/people/networks/web-channels, marked episodes, voted shows and episodes, tagged shows, and scrobbling.
-      Authenticated via HTTP Basic using the TVmaze username and API key, with a complementary device-pairing flow
-      exposed at /v1/auth/start and /v1/auth/poll. Available even for free users on the scrobbling endpoints.
-    humanURL: https://static.tvmaze.com/apidoc/
-    baseURL: https://api.tvmaze.com/v1
-    tags:
-      - Video
-      - Television
-      - Premium
-      - User
-    properties:
-      - type: Documentation
-        url: https://static.tvmaze.com/apidoc/
-      - type: OpenAPI
-        url: openapi/tvmaze-premium-openapi.yml
-      - type: Authentication
-        url: https://static.tvmaze.com/apidoc/
-      - type: Pricing
-        url: https://www.tvmaze.com/premium
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-show-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-episode-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-person-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-network-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-webchannel-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-markedepisode-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-showfollow-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-personfollow-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-networkfollow-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-webchannelfollow-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-showvote-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-episodevote-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-tag-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-taginstance-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-marktype-schema.json
-      - type: JSONSchema
-        url: json-schema/tvmaze-premium-bulkresponse-schema.json
-      - type: RateLimits
-        url: rate-limits/tvmaze-rate-limits.yml
+- aid: tvmaze:tvmaze-auth-api
+  name: TVmaze auth API
+  description: The auth API from TVmaze — 3 operation(s) for auth.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - auth
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-auth-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-episodes-api
+  name: TVmaze Episodes API
+  description: Individual episode details including guest cast and crew.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - Episodes
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-episodes-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-followed-networks-api
+  name: TVmaze followed networks API
+  description: The followed networks API from TVmaze — 2 operation(s) for followed networks.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - followed networks
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-followed-networks-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-followed-people-api
+  name: TVmaze followed people API
+  description: The followed people API from TVmaze — 2 operation(s) for followed people.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - followed people
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-followed-people-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-followed-shows-api
+  name: TVmaze followed shows API
+  description: The followed shows API from TVmaze — 2 operation(s) for followed shows.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - followed shows
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-followed-shows-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-followed-webchannels-api
+  name: TVmaze followed webchannels API
+  description: The followed webchannels API from TVmaze — 2 operation(s) for followed webchannels.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - followed webchannels
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-followed-webchannels-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-marked-episodes-api
+  name: TVmaze marked episodes API
+  description: The marked episodes API from TVmaze — 2 operation(s) for marked episodes.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - marked episodes
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-marked-episodes-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-people-api
+  name: TVmaze People API
+  description: Person profiles, cast credits, and crew credits.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - People
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-people-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-schedule-api
+  name: TVmaze Schedule API
+  description: Daily and rolling TV and web/streaming schedules.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-schedule-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-scrobbling-api
+  name: TVmaze scrobbling API
+  description: The scrobbling API from TVmaze — 4 operation(s) for scrobbling.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - scrobbling
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-scrobbling-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-search-api
+  name: TVmaze Search API
+  description: Free-text search and lookup endpoints for shows and people.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-search-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-seasons-api
+  name: TVmaze Seasons API
+  description: Season-level metadata and episode listings.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - Seasons
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-seasons-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-shows-api
+  name: TVmaze Shows API
+  description: Show metadata, episodes, seasons, cast, crew, images, and aliases.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - Shows
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-shows-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-tagged-shows-api
+  name: TVmaze tagged shows API
+  description: The tagged shows API from TVmaze — 4 operation(s) for tagged shows.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - tagged shows
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-tagged-shows-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-updates-api
+  name: TVmaze Updates API
+  description: Bulk timestamps useful for incremental sync of shows and people.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - Updates
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-updates-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-voted-episodes-api
+  name: TVmaze voted episodes API
+  description: The voted episodes API from TVmaze — 2 operation(s) for voted episodes.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - voted episodes
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-voted-episodes-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
+- aid: tvmaze:tvmaze-voted-shows-api
+  name: TVmaze voted shows API
+  description: The voted shows API from TVmaze — 2 operation(s) for voted shows.
+  humanURL: https://www.tvmaze.com/api
+  baseURL: https://api.tvmaze.com
+  tags:
+  - voted shows
+  properties:
+  - type: OpenAPI
+    url: openapi/tvmaze-voted-shows-api-openapi.yml
+  - type: Documentation
+    url: https://www.tvmaze.com/api
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-season-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-character-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-castcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-crewcredit-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-country-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-image-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-schedule-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-externals-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-links-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-public-aka-schema.json
+  - type: Examples
+    url: examples/public-get-show-example.json
+  - type: Examples
+    url: examples/public-get-show-episodes-example.json
+  - type: Examples
+    url: examples/public-get-show-seasons-example.json
+  - type: Examples
+    url: examples/public-get-show-cast-example.json
+  - type: Examples
+    url: examples/public-get-episode-example.json
+  - type: Examples
+    url: examples/public-get-season-example.json
+  - type: Examples
+    url: examples/public-get-person-example.json
+  - type: Examples
+    url: examples/public-search-shows-example.json
+  - type: Examples
+    url: examples/public-get-schedule-example.json
+  - type: Examples
+    url: examples/public-get-show-updates-example.json
+  - type: RateLimits
+    url: rate-limits/tvmaze-rate-limits.yml
+  - type: Documentation
+    url: https://static.tvmaze.com/apidoc/
+  - type: Authentication
+    url: https://static.tvmaze.com/apidoc/
+  - type: Pricing
+    url: https://www.tvmaze.com/premium
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-show-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-person-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-network-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannel-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-markedepisode-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-personfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-networkfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-webchannelfollow-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-showvote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-episodevote-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-tag-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-taginstance-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-marktype-schema.json
+  - type: JSONSchema
+    url: json-schema/tvmaze-premium-bulkresponse-schema.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/tvmaze/overview
   - type: AgenticAccess
     url: agentic-access/tvmaze-agentic-access.yml
   - type: DomainSecurity
