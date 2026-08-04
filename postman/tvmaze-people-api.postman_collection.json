@@ -1,0 +1,562 @@
+{
+  "info": {
+    "_postman_id": "07f5bf91-2ab8-4620-a9d1-b7b661957445",
+    "name": "TVmaze Premium User auth People API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:59.000Z",
+    "updatedAt": "2026-07-28T03:21:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-07f5bf91-2ab8-4620-a9d1-b7b661957445"
+  },
+  "item": [
+    {
+      "name": "people",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "castcredits",
+              "item": [
+                {
+                  "name": "Get Person Cast Credits",
+                  "id": "4327a67a-364b-4aa6-90e4-822e977435e7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:id/castcredits",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":id",
+                        "castcredits"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f5c156c9-2110-4801-949b-b7ace816a4f7",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Return show-level cast credits for a person."
+                  },
+                  "response": [
+                    {
+                      "id": "625998c8-86bf-4f23-a7f0-ad0618f25490",
+                      "name": "Array of cast credits.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:id/castcredits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":id",
+                            "castcredits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"Duis_749\": -52445336,\n    \"aliqua_74\": -60876861\n  },\n  {\n    \"enim_5\": -84801721.59007151,\n    \"velit4\": \"dolor\",\n    \"non_ff\": 37959579.5128414\n  }\n]",
+                      "createdAt": "2026-07-28T03:21:59.000Z",
+                      "updatedAt": "2026-07-28T03:21:59.000Z",
+                      "uid": "35240-625998c8-86bf-4f23-a7f0-ad0618f25490"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:59.000Z",
+                  "updatedAt": "2026-07-28T03:21:59.000Z",
+                  "uid": "35240-4327a67a-364b-4aa6-90e4-822e977435e7"
+                }
+              ],
+              "id": "0bfcd87b-07fa-40f2-ab9e-fa8b6aa7b2c8",
+              "createdAt": "2026-07-28T03:21:59.000Z",
+              "updatedAt": "2026-07-28T03:21:59.000Z",
+              "uid": "35240-0bfcd87b-07fa-40f2-ab9e-fa8b6aa7b2c8"
+            },
+            {
+              "name": "crewcredits",
+              "item": [
+                {
+                  "name": "Get Person Crew Credits",
+                  "id": "3a46e2e9-1ee9-4fa9-942b-7132326f7ac4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:id/crewcredits",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":id",
+                        "crewcredits"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b7622cea-a1a2-47e0-8376-41a4fbee07cf",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Return show-level crew credits for a person."
+                  },
+                  "response": [
+                    {
+                      "id": "52fdae3e-b4ea-4f82-8b98-1fae6c2ff05e",
+                      "name": "Array of crew credits.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:id/crewcredits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":id",
+                            "crewcredits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"Duis_749\": -52445336,\n    \"aliqua_74\": -60876861\n  },\n  {\n    \"enim_5\": -84801721.59007151,\n    \"velit4\": \"dolor\",\n    \"non_ff\": 37959579.5128414\n  }\n]",
+                      "createdAt": "2026-07-28T03:21:59.000Z",
+                      "updatedAt": "2026-07-28T03:21:59.000Z",
+                      "uid": "35240-52fdae3e-b4ea-4f82-8b98-1fae6c2ff05e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:59.000Z",
+                  "updatedAt": "2026-07-28T03:21:59.000Z",
+                  "uid": "35240-3a46e2e9-1ee9-4fa9-942b-7132326f7ac4"
+                }
+              ],
+              "id": "39d70fa6-6c9f-43c4-908f-fe4d84b9e66d",
+              "createdAt": "2026-07-28T03:21:59.000Z",
+              "updatedAt": "2026-07-28T03:21:59.000Z",
+              "uid": "35240-39d70fa6-6c9f-43c4-908f-fe4d84b9e66d"
+            },
+            {
+              "name": "guestcastcredits",
+              "item": [
+                {
+                  "name": "Get Person Guest Cast Credits",
+                  "id": "08937934-987b-4a6f-88aa-b10cf2cd2417",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:id/guestcastcredits",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":id",
+                        "guestcastcredits"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6f02878e-6a3d-4b23-a0f6-ecaa637c95cd",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Return episode-level guest cast credits for a person."
+                  },
+                  "response": [
+                    {
+                      "id": "30cc6521-142f-413b-8d4f-5e9591c5ed83",
+                      "name": "Array of guest cast credits.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:id/guestcastcredits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":id",
+                            "guestcastcredits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"Duis_749\": -52445336,\n    \"aliqua_74\": -60876861\n  },\n  {\n    \"enim_5\": -84801721.59007151,\n    \"velit4\": \"dolor\",\n    \"non_ff\": 37959579.5128414\n  }\n]",
+                      "createdAt": "2026-07-28T03:21:59.000Z",
+                      "updatedAt": "2026-07-28T03:21:59.000Z",
+                      "uid": "35240-30cc6521-142f-413b-8d4f-5e9591c5ed83"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:59.000Z",
+                  "updatedAt": "2026-07-28T03:21:59.000Z",
+                  "uid": "35240-08937934-987b-4a6f-88aa-b10cf2cd2417"
+                }
+              ],
+              "id": "5eecd6ea-dcce-4e3d-af9e-0bb75b06af96",
+              "createdAt": "2026-07-28T03:21:59.000Z",
+              "updatedAt": "2026-07-28T03:21:59.000Z",
+              "uid": "35240-5eecd6ea-dcce-4e3d-af9e-0bb75b06af96"
+            },
+            {
+              "name": "Get Person",
+              "id": "d7579ab8-1322-4873-991f-885ed0f16558",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/people/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5442a15a-7b37-4f13-9bdb-21982374469b",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Return a single person."
+              },
+              "response": [
+                {
+                  "id": "afaf6466-0e3d-4aca-8915-d5b5a6c70ee1",
+                  "name": "Person record.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"country\": {\n    \"name\": \"<string>\",\n    \"code\": \"<string>\",\n    \"timezone\": \"<string>\"\n  },\n  \"birthday\": \"<date>\",\n  \"deathday\": \"<date>\",\n  \"gender\": \"<string>\",\n  \"image\": {\n    \"medium\": \"<uri>\",\n    \"original\": \"<uri>\"\n  },\n  \"updated\": \"<long>\",\n  \"_links\": {\n    \"enim_5a\": {\n      \"href\": \"<uri>\",\n      \"name\": \"<string>\"\n    },\n    \"nulla_10\": {\n      \"href\": \"<uri>\",\n      \"name\": \"<string>\"\n    },\n    \"aute_4f\": {\n      \"href\": \"<uri>\",\n      \"name\": \"<string>\"\n    },\n    \"ipsum1b\": {\n      \"href\": \"<uri>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T03:21:59.000Z",
+                  "updatedAt": "2026-07-28T03:21:59.000Z",
+                  "uid": "35240-afaf6466-0e3d-4aca-8915-d5b5a6c70ee1"
+                }
+              ],
+              "createdAt": "2026-07-28T03:21:59.000Z",
+              "updatedAt": "2026-07-28T03:21:59.000Z",
+              "uid": "35240-d7579ab8-1322-4873-991f-885ed0f16558"
+            }
+          ],
+          "id": "79518274-3376-465a-aa5c-fec6c14adca0",
+          "createdAt": "2026-07-28T03:21:59.000Z",
+          "updatedAt": "2026-07-28T03:21:59.000Z",
+          "uid": "35240-79518274-3376-465a-aa5c-fec6c14adca0"
+        },
+        {
+          "name": "List People",
+          "id": "c33188ed-c05f-42ea-8e25-cd4b0b4d281b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/people?page=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "people"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Paginated index of every person on TVmaze (1000 per page)."
+          },
+          "response": [
+            {
+              "id": "4ef79e38-e875-473e-bd51-4ce96eaf9ff0",
+              "name": "Array of people.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/people?page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"country\": {\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"birthday\": \"<date>\",\n    \"deathday\": \"<date>\",\n    \"gender\": \"<string>\",\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"updated\": \"<long>\",\n    \"_links\": {\n      \"proident63\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"country\": {\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"birthday\": \"<date>\",\n    \"deathday\": \"<date>\",\n    \"gender\": \"<string>\",\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"updated\": \"<long>\",\n    \"_links\": {\n      \"nostrud303\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      },\n      \"quis7a6\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      },\n      \"deserunt48\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      },\n      \"nisif\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  }\n]",
+              "createdAt": "2026-07-28T03:21:59.000Z",
+              "updatedAt": "2026-07-28T03:21:59.000Z",
+              "uid": "35240-4ef79e38-e875-473e-bd51-4ce96eaf9ff0"
+            },
+            {
+              "id": "2d0c0b82-2cbd-4bca-a8ee-3bcdeda952c8",
+              "name": "Page out of range",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/people?page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:21:59.000Z",
+              "updatedAt": "2026-07-28T03:21:59.000Z",
+              "uid": "35240-2d0c0b82-2cbd-4bca-a8ee-3bcdeda952c8"
+            }
+          ],
+          "createdAt": "2026-07-28T03:21:59.000Z",
+          "updatedAt": "2026-07-28T03:21:59.000Z",
+          "uid": "35240-c33188ed-c05f-42ea-8e25-cd4b0b4d281b"
+        }
+      ],
+      "id": "ffa18372-92e8-4f4e-847b-dc7009d571ff",
+      "createdAt": "2026-07-28T03:21:59.000Z",
+      "updatedAt": "2026-07-28T03:21:59.000Z",
+      "uid": "35240-ffa18372-92e8-4f4e-847b-dc7009d571ff"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

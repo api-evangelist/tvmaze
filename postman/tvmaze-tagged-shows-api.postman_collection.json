@@ -1,0 +1,1077 @@
+{
+  "info": {
+    "_postman_id": "90f0b598-0f1e-40e9-a293-a9f0de82fb94",
+    "name": "TVmaze Premium User auth tagged shows API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:22:21.000Z",
+    "updatedAt": "2026-07-28T03:22:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-90f0b598-0f1e-40e9-a293-a9f0de82fb94"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "tags",
+          "item": [
+            {
+              "name": "{tag_id}",
+              "item": [
+                {
+                  "name": "shows",
+                  "item": [
+                    {
+                      "name": "{show_id}",
+                      "item": [
+                        {
+                          "name": "Untag a Show",
+                          "id": "3dc24043-4511-40fa-930d-f9ff15eeea5c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/tags/:tag_id/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "tags",
+                                ":tag_id",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ee1634ae-ca4e-459a-8636-504b7797c2c8",
+                                  "key": "tag_id",
+                                  "value": "<integer>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "7d9a88d9-6b68-4a15-98fd-f000c65d9a9a",
+                                  "key": "show_id",
+                                  "value": "<integer>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "f4d5ca94-398a-4ec0-930e-7b3d536191cf",
+                              "name": "The show was untagged",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/tags/:tag_id/shows/:show_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "tags",
+                                    ":tag_id",
+                                    "shows",
+                                    ":show_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "tag_id"
+                                    },
+                                    {
+                                      "key": "show_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:22:22.000Z",
+                              "updatedAt": "2026-07-28T03:22:22.000Z",
+                              "uid": "35240-f4d5ca94-398a-4ec0-930e-7b3d536191cf"
+                            },
+                            {
+                              "id": "143daecd-3117-4d4c-9b5e-706f2a60c0ec",
+                              "name": "The show was not tagged",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/tags/:tag_id/shows/:show_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "tags",
+                                    ":tag_id",
+                                    "shows",
+                                    ":show_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "tag_id"
+                                    },
+                                    {
+                                      "key": "show_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:22:22.000Z",
+                              "updatedAt": "2026-07-28T03:22:22.000Z",
+                              "uid": "35240-143daecd-3117-4d4c-9b5e-706f2a60c0ec"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:22:22.000Z",
+                          "updatedAt": "2026-07-28T03:22:22.000Z",
+                          "uid": "35240-3dc24043-4511-40fa-930d-f9ff15eeea5c"
+                        },
+                        {
+                          "name": "Tag a Show",
+                          "id": "d484c78f-339a-46b1-99da-62b05422ee85",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/tags/:tag_id/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "tags",
+                                ":tag_id",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "88de780c-f686-406c-b95c-e31c0641bd4e",
+                                  "key": "tag_id",
+                                  "value": "<integer>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "6d478d9e-2a5a-4742-bf7a-38f4a362b0bf",
+                                  "key": "show_id",
+                                  "value": "<integer>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "dc21c79a-34f0-42a9-b730-8ac4c260c7ef",
+                              "name": "The show was tagged",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/tags/:tag_id/shows/:show_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "tags",
+                                    ":tag_id",
+                                    "shows",
+                                    ":show_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "tag_id"
+                                    },
+                                    {
+                                      "key": "show_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"_embedded\": {\n    \"show\": {}\n  },\n  \"show_id\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T03:22:22.000Z",
+                              "updatedAt": "2026-07-28T03:22:22.000Z",
+                              "uid": "35240-dc21c79a-34f0-42a9-b730-8ac4c260c7ef"
+                            },
+                            {
+                              "id": "fd9e6bf2-39a1-499f-8a98-3eaaf805b3ad",
+                              "name": "The show or tag does not exist",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/tags/:tag_id/shows/:show_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "tags",
+                                    ":tag_id",
+                                    "shows",
+                                    ":show_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "tag_id"
+                                    },
+                                    {
+                                      "key": "show_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:22:22.000Z",
+                              "updatedAt": "2026-07-28T03:22:22.000Z",
+                              "uid": "35240-fd9e6bf2-39a1-499f-8a98-3eaaf805b3ad"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:22:22.000Z",
+                          "updatedAt": "2026-07-28T03:22:22.000Z",
+                          "uid": "35240-d484c78f-339a-46b1-99da-62b05422ee85"
+                        }
+                      ],
+                      "id": "2313c1a3-c928-4df6-bc7a-8ec9a0e16c22",
+                      "createdAt": "2026-07-28T03:22:22.000Z",
+                      "updatedAt": "2026-07-28T03:22:22.000Z",
+                      "uid": "35240-2313c1a3-c928-4df6-bc7a-8ec9a0e16c22"
+                    },
+                    {
+                      "name": "List All Shows Under This Tag",
+                      "id": "beec07a0-cb71-46ae-99a5-f948bebc7723",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/tags/:tag_id/shows?embed=show",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "tags",
+                            ":tag_id",
+                            "shows"
+                          ],
+                          "query": [
+                            {
+                              "description": "Embed full show info",
+                              "key": "embed",
+                              "value": "show"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "3ea0d81c-0a97-4552-b3ef-4d1026539d22",
+                              "key": "tag_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4a956149-3b3d-4d30-a93e-6e60ca37ec6d",
+                          "name": "A list of tagged shows",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/tags/:tag_id/shows?embed=show",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "tags",
+                                ":tag_id",
+                                "shows"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Embed full show info",
+                                  "key": "embed",
+                                  "value": "show"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "tag_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"_embedded\": {\n      \"show\": {}\n    },\n    \"show_id\": \"<integer>\"\n  },\n  {\n    \"_embedded\": {\n      \"show\": {}\n    },\n    \"show_id\": \"<integer>\"\n  }\n]",
+                          "createdAt": "2026-07-28T03:22:22.000Z",
+                          "updatedAt": "2026-07-28T03:22:22.000Z",
+                          "uid": "35240-4a956149-3b3d-4d30-a93e-6e60ca37ec6d"
+                        },
+                        {
+                          "id": "f0922226-1687-4083-aa16-e9c5a1551a0f",
+                          "name": "The tag does not exist",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/tags/:tag_id/shows?embed=show",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "tags",
+                                ":tag_id",
+                                "shows"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Embed full show info",
+                                  "key": "embed",
+                                  "value": "show"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "tag_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:22.000Z",
+                          "updatedAt": "2026-07-28T03:22:22.000Z",
+                          "uid": "35240-f0922226-1687-4083-aa16-e9c5a1551a0f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:22:22.000Z",
+                      "updatedAt": "2026-07-28T03:22:22.000Z",
+                      "uid": "35240-beec07a0-cb71-46ae-99a5-f948bebc7723"
+                    }
+                  ],
+                  "id": "40f7cec2-6075-4f8e-9efe-fbc387c63298",
+                  "createdAt": "2026-07-28T03:22:22.000Z",
+                  "updatedAt": "2026-07-28T03:22:22.000Z",
+                  "uid": "35240-40f7cec2-6075-4f8e-9efe-fbc387c63298"
+                },
+                {
+                  "name": "Delete a Specific Tag",
+                  "id": "c1c94758-e014-432f-88be-fbb34f35b1f6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/tags/:tag_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "tags",
+                        ":tag_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8ff627c3-c1dc-4c20-9d7a-5cf5d0185944",
+                          "key": "tag_id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "63ab2171-a0fa-4aef-9c2f-a63b06404e73",
+                      "name": "The tag was deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/tags/:tag_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "tags",
+                            ":tag_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tag_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:22:22.000Z",
+                      "updatedAt": "2026-07-28T03:22:22.000Z",
+                      "uid": "35240-63ab2171-a0fa-4aef-9c2f-a63b06404e73"
+                    },
+                    {
+                      "id": "a6def10d-9bd4-4257-bd3c-c4cfac6b7482",
+                      "name": "The tag does not exist",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/tags/:tag_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "tags",
+                            ":tag_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tag_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:22:22.000Z",
+                      "updatedAt": "2026-07-28T03:22:22.000Z",
+                      "uid": "35240-a6def10d-9bd4-4257-bd3c-c4cfac6b7482"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:22.000Z",
+                  "updatedAt": "2026-07-28T03:22:22.000Z",
+                  "uid": "35240-c1c94758-e014-432f-88be-fbb34f35b1f6"
+                },
+                {
+                  "name": "Update a Specific Tag",
+                  "id": "4b69ed63-3f3b-403f-95b7-e72ea81e8207",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/tags/:tag_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "tags",
+                        ":tag_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "08ccd555-999f-4948-b51c-6da8e2740138",
+                          "key": "tag_id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e90a864d-aabc-4548-806d-9a1b9db55bf3",
+                      "name": "The tag was updated",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/tags/:tag_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "tags",
+                            ":tag_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tag_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:22:22.000Z",
+                      "updatedAt": "2026-07-28T03:22:22.000Z",
+                      "uid": "35240-e90a864d-aabc-4548-806d-9a1b9db55bf3"
+                    },
+                    {
+                      "id": "30078791-96f5-4054-92a0-edc220bba387",
+                      "name": "The tag does not exist",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/tags/:tag_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "tags",
+                            ":tag_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tag_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:22:22.000Z",
+                      "updatedAt": "2026-07-28T03:22:22.000Z",
+                      "uid": "35240-30078791-96f5-4054-92a0-edc220bba387"
+                    },
+                    {
+                      "id": "65f07dbb-f0ba-4a18-896c-c66d521fed75",
+                      "name": "The tag could not be updated",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/tags/:tag_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "tags",
+                            ":tag_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tag_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:22:22.000Z",
+                      "updatedAt": "2026-07-28T03:22:22.000Z",
+                      "uid": "35240-65f07dbb-f0ba-4a18-896c-c66d521fed75"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:22.000Z",
+                  "updatedAt": "2026-07-28T03:22:22.000Z",
+                  "uid": "35240-4b69ed63-3f3b-403f-95b7-e72ea81e8207"
+                }
+              ],
+              "id": "9cb95636-1e85-48fd-9a4b-403f1a1876e0",
+              "createdAt": "2026-07-28T03:22:22.000Z",
+              "updatedAt": "2026-07-28T03:22:22.000Z",
+              "uid": "35240-9cb95636-1e85-48fd-9a4b-403f1a1876e0"
+            },
+            {
+              "name": "List All Tags",
+              "id": "b2012582-74c0-4573-967f-634aff70190a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/user/tags",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user",
+                    "tags"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f2b7e00c-051c-474a-bd69-e7b73be13aac",
+                  "name": "An array of tags",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "tags"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T03:22:22.000Z",
+                  "updatedAt": "2026-07-28T03:22:22.000Z",
+                  "uid": "35240-f2b7e00c-051c-474a-bd69-e7b73be13aac"
+                }
+              ],
+              "createdAt": "2026-07-28T03:22:22.000Z",
+              "updatedAt": "2026-07-28T03:22:22.000Z",
+              "uid": "35240-b2012582-74c0-4573-967f-634aff70190a"
+            },
+            {
+              "name": "Create a New Tag",
+              "id": "74ce5f9f-2963-4ec1-b5fe-241aa7cbf671",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user/tags",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user",
+                    "tags"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ffc2c559-ca63-4bdf-a9db-bd4ebd50d04a",
+                  "name": "The newly created tag",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "tags"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:22:22.000Z",
+                  "updatedAt": "2026-07-28T03:22:22.000Z",
+                  "uid": "35240-ffc2c559-ca63-4bdf-a9db-bd4ebd50d04a"
+                },
+                {
+                  "id": "581dceec-2bcf-405c-b8d5-6d09b4d3ef70",
+                  "name": "invalid input data",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "tags"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:22:22.000Z",
+                  "updatedAt": "2026-07-28T03:22:22.000Z",
+                  "uid": "35240-581dceec-2bcf-405c-b8d5-6d09b4d3ef70"
+                }
+              ],
+              "createdAt": "2026-07-28T03:22:22.000Z",
+              "updatedAt": "2026-07-28T03:22:22.000Z",
+              "uid": "35240-74ce5f9f-2963-4ec1-b5fe-241aa7cbf671"
+            }
+          ],
+          "id": "38c07b7e-95e6-46f3-9f90-7f222a241e05",
+          "createdAt": "2026-07-28T03:22:22.000Z",
+          "updatedAt": "2026-07-28T03:22:22.000Z",
+          "uid": "35240-38c07b7e-95e6-46f3-9f90-7f222a241e05"
+        }
+      ],
+      "id": "04a685dd-54d6-4925-a1f0-3c9240723def",
+      "createdAt": "2026-07-28T03:22:22.000Z",
+      "updatedAt": "2026-07-28T03:22:22.000Z",
+      "uid": "35240-04a685dd-54d6-4925-a1f0-3c9240723def"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,912 @@
+{
+  "info": {
+    "_postman_id": "97aef577-5061-4d14-9c0f-565d5eaeb676",
+    "name": "TVmaze Premium User auth scrobbling API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:22:17.000Z",
+    "updatedAt": "2026-07-28T03:22:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-97aef577-5061-4d14-9c0f-565d5eaeb676"
+  },
+  "item": [
+    {
+      "name": "scrobble",
+      "item": [
+        {
+          "name": "episodes",
+          "item": [
+            {
+              "name": "{episode_id}",
+              "item": [
+                {
+                  "name": "Mark an Episode as Acquired or Watched Based on Its ID",
+                  "id": "59769d35-4bf0-489b-9947-e2d6b1874ff9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scrobble/episodes/:episode_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scrobble",
+                        "episodes",
+                        ":episode_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "402c7f20-c802-456d-95f3-93433114f0bd",
+                          "key": "episode_id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "This endpoint can be used by all users, even without premium"
+                  },
+                  "response": [
+                    {
+                      "id": "67d3eece-2eb2-4412-8e65-d9081da81abc",
+                      "name": "this episode is now marked",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/scrobble/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "scrobble",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "episode_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:22:18.000Z",
+                      "updatedAt": "2026-07-28T03:22:18.000Z",
+                      "uid": "35240-67d3eece-2eb2-4412-8e65-d9081da81abc"
+                    },
+                    {
+                      "id": "5f063c9f-50e6-4a0c-9f4e-8e5643588787",
+                      "name": "this episode does not exist",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/scrobble/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "scrobble",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "episode_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:22:18.000Z",
+                      "updatedAt": "2026-07-28T03:22:18.000Z",
+                      "uid": "35240-5f063c9f-50e6-4a0c-9f4e-8e5643588787"
+                    },
+                    {
+                      "id": "f061f0b4-e58d-411f-980a-9193586eac8b",
+                      "name": "invalid input data",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/scrobble/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "scrobble",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "episode_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:22:18.000Z",
+                      "updatedAt": "2026-07-28T03:22:18.000Z",
+                      "uid": "35240-f061f0b4-e58d-411f-980a-9193586eac8b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:18.000Z",
+                  "updatedAt": "2026-07-28T03:22:18.000Z",
+                  "uid": "35240-59769d35-4bf0-489b-9947-e2d6b1874ff9"
+                }
+              ],
+              "id": "03b5a30a-7ce4-441e-8547-6ce012b9eac1",
+              "createdAt": "2026-07-28T03:22:18.000Z",
+              "updatedAt": "2026-07-28T03:22:18.000Z",
+              "uid": "35240-03b5a30a-7ce4-441e-8547-6ce012b9eac1"
+            },
+            {
+              "name": "Mark Episodes as Acquired or Watched Based on Their IDs",
+              "id": "9e263dbe-d88a-47c8-9f62-c4a2df69c56e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  },\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/scrobble/episodes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scrobble",
+                    "episodes"
+                  ]
+                },
+                "description": "This endpoint can be used by all users, even without premium"
+              },
+              "response": [
+                {
+                  "id": "e43f8046-25c6-45bd-8e87-22723b975b9d",
+                  "name": "All episodes were succesfully marked",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  },\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scrobble/episodes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scrobble",
+                        "episodes"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  },\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  }\n]",
+                  "createdAt": "2026-07-28T03:22:18.000Z",
+                  "updatedAt": "2026-07-28T03:22:18.000Z",
+                  "uid": "35240-e43f8046-25c6-45bd-8e87-22723b975b9d"
+                },
+                {
+                  "id": "f8640320-9dbe-4012-938f-8797095d73ba",
+                  "name": "Some episodes were succesfully marked, but there are errors",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  },\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scrobble/episodes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scrobble",
+                        "episodes"
+                      ]
+                    }
+                  },
+                  "status": "Multi-Status (WebDAV) (RFC 4918)",
+                  "code": 207,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  },\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  }\n]",
+                  "createdAt": "2026-07-28T03:22:18.000Z",
+                  "updatedAt": "2026-07-28T03:22:18.000Z",
+                  "uid": "35240-f8640320-9dbe-4012-938f-8797095d73ba"
+                },
+                {
+                  "id": "a0a1555c-21df-49f1-8d71-d8a85e4a34a1",
+                  "name": "None of the episodes were succesfully marked",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  },\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scrobble/episodes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scrobble",
+                        "episodes"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  },\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  }\n]",
+                  "createdAt": "2026-07-28T03:22:18.000Z",
+                  "updatedAt": "2026-07-28T03:22:18.000Z",
+                  "uid": "35240-a0a1555c-21df-49f1-8d71-d8a85e4a34a1"
+                }
+              ],
+              "createdAt": "2026-07-28T03:22:18.000Z",
+              "updatedAt": "2026-07-28T03:22:18.000Z",
+              "uid": "35240-9e263dbe-d88a-47c8-9f62-c4a2df69c56e"
+            }
+          ],
+          "id": "1624faaa-baf7-48d9-ae62-7c14557db3b7",
+          "createdAt": "2026-07-28T03:22:18.000Z",
+          "updatedAt": "2026-07-28T03:22:18.000Z",
+          "uid": "35240-1624faaa-baf7-48d9-ae62-7c14557db3b7"
+        },
+        {
+          "name": "shows",
+          "item": [
+            {
+              "name": "{show_id}",
+              "item": [
+                {
+                  "name": "List Watched and Acquired Episodes for a Show",
+                  "id": "291e2763-4217-4e7b-81b1-684ec3ff9fc5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/scrobble/shows/:show_id?embed=episode",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scrobble",
+                        "shows",
+                        ":show_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Embed full episode info",
+                          "key": "embed",
+                          "value": "episode"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "5ecf3817-eb31-41b2-b56f-ea1814494d2c",
+                          "key": "show_id",
+                          "value": "<integer>",
+                          "description": "(Required) ID of the target show"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint can be used by all users, even without premium"
+                  },
+                  "response": [
+                    {
+                      "id": "3294e19f-00b9-4da5-8c98-db27d869dfe7",
+                      "name": "An array of marked episodes",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/scrobble/shows/:show_id?embed=episode",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "scrobble",
+                            "shows",
+                            ":show_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Embed full episode info",
+                              "key": "embed",
+                              "value": "episode"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "show_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"_embedded\": {\n      \"episode\": {}\n    },\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  },\n  {\n    \"_embedded\": {\n      \"episode\": {}\n    },\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:18.000Z",
+                      "updatedAt": "2026-07-28T03:22:18.000Z",
+                      "uid": "35240-3294e19f-00b9-4da5-8c98-db27d869dfe7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:18.000Z",
+                  "updatedAt": "2026-07-28T03:22:18.000Z",
+                  "uid": "35240-291e2763-4217-4e7b-81b1-684ec3ff9fc5"
+                }
+              ],
+              "id": "fb79240c-1dfd-405c-93c5-c39be07ed5d6",
+              "createdAt": "2026-07-28T03:22:18.000Z",
+              "updatedAt": "2026-07-28T03:22:18.000Z",
+              "uid": "35240-fb79240c-1dfd-405c-93c5-c39be07ed5d6"
+            },
+            {
+              "name": "Mark Episodes Within a Show as Acquired or Watched Based on Their Attributes",
+              "id": "96a1389f-9e4d-4d3c-b341-7c9faa588071",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  },\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/scrobble/shows?tvmaze_id=<integer>&thetvdb_id=<integer>&imdb_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scrobble",
+                    "shows"
+                  ],
+                  "query": [
+                    {
+                      "description": "The show's TVmaze ID",
+                      "key": "tvmaze_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The show's TheTVDB ID",
+                      "key": "thetvdb_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The show's IMDB ID",
+                      "key": "imdb_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "To specify a show, supply either `tvmaze_id`, `thetvdb_id` or `imdb_id`. To specify an episode, supply either both `season` and `episode`, or `airdate`.\n\nThis endpoint can be used by all users, even without premium.\n"
+              },
+              "response": [
+                {
+                  "id": "5090757a-71c5-4d6f-ab45-12726bb29b02",
+                  "name": "All episodes were succesfully marked",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  },\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scrobble/shows?tvmaze_id=<integer>&thetvdb_id=<integer>&imdb_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scrobble",
+                        "shows"
+                      ],
+                      "query": [
+                        {
+                          "description": "The show's TVmaze ID",
+                          "key": "tvmaze_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The show's TheTVDB ID",
+                          "key": "thetvdb_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The show's IMDB ID",
+                          "key": "imdb_id",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  },\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  }\n]",
+                  "createdAt": "2026-07-28T03:22:18.000Z",
+                  "updatedAt": "2026-07-28T03:22:18.000Z",
+                  "uid": "35240-5090757a-71c5-4d6f-ab45-12726bb29b02"
+                },
+                {
+                  "id": "f38eb54c-786d-4f56-9908-548d16acf869",
+                  "name": "Some episodes were succesfully marked, but there are errors",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  },\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scrobble/shows?tvmaze_id=<integer>&thetvdb_id=<integer>&imdb_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scrobble",
+                        "shows"
+                      ],
+                      "query": [
+                        {
+                          "description": "The show's TVmaze ID",
+                          "key": "tvmaze_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The show's TheTVDB ID",
+                          "key": "thetvdb_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The show's IMDB ID",
+                          "key": "imdb_id",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Multi-Status (WebDAV) (RFC 4918)",
+                  "code": 207,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  },\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  }\n]",
+                  "createdAt": "2026-07-28T03:22:18.000Z",
+                  "updatedAt": "2026-07-28T03:22:18.000Z",
+                  "uid": "35240-f38eb54c-786d-4f56-9908-548d16acf869"
+                },
+                {
+                  "id": "6c2d8071-e3f7-4eeb-8717-448293b2a9c4",
+                  "name": "None of the episodes were succesfully marked",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  },\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scrobble/shows?tvmaze_id=<integer>&thetvdb_id=<integer>&imdb_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scrobble",
+                        "shows"
+                      ],
+                      "query": [
+                        {
+                          "description": "The show's TVmaze ID",
+                          "key": "tvmaze_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The show's TheTVDB ID",
+                          "key": "thetvdb_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The show's IMDB ID",
+                          "key": "imdb_id",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  },\n  {\n    \"code\": \"<integer>\",\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"<string>\",\n    \"result\": {}\n  }\n]",
+                  "createdAt": "2026-07-28T03:22:18.000Z",
+                  "updatedAt": "2026-07-28T03:22:18.000Z",
+                  "uid": "35240-6c2d8071-e3f7-4eeb-8717-448293b2a9c4"
+                }
+              ],
+              "createdAt": "2026-07-28T03:22:18.000Z",
+              "updatedAt": "2026-07-28T03:22:18.000Z",
+              "uid": "35240-96a1389f-9e4d-4d3c-b341-7c9faa588071"
+            }
+          ],
+          "id": "3c9182b6-7e9f-4bf3-b9c7-e4b89d2394cf",
+          "createdAt": "2026-07-28T03:22:18.000Z",
+          "updatedAt": "2026-07-28T03:22:18.000Z",
+          "uid": "35240-3c9182b6-7e9f-4bf3-b9c7-e4b89d2394cf"
+        }
+      ],
+      "id": "9334293c-4830-4321-bd91-488b0f49868c",
+      "createdAt": "2026-07-28T03:22:18.000Z",
+      "updatedAt": "2026-07-28T03:22:18.000Z",
+      "uid": "35240-9334293c-4830-4321-bd91-488b0f49868c"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

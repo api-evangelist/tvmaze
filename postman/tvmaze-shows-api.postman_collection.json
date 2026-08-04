@@ -1,0 +1,1267 @@
+{
+  "info": {
+    "_postman_id": "4d384904-96a0-477b-9c75-684ef247eb62",
+    "name": "TVmaze Premium User auth Shows API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:22:20.000Z",
+    "updatedAt": "2026-07-28T03:22:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4d384904-96a0-477b-9c75-684ef247eb62"
+  },
+  "item": [
+    {
+      "name": "shows",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "episodes",
+              "item": [
+                {
+                  "name": "Get Show Episodes",
+                  "id": "ed151535-baa9-4aa8-9583-c3e1cf1165dc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id/episodes?specials=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id",
+                        "episodes"
+                      ],
+                      "query": [
+                        {
+                          "key": "specials",
+                          "value": "0"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "a82894ae-2e58-485d-b7e6-e2aec66d8790",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) TVmaze show identifier."
+                        }
+                      ]
+                    },
+                    "description": "List every episode of a show, optionally including specials."
+                  },
+                  "response": [
+                    {
+                      "id": "8f3293f4-7d47-4515-a6ba-24ec2f5bf568",
+                      "name": "Array of episodes.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shows/:id/episodes?specials=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shows",
+                            ":id",
+                            "episodes"
+                          ],
+                          "query": [
+                            {
+                              "key": "specials",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"season\": \"<integer>\",\n    \"number\": \"<integer>\",\n    \"type\": \"<string>\",\n    \"airdate\": \"<date>\",\n    \"airtime\": \"<string>\",\n    \"airstamp\": \"<dateTime>\",\n    \"runtime\": \"<integer>\",\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"eiusmod__\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"season\": \"<integer>\",\n    \"number\": \"<integer>\",\n    \"type\": \"<string>\",\n    \"airdate\": \"<date>\",\n    \"airtime\": \"<string>\",\n    \"airstamp\": \"<dateTime>\",\n    \"runtime\": \"<integer>\",\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"commodoa1e\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      },\n      \"commodo_a3e\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:20.000Z",
+                      "updatedAt": "2026-07-28T03:22:20.000Z",
+                      "uid": "35240-8f3293f4-7d47-4515-a6ba-24ec2f5bf568"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-ed151535-baa9-4aa8-9583-c3e1cf1165dc"
+                }
+              ],
+              "id": "34407c8c-708d-4f72-871c-8cb5b7d14294",
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-34407c8c-708d-4f72-871c-8cb5b7d14294"
+            },
+            {
+              "name": "episodebynumber",
+              "item": [
+                {
+                  "name": "Get Show Episode By Number",
+                  "id": "a3171bf7-0b4a-44ce-8073-01ad345d5de3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id/episodebynumber?season=<integer>&number=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id",
+                        "episodebynumber"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "season",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "number",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "1085f212-9a2c-4d00-acdc-411a8f60b6b3",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) TVmaze show identifier."
+                        }
+                      ]
+                    },
+                    "description": "Return the specific episode for a show by season and episode number."
+                  },
+                  "response": [
+                    {
+                      "id": "5e23b8b4-e1b6-4ee0-951a-fb4d9c78f106",
+                      "name": "Episode record.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shows/:id/episodebynumber?season=<integer>&number=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shows",
+                            ":id",
+                            "episodebynumber"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "season",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "number",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"season\": \"<integer>\",\n  \"number\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"airdate\": \"<date>\",\n  \"airtime\": \"<string>\",\n  \"airstamp\": \"<dateTime>\",\n  \"runtime\": \"<integer>\",\n  \"rating\": {\n    \"average\": \"<number>\"\n  },\n  \"image\": {\n    \"medium\": \"<uri>\",\n    \"original\": \"<uri>\"\n  },\n  \"summary\": \"<string>\",\n  \"_links\": {\n    \"in__f4\": {\n      \"href\": \"<uri>\",\n      \"name\": \"<string>\"\n    },\n    \"eu_45\": {\n      \"href\": \"<uri>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T03:22:20.000Z",
+                      "updatedAt": "2026-07-28T03:22:20.000Z",
+                      "uid": "35240-5e23b8b4-e1b6-4ee0-951a-fb4d9c78f106"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-a3171bf7-0b4a-44ce-8073-01ad345d5de3"
+                }
+              ],
+              "id": "d263c517-84a5-4e4b-a0f7-0b0294d836f8",
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-d263c517-84a5-4e4b-a0f7-0b0294d836f8"
+            },
+            {
+              "name": "episodesbydate",
+              "item": [
+                {
+                  "name": "Get Show Episodes By Date",
+                  "id": "4e0d4cdc-cb89-4665-a69e-d02647740cd6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id/episodesbydate?date=<date>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id",
+                        "episodesbydate"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "date",
+                          "value": "<date>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "fc046da1-8550-45f9-8351-3cc6644f6a3e",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) TVmaze show identifier."
+                        }
+                      ]
+                    },
+                    "description": "Return episodes that aired on a specific date for a show."
+                  },
+                  "response": [
+                    {
+                      "id": "0a2611a9-a863-45f8-aa10-523cc278c94f",
+                      "name": "Array of episodes.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shows/:id/episodesbydate?date=<date>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shows",
+                            ":id",
+                            "episodesbydate"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "date",
+                              "value": "<date>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"season\": \"<integer>\",\n    \"number\": \"<integer>\",\n    \"type\": \"<string>\",\n    \"airdate\": \"<date>\",\n    \"airtime\": \"<string>\",\n    \"airstamp\": \"<dateTime>\",\n    \"runtime\": \"<integer>\",\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"eiusmod__\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"season\": \"<integer>\",\n    \"number\": \"<integer>\",\n    \"type\": \"<string>\",\n    \"airdate\": \"<date>\",\n    \"airtime\": \"<string>\",\n    \"airstamp\": \"<dateTime>\",\n    \"runtime\": \"<integer>\",\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"commodoa1e\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      },\n      \"commodo_a3e\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:20.000Z",
+                      "updatedAt": "2026-07-28T03:22:20.000Z",
+                      "uid": "35240-0a2611a9-a863-45f8-aa10-523cc278c94f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-4e0d4cdc-cb89-4665-a69e-d02647740cd6"
+                }
+              ],
+              "id": "09b54268-7244-44e2-b053-31d61ed1794d",
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-09b54268-7244-44e2-b053-31d61ed1794d"
+            },
+            {
+              "name": "seasons",
+              "item": [
+                {
+                  "name": "Get Show Seasons",
+                  "id": "99a3e3a9-9f6d-41e1-8cca-2eb3fb2a8471",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id/seasons",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id",
+                        "seasons"
+                      ],
+                      "variable": [
+                        {
+                          "id": "34cd133a-5c87-4f4e-b5ef-1dfa4ad43a23",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) TVmaze show identifier."
+                        }
+                      ]
+                    },
+                    "description": "Return the list of seasons for a show."
+                  },
+                  "response": [
+                    {
+                      "id": "1c3f5b45-6de6-4666-bec7-051bf255ae1d",
+                      "name": "Array of seasons.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shows/:id/seasons",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shows",
+                            ":id",
+                            "seasons"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"number\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"episodeOrder\": \"<integer>\",\n    \"premiereDate\": \"<date>\",\n    \"endDate\": \"<date>\",\n    \"network\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"officialSite\": \"<string>\"\n    },\n    \"webChannel\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"officialSite\": \"<string>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"irure5\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      },\n      \"ex_51\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"number\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"episodeOrder\": \"<integer>\",\n    \"premiereDate\": \"<date>\",\n    \"endDate\": \"<date>\",\n    \"network\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"officialSite\": \"<string>\"\n    },\n    \"webChannel\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"officialSite\": \"<string>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"cupidatat0e4\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:20.000Z",
+                      "updatedAt": "2026-07-28T03:22:20.000Z",
+                      "uid": "35240-1c3f5b45-6de6-4666-bec7-051bf255ae1d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-99a3e3a9-9f6d-41e1-8cca-2eb3fb2a8471"
+                }
+              ],
+              "id": "b79b4f15-0253-4874-bcc3-8df68741b1c6",
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-b79b4f15-0253-4874-bcc3-8df68741b1c6"
+            },
+            {
+              "name": "cast",
+              "item": [
+                {
+                  "name": "Get Show Cast",
+                  "id": "0df43660-a771-424f-89a1-4e6d9733863a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id/cast",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id",
+                        "cast"
+                      ],
+                      "variable": [
+                        {
+                          "id": "285ce71f-023c-4732-887c-37a0977d2834",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) TVmaze show identifier."
+                        }
+                      ]
+                    },
+                    "description": "Return the main cast of a show."
+                  },
+                  "response": [
+                    {
+                      "id": "f527e343-2160-4508-8727-3e009ab2d7c7",
+                      "name": "Array of cast entries.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shows/:id/cast",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shows",
+                            ":id",
+                            "cast"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"person\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"birthday\": \"<date>\",\n      \"deathday\": \"<date>\",\n      \"gender\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"updated\": \"<long>\",\n      \"_links\": {\n        \"ipsum2\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        },\n        \"elit1\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    },\n    \"character\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"_links\": {\n        \"magna42\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        },\n        \"consectetur_01\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        },\n        \"ad_1\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    },\n    \"self\": \"<boolean>\",\n    \"voice\": \"<boolean>\"\n  },\n  {\n    \"person\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"birthday\": \"<date>\",\n      \"deathday\": \"<date>\",\n      \"gender\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"updated\": \"<long>\",\n      \"_links\": {\n        \"labore_c0\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    },\n    \"character\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"_links\": {\n        \"ea_3cb\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    },\n    \"self\": \"<boolean>\",\n    \"voice\": \"<boolean>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:20.000Z",
+                      "updatedAt": "2026-07-28T03:22:20.000Z",
+                      "uid": "35240-f527e343-2160-4508-8727-3e009ab2d7c7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-0df43660-a771-424f-89a1-4e6d9733863a"
+                }
+              ],
+              "id": "c5ebe8b7-aef5-4f49-929e-4fe7eac81145",
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-c5ebe8b7-aef5-4f49-929e-4fe7eac81145"
+            },
+            {
+              "name": "crew",
+              "item": [
+                {
+                  "name": "Get Show Crew",
+                  "id": "b43fd672-a7f0-469b-947c-a876a0f4e4c3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id/crew",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id",
+                        "crew"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b3257b2b-29bc-451f-99c7-330c7de86a7d",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) TVmaze show identifier."
+                        }
+                      ]
+                    },
+                    "description": "Return the crew of a show."
+                  },
+                  "response": [
+                    {
+                      "id": "fcf6f39d-0d2c-4eb5-9986-7e9f79e9c170",
+                      "name": "Array of crew entries.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shows/:id/crew",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shows",
+                            ":id",
+                            "crew"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"type\": \"<string>\",\n    \"person\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"birthday\": \"<date>\",\n      \"deathday\": \"<date>\",\n      \"gender\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"updated\": \"<long>\",\n      \"_links\": {\n        \"nullad9\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    }\n  },\n  {\n    \"type\": \"<string>\",\n    \"person\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"birthday\": \"<date>\",\n      \"deathday\": \"<date>\",\n      \"gender\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"updated\": \"<long>\",\n      \"_links\": {\n        \"non_5\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        },\n        \"cillumf\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:20.000Z",
+                      "updatedAt": "2026-07-28T03:22:20.000Z",
+                      "uid": "35240-fcf6f39d-0d2c-4eb5-9986-7e9f79e9c170"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-b43fd672-a7f0-469b-947c-a876a0f4e4c3"
+                }
+              ],
+              "id": "19a06b9a-1eea-404c-b588-12cc2749dbd1",
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-19a06b9a-1eea-404c-b588-12cc2749dbd1"
+            },
+            {
+              "name": "akas",
+              "item": [
+                {
+                  "name": "Get Show Akas",
+                  "id": "e5832baa-9158-4f70-a646-e72a7cd7a3b0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id/akas",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id",
+                        "akas"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0cc84c70-000a-4f9c-bfd0-87e9d88dd9a8",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) TVmaze show identifier."
+                        }
+                      ]
+                    },
+                    "description": "Return alternate titles (also-known-as) for a show."
+                  },
+                  "response": [
+                    {
+                      "id": "6a1c502d-08af-4cf1-8e9e-83616e48d35f",
+                      "name": "Array of aliases.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shows/:id/akas",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shows",
+                            ":id",
+                            "akas"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"name\": \"<string>\",\n    \"country\": {\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"timezone\": \"<string>\"\n    }\n  },\n  {\n    \"name\": \"<string>\",\n    \"country\": {\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"timezone\": \"<string>\"\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:20.000Z",
+                      "updatedAt": "2026-07-28T03:22:20.000Z",
+                      "uid": "35240-6a1c502d-08af-4cf1-8e9e-83616e48d35f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-e5832baa-9158-4f70-a646-e72a7cd7a3b0"
+                }
+              ],
+              "id": "4d11bac2-904c-4f96-94ee-53b268f9df9a",
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-4d11bac2-904c-4f96-94ee-53b268f9df9a"
+            },
+            {
+              "name": "images",
+              "item": [
+                {
+                  "name": "Get Show Images",
+                  "id": "6fa3486a-23a9-43db-837d-9c8988a7e118",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id/images",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id",
+                        "images"
+                      ],
+                      "variable": [
+                        {
+                          "id": "be3db39a-7ec0-4533-ae4b-04da9a53465c",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) TVmaze show identifier."
+                        }
+                      ]
+                    },
+                    "description": "Return image assets associated with a show."
+                  },
+                  "response": [
+                    {
+                      "id": "eed41aa2-f3d1-4e97-b833-eb06c55ea82c",
+                      "name": "Array of images.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shows/:id/images",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shows",
+                            ":id",
+                            "images"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"medium\": \"<uri>\",\n    \"original\": \"<uri>\"\n  },\n  {\n    \"medium\": \"<uri>\",\n    \"original\": \"<uri>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:20.000Z",
+                      "updatedAt": "2026-07-28T03:22:20.000Z",
+                      "uid": "35240-eed41aa2-f3d1-4e97-b833-eb06c55ea82c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-6fa3486a-23a9-43db-837d-9c8988a7e118"
+                }
+              ],
+              "id": "9df7d178-4ca7-48c0-b54e-5d1585a4d7c0",
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-9df7d178-4ca7-48c0-b54e-5d1585a4d7c0"
+            },
+            {
+              "name": "alternatelists",
+              "item": [
+                {
+                  "name": "Get Show Alternate Lists",
+                  "id": "6ea0685a-f826-4663-bbc2-0092739bcaaa",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id/alternatelists",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id",
+                        "alternatelists"
+                      ],
+                      "variable": [
+                        {
+                          "id": "31196ed9-2981-405f-a15e-838aa362fbe7",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) TVmaze show identifier."
+                        }
+                      ]
+                    },
+                    "description": "Return alternate episode orderings for a show."
+                  },
+                  "response": [
+                    {
+                      "id": "6f367fff-ff94-4637-bede-4b544df6b76e",
+                      "name": "Array of alternate-list metadata.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shows/:id/alternatelists",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shows",
+                            ":id",
+                            "alternatelists"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"reprehenderit6\": false,\n    \"eua\": -66191321\n  },\n  {\n    \"culpa8a\": false,\n    \"adipisicingda4\": \"cupidatat non dolore eiusmod ad\",\n    \"incididunt_c\": false\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:20.000Z",
+                      "updatedAt": "2026-07-28T03:22:20.000Z",
+                      "uid": "35240-6f367fff-ff94-4637-bede-4b544df6b76e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-6ea0685a-f826-4663-bbc2-0092739bcaaa"
+                }
+              ],
+              "id": "6c06294a-af74-4ee0-a217-029343f3e1ef",
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-6c06294a-af74-4ee0-a217-029343f3e1ef"
+            },
+            {
+              "name": "Get Show",
+              "id": "7db0f74e-1f79-4c27-82ab-23bc15476af8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/shows/:id?embed=nextepisode&embed=previousepisode",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shows",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "key": "embed",
+                      "value": "nextepisode"
+                    },
+                    {
+                      "key": "embed",
+                      "value": "previousepisode"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "be3fcf48-3d1d-4cd0-91a5-767bdd47fb11",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) TVmaze show identifier."
+                    }
+                  ]
+                },
+                "description": "Return a single show, optionally embedding related resources."
+              },
+              "response": [
+                {
+                  "id": "bbf4fb34-3848-4cbc-acf8-8911fcecd8d5",
+                  "name": "Show record.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id?embed=previousepisode",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "key": "embed",
+                          "value": "previousepisode"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"language\": \"<string>\",\n  \"genres\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\",\n  \"runtime\": \"<integer>\",\n  \"averageRuntime\": \"<integer>\",\n  \"premiered\": \"<date>\",\n  \"ended\": \"<date>\",\n  \"officialSite\": \"<string>\",\n  \"schedule\": {\n    \"time\": \"<string>\",\n    \"days\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"rating\": {\n    \"average\": \"<number>\"\n  },\n  \"weight\": \"<integer>\",\n  \"network\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"country\": {\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"officialSite\": \"<string>\"\n  },\n  \"webChannel\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"country\": {\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"officialSite\": \"<string>\"\n  },\n  \"dvdCountry\": {\n    \"name\": \"<string>\",\n    \"code\": \"<string>\",\n    \"timezone\": \"<string>\"\n  },\n  \"externals\": {\n    \"tvrage\": \"<integer>\",\n    \"thetvdb\": \"<integer>\",\n    \"imdb\": \"<string>\"\n  },\n  \"image\": {\n    \"medium\": \"<uri>\",\n    \"original\": \"<uri>\"\n  },\n  \"summary\": \"<string>\",\n  \"updated\": \"<long>\",\n  \"_links\": {\n    \"ex_ea8\": {\n      \"href\": \"<uri>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-bbf4fb34-3848-4cbc-acf8-8911fcecd8d5"
+                },
+                {
+                  "id": "16b5f64d-8245-4188-8b65-b54d88bbdbe7",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shows/:id?embed=previousepisode",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shows",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "key": "embed",
+                          "value": "previousepisode"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:22:20.000Z",
+                  "updatedAt": "2026-07-28T03:22:20.000Z",
+                  "uid": "35240-16b5f64d-8245-4188-8b65-b54d88bbdbe7"
+                }
+              ],
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-7db0f74e-1f79-4c27-82ab-23bc15476af8"
+            }
+          ],
+          "id": "277be7f6-4c7f-48c9-934b-827fd59b51d7",
+          "createdAt": "2026-07-28T03:22:20.000Z",
+          "updatedAt": "2026-07-28T03:22:20.000Z",
+          "uid": "35240-277be7f6-4c7f-48c9-934b-827fd59b51d7"
+        },
+        {
+          "name": "List Shows",
+          "id": "9462d432-6bb9-4822-b2b7-59abfd38c7f8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/shows?page=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shows"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Paginated index of every show on TVmaze (250 per page)."
+          },
+          "response": [
+            {
+              "id": "71e393fa-1841-4444-96a0-f5ce92f38579",
+              "name": "Array of shows for the requested page.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/shows?page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shows"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"language\": \"<string>\",\n    \"genres\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"status\": \"<string>\",\n    \"runtime\": \"<integer>\",\n    \"averageRuntime\": \"<integer>\",\n    \"premiered\": \"<date>\",\n    \"ended\": \"<date>\",\n    \"officialSite\": \"<string>\",\n    \"schedule\": {\n      \"time\": \"<string>\",\n      \"days\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"weight\": \"<integer>\",\n    \"network\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"officialSite\": \"<string>\"\n    },\n    \"webChannel\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"officialSite\": \"<string>\"\n    },\n    \"dvdCountry\": {\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"externals\": {\n      \"tvrage\": \"<integer>\",\n      \"thetvdb\": \"<integer>\",\n      \"imdb\": \"<string>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"updated\": \"<long>\",\n    \"_links\": {\n      \"ea41\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"language\": \"<string>\",\n    \"genres\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"status\": \"<string>\",\n    \"runtime\": \"<integer>\",\n    \"averageRuntime\": \"<integer>\",\n    \"premiered\": \"<date>\",\n    \"ended\": \"<date>\",\n    \"officialSite\": \"<string>\",\n    \"schedule\": {\n      \"time\": \"<string>\",\n      \"days\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"weight\": \"<integer>\",\n    \"network\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"officialSite\": \"<string>\"\n    },\n    \"webChannel\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"officialSite\": \"<string>\"\n    },\n    \"dvdCountry\": {\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"externals\": {\n      \"tvrage\": \"<integer>\",\n      \"thetvdb\": \"<integer>\",\n      \"imdb\": \"<string>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"updated\": \"<long>\",\n    \"_links\": {\n      \"dolorde0\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  }\n]",
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-71e393fa-1841-4444-96a0-f5ce92f38579"
+            },
+            {
+              "id": "8ddf865b-507d-4245-a385-1d6c62407bb6",
+              "name": "Page out of range",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/shows?page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shows"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:22:20.000Z",
+              "updatedAt": "2026-07-28T03:22:20.000Z",
+              "uid": "35240-8ddf865b-507d-4245-a385-1d6c62407bb6"
+            }
+          ],
+          "createdAt": "2026-07-28T03:22:20.000Z",
+          "updatedAt": "2026-07-28T03:22:20.000Z",
+          "uid": "35240-9462d432-6bb9-4822-b2b7-59abfd38c7f8"
+        }
+      ],
+      "id": "0df247cf-43b5-4e69-bfd5-8f3fc9cf9b1a",
+      "createdAt": "2026-07-28T03:22:20.000Z",
+      "updatedAt": "2026-07-28T03:22:20.000Z",
+      "uid": "35240-0df247cf-43b5-4e69-bfd5-8f3fc9cf9b1a"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,543 @@
+{
+  "info": {
+    "_postman_id": "a75f7427-d2ba-430c-b263-49125fcb532b",
+    "name": "TVmaze Premium User auth followed webchannels API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:57.000Z",
+    "updatedAt": "2026-07-28T03:20:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a75f7427-d2ba-430c-b263-49125fcb532b"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "follows",
+          "item": [
+            {
+              "name": "webchannels",
+              "item": [
+                {
+                  "name": "{webchannel_id}",
+                  "item": [
+                    {
+                      "name": "Unfollow a Webchannel",
+                      "id": "f440660f-13da-42f1-b808-f73ac86bebfc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/webchannels/:webchannel_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "webchannels",
+                            ":webchannel_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "78738166-a222-4100-8113-9dbfcee22ce2",
+                              "key": "webchannel_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "bc63ee8f-39f1-421e-96b7-87ef12e33e77",
+                          "name": "the webchannel is now unfollowed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/webchannels/:webchannel_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "webchannels",
+                                ":webchannel_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "webchannel_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:57.000Z",
+                          "updatedAt": "2026-07-28T03:20:57.000Z",
+                          "uid": "35240-bc63ee8f-39f1-421e-96b7-87ef12e33e77"
+                        },
+                        {
+                          "id": "734b229a-3986-408a-8264-d6a4a04e519e",
+                          "name": "this webchannel was not followed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/webchannels/:webchannel_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "webchannels",
+                                ":webchannel_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "webchannel_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:57.000Z",
+                          "updatedAt": "2026-07-28T03:20:57.000Z",
+                          "uid": "35240-734b229a-3986-408a-8264-d6a4a04e519e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:57.000Z",
+                      "updatedAt": "2026-07-28T03:20:57.000Z",
+                      "uid": "35240-f440660f-13da-42f1-b808-f73ac86bebfc"
+                    },
+                    {
+                      "name": "Check if a Webchannel is Followed",
+                      "id": "e589c5f6-8317-44e3-9767-6e18cfc6a912",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/webchannels/:webchannel_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "webchannels",
+                            ":webchannel_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "27819a42-e7c4-4c6e-87eb-34b562189fbf",
+                              "key": "webchannel_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1fec6f5a-1f29-411e-a22a-22c31c64795b",
+                          "name": "The followed webchannel",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/webchannels/:webchannel_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "webchannels",
+                                ":webchannel_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "webchannel_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"_embedded\": {\n    \"webchannel\": {}\n  },\n  \"webchannel_id\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:20:57.000Z",
+                          "updatedAt": "2026-07-28T03:20:57.000Z",
+                          "uid": "35240-1fec6f5a-1f29-411e-a22a-22c31c64795b"
+                        },
+                        {
+                          "id": "93df7466-1c66-4bb3-898d-0a7039b97183",
+                          "name": "this webchannel is not followed",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/webchannels/:webchannel_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "webchannels",
+                                ":webchannel_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "webchannel_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:57.000Z",
+                          "updatedAt": "2026-07-28T03:20:57.000Z",
+                          "uid": "35240-93df7466-1c66-4bb3-898d-0a7039b97183"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:57.000Z",
+                      "updatedAt": "2026-07-28T03:20:57.000Z",
+                      "uid": "35240-e589c5f6-8317-44e3-9767-6e18cfc6a912"
+                    },
+                    {
+                      "name": "Follow a Webchannel",
+                      "id": "61382708-4e1f-4b88-90c1-1af6305dc337",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/webchannels/:webchannel_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "webchannels",
+                            ":webchannel_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ceff272a-1382-40e8-9145-8431b9a9027e",
+                              "key": "webchannel_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2c72d1e9-3c1c-40a6-9655-cb281b5bfb32",
+                          "name": "this webchannel is now followed",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/webchannels/:webchannel_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "webchannels",
+                                ":webchannel_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "webchannel_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"_embedded\": {\n    \"webchannel\": {}\n  },\n  \"webchannel_id\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:20:57.000Z",
+                          "updatedAt": "2026-07-28T03:20:57.000Z",
+                          "uid": "35240-2c72d1e9-3c1c-40a6-9655-cb281b5bfb32"
+                        },
+                        {
+                          "id": "c321012f-798c-47ef-8667-9dba7b17848a",
+                          "name": "this webchannel does not exist",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/webchannels/:webchannel_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "webchannels",
+                                ":webchannel_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "webchannel_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:57.000Z",
+                          "updatedAt": "2026-07-28T03:20:57.000Z",
+                          "uid": "35240-c321012f-798c-47ef-8667-9dba7b17848a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:57.000Z",
+                      "updatedAt": "2026-07-28T03:20:57.000Z",
+                      "uid": "35240-61382708-4e1f-4b88-90c1-1af6305dc337"
+                    }
+                  ],
+                  "id": "56407154-7a74-4480-9012-af8d4a7e9ded",
+                  "createdAt": "2026-07-28T03:20:57.000Z",
+                  "updatedAt": "2026-07-28T03:20:57.000Z",
+                  "uid": "35240-56407154-7a74-4480-9012-af8d4a7e9ded"
+                },
+                {
+                  "name": "List the Followed Webchannels",
+                  "id": "01451ceb-0f32-4868-b4fb-e6327787e623",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/follows/webchannels?embed=webchannel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "follows",
+                        "webchannels"
+                      ],
+                      "query": [
+                        {
+                          "description": "Embed full webchannel info",
+                          "key": "embed",
+                          "value": "webchannel"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "540d3240-861c-432d-8ee4-d3b6382fdc95",
+                      "name": "An array of followed webchannels",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/webchannels?embed=webchannel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "webchannels"
+                          ],
+                          "query": [
+                            {
+                              "description": "Embed full webchannel info",
+                              "key": "embed",
+                              "value": "webchannel"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"_embedded\": {\n      \"webchannel\": {}\n    },\n    \"webchannel_id\": \"<integer>\"\n  },\n  {\n    \"_embedded\": {\n      \"webchannel\": {}\n    },\n    \"webchannel_id\": \"<integer>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:20:57.000Z",
+                      "updatedAt": "2026-07-28T03:20:57.000Z",
+                      "uid": "35240-540d3240-861c-432d-8ee4-d3b6382fdc95"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:57.000Z",
+                  "updatedAt": "2026-07-28T03:20:57.000Z",
+                  "uid": "35240-01451ceb-0f32-4868-b4fb-e6327787e623"
+                }
+              ],
+              "id": "5bc7678d-9413-4e44-83c6-a0a40b9acfd7",
+              "createdAt": "2026-07-28T03:20:57.000Z",
+              "updatedAt": "2026-07-28T03:20:57.000Z",
+              "uid": "35240-5bc7678d-9413-4e44-83c6-a0a40b9acfd7"
+            }
+          ],
+          "id": "6824b72a-70d7-4a97-8a8b-93def1942f2e",
+          "createdAt": "2026-07-28T03:20:57.000Z",
+          "updatedAt": "2026-07-28T03:20:57.000Z",
+          "uid": "35240-6824b72a-70d7-4a97-8a8b-93def1942f2e"
+        }
+      ],
+      "id": "9ce35c2c-689a-497c-b607-172d734ea6e7",
+      "createdAt": "2026-07-28T03:20:57.000Z",
+      "updatedAt": "2026-07-28T03:20:57.000Z",
+      "uid": "35240-9ce35c2c-689a-497c-b607-172d734ea6e7"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,626 @@
+{
+  "info": {
+    "_postman_id": "2e6ab7b6-14fa-464e-b922-6aaf855ae876",
+    "name": "TVmaze Premium User auth voted episodes API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:22:23.000Z",
+    "updatedAt": "2026-07-28T03:22:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2e6ab7b6-14fa-464e-b922-6aaf855ae876"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "votes",
+          "item": [
+            {
+              "name": "episodes",
+              "item": [
+                {
+                  "name": "{episode_id}",
+                  "item": [
+                    {
+                      "name": "Remove an Episode Vote",
+                      "id": "ba09b655-db75-4be4-be93-0b772f8d2155",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/votes/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "votes",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "91a421c3-5ed1-4322-a086-74a1fda4e15c",
+                              "key": "episode_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e2f9a34b-da20-48ea-a278-63a616d146ae",
+                          "name": "The episode vote is now removed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/episodes/:episode_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "episodes",
+                                ":episode_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "episode_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:24.000Z",
+                          "updatedAt": "2026-07-28T03:22:24.000Z",
+                          "uid": "35240-e2f9a34b-da20-48ea-a278-63a616d146ae"
+                        },
+                        {
+                          "id": "22cdb6d3-8036-478b-8201-a47ee253ab8f",
+                          "name": "This episode was not voted for",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/episodes/:episode_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "episodes",
+                                ":episode_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "episode_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:24.000Z",
+                          "updatedAt": "2026-07-28T03:22:24.000Z",
+                          "uid": "35240-22cdb6d3-8036-478b-8201-a47ee253ab8f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:22:24.000Z",
+                      "updatedAt": "2026-07-28T03:22:24.000Z",
+                      "uid": "35240-ba09b655-db75-4be4-be93-0b772f8d2155"
+                    },
+                    {
+                      "name": "Check if an Episode is Voted For",
+                      "id": "849149ab-8ef5-4799-b595-2a4eca2fa5d8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/votes/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "votes",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "99a380a6-1778-4ad9-8d65-79847ee4ec56",
+                              "key": "episode_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "5d9408a9-1ef9-4152-936b-073273297294",
+                          "name": "The episode vote",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/episodes/:episode_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "episodes",
+                                ":episode_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "episode_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"episode_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:22:24.000Z",
+                          "updatedAt": "2026-07-28T03:22:24.000Z",
+                          "uid": "35240-5d9408a9-1ef9-4152-936b-073273297294"
+                        },
+                        {
+                          "id": "7af7c4c4-2d22-4291-bb43-e6f4c2aab0eb",
+                          "name": "This episode is not voted for",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/episodes/:episode_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "episodes",
+                                ":episode_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "episode_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:24.000Z",
+                          "updatedAt": "2026-07-28T03:22:24.000Z",
+                          "uid": "35240-7af7c4c4-2d22-4291-bb43-e6f4c2aab0eb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:22:24.000Z",
+                      "updatedAt": "2026-07-28T03:22:24.000Z",
+                      "uid": "35240-849149ab-8ef5-4799-b595-2a4eca2fa5d8"
+                    },
+                    {
+                      "name": "Vote for an Episode",
+                      "id": "ca66595b-5c34-4a65-870b-f6b446c9d73e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"episode_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/votes/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "votes",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "91a2127f-fca9-495f-b331-ee66231786c4",
+                              "key": "episode_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "987251de-9caa-47fe-8012-ca3702cc677f",
+                          "name": "This episode is now voted for",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"episode_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/episodes/:episode_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "episodes",
+                                ":episode_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "episode_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"episode_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:22:24.000Z",
+                          "updatedAt": "2026-07-28T03:22:24.000Z",
+                          "uid": "35240-987251de-9caa-47fe-8012-ca3702cc677f"
+                        },
+                        {
+                          "id": "9dae9461-9ace-4d42-9da5-4e4eaa89e0a8",
+                          "name": "This episode does not exist",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"episode_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/episodes/:episode_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "episodes",
+                                ":episode_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "episode_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:24.000Z",
+                          "updatedAt": "2026-07-28T03:22:24.000Z",
+                          "uid": "35240-9dae9461-9ace-4d42-9da5-4e4eaa89e0a8"
+                        },
+                        {
+                          "id": "b5c2eea2-d37e-4277-89d0-67226a024e8e",
+                          "name": "Invalid vote",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"episode_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/episodes/:episode_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "episodes",
+                                ":episode_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "episode_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:24.000Z",
+                          "updatedAt": "2026-07-28T03:22:24.000Z",
+                          "uid": "35240-b5c2eea2-d37e-4277-89d0-67226a024e8e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:22:24.000Z",
+                      "updatedAt": "2026-07-28T03:22:24.000Z",
+                      "uid": "35240-ca66595b-5c34-4a65-870b-f6b446c9d73e"
+                    }
+                  ],
+                  "id": "2c612469-0a55-4e47-bfee-8ecf4ef968f0",
+                  "createdAt": "2026-07-28T03:22:24.000Z",
+                  "updatedAt": "2026-07-28T03:22:24.000Z",
+                  "uid": "35240-2c612469-0a55-4e47-bfee-8ecf4ef968f0"
+                },
+                {
+                  "name": "List the Episodes Voted For",
+                  "id": "fa65ca45-5a2a-45bc-bd8c-45c376607ebf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/votes/episodes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "votes",
+                        "episodes"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "3e7f49f5-44d9-4df1-8d64-f521f2b17fa3",
+                      "name": "An array of episode votes",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/votes/episodes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "votes",
+                            "episodes"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"episode_id\": \"<integer>\",\n    \"vote\": \"<integer>\",\n    \"voted_at\": \"<integer>\"\n  },\n  {\n    \"episode_id\": \"<integer>\",\n    \"vote\": \"<integer>\",\n    \"voted_at\": \"<integer>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:24.000Z",
+                      "updatedAt": "2026-07-28T03:22:24.000Z",
+                      "uid": "35240-3e7f49f5-44d9-4df1-8d64-f521f2b17fa3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:24.000Z",
+                  "updatedAt": "2026-07-28T03:22:24.000Z",
+                  "uid": "35240-fa65ca45-5a2a-45bc-bd8c-45c376607ebf"
+                }
+              ],
+              "id": "ac02a1fe-54f5-4154-b85b-49744e10df65",
+              "createdAt": "2026-07-28T03:22:24.000Z",
+              "updatedAt": "2026-07-28T03:22:24.000Z",
+              "uid": "35240-ac02a1fe-54f5-4154-b85b-49744e10df65"
+            }
+          ],
+          "id": "4d24e6ba-dd1b-4a92-b242-e68bca05f790",
+          "createdAt": "2026-07-28T03:22:24.000Z",
+          "updatedAt": "2026-07-28T03:22:24.000Z",
+          "uid": "35240-4d24e6ba-dd1b-4a92-b242-e68bca05f790"
+        }
+      ],
+      "id": "e0fc7802-84bd-4835-9159-627464ebef2a",
+      "createdAt": "2026-07-28T03:22:24.000Z",
+      "updatedAt": "2026-07-28T03:22:24.000Z",
+      "uid": "35240-e0fc7802-84bd-4835-9159-627464ebef2a"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

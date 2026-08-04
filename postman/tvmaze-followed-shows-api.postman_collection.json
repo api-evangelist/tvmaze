@@ -1,0 +1,543 @@
+{
+  "info": {
+    "_postman_id": "91fe96c9-e6ae-4a80-a4b7-315e2e7c1719",
+    "name": "TVmaze Premium User auth followed shows API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:53.000Z",
+    "updatedAt": "2026-07-28T03:20:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-91fe96c9-e6ae-4a80-a4b7-315e2e7c1719"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "follows",
+          "item": [
+            {
+              "name": "shows",
+              "item": [
+                {
+                  "name": "{show_id}",
+                  "item": [
+                    {
+                      "name": "Unfollow a Show",
+                      "id": "66dc945d-11b7-4a03-9057-9ce81bfa6ae2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/shows/:show_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "shows",
+                            ":show_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a7c8e661-77d2-4bf7-96ab-673f1a968e84",
+                              "key": "show_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "26e0be4d-d3e6-4206-b3f5-fbb5b703b342",
+                          "name": "The show is now unfollowed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:53.000Z",
+                          "updatedAt": "2026-07-28T03:20:53.000Z",
+                          "uid": "35240-26e0be4d-d3e6-4206-b3f5-fbb5b703b342"
+                        },
+                        {
+                          "id": "aac26ad7-a391-4429-8043-9aec54f18615",
+                          "name": "This show was not followed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:53.000Z",
+                          "updatedAt": "2026-07-28T03:20:53.000Z",
+                          "uid": "35240-aac26ad7-a391-4429-8043-9aec54f18615"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:53.000Z",
+                      "updatedAt": "2026-07-28T03:20:53.000Z",
+                      "uid": "35240-66dc945d-11b7-4a03-9057-9ce81bfa6ae2"
+                    },
+                    {
+                      "name": "Check if a Show is Followed",
+                      "id": "d4a12304-f420-4ed9-8ae7-9def0f55d7ae",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/shows/:show_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "shows",
+                            ":show_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0e8dcdb2-44e9-48b6-ac59-a5cd2cfb8b7a",
+                              "key": "show_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "cdb331c6-e5b5-4e9d-a2ab-b973388b5b5c",
+                          "name": "The followed show",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"_embedded\": {\n    \"show\": {}\n  },\n  \"show_id\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:20:53.000Z",
+                          "updatedAt": "2026-07-28T03:20:53.000Z",
+                          "uid": "35240-cdb331c6-e5b5-4e9d-a2ab-b973388b5b5c"
+                        },
+                        {
+                          "id": "4add752f-d664-4054-94a1-a23432ca7f1c",
+                          "name": "This show is not followed",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:53.000Z",
+                          "updatedAt": "2026-07-28T03:20:53.000Z",
+                          "uid": "35240-4add752f-d664-4054-94a1-a23432ca7f1c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:53.000Z",
+                      "updatedAt": "2026-07-28T03:20:53.000Z",
+                      "uid": "35240-d4a12304-f420-4ed9-8ae7-9def0f55d7ae"
+                    },
+                    {
+                      "name": "Follow a Show",
+                      "id": "fcba925c-22f9-4216-aee8-0bbfb7ff776e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/shows/:show_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "shows",
+                            ":show_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "33df646d-e191-4144-92c9-47ff9eb2f94f",
+                              "key": "show_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4f4e5286-9e01-4a11-860c-794777ba039c",
+                          "name": "This show is now followed",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"_embedded\": {\n    \"show\": {}\n  },\n  \"show_id\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:20:53.000Z",
+                          "updatedAt": "2026-07-28T03:20:53.000Z",
+                          "uid": "35240-4f4e5286-9e01-4a11-860c-794777ba039c"
+                        },
+                        {
+                          "id": "256fb5ad-0c53-4319-ac2b-93d0c57f66a9",
+                          "name": "This show does not exist",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:53.000Z",
+                          "updatedAt": "2026-07-28T03:20:53.000Z",
+                          "uid": "35240-256fb5ad-0c53-4319-ac2b-93d0c57f66a9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:53.000Z",
+                      "updatedAt": "2026-07-28T03:20:53.000Z",
+                      "uid": "35240-fcba925c-22f9-4216-aee8-0bbfb7ff776e"
+                    }
+                  ],
+                  "id": "2fbf3500-bec6-4cc5-934f-6285a1be2e92",
+                  "createdAt": "2026-07-28T03:20:53.000Z",
+                  "updatedAt": "2026-07-28T03:20:53.000Z",
+                  "uid": "35240-2fbf3500-bec6-4cc5-934f-6285a1be2e92"
+                },
+                {
+                  "name": "List the Followed Shows",
+                  "id": "6bb69fcb-0caa-40fc-9b76-83cb3ddba8b0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/follows/shows?embed=show",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "follows",
+                        "shows"
+                      ],
+                      "query": [
+                        {
+                          "description": "Embed full show info",
+                          "key": "embed",
+                          "value": "show"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "560f26db-d4d0-4db6-8826-c224a9deeb0c",
+                      "name": "An array of followed shows",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/shows?embed=show",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "shows"
+                          ],
+                          "query": [
+                            {
+                              "description": "Embed full show info",
+                              "key": "embed",
+                              "value": "show"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"_embedded\": {\n      \"show\": {}\n    },\n    \"show_id\": \"<integer>\"\n  },\n  {\n    \"_embedded\": {\n      \"show\": {}\n    },\n    \"show_id\": \"<integer>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:20:53.000Z",
+                      "updatedAt": "2026-07-28T03:20:53.000Z",
+                      "uid": "35240-560f26db-d4d0-4db6-8826-c224a9deeb0c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:53.000Z",
+                  "updatedAt": "2026-07-28T03:20:53.000Z",
+                  "uid": "35240-6bb69fcb-0caa-40fc-9b76-83cb3ddba8b0"
+                }
+              ],
+              "id": "99312bf2-4713-40a2-a64c-20d85b9d3f4a",
+              "createdAt": "2026-07-28T03:20:53.000Z",
+              "updatedAt": "2026-07-28T03:20:53.000Z",
+              "uid": "35240-99312bf2-4713-40a2-a64c-20d85b9d3f4a"
+            }
+          ],
+          "id": "571543a7-acc2-4a77-a107-d50008ada226",
+          "createdAt": "2026-07-28T03:20:53.000Z",
+          "updatedAt": "2026-07-28T03:20:53.000Z",
+          "uid": "35240-571543a7-acc2-4a77-a107-d50008ada226"
+        }
+      ],
+      "id": "6b5fafb4-9109-4745-98df-52374438a34d",
+      "createdAt": "2026-07-28T03:20:53.000Z",
+      "updatedAt": "2026-07-28T03:20:53.000Z",
+      "uid": "35240-6b5fafb4-9109-4745-98df-52374438a34d"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

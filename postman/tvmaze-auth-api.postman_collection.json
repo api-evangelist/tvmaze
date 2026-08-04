@@ -1,0 +1,674 @@
+{
+  "info": {
+    "_postman_id": "94ca5f1c-e550-4536-bbe3-8d65f3dfd8ef",
+    "name": "TVmaze Premium User auth API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:49.000Z",
+    "updatedAt": "2026-07-28T03:20:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-94ca5f1c-e550-4536-bbe3-8d65f3dfd8ef"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "poll",
+          "item": [
+            {
+              "name": "Poll Whether an Authentication Request Was Confirmed",
+              "id": "ea7edff2-e4e6-4148-8d40-8d1983a238e5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/poll",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "poll"
+                  ]
+                },
+                "description": "Using the token acquired in the `start` endpoint, you can start polling this endpoint once every 10 seconds.\n\nWhen the user has confirmed the authentication request on their end, this endpoint will return the user's API key that you can use in subsequent authenticated endpoints. Note that it'll do so only once, subsequent requests after the initial 200 response will return a 404.\n\nFor as long as the user did not yet confirm their authentication request, this endpoint will return a 403.\n"
+              },
+              "response": [
+                {
+                  "id": "0a70df50-d3f5-4015-a671-c93fadb6c5e1",
+                  "name": "The user confirmed the authentication request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"token\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/poll",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "poll"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"apikey\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:20:49.000Z",
+                  "updatedAt": "2026-07-28T03:20:49.000Z",
+                  "uid": "35240-0a70df50-d3f5-4015-a671-c93fadb6c5e1"
+                },
+                {
+                  "id": "5e13a207-cb71-4a5d-8b6d-e5b671903bdb",
+                  "name": "The authentication request was not confirmed yet",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"token\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/poll",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "poll"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:20:49.000Z",
+                  "updatedAt": "2026-07-28T03:20:49.000Z",
+                  "uid": "35240-5e13a207-cb71-4a5d-8b6d-e5b671903bdb"
+                },
+                {
+                  "id": "e6202a6f-0fad-477b-b098-2d5bada38b4c",
+                  "name": "The authentication request was not found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"token\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/poll",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "poll"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:20:49.000Z",
+                  "updatedAt": "2026-07-28T03:20:49.000Z",
+                  "uid": "35240-e6202a6f-0fad-477b-b098-2d5bada38b4c"
+                },
+                {
+                  "id": "7003e85d-03dc-46f6-9e8b-459acf0d3a83",
+                  "name": "You are polling too quickly, please back off",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"token\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/poll",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "poll"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:20:49.000Z",
+                  "updatedAt": "2026-07-28T03:20:49.000Z",
+                  "uid": "35240-7003e85d-03dc-46f6-9e8b-459acf0d3a83"
+                }
+              ],
+              "createdAt": "2026-07-28T03:20:49.000Z",
+              "updatedAt": "2026-07-28T03:20:49.000Z",
+              "uid": "35240-ea7edff2-e4e6-4148-8d40-8d1983a238e5"
+            }
+          ],
+          "id": "131d915e-840a-4f77-bedc-b5e7b0a01dd3",
+          "createdAt": "2026-07-28T03:20:49.000Z",
+          "updatedAt": "2026-07-28T03:20:49.000Z",
+          "uid": "35240-131d915e-840a-4f77-bedc-b5e7b0a01dd3"
+        },
+        {
+          "name": "start",
+          "item": [
+            {
+              "name": "Start an Authentication Request",
+              "id": "f5f8dce3-1c72-4765-9bba-c3efe7b21eb6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"email_confirmation\": true\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/start",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "start"
+                  ]
+                },
+                "description": "If you want to access the TVmaze API on behalf of a user without querying them for their password, use this endpoint.\n\nTo get started, send a POST request containing the user's email address. The response will contain a `token`, which you can use as input to the `poll` endpoint. The user will receive an email prompting them to confirm the authentication request.\n\nAlternatively, if you expect the user to be logged in to TVmaze on the device they are currently interacting with, you can set `email_confirmation` to false and redirect them to the `confirm_url` URL. If they are logged in to TVmaze, they will be able to confirm the authentication request instantly.\n"
+              },
+              "response": [
+                {
+                  "id": "4a7bea7c-6616-4b1b-9b12-91b237935ddb",
+                  "name": "The authentication request was succesfully started",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"email_confirmation\": true\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/start",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "start"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"confirm_url\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:20:49.000Z",
+                  "updatedAt": "2026-07-28T03:20:49.000Z",
+                  "uid": "35240-4a7bea7c-6616-4b1b-9b12-91b237935ddb"
+                },
+                {
+                  "id": "bc4cc466-5262-4510-90bb-e2b37aedb017",
+                  "name": "The email address was found, but not confirmed",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"email_confirmation\": true\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/start",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "start"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:20:49.000Z",
+                  "updatedAt": "2026-07-28T03:20:49.000Z",
+                  "uid": "35240-bc4cc466-5262-4510-90bb-e2b37aedb017"
+                },
+                {
+                  "id": "35a3f57f-1d07-4bdc-8167-c10a102a36cb",
+                  "name": "The email address was not found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"email_confirmation\": true\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/start",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "start"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:20:49.000Z",
+                  "updatedAt": "2026-07-28T03:20:49.000Z",
+                  "uid": "35240-35a3f57f-1d07-4bdc-8167-c10a102a36cb"
+                },
+                {
+                  "id": "02ed7b55-7ae1-4807-a1c2-e3307a508a76",
+                  "name": "You are starting authentication requests too quickly, please back off",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"email_confirmation\": true\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/start",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "start"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:20:49.000Z",
+                  "updatedAt": "2026-07-28T03:20:49.000Z",
+                  "uid": "35240-02ed7b55-7ae1-4807-a1c2-e3307a508a76"
+                }
+              ],
+              "createdAt": "2026-07-28T03:20:49.000Z",
+              "updatedAt": "2026-07-28T03:20:49.000Z",
+              "uid": "35240-f5f8dce3-1c72-4765-9bba-c3efe7b21eb6"
+            }
+          ],
+          "id": "87b02cdf-64ad-4b66-b804-3e806babb35e",
+          "createdAt": "2026-07-28T03:20:49.000Z",
+          "updatedAt": "2026-07-28T03:20:49.000Z",
+          "uid": "35240-87b02cdf-64ad-4b66-b804-3e806babb35e"
+        },
+        {
+          "name": "validate",
+          "item": [
+            {
+              "name": "Validate Your Authentication Credentials",
+              "id": "f7179ed5-50bc-4acd-800f-0def11216ac1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/auth/validate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "validate"
+                  ]
+                },
+                "description": "If the credentials supplied as HTTP basic are valid, the user's level of premium - if any - is returned."
+              },
+              "response": [
+                {
+                  "id": "61bf55c0-7e05-480c-8b22-48b003a42b7f",
+                  "name": "The supplied credentials are valid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/validate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "validate"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"premium\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T03:20:49.000Z",
+                  "updatedAt": "2026-07-28T03:20:49.000Z",
+                  "uid": "35240-61bf55c0-7e05-480c-8b22-48b003a42b7f"
+                },
+                {
+                  "id": "08e2dc5d-6d47-4c04-b385-47e59301c528",
+                  "name": "The supplied credentials are not valid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/validate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "validate"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:20:49.000Z",
+                  "updatedAt": "2026-07-28T03:20:49.000Z",
+                  "uid": "35240-08e2dc5d-6d47-4c04-b385-47e59301c528"
+                }
+              ],
+              "createdAt": "2026-07-28T03:20:49.000Z",
+              "updatedAt": "2026-07-28T03:20:49.000Z",
+              "uid": "35240-f7179ed5-50bc-4acd-800f-0def11216ac1"
+            }
+          ],
+          "id": "ed165c90-f1c3-4078-9352-db7273cbc3b1",
+          "createdAt": "2026-07-28T03:20:49.000Z",
+          "updatedAt": "2026-07-28T03:20:49.000Z",
+          "uid": "35240-ed165c90-f1c3-4078-9352-db7273cbc3b1"
+        }
+      ],
+      "id": "21394292-6d9b-48d3-a95d-22d72b01b079",
+      "createdAt": "2026-07-28T03:20:49.000Z",
+      "updatedAt": "2026-07-28T03:20:49.000Z",
+      "uid": "35240-21394292-6d9b-48d3-a95d-22d72b01b079"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

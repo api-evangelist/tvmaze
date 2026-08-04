@@ -1,0 +1,620 @@
+{
+  "info": {
+    "_postman_id": "efa6880e-311c-4562-8b98-1e1f2f60302a",
+    "name": "TVmaze Premium User auth marked episodes API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:58.000Z",
+    "updatedAt": "2026-07-28T03:20:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-efa6880e-311c-4562-8b98-1e1f2f60302a"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "episodes",
+          "item": [
+            {
+              "name": "{episode_id}",
+              "item": [
+                {
+                  "name": "Unmark an Episode",
+                  "id": "3ca997c0-27ff-4297-8fe2-679957bd60bd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/episodes/:episode_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "episodes",
+                        ":episode_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "053a5ce9-1acb-4d2a-b295-a2d31e423251",
+                          "key": "episode_id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b34c3a90-509d-494e-aad2-390e4319bd3e",
+                      "name": "the episode is now unmarked",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "episode_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:20:58.000Z",
+                      "updatedAt": "2026-07-28T03:20:58.000Z",
+                      "uid": "35240-b34c3a90-509d-494e-aad2-390e4319bd3e"
+                    },
+                    {
+                      "id": "9e896a44-918f-4aaa-8f43-2cc30886a34a",
+                      "name": "this episode was not marked",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "episode_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:20:58.000Z",
+                      "updatedAt": "2026-07-28T03:20:58.000Z",
+                      "uid": "35240-9e896a44-918f-4aaa-8f43-2cc30886a34a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:58.000Z",
+                  "updatedAt": "2026-07-28T03:20:58.000Z",
+                  "uid": "35240-3ca997c0-27ff-4297-8fe2-679957bd60bd"
+                },
+                {
+                  "name": "Check if an Episode is Marked",
+                  "id": "57b523d8-6397-4a59-832a-ff6339843ab6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/episodes/:episode_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "episodes",
+                        ":episode_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a73c7691-d5b1-4f65-84f0-8a222e9aa1b6",
+                          "key": "episode_id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0e336cc4-8d1d-49e6-8772-ed6af2ae63e1",
+                      "name": "The marked episode",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "episode_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:20:58.000Z",
+                      "updatedAt": "2026-07-28T03:20:58.000Z",
+                      "uid": "35240-0e336cc4-8d1d-49e6-8772-ed6af2ae63e1"
+                    },
+                    {
+                      "id": "c4778eba-909d-411e-9554-555a42acbd09",
+                      "name": "This episode is not marked",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "episode_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:20:58.000Z",
+                      "updatedAt": "2026-07-28T03:20:58.000Z",
+                      "uid": "35240-c4778eba-909d-411e-9554-555a42acbd09"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:58.000Z",
+                  "updatedAt": "2026-07-28T03:20:58.000Z",
+                  "uid": "35240-57b523d8-6397-4a59-832a-ff6339843ab6"
+                },
+                {
+                  "name": "Mark an Episode",
+                  "id": "5233024d-d555-4234-bcbc-82c95ffa7186",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/episodes/:episode_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "episodes",
+                        ":episode_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ec2e0ff6-636d-45af-b4c8-798ea3ff0300",
+                          "key": "episode_id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Set `marked_at` to `NULL` or leave it out to use the current time."
+                  },
+                  "response": [
+                    {
+                      "id": "0897c7fb-5f61-4fc0-b3a0-ce9bf19c491f",
+                      "name": "this episode is now marked",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "episode_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:20:58.000Z",
+                      "updatedAt": "2026-07-28T03:20:58.000Z",
+                      "uid": "35240-0897c7fb-5f61-4fc0-b3a0-ce9bf19c491f"
+                    },
+                    {
+                      "id": "6fc2074d-6133-48c6-8d69-66e7c69f4341",
+                      "name": "this episode does not exist",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "episode_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:20:58.000Z",
+                      "updatedAt": "2026-07-28T03:20:58.000Z",
+                      "uid": "35240-6fc2074d-6133-48c6-8d69-66e7c69f4341"
+                    },
+                    {
+                      "id": "1d54af1d-ef06-4d9a-b52d-2def1598cc25",
+                      "name": "invalid input data",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"_embedded\": {\n    \"episode\": {}\n  },\n  \"episode_id\": \"<integer>\",\n  \"marked_at\": \"<integer>\",\n  \"type\": {\n    \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/episodes/:episode_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "episodes",
+                            ":episode_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "episode_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:20:58.000Z",
+                      "updatedAt": "2026-07-28T03:20:58.000Z",
+                      "uid": "35240-1d54af1d-ef06-4d9a-b52d-2def1598cc25"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:58.000Z",
+                  "updatedAt": "2026-07-28T03:20:58.000Z",
+                  "uid": "35240-5233024d-d555-4234-bcbc-82c95ffa7186"
+                }
+              ],
+              "id": "c3b8cb5e-7bb9-4044-ad03-5238e7b08a13",
+              "createdAt": "2026-07-28T03:20:58.000Z",
+              "updatedAt": "2026-07-28T03:20:58.000Z",
+              "uid": "35240-c3b8cb5e-7bb9-4044-ad03-5238e7b08a13"
+            },
+            {
+              "name": "List the Marked Episodes",
+              "id": "f9e06e0b-93d3-470f-a00a-2c2c3d221fe2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/user/episodes?show_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user",
+                    "episodes"
+                  ],
+                  "query": [
+                    {
+                      "description": "Only return episodes from this specific show",
+                      "key": "show_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b22bad71-b3b6-4ab7-b0c4-ec8ba5f82b3d",
+                  "name": "An array of marked episodes",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/episodes?show_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "episodes"
+                      ],
+                      "query": [
+                        {
+                          "description": "Only return episodes from this specific show",
+                          "key": "show_id",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"_embedded\": {\n      \"episode\": {}\n    },\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  },\n  {\n    \"_embedded\": {\n      \"episode\": {}\n    },\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {\n      \"description\": \"0 for watched, 1 for acquired, 2 for skipped\"\n    }\n  }\n]",
+                  "createdAt": "2026-07-28T03:20:58.000Z",
+                  "updatedAt": "2026-07-28T03:20:58.000Z",
+                  "uid": "35240-b22bad71-b3b6-4ab7-b0c4-ec8ba5f82b3d"
+                }
+              ],
+              "createdAt": "2026-07-28T03:20:58.000Z",
+              "updatedAt": "2026-07-28T03:20:58.000Z",
+              "uid": "35240-f9e06e0b-93d3-470f-a00a-2c2c3d221fe2"
+            }
+          ],
+          "id": "f462b7e5-9891-4a30-b385-74c81b069fc4",
+          "createdAt": "2026-07-28T03:20:58.000Z",
+          "updatedAt": "2026-07-28T03:20:58.000Z",
+          "uid": "35240-f462b7e5-9891-4a30-b385-74c81b069fc4"
+        }
+      ],
+      "id": "1b60ef88-97d6-4c24-b405-a7b3fec788cf",
+      "createdAt": "2026-07-28T03:20:58.000Z",
+      "updatedAt": "2026-07-28T03:20:58.000Z",
+      "uid": "35240-1b60ef88-97d6-4c24-b405-a7b3fec788cf"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

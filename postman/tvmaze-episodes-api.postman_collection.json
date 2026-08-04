@@ -1,0 +1,355 @@
+{
+  "info": {
+    "_postman_id": "18071daf-2c64-452a-ac30-3a94f82c45f6",
+    "name": "TVmaze Premium User auth Episodes API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:50.000Z",
+    "updatedAt": "2026-07-28T03:20:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-18071daf-2c64-452a-ac30-3a94f82c45f6"
+  },
+  "item": [
+    {
+      "name": "episodes",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "guestcast",
+              "item": [
+                {
+                  "name": "Get Episode Guest Cast",
+                  "id": "5ebc55ef-2854-4619-92d5-ab802434aa1f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/episodes/:id/guestcast",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "episodes",
+                        ":id",
+                        "guestcast"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bb57393c-2b3f-4eeb-a9c5-7f2be8b19e11",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Return the guest cast for an episode."
+                  },
+                  "response": [
+                    {
+                      "id": "7e9bfe7b-c7d1-4e27-b5e1-d33766666cba",
+                      "name": "Array of guest-cast entries.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/episodes/:id/guestcast",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "episodes",
+                            ":id",
+                            "guestcast"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"person\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"birthday\": \"<date>\",\n      \"deathday\": \"<date>\",\n      \"gender\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"updated\": \"<long>\",\n      \"_links\": {\n        \"consecteturbc8\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        },\n        \"proident965\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    },\n    \"character\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"_links\": {\n        \"dolor_e2a\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    },\n    \"self\": \"<boolean>\",\n    \"voice\": \"<boolean>\"\n  },\n  {\n    \"person\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"birthday\": \"<date>\",\n      \"deathday\": \"<date>\",\n      \"gender\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"updated\": \"<long>\",\n      \"_links\": {\n        \"consequat_a\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    },\n    \"character\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"_links\": {\n        \"consectetur__4b\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        },\n        \"Ut_51\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    },\n    \"self\": \"<boolean>\",\n    \"voice\": \"<boolean>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:20:51.000Z",
+                      "updatedAt": "2026-07-28T03:20:51.000Z",
+                      "uid": "35240-7e9bfe7b-c7d1-4e27-b5e1-d33766666cba"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:51.000Z",
+                  "updatedAt": "2026-07-28T03:20:51.000Z",
+                  "uid": "35240-5ebc55ef-2854-4619-92d5-ab802434aa1f"
+                }
+              ],
+              "id": "7b8eba3d-df27-4787-a658-5585b969c7d6",
+              "createdAt": "2026-07-28T03:20:50.000Z",
+              "updatedAt": "2026-07-28T03:20:50.000Z",
+              "uid": "35240-7b8eba3d-df27-4787-a658-5585b969c7d6"
+            },
+            {
+              "name": "guestcrew",
+              "item": [
+                {
+                  "name": "Get Episode Guest Crew",
+                  "id": "09b91814-0643-4cc0-96a3-c680be5c1141",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/episodes/:id/guestcrew",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "episodes",
+                        ":id",
+                        "guestcrew"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d5c51586-3109-41ea-8858-5079e65dee2f",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Return the guest crew for an episode."
+                  },
+                  "response": [
+                    {
+                      "id": "7c11914a-493e-47d3-89ed-64e8a3995597",
+                      "name": "Array of guest-crew entries.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/episodes/:id/guestcrew",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "episodes",
+                            ":id",
+                            "guestcrew"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"type\": \"<string>\",\n    \"person\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"birthday\": \"<date>\",\n      \"deathday\": \"<date>\",\n      \"gender\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"updated\": \"<long>\",\n      \"_links\": {\n        \"esse_5\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        },\n        \"dolore6\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    }\n  },\n  {\n    \"type\": \"<string>\",\n    \"person\": {\n      \"id\": \"<integer>\",\n      \"url\": \"<uri>\",\n      \"name\": \"<string>\",\n      \"country\": {\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"birthday\": \"<date>\",\n      \"deathday\": \"<date>\",\n      \"gender\": \"<string>\",\n      \"image\": {\n        \"medium\": \"<uri>\",\n        \"original\": \"<uri>\"\n      },\n      \"updated\": \"<long>\",\n      \"_links\": {\n        \"magna_5\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        },\n        \"ad7\": {\n          \"href\": \"<uri>\",\n          \"name\": \"<string>\"\n        }\n      }\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T03:20:51.000Z",
+                      "updatedAt": "2026-07-28T03:20:51.000Z",
+                      "uid": "35240-7c11914a-493e-47d3-89ed-64e8a3995597"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:51.000Z",
+                  "updatedAt": "2026-07-28T03:20:51.000Z",
+                  "uid": "35240-09b91814-0643-4cc0-96a3-c680be5c1141"
+                }
+              ],
+              "id": "e7b81c12-4c50-4988-99a0-2b62b1e7edca",
+              "createdAt": "2026-07-28T03:20:50.000Z",
+              "updatedAt": "2026-07-28T03:20:50.000Z",
+              "uid": "35240-e7b81c12-4c50-4988-99a0-2b62b1e7edca"
+            },
+            {
+              "name": "Get Episode",
+              "id": "e2d237ab-31eb-48ec-a9d9-d60b5df2a0c8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/episodes/:id?embed=guestcast&embed=guestcast",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "episodes",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "key": "embed",
+                      "value": "guestcast"
+                    },
+                    {
+                      "key": "embed",
+                      "value": "guestcast"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "b507540a-65f8-442a-9d2f-6c00bb0ea30f",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Return a single episode, optionally embedding related resources."
+              },
+              "response": [
+                {
+                  "id": "99891e12-8098-4b1c-8e9d-f03b69b92a33",
+                  "name": "Episode record.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/episodes/:id?embed=guestcast",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "episodes",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "key": "embed",
+                          "value": "guestcast"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"season\": \"<integer>\",\n  \"number\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"airdate\": \"<date>\",\n  \"airtime\": \"<string>\",\n  \"airstamp\": \"<dateTime>\",\n  \"runtime\": \"<integer>\",\n  \"rating\": {\n    \"average\": \"<number>\"\n  },\n  \"image\": {\n    \"medium\": \"<uri>\",\n    \"original\": \"<uri>\"\n  },\n  \"summary\": \"<string>\",\n  \"_links\": {\n    \"adipisicingbd\": {\n      \"href\": \"<uri>\",\n      \"name\": \"<string>\"\n    },\n    \"et_e2\": {\n      \"href\": \"<uri>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T03:20:51.000Z",
+                  "updatedAt": "2026-07-28T03:20:51.000Z",
+                  "uid": "35240-99891e12-8098-4b1c-8e9d-f03b69b92a33"
+                }
+              ],
+              "createdAt": "2026-07-28T03:20:51.000Z",
+              "updatedAt": "2026-07-28T03:20:51.000Z",
+              "uid": "35240-e2d237ab-31eb-48ec-a9d9-d60b5df2a0c8"
+            }
+          ],
+          "id": "0773f241-a1a5-454a-b209-1da6a9a147a5",
+          "createdAt": "2026-07-28T03:20:50.000Z",
+          "updatedAt": "2026-07-28T03:20:50.000Z",
+          "uid": "35240-0773f241-a1a5-454a-b209-1da6a9a147a5"
+        }
+      ],
+      "id": "3606d591-9a2a-469a-a492-1120e02b47f1",
+      "createdAt": "2026-07-28T03:20:50.000Z",
+      "updatedAt": "2026-07-28T03:20:50.000Z",
+      "uid": "35240-3606d591-9a2a-469a-a492-1120e02b47f1"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

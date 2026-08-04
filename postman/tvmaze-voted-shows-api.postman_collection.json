@@ -1,0 +1,641 @@
+{
+  "info": {
+    "_postman_id": "a2b58216-c0ce-4d6a-93c7-78b1327e6778",
+    "name": "TVmaze Premium User auth voted shows API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:22:25.000Z",
+    "updatedAt": "2026-07-28T03:22:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a2b58216-c0ce-4d6a-93c7-78b1327e6778"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "votes",
+          "item": [
+            {
+              "name": "shows",
+              "item": [
+                {
+                  "name": "{show_id}",
+                  "item": [
+                    {
+                      "name": "Remove a Show Vote",
+                      "id": "7c7f1575-b458-45c3-8a8c-ba8fe8094a89",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/votes/shows/:show_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "votes",
+                            "shows",
+                            ":show_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c9b6f34a-780a-4b98-bb73-8e2b30f2a62d",
+                              "key": "show_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9d1067d1-b00d-4f0c-95bb-6f88a8af112f",
+                          "name": "The show vote is now removed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:25.000Z",
+                          "updatedAt": "2026-07-28T03:22:25.000Z",
+                          "uid": "35240-9d1067d1-b00d-4f0c-95bb-6f88a8af112f"
+                        },
+                        {
+                          "id": "bf7a59c0-dbdc-4aef-b0b5-cb72025b249e",
+                          "name": "This show was not voted for",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:25.000Z",
+                          "updatedAt": "2026-07-28T03:22:25.000Z",
+                          "uid": "35240-bf7a59c0-dbdc-4aef-b0b5-cb72025b249e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:22:25.000Z",
+                      "updatedAt": "2026-07-28T03:22:25.000Z",
+                      "uid": "35240-7c7f1575-b458-45c3-8a8c-ba8fe8094a89"
+                    },
+                    {
+                      "name": "Check if a Show is Voted For",
+                      "id": "06f621e6-7d57-4876-903a-22aab1a7c2a7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/votes/shows/:show_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "votes",
+                            "shows",
+                            ":show_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "28760048-4818-4d3b-a450-cd608452a5c1",
+                              "key": "show_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "a3260910-fddf-4a47-a78b-9b00ad894f37",
+                          "name": "The show vote",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"show_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:22:25.000Z",
+                          "updatedAt": "2026-07-28T03:22:25.000Z",
+                          "uid": "35240-a3260910-fddf-4a47-a78b-9b00ad894f37"
+                        },
+                        {
+                          "id": "3329e21e-e2fa-4e12-b5df-7cf00dddf043",
+                          "name": "This show is not voted for",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:25.000Z",
+                          "updatedAt": "2026-07-28T03:22:25.000Z",
+                          "uid": "35240-3329e21e-e2fa-4e12-b5df-7cf00dddf043"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:22:25.000Z",
+                      "updatedAt": "2026-07-28T03:22:25.000Z",
+                      "uid": "35240-06f621e6-7d57-4876-903a-22aab1a7c2a7"
+                    },
+                    {
+                      "name": "Vote for a Show",
+                      "id": "2cc84229-15d0-4eea-b8cc-c7a32c9859fd",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"show_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/votes/shows/:show_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "votes",
+                            "shows",
+                            ":show_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "931b4d43-4c29-4041-8e5e-27727629cf34",
+                              "key": "show_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Set `voted_at` to `NULL` or leave it out to use the current time."
+                      },
+                      "response": [
+                        {
+                          "id": "13803592-8cef-453d-b491-60b497c0ad8b",
+                          "name": "This show is now voted for",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"show_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"show_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:22:25.000Z",
+                          "updatedAt": "2026-07-28T03:22:25.000Z",
+                          "uid": "35240-13803592-8cef-453d-b491-60b497c0ad8b"
+                        },
+                        {
+                          "id": "2aee9ee3-7583-48ae-af8a-9d5c9bc96410",
+                          "name": "This show does not exist",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"show_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:25.000Z",
+                          "updatedAt": "2026-07-28T03:22:25.000Z",
+                          "uid": "35240-2aee9ee3-7583-48ae-af8a-9d5c9bc96410"
+                        },
+                        {
+                          "id": "21e1e77a-8934-4324-bacc-6ac803d6cfe7",
+                          "name": "Invalid vote",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"show_id\": \"<integer>\",\n  \"vote\": \"<integer>\",\n  \"voted_at\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/votes/shows/:show_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "votes",
+                                "shows",
+                                ":show_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "show_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:22:25.000Z",
+                          "updatedAt": "2026-07-28T03:22:25.000Z",
+                          "uid": "35240-21e1e77a-8934-4324-bacc-6ac803d6cfe7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:22:25.000Z",
+                      "updatedAt": "2026-07-28T03:22:25.000Z",
+                      "uid": "35240-2cc84229-15d0-4eea-b8cc-c7a32c9859fd"
+                    }
+                  ],
+                  "id": "0bd01149-a355-4729-9485-1ec78b2f03e4",
+                  "createdAt": "2026-07-28T03:22:25.000Z",
+                  "updatedAt": "2026-07-28T03:22:25.000Z",
+                  "uid": "35240-0bd01149-a355-4729-9485-1ec78b2f03e4"
+                },
+                {
+                  "name": "List the Shows Voted For",
+                  "id": "d3c2ffc8-5b8a-4130-b09f-9c22153952b1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/votes/shows?embed=show",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "votes",
+                        "shows"
+                      ],
+                      "query": [
+                        {
+                          "description": "Embed full show info",
+                          "key": "embed",
+                          "value": "show"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "99a436fc-21c5-4043-8a24-1ea50980557d",
+                      "name": "An array of show votes",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/votes/shows?embed=show",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "votes",
+                            "shows"
+                          ],
+                          "query": [
+                            {
+                              "description": "Embed full show info",
+                              "key": "embed",
+                              "value": "show"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"show_id\": \"<integer>\",\n    \"vote\": \"<integer>\",\n    \"voted_at\": \"<integer>\"\n  },\n  {\n    \"show_id\": \"<integer>\",\n    \"vote\": \"<integer>\",\n    \"voted_at\": \"<integer>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:22:25.000Z",
+                      "updatedAt": "2026-07-28T03:22:25.000Z",
+                      "uid": "35240-99a436fc-21c5-4043-8a24-1ea50980557d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:22:25.000Z",
+                  "updatedAt": "2026-07-28T03:22:25.000Z",
+                  "uid": "35240-d3c2ffc8-5b8a-4130-b09f-9c22153952b1"
+                }
+              ],
+              "id": "665369cd-781f-4db1-8418-3bc48ed7f000",
+              "createdAt": "2026-07-28T03:22:25.000Z",
+              "updatedAt": "2026-07-28T03:22:25.000Z",
+              "uid": "35240-665369cd-781f-4db1-8418-3bc48ed7f000"
+            }
+          ],
+          "id": "68f28848-e85c-4989-b811-7bd5716bccd5",
+          "createdAt": "2026-07-28T03:22:25.000Z",
+          "updatedAt": "2026-07-28T03:22:25.000Z",
+          "uid": "35240-68f28848-e85c-4989-b811-7bd5716bccd5"
+        }
+      ],
+      "id": "7cd92abc-bde9-4d1f-88e6-e51fb8369e67",
+      "createdAt": "2026-07-28T03:22:25.000Z",
+      "updatedAt": "2026-07-28T03:22:25.000Z",
+      "uid": "35240-7cd92abc-bde9-4d1f-88e6-e51fb8369e67"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

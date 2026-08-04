@@ -1,0 +1,543 @@
+{
+  "info": {
+    "_postman_id": "f4af0cd5-1c63-4bed-8690-f057aa46e4d4",
+    "name": "TVmaze Premium User auth followed networks API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:51.000Z",
+    "updatedAt": "2026-07-28T03:20:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f4af0cd5-1c63-4bed-8690-f057aa46e4d4"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "follows",
+          "item": [
+            {
+              "name": "networks",
+              "item": [
+                {
+                  "name": "{network_id}",
+                  "item": [
+                    {
+                      "name": "Unfollow a Network",
+                      "id": "618ed2d3-61ec-41c3-9e26-ae5b98e1cc8f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/networks/:network_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "networks",
+                            ":network_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "db75ba2c-daf1-47ad-bbb0-db7dbd1d3b53",
+                              "key": "network_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1355795d-32cc-4e66-a31b-85974e7c8e1a",
+                          "name": "the network is now unfollowed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/networks/:network_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "networks",
+                                ":network_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "network_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:51.000Z",
+                          "updatedAt": "2026-07-28T03:20:51.000Z",
+                          "uid": "35240-1355795d-32cc-4e66-a31b-85974e7c8e1a"
+                        },
+                        {
+                          "id": "45885267-2ac3-48c1-814f-3a1da239bd03",
+                          "name": "this network was not followed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/networks/:network_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "networks",
+                                ":network_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "network_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:51.000Z",
+                          "updatedAt": "2026-07-28T03:20:51.000Z",
+                          "uid": "35240-45885267-2ac3-48c1-814f-3a1da239bd03"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:51.000Z",
+                      "updatedAt": "2026-07-28T03:20:51.000Z",
+                      "uid": "35240-618ed2d3-61ec-41c3-9e26-ae5b98e1cc8f"
+                    },
+                    {
+                      "name": "Check if a Network is Followed",
+                      "id": "ab4215ab-2e6e-4525-b070-7bbcb9826031",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/networks/:network_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "networks",
+                            ":network_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c98177c0-4420-4f0c-8583-a58422e3bf68",
+                              "key": "network_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7d9a0f39-c782-42c8-8cbc-71bd89c952e0",
+                          "name": "The followed network",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/networks/:network_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "networks",
+                                ":network_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "network_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"_embedded\": {\n    \"network\": {}\n  },\n  \"network_id\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:20:51.000Z",
+                          "updatedAt": "2026-07-28T03:20:51.000Z",
+                          "uid": "35240-7d9a0f39-c782-42c8-8cbc-71bd89c952e0"
+                        },
+                        {
+                          "id": "f0fdc959-756f-4146-88d6-ef32888798cb",
+                          "name": "this network is not followed",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/networks/:network_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "networks",
+                                ":network_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "network_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:51.000Z",
+                          "updatedAt": "2026-07-28T03:20:51.000Z",
+                          "uid": "35240-f0fdc959-756f-4146-88d6-ef32888798cb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:51.000Z",
+                      "updatedAt": "2026-07-28T03:20:51.000Z",
+                      "uid": "35240-ab4215ab-2e6e-4525-b070-7bbcb9826031"
+                    },
+                    {
+                      "name": "Follow a Network",
+                      "id": "033c16b1-de45-4516-9c8e-4ddc4536a3fe",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/networks/:network_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "networks",
+                            ":network_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e0ca5a85-f2b4-408b-8ca9-1ab87ebb89ec",
+                              "key": "network_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "fb775c63-b904-47af-8ad5-0105c4a821a2",
+                          "name": "this network is now followed",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/networks/:network_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "networks",
+                                ":network_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "network_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"_embedded\": {\n    \"network\": {}\n  },\n  \"network_id\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:20:51.000Z",
+                          "updatedAt": "2026-07-28T03:20:51.000Z",
+                          "uid": "35240-fb775c63-b904-47af-8ad5-0105c4a821a2"
+                        },
+                        {
+                          "id": "f6ba984f-7c27-484d-9366-b04ce2b18031",
+                          "name": "this network does not exist",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/networks/:network_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "networks",
+                                ":network_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "network_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:51.000Z",
+                          "updatedAt": "2026-07-28T03:20:51.000Z",
+                          "uid": "35240-f6ba984f-7c27-484d-9366-b04ce2b18031"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:51.000Z",
+                      "updatedAt": "2026-07-28T03:20:51.000Z",
+                      "uid": "35240-033c16b1-de45-4516-9c8e-4ddc4536a3fe"
+                    }
+                  ],
+                  "id": "c2c7188d-b147-4e98-9f2e-a8cfec620fcb",
+                  "createdAt": "2026-07-28T03:20:51.000Z",
+                  "updatedAt": "2026-07-28T03:20:51.000Z",
+                  "uid": "35240-c2c7188d-b147-4e98-9f2e-a8cfec620fcb"
+                },
+                {
+                  "name": "List the Followed Networks",
+                  "id": "55caf0bc-310a-467a-9ddc-101c72bc534c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/follows/networks?embed=network",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "follows",
+                        "networks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Embed full network info",
+                          "key": "embed",
+                          "value": "network"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b36d550c-836a-4537-a1e5-751832e4fd77",
+                      "name": "An array of followed networks",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/networks?embed=network",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "networks"
+                          ],
+                          "query": [
+                            {
+                              "description": "Embed full network info",
+                              "key": "embed",
+                              "value": "network"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"_embedded\": {\n      \"network\": {}\n    },\n    \"network_id\": \"<integer>\"\n  },\n  {\n    \"_embedded\": {\n      \"network\": {}\n    },\n    \"network_id\": \"<integer>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:20:51.000Z",
+                      "updatedAt": "2026-07-28T03:20:51.000Z",
+                      "uid": "35240-b36d550c-836a-4537-a1e5-751832e4fd77"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:51.000Z",
+                  "updatedAt": "2026-07-28T03:20:51.000Z",
+                  "uid": "35240-55caf0bc-310a-467a-9ddc-101c72bc534c"
+                }
+              ],
+              "id": "d88750b8-211d-42ba-b1ae-28bbfb954d20",
+              "createdAt": "2026-07-28T03:20:51.000Z",
+              "updatedAt": "2026-07-28T03:20:51.000Z",
+              "uid": "35240-d88750b8-211d-42ba-b1ae-28bbfb954d20"
+            }
+          ],
+          "id": "def2902b-e2c7-487f-845f-1ee95899ffd0",
+          "createdAt": "2026-07-28T03:20:51.000Z",
+          "updatedAt": "2026-07-28T03:20:51.000Z",
+          "uid": "35240-def2902b-e2c7-487f-845f-1ee95899ffd0"
+        }
+      ],
+      "id": "849c9add-ac50-48a0-986b-a0a2f72beaa3",
+      "createdAt": "2026-07-28T03:20:51.000Z",
+      "updatedAt": "2026-07-28T03:20:51.000Z",
+      "uid": "35240-849c9add-ac50-48a0-986b-a0a2f72beaa3"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,543 @@
+{
+  "info": {
+    "_postman_id": "babfac1b-d30b-4cbf-84e3-f9cef9a55a2f",
+    "name": "TVmaze Premium User auth followed people API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:20:52.000Z",
+    "updatedAt": "2026-07-28T03:20:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-babfac1b-d30b-4cbf-84e3-f9cef9a55a2f"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "follows",
+          "item": [
+            {
+              "name": "people",
+              "item": [
+                {
+                  "name": "{person_id}",
+                  "item": [
+                    {
+                      "name": "Unfollow a Person",
+                      "id": "e8cbb80f-c307-401d-8916-06d9cea14ffb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/people/:person_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "people",
+                            ":person_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1965fb18-de4e-45f7-a235-c54cb2e7cca2",
+                              "key": "person_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4553f37d-f184-4db5-b99d-b0b2c03d97e9",
+                          "name": "the person is now unfollowed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/people/:person_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "people",
+                                ":person_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "person_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:52.000Z",
+                          "updatedAt": "2026-07-28T03:20:52.000Z",
+                          "uid": "35240-4553f37d-f184-4db5-b99d-b0b2c03d97e9"
+                        },
+                        {
+                          "id": "f7a9915b-2557-4268-a3de-63aa5d741188",
+                          "name": "this person was not followed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/people/:person_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "people",
+                                ":person_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "person_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:52.000Z",
+                          "updatedAt": "2026-07-28T03:20:52.000Z",
+                          "uid": "35240-f7a9915b-2557-4268-a3de-63aa5d741188"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:52.000Z",
+                      "updatedAt": "2026-07-28T03:20:52.000Z",
+                      "uid": "35240-e8cbb80f-c307-401d-8916-06d9cea14ffb"
+                    },
+                    {
+                      "name": "Check if a Person is Followed",
+                      "id": "b93ca6c2-4daf-4468-b589-9f38e54d2604",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/people/:person_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "people",
+                            ":person_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "eed5381d-1854-4f61-9574-9e4346eadbdf",
+                              "key": "person_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2b2f33ef-a870-47bc-bda3-879bc6d7ea2f",
+                          "name": "The followed person",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/people/:person_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "people",
+                                ":person_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "person_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"_embedded\": {\n    \"person\": {}\n  },\n  \"person_id\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:20:52.000Z",
+                          "updatedAt": "2026-07-28T03:20:52.000Z",
+                          "uid": "35240-2b2f33ef-a870-47bc-bda3-879bc6d7ea2f"
+                        },
+                        {
+                          "id": "88c73406-2193-4973-b084-882d25b5e754",
+                          "name": "this person is not followed",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/people/:person_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "people",
+                                ":person_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "person_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:52.000Z",
+                          "updatedAt": "2026-07-28T03:20:52.000Z",
+                          "uid": "35240-88c73406-2193-4973-b084-882d25b5e754"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:52.000Z",
+                      "updatedAt": "2026-07-28T03:20:52.000Z",
+                      "uid": "35240-b93ca6c2-4daf-4468-b589-9f38e54d2604"
+                    },
+                    {
+                      "name": "Follow a Person",
+                      "id": "fa1cc13f-01be-4543-9c66-8211e3993fc5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/people/:person_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "people",
+                            ":person_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7cf76966-6cc8-4a64-a509-2f5a0de0c90d",
+                              "key": "person_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "5846cde0-0c52-4ffc-8246-c780be017bde",
+                          "name": "this person is now followed",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/people/:person_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "people",
+                                ":person_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "person_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"_embedded\": {\n    \"person\": {}\n  },\n  \"person_id\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:20:52.000Z",
+                          "updatedAt": "2026-07-28T03:20:52.000Z",
+                          "uid": "35240-5846cde0-0c52-4ffc-8246-c780be017bde"
+                        },
+                        {
+                          "id": "cbd66342-1a80-4f0c-bf38-7d10621cc40c",
+                          "name": "this person does not exist",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/follows/people/:person_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "follows",
+                                "people",
+                                ":person_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "person_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:20:52.000Z",
+                          "updatedAt": "2026-07-28T03:20:52.000Z",
+                          "uid": "35240-cbd66342-1a80-4f0c-bf38-7d10621cc40c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:20:52.000Z",
+                      "updatedAt": "2026-07-28T03:20:52.000Z",
+                      "uid": "35240-fa1cc13f-01be-4543-9c66-8211e3993fc5"
+                    }
+                  ],
+                  "id": "71f30fac-825d-45f0-9aab-aab1f6c6bab3",
+                  "createdAt": "2026-07-28T03:20:52.000Z",
+                  "updatedAt": "2026-07-28T03:20:52.000Z",
+                  "uid": "35240-71f30fac-825d-45f0-9aab-aab1f6c6bab3"
+                },
+                {
+                  "name": "List the Followed People",
+                  "id": "6f0c8417-a2f6-48d4-831d-2dc99fd3125e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/follows/people?embed=person",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "follows",
+                        "people"
+                      ],
+                      "query": [
+                        {
+                          "description": "Embed full person info",
+                          "key": "embed",
+                          "value": "person"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "56258587-4b17-4f17-bbb9-3fd02d4df6c7",
+                      "name": "An array of followed people",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/follows/people?embed=person",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "follows",
+                            "people"
+                          ],
+                          "query": [
+                            {
+                              "description": "Embed full person info",
+                              "key": "embed",
+                              "value": "person"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"_embedded\": {\n      \"person\": {}\n    },\n    \"person_id\": \"<integer>\"\n  },\n  {\n    \"_embedded\": {\n      \"person\": {}\n    },\n    \"person_id\": \"<integer>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:20:52.000Z",
+                      "updatedAt": "2026-07-28T03:20:52.000Z",
+                      "uid": "35240-56258587-4b17-4f17-bbb9-3fd02d4df6c7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:20:52.000Z",
+                  "updatedAt": "2026-07-28T03:20:52.000Z",
+                  "uid": "35240-6f0c8417-a2f6-48d4-831d-2dc99fd3125e"
+                }
+              ],
+              "id": "3ee4117e-119c-41c7-af84-994da9fda8c8",
+              "createdAt": "2026-07-28T03:20:52.000Z",
+              "updatedAt": "2026-07-28T03:20:52.000Z",
+              "uid": "35240-3ee4117e-119c-41c7-af84-994da9fda8c8"
+            }
+          ],
+          "id": "16e471a5-ca49-4583-9bd6-79b89855fd22",
+          "createdAt": "2026-07-28T03:20:52.000Z",
+          "updatedAt": "2026-07-28T03:20:52.000Z",
+          "uid": "35240-16e471a5-ca49-4583-9bd6-79b89855fd22"
+        }
+      ],
+      "id": "7095378a-c7cb-46d1-8abb-12fbb7fcd971",
+      "createdAt": "2026-07-28T03:20:52.000Z",
+      "updatedAt": "2026-07-28T03:20:52.000Z",
+      "uid": "35240-7095378a-c7cb-46d1-8abb-12fbb7fcd971"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+{
+  "info": {
+    "_postman_id": "7f7f540b-bcd1-4538-82a4-5a8a0e9104e6",
+    "name": "TVmaze Premium User auth Schedule API",
+    "description": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:22:00.000Z",
+    "updatedAt": "2026-07-28T03:22:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7f7f540b-bcd1-4538-82a4-5a8a0e9104e6"
+  },
+  "item": [
+    {
+      "name": "schedule",
+      "item": [
+        {
+          "name": "web",
+          "item": [
+            {
+              "name": "Get Web Schedule",
+              "id": "9f646aef-5c09-4046-a14b-1f0e783afec0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/schedule/web?country=<string>&date=<date>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "schedule",
+                    "web"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    }
+                  ]
+                },
+                "description": "Return the web/streaming schedule for a country (or worldwide) on a given date."
+              },
+              "response": [
+                {
+                  "id": "4d9d8e0b-c9ed-4666-83a8-27fd13d3340e",
+                  "name": "Array of web-released episodes.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/schedule/web?country=<string>&date=<date>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "schedule",
+                        "web"
+                      ],
+                      "query": [
+                        {
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "date",
+                          "value": "<date>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"season\": \"<integer>\",\n    \"number\": \"<integer>\",\n    \"type\": \"<string>\",\n    \"airdate\": \"<date>\",\n    \"airtime\": \"<string>\",\n    \"airstamp\": \"<dateTime>\",\n    \"runtime\": \"<integer>\",\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"in4\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      },\n      \"velitfd8\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"season\": \"<integer>\",\n    \"number\": \"<integer>\",\n    \"type\": \"<string>\",\n    \"airdate\": \"<date>\",\n    \"airtime\": \"<string>\",\n    \"airstamp\": \"<dateTime>\",\n    \"runtime\": \"<integer>\",\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"exercitation_a2\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  }\n]",
+                  "createdAt": "2026-07-28T03:22:00.000Z",
+                  "updatedAt": "2026-07-28T03:22:00.000Z",
+                  "uid": "35240-4d9d8e0b-c9ed-4666-83a8-27fd13d3340e"
+                }
+              ],
+              "createdAt": "2026-07-28T03:22:00.000Z",
+              "updatedAt": "2026-07-28T03:22:00.000Z",
+              "uid": "35240-9f646aef-5c09-4046-a14b-1f0e783afec0"
+            }
+          ],
+          "id": "33ef4ffa-978e-4ec7-b29c-736e71c100c1",
+          "createdAt": "2026-07-28T03:22:00.000Z",
+          "updatedAt": "2026-07-28T03:22:00.000Z",
+          "uid": "35240-33ef4ffa-978e-4ec7-b29c-736e71c100c1"
+        },
+        {
+          "name": "full",
+          "item": [
+            {
+              "name": "Get Full Schedule",
+              "id": "d14c7fa3-3e88-4f45-b9d8-ab3ba7f36d41",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/schedule/full",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "schedule",
+                    "full"
+                  ]
+                },
+                "description": "Return all future scheduled episodes (large response, cached 24h)."
+              },
+              "response": [
+                {
+                  "id": "b472b010-32b4-4b18-9bc5-fbdbd9175b5a",
+                  "name": "Array of future episodes.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/schedule/full",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "schedule",
+                        "full"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"season\": \"<integer>\",\n    \"number\": \"<integer>\",\n    \"type\": \"<string>\",\n    \"airdate\": \"<date>\",\n    \"airtime\": \"<string>\",\n    \"airstamp\": \"<dateTime>\",\n    \"runtime\": \"<integer>\",\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"in4\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      },\n      \"velitfd8\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"season\": \"<integer>\",\n    \"number\": \"<integer>\",\n    \"type\": \"<string>\",\n    \"airdate\": \"<date>\",\n    \"airtime\": \"<string>\",\n    \"airstamp\": \"<dateTime>\",\n    \"runtime\": \"<integer>\",\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"exercitation_a2\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  }\n]",
+                  "createdAt": "2026-07-28T03:22:00.000Z",
+                  "updatedAt": "2026-07-28T03:22:00.000Z",
+                  "uid": "35240-b472b010-32b4-4b18-9bc5-fbdbd9175b5a"
+                }
+              ],
+              "createdAt": "2026-07-28T03:22:00.000Z",
+              "updatedAt": "2026-07-28T03:22:00.000Z",
+              "uid": "35240-d14c7fa3-3e88-4f45-b9d8-ab3ba7f36d41"
+            }
+          ],
+          "id": "33dd2b46-f9d8-421c-bbdd-2261ac4e849f",
+          "createdAt": "2026-07-28T03:22:00.000Z",
+          "updatedAt": "2026-07-28T03:22:00.000Z",
+          "uid": "35240-33dd2b46-f9d8-421c-bbdd-2261ac4e849f"
+        },
+        {
+          "name": "Get Schedule",
+          "id": "e369cae4-1bdf-4f6e-9b31-1b72a5fd0274",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/schedule?country=<string>&date=<date>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "schedule"
+              ],
+              "query": [
+                {
+                  "description": "ISO 3166-1 alpha-2 country code (default US).",
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "description": "ISO 8601 date (default today).",
+                  "key": "date",
+                  "value": "<date>"
+                }
+              ]
+            },
+            "description": "Return the TV schedule for a country on a given date."
+          },
+          "response": [
+            {
+              "id": "d4c41dab-2f16-4a26-9ebf-e3c92c2725b6",
+              "name": "Array of scheduled episodes.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/schedule?country=<string>&date=<date>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "schedule"
+                  ],
+                  "query": [
+                    {
+                      "description": "ISO 3166-1 alpha-2 country code (default US).",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ISO 8601 date (default today).",
+                      "key": "date",
+                      "value": "<date>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"season\": \"<integer>\",\n    \"number\": \"<integer>\",\n    \"type\": \"<string>\",\n    \"airdate\": \"<date>\",\n    \"airtime\": \"<string>\",\n    \"airstamp\": \"<dateTime>\",\n    \"runtime\": \"<integer>\",\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"in4\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      },\n      \"velitfd8\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"season\": \"<integer>\",\n    \"number\": \"<integer>\",\n    \"type\": \"<string>\",\n    \"airdate\": \"<date>\",\n    \"airtime\": \"<string>\",\n    \"airstamp\": \"<dateTime>\",\n    \"runtime\": \"<integer>\",\n    \"rating\": {\n      \"average\": \"<number>\"\n    },\n    \"image\": {\n      \"medium\": \"<uri>\",\n      \"original\": \"<uri>\"\n    },\n    \"summary\": \"<string>\",\n    \"_links\": {\n      \"exercitation_a2\": {\n        \"href\": \"<uri>\",\n        \"name\": \"<string>\"\n      }\n    }\n  }\n]",
+              "createdAt": "2026-07-28T03:22:00.000Z",
+              "updatedAt": "2026-07-28T03:22:00.000Z",
+              "uid": "35240-d4c41dab-2f16-4a26-9ebf-e3c92c2725b6"
+            }
+          ],
+          "createdAt": "2026-07-28T03:22:00.000Z",
+          "updatedAt": "2026-07-28T03:22:00.000Z",
+          "uid": "35240-e369cae4-1bdf-4f6e-9b31-1b72a5fd0274"
+        }
+      ],
+      "id": "77887826-8358-4e6e-a43f-d1060f1881ff",
+      "createdAt": "2026-07-28T03:22:00.000Z",
+      "updatedAt": "2026-07-28T03:22:00.000Z",
+      "uid": "35240-77887826-8358-4e6e-a43f-d1060f1881ff"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tvmaze.com/v1"
+    }
+  ]
+}
