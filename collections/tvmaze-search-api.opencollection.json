@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User auth Search API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Shows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/search/shows",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query string."
+              }
+            ]
+          },
+          "docs": "Search for shows using a fuzzy text query."
+        },
+        {
+          "info": {
+            "name": "Single Search Shows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/singlesearch/shows",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return the single best matching show for a query, optionally embedding related data."
+        },
+        {
+          "info": {
+            "name": "Lookup Shows By External ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/lookup/shows",
+            "params": [
+              {
+                "name": "tvrage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "thetvdb",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "imdb",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Look up a show using a TVRage, TheTVDB, or IMDb identifier."
+        },
+        {
+          "info": {
+            "name": "Search People",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/search/people",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for people (actors, crew) using a fuzzy text query."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

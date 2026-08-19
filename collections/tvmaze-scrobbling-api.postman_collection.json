@@ -1,0 +1,832 @@
+{
+  "item": [
+    {
+      "id": "fc43470d-3918-4c61-8763-8067ddc06be3",
+      "name": "scrobbling",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f34e60e-b030-49a3-ba48-6c7e50566b4f",
+          "name": "Mark Episodes as Acquired or Watched Based on Their IDs",
+          "request": {
+            "name": "Mark Episodes as Acquired or Watched Based on Their IDs",
+            "description": {
+              "content": "This endpoint can be used by all users, even without premium",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scrobble",
+                "episodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {}\n  },\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {}\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd518c4b-aac3-4553-bc0a-ebc0daf2757f",
+              "name": "All episodes were succesfully marked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scrobble",
+                    "episodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {}\n  },\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {}\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": 4688,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  },\n  {\n    \"code\": 1365,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca9a1ea2-af2e-4d52-976a-c784711c9e20",
+              "name": "Some episodes were succesfully marked, but there are errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scrobble",
+                    "episodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {}\n  },\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {}\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": 9142,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  },\n  {\n    \"code\": 7623,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa4df20a-6184-4019-b0ba-dc5e706fbc67",
+              "name": "None of the episodes were succesfully marked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scrobble",
+                    "episodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {}\n  },\n  {\n    \"episode_id\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"type\": {}\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": 9142,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  },\n  {\n    \"code\": 7623,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "841ba2d7-9d0b-4ed5-9157-3535fd3e73b6",
+          "name": "Mark an Episode as Acquired or Watched Based on Its ID",
+          "request": {
+            "name": "Mark an Episode as Acquired or Watched Based on Its ID",
+            "description": {
+              "content": "This endpoint can be used by all users, even without premium",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scrobble",
+                "episodes",
+                ":episode_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "episode_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"_embedded\": {\n    \"episode\": \"<object>\"\n  },\n  \"marked_at\": \"<integer>\",\n  \"type\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6bc77892-97de-4a97-b735-745ec1031e4d",
+              "name": "this episode is now marked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scrobble",
+                    "episodes",
+                    ":episode_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "episode_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_embedded\": {\n    \"episode\": \"<object>\"\n  },\n  \"episode_id\": 3099,\n  \"marked_at\": \"<integer>\",\n  \"type\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "410d42c6-82e6-4b7f-b67c-65ab297c6514",
+              "name": "this episode does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scrobble",
+                    "episodes",
+                    ":episode_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "episode_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3e872c1e-dc1a-4def-b341-bd58131e3707",
+              "name": "invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scrobble",
+                    "episodes",
+                    ":episode_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "episode_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acd81336-bc96-420c-8abc-4c6676f669df",
+          "name": "Mark Episodes Within a Show as Acquired or Watched Based on Their Attributes",
+          "request": {
+            "name": "Mark Episodes Within a Show as Acquired or Watched Based on Their Attributes",
+            "description": {
+              "content": "To specify a show, supply either `tvmaze_id`, `thetvdb_id` or `imdb_id`. To specify an episode, supply either both `season` and `episode`, or `airdate`.\n\nThis endpoint can be used by all users, even without premium.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scrobble",
+                "shows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tvmaze_id",
+                  "value": "<integer>",
+                  "description": "The show's TVmaze ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "thetvdb_id",
+                  "value": "<integer>",
+                  "description": "The show's TheTVDB ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "imdb_id",
+                  "value": "<integer>",
+                  "description": "The show's IMDB ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {}\n  },\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {}\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d1d17cfa-dcd7-4e74-bf2b-17aa06cc5938",
+              "name": "All episodes were succesfully marked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scrobble",
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tvmaze_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "thetvdb_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "imdb_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {}\n  },\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {}\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": 9142,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  },\n  {\n    \"code\": 7623,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "038a466d-cde5-4673-8a9a-5b99a546449c",
+              "name": "Some episodes were succesfully marked, but there are errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scrobble",
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tvmaze_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "thetvdb_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "imdb_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {}\n  },\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {}\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": 9142,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  },\n  {\n    \"code\": 7623,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "817179bf-000c-4e70-8d7a-aeeb97c74e07",
+              "name": "None of the episodes were succesfully marked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scrobble",
+                    "shows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tvmaze_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "thetvdb_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "imdb_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {}\n  },\n  {\n    \"airdate\": \"<date>\",\n    \"episode\": \"<integer>\",\n    \"marked_at\": \"<integer>\",\n    \"season\": \"<integer>\",\n    \"type\": {}\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": 9142,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  },\n  {\n    \"code\": 7623,\n    \"errors\": {},\n    \"input\": {},\n    \"message\": \"string\",\n    \"result\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5313bf5b-36ff-46ea-809d-841a4ad58798",
+          "name": "List Watched and Acquired Episodes for a Show",
+          "request": {
+            "name": "List Watched and Acquired Episodes for a Show",
+            "description": {
+              "content": "This endpoint can be used by all users, even without premium",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scrobble",
+                "shows",
+                ":show_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "embed",
+                  "value": "<string>",
+                  "description": "Embed full episode info"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "show_id",
+                  "description": "(Required) ID of the target show"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b0f0885-8e57-436e-a898-7dd274d0e2b3",
+              "name": "An array of marked episodes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scrobble",
+                    "shows",
+                    ":show_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "embed",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "show_id",
+                      "description": "(Required) ID of the target show"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"_embedded\": {\n      \"episode\": \"<object>\"\n    },\n    \"episode_id\": 2865,\n    \"marked_at\": \"<integer>\",\n    \"type\": {}\n  },\n  {\n    \"_embedded\": {\n      \"episode\": \"<object>\"\n    },\n    \"episode_id\": 488,\n    \"marked_at\": \"<integer>\",\n    \"type\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tvmaze.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f23f9896-c0cd-40f0-ba98-0adf8330d2ca",
+    "name": "TVmaze Premium User auth scrobbling API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+      "type": "text/plain"
+    }
+  }
+}

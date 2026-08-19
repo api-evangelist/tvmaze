@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User auth scrobbling API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "scrobbling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mark Episodes as Acquired or Watched Based on Their IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tvmaze.com/v1/scrobble/episodes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint can be used by all users, even without premium"
+        },
+        {
+          "info": {
+            "name": "Mark an Episode as Acquired or Watched Based on Its ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/scrobble/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint can be used by all users, even without premium"
+        },
+        {
+          "info": {
+            "name": "Mark Episodes Within a Show as Acquired or Watched Based on Their Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tvmaze.com/v1/scrobble/shows",
+            "params": [
+              {
+                "name": "tvmaze_id",
+                "value": "",
+                "type": "query",
+                "description": "The show's TVmaze ID"
+              },
+              {
+                "name": "thetvdb_id",
+                "value": "",
+                "type": "query",
+                "description": "The show's TheTVDB ID"
+              },
+              {
+                "name": "imdb_id",
+                "value": "",
+                "type": "query",
+                "description": "The show's IMDB ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "To specify a show, supply either `tvmaze_id`, `thetvdb_id` or `imdb_id`. To specify an episode, supply either both `season` and `episode`, or `airdate`.\n\nThis endpoint can be used by all users, even without premium.\n"
+        },
+        {
+          "info": {
+            "name": "List Watched and Acquired Episodes for a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/scrobble/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the target show"
+              },
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full episode info"
+              }
+            ]
+          },
+          "docs": "This endpoint can be used by all users, even without premium"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User auth voted shows API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "voted shows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Shows Voted For",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/votes/shows",
+            "params": [
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full show info"
+              }
+            ]
+          },
+          "docs": "List the Shows Voted For"
+        },
+        {
+          "info": {
+            "name": "Check if a Show is Voted For",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/votes/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if a Show is Voted For"
+        },
+        {
+          "info": {
+            "name": "Vote for a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/votes/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set `voted_at` to `NULL` or leave it out to use the current time."
+        },
+        {
+          "info": {
+            "name": "Remove a Show Vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/votes/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a Show Vote"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User auth followed shows API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "followed shows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Followed Shows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/shows",
+            "params": [
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full show info"
+              }
+            ]
+          },
+          "docs": "List the Followed Shows"
+        },
+        {
+          "info": {
+            "name": "Check if a Show is Followed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if a Show is Followed"
+        },
+        {
+          "info": {
+            "name": "Follow a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/follows/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Follow a Show"
+        },
+        {
+          "info": {
+            "name": "Unfollow a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/follows/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unfollow a Show"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

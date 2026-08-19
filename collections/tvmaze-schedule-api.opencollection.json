@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User auth Schedule API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schedule",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/schedule",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "ISO 3166-1 alpha-2 country code (default US)."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 date (default today)."
+              }
+            ]
+          },
+          "docs": "Return the TV schedule for a country on a given date."
+        },
+        {
+          "info": {
+            "name": "Get Web Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/schedule/web",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return the web/streaming schedule for a country (or worldwide) on a given date."
+        },
+        {
+          "info": {
+            "name": "Get Full Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/schedule/full"
+          },
+          "docs": "Return all future scheduled episodes (large response, cached 24h)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

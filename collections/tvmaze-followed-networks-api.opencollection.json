@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User auth followed networks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "followed networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Followed Networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/networks",
+            "params": [
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full network info"
+              }
+            ]
+          },
+          "docs": "List the Followed Networks"
+        },
+        {
+          "info": {
+            "name": "Check if a Network is Followed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/networks/:network_id",
+            "params": [
+              {
+                "name": "network_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if a Network is Followed"
+        },
+        {
+          "info": {
+            "name": "Follow a Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/follows/networks/:network_id",
+            "params": [
+              {
+                "name": "network_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Follow a Network"
+        },
+        {
+          "info": {
+            "name": "Unfollow a Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/follows/networks/:network_id",
+            "params": [
+              {
+                "name": "network_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unfollow a Network"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

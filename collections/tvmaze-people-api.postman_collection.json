@@ -1,0 +1,568 @@
+{
+  "item": [
+    {
+      "id": "e9f3b60d-7248-448b-8681-d2d44f6e3e54",
+      "name": "People",
+      "description": {
+        "content": "Person profiles, cast credits, and crew credits.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e94288d6-99d5-45c0-aa2f-550fed30d3d0",
+          "name": "List People",
+          "request": {
+            "name": "List People",
+            "description": {
+              "content": "Paginated index of every person on TVmaze (1000 per page).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c05f229a-44f8-4fd6-9140-4756bca4c8d7",
+              "name": "Array of people.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7126,\n    \"url\": \"https://tUePJsyo.snlzGCOAnzCXLj-IUQ-z4kCk3B.21eK6x+Qmqdr9,0jR.gAmtZTwQr7jywPx2\",\n    \"name\": \"string\",\n    \"country\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"birthday\": \"2026-04-16\",\n    \"deathday\": \"1966-09-30\",\n    \"gender\": \"string\",\n    \"image\": {\n      \"medium\": \"http://GpyFZbjDUK.bdetGSRZ8,FDKswamuNx+1EnoobGlurwAV7iEwuMVJQuKTXmDarngIj211Rhwk\",\n      \"original\": \"https://msIeBdLlECaDHlxbeNCDCPhHeB.gwr.mn25sHFMT+yEzfsyfH\"\n    },\n    \"updated\": 4746,\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"https://ONxwBAbqVTXRVynGutUqBMBhYLiWBv.dbdh-uXkaeHZLYEXpeyiJ.L2VORDFFlxxwZku\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 5937,\n    \"url\": \"http://LOXYJ.qtli9cpgjvv65WFdcSUGj7L8AwJ3Fu4,-ep\",\n    \"name\": \"string\",\n    \"country\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"birthday\": \"1985-06-03\",\n    \"deathday\": \"1983-11-07\",\n    \"gender\": \"string\",\n    \"image\": {\n      \"medium\": \"https://cFXxFYRjkrcPqqcHRbOYbUjbCOJXXi.hgGxP2GG-xVyaPTLic4eQjdBXGLMt.9AA\",\n      \"original\": \"http://RrWVKPyIqkBbxoeDCy.dlbRyCCNbf,LPkipuVrCK.JSPO6hep-b9rCSN2fQ\"\n    },\n    \"updated\": 9337,\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"http://qRsMeeYvXJAHyA.hbhRlz1Hngm05f4+.92+\",\n        \"name\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "834bc94b-67fd-47b6-8a95-d5efd7e6cd6e",
+              "name": "Page out of range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c32eec8-772e-4177-a303-b4f76369792b",
+          "name": "Get Person",
+          "request": {
+            "name": "Get Person",
+            "description": {
+              "content": "Return a single person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d885072c-4c97-459b-b170-8a92b9c91943",
+              "name": "Person record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"url\": \"https://www.tvmaze.com/people/1/mike-vogel\",\n  \"name\": \"Mike Vogel\",\n  \"country\": {\n    \"name\": \"United States\",\n    \"code\": \"US\",\n    \"timezone\": \"America/New_York\"\n  },\n  \"birthday\": \"1979-07-17\",\n  \"deathday\": null,\n  \"gender\": \"Male\",\n  \"image\": {\n    \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/0/1815.jpg\",\n    \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/0/1815.jpg\"\n  },\n  \"updated\": 1779526576,\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://api.tvmaze.com/people/1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8d110b3-743c-4ff3-bcdc-49bf3dc3d2b2",
+          "name": "Get Person Cast Credits",
+          "request": {
+            "name": "Get Person Cast Credits",
+            "description": {
+              "content": "Return show-level cast credits for a person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people",
+                ":id",
+                "castcredits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9ad8509-0ca1-4114-ab88-ec909ff1c223",
+              "name": "Array of cast credits.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    ":id",
+                    "castcredits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 2495,\n    \"key_1\": 8614.15832281995,\n    \"key_2\": 8884.345258306334,\n    \"key_3\": false\n  },\n  {\n    \"key_0\": 844,\n    \"key_1\": 4408\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7db5a30-58a1-40fc-b5fc-9967e4907ac5",
+          "name": "Get Person Crew Credits",
+          "request": {
+            "name": "Get Person Crew Credits",
+            "description": {
+              "content": "Return show-level crew credits for a person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people",
+                ":id",
+                "crewcredits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6ee7ef67-88ac-4a8b-829c-ca4ca57191be",
+              "name": "Array of crew credits.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    ":id",
+                    "crewcredits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 2495,\n    \"key_1\": 8614.15832281995,\n    \"key_2\": 8884.345258306334,\n    \"key_3\": false\n  },\n  {\n    \"key_0\": 844,\n    \"key_1\": 4408\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1dff8a87-322d-4757-bce0-12b2042d27a0",
+          "name": "Get Person Guest Cast Credits",
+          "request": {
+            "name": "Get Person Guest Cast Credits",
+            "description": {
+              "content": "Return episode-level guest cast credits for a person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people",
+                ":id",
+                "guestcastcredits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a16338f6-18e0-4161-98a5-8ec8f30aae77",
+              "name": "Array of guest cast credits.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    ":id",
+                    "guestcastcredits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 2495,\n    \"key_1\": 8614.15832281995,\n    \"key_2\": 8884.345258306334,\n    \"key_3\": false\n  },\n  {\n    \"key_0\": 844,\n    \"key_1\": 4408\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tvmaze.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2b1792fc-07c3-4d58-95f7-5e83b755fde5",
+    "name": "TVmaze Premium User auth People API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+      "type": "text/plain"
+    }
+  }
+}

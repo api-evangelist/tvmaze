@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User auth voted episodes API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "voted episodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Episodes Voted For",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/votes/episodes"
+          },
+          "docs": "List the Episodes Voted For"
+        },
+        {
+          "info": {
+            "name": "Check if an Episode is Voted For",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/votes/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if an Episode is Voted For"
+        },
+        {
+          "info": {
+            "name": "Vote for an Episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/votes/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Vote for an Episode"
+        },
+        {
+          "info": {
+            "name": "Remove an Episode Vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/votes/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove an Episode Vote"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

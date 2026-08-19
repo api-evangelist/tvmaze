@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User auth marked episodes API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "marked episodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Marked Episodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/episodes",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return episodes from this specific show"
+              }
+            ]
+          },
+          "docs": "List the Marked Episodes"
+        },
+        {
+          "info": {
+            "name": "Check if an Episode is Marked",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if an Episode is Marked"
+        },
+        {
+          "info": {
+            "name": "Mark an Episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set `marked_at` to `NULL` or leave it out to use the current time."
+        },
+        {
+          "info": {
+            "name": "Unmark an Episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unmark an Episode"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User auth followed webchannels API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "followed webchannels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Followed Webchannels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/webchannels",
+            "params": [
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full webchannel info"
+              }
+            ]
+          },
+          "docs": "List the Followed Webchannels"
+        },
+        {
+          "info": {
+            "name": "Check if a Webchannel is Followed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/follows/webchannels/:webchannel_id",
+            "params": [
+              {
+                "name": "webchannel_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if a Webchannel is Followed"
+        },
+        {
+          "info": {
+            "name": "Follow a Webchannel",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/follows/webchannels/:webchannel_id",
+            "params": [
+              {
+                "name": "webchannel_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Follow a Webchannel"
+        },
+        {
+          "info": {
+            "name": "Unfollow a Webchannel",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/follows/webchannels/:webchannel_id",
+            "params": [
+              {
+                "name": "webchannel_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unfollow a Webchannel"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

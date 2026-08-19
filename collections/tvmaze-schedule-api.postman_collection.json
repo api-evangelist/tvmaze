@@ -1,0 +1,325 @@
+{
+  "item": [
+    {
+      "id": "9635d4e8-ca65-4bf8-a8cf-5661a1e37c95",
+      "name": "Schedule",
+      "description": {
+        "content": "Daily and rolling TV and web/streaming schedules.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8cf1539-48e7-413d-ad4c-046af3168710",
+          "name": "Get Schedule",
+          "request": {
+            "name": "Get Schedule",
+            "description": {
+              "content": "Return the TV schedule for a country on a given date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "ISO 3166-1 alpha-2 country code (default US)."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "ISO 8601 date (default today)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be73fafd-21ee-4c4c-94e5-bcb272959f31",
+              "name": "Array of scheduled episodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3623136,\n    \"url\": \"https://www.tvmaze.com/episodes/3623136/the-story-is-with-elex-michaelson-2026-05-29-episode-105\",\n    \"name\": \"Episode 105\",\n    \"season\": 2026,\n    \"number\": 105,\n    \"type\": \"regular\",\n    \"airdate\": \"2026-05-29\",\n    \"airtime\": \"00:00\",\n    \"airstamp\": \"2026-05-30T04:00:00+00:00\",\n    \"runtime\": 120,\n    \"rating\": {\n      \"average\": null\n    },\n    \"image\": null,\n    \"summary\": null,\n    \"show\": {\n      \"id\": 87855,\n      \"url\": \"https://www.tvmaze.com/shows/87855/the-story-is-with-elex-michaelson\",\n      \"name\": \"The Story Is with Elex Michaelson\",\n      \"type\": \"News\",\n      \"language\": \"English\",\n      \"genres\": [],\n      \"status\": \"Running\",\n      \"runtime\": 120,\n      \"averageRuntime\": 123,\n      \"premiered\": \"2025-10-27\",\n      \"ended\": null,\n      \"officialSite\": null,\n      \"schedule\": {\n        \"time\": \"00:00\",\n        \"days\": [\n          \"Monday\",\n          \"Tuesday\",\n          \"Wednesday\",\n          \"Thursday\",\n          \"Friday\"\n        ]\n      },\n      \"rating\": {\n        \"average\": null\n      },\n      \"weight\": 55,\n      \"network\": {\n        \"id\": 40,\n        \"name\": \"CNN\",\n        \"country\": {\n          \"name\": \"United States\",\n          \"code\": \"US\",\n          \"timezone\": \"America/New_York\"\n        },\n        \"officialSite\": null\n      },\n      \"webChannel\": null,\n      \"dvdCountry\": null,\n      \"externals\": {\n        \"tvrage\": null,\n        \"thetvdb\": null,\n        \"imdb\": null\n      },\n      \"image\": {\n        \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/614/1536142.jpg\",\n        \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/614/1536142.jpg\"\n      },\n      \"summary\": \"<p><b>The Story Is</b> will feature live nightly panels and debates on set featuring a range of voices including attorneys Gloria Allred and Areva Martin, conservative talk radio hosts Larry Elder and Jennifer Horn, progressive podcast host Brian Tyler Cohen, former California GOP chair Jessica Millan Patterson and journalists Peter Hamby from Puck and POLITICO's Melanie Mason.</p>\",\n      \"updated\": 1779503802,\n      \"_links\": {\n        \"self\": {\n          \"href\": \"https://api.tvmaze.com/shows/87855\"\n        },\n        \"previousepisode\": {\n          \"href\": \"https://api.tvmaze.com/episodes/3623136\",\n          \"name\": \"Episode 105\"\n        },\n        \"nextepisode\": {\n          \"href\": \"https://api.tvmaze.com/episodes/3623137\",\n          \"name\": \"Episode 106\"\n        }\n      }\n    },\n    \"_links\": {\n      \"self\": {\n        \"href\": \"https://api.tvmaze.com/episodes/3623136\"\n      },\n      \"show\": {\n        \"href\": \"https://api.tvmaze.com/shows/87855\",\n        \"name\": \"The Story Is with Elex Michaelson\"\n      }\n    }\n  },\n  {\n    \"id\": 3624338,\n    \"url\": \"https://www.tvmaze.com/episodes/3624338/bloomberg-the-opening-trade-2026-05-29-episode-106\",\n    \"name\": \"Episode 106\",\n    \"season\": 2026,\n    \"number\": 106,\n    \"type\": \"regular\",\n    \"airdate\": \"2026-05-29\",\n    \"airtime\": \"02:00\",\n    \"airstamp\": \"2026-05-30T06:00:00+00:00\",\n    \"runtime\": 120,\n    \"rating\": {\n      \"average\": null\n    },\n    \"image\": null,\n    \"summary\": null,\n    \"show\": {\n      \"id\": 85938,\n      \"url\": \"https://www.tvmaze.com/shows/85938/bloomberg-the-opening-trade\",\n      \"name\": \"Bloomberg The Opening Trade\",\n      \"type\": \"News\",\n      \"language\": \"English\",\n      \"genres\": [],\n      \"status\": \"Running\",\n      \"runtime\": 120,\n      \"averageRuntime\": 115,\n      \"premiered\": \"2024-07-01\",\n      \"ended\": null,\n      \"officialSite\": \"https://www.bloomberg.com/btv/series/the-opening-trade\",\n      \"schedule\": {\n        \"time\": \"02:00\",\n        \"days\": [\n          \"Monday\",\n          \"Tuesday\",\n          \"Wednesday\",\n          \"Thursday\",\n          \"Friday\"\n        ]\n      },\n      \"rating\": {\n        \"average\": null\n      },\n      \"weight\": 57,\n      \"network\": {\n        \"id\": 172,\n        \"name\": \"Bloomberg TV\",\n        \"country\": {\n          \"name\": \"United States\",\n          \"code\": \"US\",\n          \"timezone\": \"America/New_York\"\n        },\n        \"officialSite\": null\n      },\n      \"webChannel\": null,\n      \"dvdCountry\": null,\n      \"externals\": {\n        \"tvrage\": null,\n        \"thetvdb\": null,\n        \"imdb\": null\n      },\n      \"image\": {\n        \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/578/1445883.jpg\",\n        \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/578/1445883.jpg\"\n      },\n      \"summary\": \"<p>Everything you need to know as markets open across Europe. With analysis you won't find anywhere else, we break down the biggest stories of the day and speak to top guests who have skin in the game. Hosted by Anna Edwards, Guy Johnson and Kriti Gupta.</p>\",\n      \"updated\": 1779661117,\n      \"_links\": {\n        \"self\": {\n          \"href\": \"https://api.tvmaze.com/shows/85938\"\n        },\n        \"previousepisode\": {\n          \"href\": \"https://api.tvmaze.com/episodes/3624338\",\n          \"name\": \"Episode 106\"\n        },\n        \"nextepisode\": {\n          \"href\": \"https://api.tvmaze.com/episodes/3624339\",\n          \"name\": \"Episode 107\"\n        }\n      }\n    },\n    \"_links\": {\n      \"self\": {\n        \"href\": \"https://api.tvmaze.com/episodes/3624338\"\n      },\n      \"show\": {\n        \"href\": \"https://api.tvmaze.com/shows/85938\",\n        \"name\": \"Bloomberg The Opening Trade\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "496e7ece-5ec9-4c28-9216-6e6e8ca3a436",
+          "name": "Get Web Schedule",
+          "request": {
+            "name": "Get Web Schedule",
+            "description": {
+              "content": "Return the web/streaming schedule for a country (or worldwide) on a given date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "schedule",
+                "web"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5279845b-7ab0-4dc7-a6db-db47353d9848",
+              "name": "Array of web-released episodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "web"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 173,\n    \"url\": \"http://AJFAHxFPARmCXakGJ.agSkTukQWr9Q,VE\",\n    \"name\": \"string\",\n    \"season\": 9093,\n    \"number\": 7008,\n    \"type\": \"string\",\n    \"airdate\": \"1967-04-17\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"2025-12-31T19:02:39.736Z\",\n    \"runtime\": 1808,\n    \"rating\": {\n      \"average\": 1138.3281906710274\n    },\n    \"image\": {\n      \"medium\": \"https://XNvhXhOoSmcprJrSRSYbtArkCgDocio.dwaa7.0SAT8a\",\n      \"original\": \"http://UzWXSIVlSO.hapvMgn4tRsWoeL\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"http://vJlpKtkQDcWTkprAEgvrNn.ywqvXIL8JUJ+APZOd-1,s.R\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"http://cBgPIDKFwyPo.txOrsu+wXMRCWmS-tSvSQI8Ph7.EIeq5uhppE,1LVEQ1MORW-J3\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 2886,\n    \"url\": \"https://DUYZCoOjZVFxHMdMbIp.maWV4iQi,zdLyW0Yr65BzT,O37HJM6Qd2MSlxY\",\n    \"name\": \"string\",\n    \"season\": 1800,\n    \"number\": 8898,\n    \"type\": \"string\",\n    \"airdate\": \"1978-06-30\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1957-12-03T05:29:43.960Z\",\n    \"runtime\": 8592,\n    \"rating\": {\n      \"average\": 4865.5709069267505\n    },\n    \"image\": {\n      \"medium\": \"http://P.drcjlm+qOxC\",\n      \"original\": \"https://FwKWPxvXELfprFhlGxpjcgKYlEsMUtW.vwFTfIMjU3aX,bJjO6pUV4ACI\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"https://tibzMrFEKcfbCntFfmMwPKRi.hlLfeCto6kbXQdF4KTp7VOSXoWHKPsZmmMCbUkn9a\",\n        \"name\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aaa10864-2aaa-46cb-baad-119f2011c892",
+          "name": "Get Full Schedule",
+          "request": {
+            "name": "Get Full Schedule",
+            "description": {
+              "content": "Return all future scheduled episodes (large response, cached 24h).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "schedule",
+                "full"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff8c304c-f104-4837-94b3-8dcb7dac7193",
+              "name": "Array of future episodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 173,\n    \"url\": \"http://AJFAHxFPARmCXakGJ.agSkTukQWr9Q,VE\",\n    \"name\": \"string\",\n    \"season\": 9093,\n    \"number\": 7008,\n    \"type\": \"string\",\n    \"airdate\": \"1967-04-17\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"2025-12-31T19:02:39.736Z\",\n    \"runtime\": 1808,\n    \"rating\": {\n      \"average\": 1138.3281906710274\n    },\n    \"image\": {\n      \"medium\": \"https://XNvhXhOoSmcprJrSRSYbtArkCgDocio.dwaa7.0SAT8a\",\n      \"original\": \"http://UzWXSIVlSO.hapvMgn4tRsWoeL\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"http://vJlpKtkQDcWTkprAEgvrNn.ywqvXIL8JUJ+APZOd-1,s.R\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"http://cBgPIDKFwyPo.txOrsu+wXMRCWmS-tSvSQI8Ph7.EIeq5uhppE,1LVEQ1MORW-J3\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 2886,\n    \"url\": \"https://DUYZCoOjZVFxHMdMbIp.maWV4iQi,zdLyW0Yr65BzT,O37HJM6Qd2MSlxY\",\n    \"name\": \"string\",\n    \"season\": 1800,\n    \"number\": 8898,\n    \"type\": \"string\",\n    \"airdate\": \"1978-06-30\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1957-12-03T05:29:43.960Z\",\n    \"runtime\": 8592,\n    \"rating\": {\n      \"average\": 4865.5709069267505\n    },\n    \"image\": {\n      \"medium\": \"http://P.drcjlm+qOxC\",\n      \"original\": \"https://FwKWPxvXELfprFhlGxpjcgKYlEsMUtW.vwFTfIMjU3aX,bJjO6pUV4ACI\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"https://tibzMrFEKcfbCntFfmMwPKRi.hlLfeCto6kbXQdF4KTp7VOSXoWHKPsZmmMCbUkn9a\",\n        \"name\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tvmaze.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5962f8e2-1509-4eb5-9d45-d3308ba549f6",
+    "name": "TVmaze Premium User auth Schedule API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+      "type": "text/plain"
+    }
+  }
+}

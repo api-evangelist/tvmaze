@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVmaze Premium User auth tagged shows API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tagged shows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/tags"
+          },
+          "docs": "List All Tags"
+        },
+        {
+          "info": {
+            "name": "Create a New Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tvmaze.com/v1/user/tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a New Tag"
+        },
+        {
+          "info": {
+            "name": "Update a Specific Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.tvmaze.com/v1/user/tags/:tag_id",
+            "params": [
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Specific Tag"
+        },
+        {
+          "info": {
+            "name": "Delete a Specific Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/tags/:tag_id",
+            "params": [
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a Specific Tag"
+        },
+        {
+          "info": {
+            "name": "List All Shows Under This Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tvmaze.com/v1/user/tags/:tag_id/shows",
+            "params": [
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed full show info"
+              }
+            ]
+          },
+          "docs": "List All Shows Under This Tag"
+        },
+        {
+          "info": {
+            "name": "Tag a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.tvmaze.com/v1/user/tags/:tag_id/shows/:show_id",
+            "params": [
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Tag a Show"
+        },
+        {
+          "info": {
+            "name": "Untag a Show",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.tvmaze.com/v1/user/tags/:tag_id/shows/:show_id",
+            "params": [
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Untag a Show"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

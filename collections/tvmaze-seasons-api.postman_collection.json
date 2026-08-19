@@ -1,0 +1,239 @@
+{
+  "item": [
+    {
+      "id": "0eba2f84-801d-43ee-9a78-48039d431e85",
+      "name": "Seasons",
+      "description": {
+        "content": "Season-level metadata and episode listings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cfe42c17-5d54-4a9a-8ac9-d6b73f971817",
+          "name": "Get Season",
+          "request": {
+            "name": "Get Season",
+            "description": {
+              "content": "Return a single season.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seasons",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae9a1c23-4628-49be-b802-40d66c62351a",
+              "name": "Season record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"url\": \"https://www.tvmaze.com/seasons/1/under-the-dome-season-1\",\n  \"number\": 1,\n  \"name\": \"\",\n  \"episodeOrder\": 13,\n  \"premiereDate\": \"2013-06-24\",\n  \"endDate\": \"2013-09-16\",\n  \"network\": {\n    \"id\": 2,\n    \"name\": \"CBS\",\n    \"country\": {\n      \"name\": \"United States\",\n      \"code\": \"US\",\n      \"timezone\": \"America/New_York\"\n    },\n    \"officialSite\": \"https://www.cbs.com/\"\n  },\n  \"webChannel\": null,\n  \"image\": {\n    \"medium\": \"https://static.tvmaze.com/uploads/images/medium_portrait/24/60941.jpg\",\n    \"original\": \"https://static.tvmaze.com/uploads/images/original_untouched/24/60941.jpg\"\n  },\n  \"summary\": \"\",\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://api.tvmaze.com/seasons/1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fea6902b-560b-40bf-8218-05345c05d36d",
+          "name": "Get Season Episodes",
+          "request": {
+            "name": "Get Season Episodes",
+            "description": {
+              "content": "Return the episodes of a season.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seasons",
+                ":id",
+                "episodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a316525c-7efb-4ec9-a508-d91342277b7e",
+              "name": "Array of episodes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id",
+                    "episodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1368,\n    \"url\": \"https://kvqBgUxjctlknRpPaRxAYHZqVgiJisRZ.mvRCFFJPJ8y9t8gJ5C\",\n    \"name\": \"string\",\n    \"season\": 4755,\n    \"number\": 50,\n    \"type\": \"string\",\n    \"airdate\": \"1994-08-13\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1996-12-31T15:28:48.134Z\",\n    \"runtime\": 4392,\n    \"rating\": {\n      \"average\": 5398.451183962309\n    },\n    \"image\": {\n      \"medium\": \"https://KMQySSFApCA.taLByBq2R5jawb6weY1p3dtK6R.zPG5igvdrwGseGKAa0Q8GqRtuh3EJplp95SIuuiz0X\",\n      \"original\": \"http://CdGtfBQHWRYhdbEcBZP.qapuYspHklmYb7ZCSVtFXPMa-j3B,F7mYMzPEfYnHOqV,ZpMDH.prJ4LTRfNYHfAb9\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"http://YcvFxjXuHXxUbGbGvSMOCTkSNa.kvTdfQJI.oC3W7PiZWfewYsiIoaV10LH8jJW5CmGe+ujTmUW\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"https://oxZtukVjMLTkOOkBJiVqiVLpxViM.tyejgMllOKRR\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 9763,\n    \"url\": \"https://aPesXEoyWvIeVkroeEv.lalZV8MgQucmIm2QjiUApy8T9WbzZ2JKVG1gZna7HZWG\",\n    \"name\": \"string\",\n    \"season\": 3503,\n    \"number\": 464,\n    \"type\": \"string\",\n    \"airdate\": \"1999-10-18\",\n    \"airtime\": \"string\",\n    \"airstamp\": \"1993-05-07T17:20:31.221Z\",\n    \"runtime\": 4989,\n    \"rating\": {\n      \"average\": 2201.8468743818985\n    },\n    \"image\": {\n      \"medium\": \"https://yLAKS.pwA\",\n      \"original\": \"https://SPhnyjmgAdrTKwrVUCyOVTefQRLma.iwxfMTWC\"\n    },\n    \"summary\": \"string\",\n    \"_links\": {\n      \"key_0\": {\n        \"href\": \"http://tumoxpnBVywHQklzPyrDECGUekzVigC.bbiEIixlBnltgxcV6WcZHEh1sZH2EwikzMXgzpPvhIWoci\",\n        \"name\": \"string\"\n      },\n      \"key_1\": {\n        \"href\": \"http://qWr.byyqv3IwxIR1\",\n        \"name\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tvmaze.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e00730e7-8852-49df-b1aa-37cfa996ccaa",
+    "name": "TVmaze Premium User auth Seasons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Premium-only user API for TVmaze. Access is restricted to users with a paid\n[Premium subscription](https://www.tvmaze.com/premium). A user can only access\ntheir own data.\n\nAuthentication uses HTTP Basic: the TVmaze username is the basic-auth username and\nthe API key (visible on the user dashboard) is the basic-auth password. There is\nalso a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.\n\n\nContact Support:\n Name: TVmaze",
+      "type": "text/plain"
+    }
+  }
+}
