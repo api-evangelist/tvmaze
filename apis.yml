@@ -43,6 +43,8 @@ apis:
   humanURL: https://www.tvmaze.com/api
   baseURL: https://api.tvmaze.com
   tags:
+  - Authentication
+  tags_raw:
   - auth
   properties:
   - type: OpenAPI
@@ -979,6 +981,8 @@ apis:
   humanURL: https://www.tvmaze.com/api
   baseURL: https://api.tvmaze.com
   tags:
+  - Scrobbling
+  tags_raw:
   - scrobbling
   properties:
   - type: OpenAPI
