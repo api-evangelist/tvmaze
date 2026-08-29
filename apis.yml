@@ -1822,6 +1822,9 @@ apis:
   - type: JSONSchema
     url: json-schema/tvmaze-premium-bulkresponse-schema.json
 common:
+  - type: CapabilityMap
+    url: capabilities/tvmaze-capability-edges.yml
+    name: TVmaze Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/tvmaze/overview
   - type: AgenticAccess

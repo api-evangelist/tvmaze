@@ -1,0 +1,45 @@
+slug: tvmaze
+provider: TVmaze
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Shows
+  spec_file: tvmaze-shows-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.75
+  evidence: GET /shows/{id}/cast  getShowCast; GET /shows/{id}/akas  Get Show Akas; GET /shows/{id}/images  Get
+    Show Images
+  reason: 'Core title-level metadata surface: show records, episodes, seasons, cast/crew credits, alternate
+    titles and artwork — descriptive metadata cataloguing that makes content discoverable.'
+- tag: Episodes
+  spec_file: tvmaze-episodes-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.7
+  evidence: GET /episodes/{id}/guestcast  getEpisodeGuestCast; schemas Episode, CastCredit, CrewCredit,
+    Character, Image
+  reason: Read access to episode-level descriptive metadata plus cast and crew credits and images — the
+    descriptive catalogue records that make episodes discoverable and usable. Mapped to Metadata Cataloguing;
+    the credits are metadata, not talent contracting.
+- tag: Seasons
+  spec_file: tvmaze-seasons-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.7
+  evidence: GET /seasons/{id}  getSeason  Get Season; GET /seasons/{id}/episodes  getSeasonEpisodes
+  reason: Exposes season and episode descriptive records (Season, Episode, Image, Network schemas) — catalogue
+    metadata about content, not production or distribution operations.
