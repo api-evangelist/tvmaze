@@ -6,6 +6,18 @@ description: >-
   4.0. A paid Premium subscription unlocks a separate user-scoped API for managing follows, votes, marks, tags, and
   scrobbling.
 url: https://www.tvmaze.com/api
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
