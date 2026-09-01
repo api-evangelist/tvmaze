@@ -993,7 +993,7 @@ apis:
   humanURL: https://www.tvmaze.com/api
   baseURL: https://api.tvmaze.com
   tags:
-  - scrobbling
+  - Scrobbling
   tags_raw:
   - scrobbling
   properties:
