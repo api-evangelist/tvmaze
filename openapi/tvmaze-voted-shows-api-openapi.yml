@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TVmaze Premium User auth voted shows API
+  title: TVmaze Premium User voted shows API
   description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
 
-    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+    Premium subscription. A user can only access
 
     their own data.
 
@@ -12,9 +12,7 @@ info:
 
     the API key (visible on the user dashboard) is the basic-auth password. There is
 
-    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
-
-    '
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.'
   version: '1.0'
   contact:
     name: TVmaze
@@ -53,6 +51,8 @@ paths:
       summary: List the Shows Voted For
       tags:
       - voted shows
+      operationId: getUserVotesShows
+      x-operation-id-source: derived
   /user/votes/shows/{show_id}:
     parameters:
     - in: path
@@ -69,6 +69,8 @@ paths:
       summary: Remove a Show Vote
       tags:
       - voted shows
+      operationId: deleteUserVotesShowsByShowId
+      x-operation-id-source: derived
     get:
       responses:
         '200':
@@ -82,6 +84,8 @@ paths:
       summary: Check if a Show is Voted For
       tags:
       - voted shows
+      operationId: getUserVotesShowsByShowId
+      x-operation-id-source: derived
     put:
       description: Set `voted_at` to `NULL` or leave it out to use the current time.
       requestBody:
@@ -103,6 +107,8 @@ paths:
       summary: Vote for a Show
       tags:
       - voted shows
+      operationId: putUserVotesShowsByShowId
+      x-operation-id-source: derived
 components:
   schemas:
     ShowVote:

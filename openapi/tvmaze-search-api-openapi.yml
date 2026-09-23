@@ -1,32 +1,30 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TVmaze Premium User auth Search API
-  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+  title: TVmaze Public Search API
+  description: 'The TVmaze API is a free RESTful API that returns rich television show, episode, season,
 
-    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+    cast, crew, and schedule data. The public endpoints require no authentication and are
 
-    their own data.
+    licensed under CC BY-SA — attribution to tvmaze.com is required. A paid Premium tier
+
+    unlocks a separate user-scoped API documented as `tvmaze-premium-openapi.yml`.
 
 
-    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+    Rate limit: at least 20 calls every 10 seconds per IP. HTTP 429 indicates the limit
 
-    the API key (visible on the user dashboard) is the basic-auth password. There is
-
-    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
-
-    '
+    was exceeded.'
   version: '1.0'
   contact:
     name: TVmaze
-    url: https://www.tvmaze.com
+    url: https://www.tvmaze.com/api
   license:
     name: CC BY-SA 4.0
     url: https://creativecommons.org/licenses/by-sa/4.0/
 servers:
-- url: https://api.tvmaze.com/v1
-- url: http://api.tvmaze.com/v1
-security:
-- usertoken: []
+- url: https://api.tvmaze.com
+  description: Production API (HTTPS)
+- url: http://api.tvmaze.com
+  description: Production API (HTTP)
 tags:
 - name: Search
   description: Free-text search and lookup endpoints for shows and people.
@@ -252,7 +250,32 @@ paths:
                       $ref: '#/components/schemas/Person'
 components:
   schemas:
-    Show:
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
+    Externals:
+      type: object
+      properties:
+        tvrage:
+          type:
+          - integer
+          - 'null'
+        thetvdb:
+          type:
+          - integer
+          - 'null'
+        imdb:
+          type:
+          - string
+          - 'null'
+    Person:
       type: object
       properties:
         id:
@@ -262,64 +285,26 @@ components:
           format: uri
         name:
           type: string
-        type:
-          type: string
-          description: e.g. Scripted, Reality, Documentary
-        language:
-          type: string
-          nullable: true
-        genres:
-          type: array
-          items:
-            type: string
-        status:
-          type: string
-          description: e.g. Running, Ended, To Be Determined
-        runtime:
-          type: integer
-          nullable: true
-        averageRuntime:
-          type: integer
-          nullable: true
-        premiered:
-          type: string
-          format: date
-          nullable: true
-        ended:
-          type: string
-          format: date
-          nullable: true
-        officialSite:
-          type: string
-          nullable: true
-        schedule:
-          $ref: '#/components/schemas/Schedule'
-        rating:
-          $ref: '#/components/schemas/Rating'
-        weight:
-          type: integer
-        network:
-          allOf:
-          - $ref: '#/components/schemas/Network'
-          nullable: true
-        webChannel:
-          allOf:
-          - $ref: '#/components/schemas/WebChannel'
-          nullable: true
-        dvdCountry:
+        country:
           allOf:
           - $ref: '#/components/schemas/Country'
-          nullable: true
-        externals:
-          $ref: '#/components/schemas/Externals'
+        birthday:
+          type:
+          - string
+          - 'null'
+          format: date
+        deathday:
+          type:
+          - string
+          - 'null'
+          format: date
+        gender:
+          type:
+          - string
+          - 'null'
         image:
           allOf:
           - $ref: '#/components/schemas/Image'
-          nullable: true
-        summary:
-          type: string
-          nullable: true
-          description: HTML summary
         updated:
           type: integer
           format: int64
@@ -334,19 +319,105 @@ components:
           type: string
         timezone:
           type: string
+    Network:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        country:
+          $ref: '#/components/schemas/Country'
+        officialSite:
+          type:
+          - string
+          - 'null'
+    Show:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        type:
+          type: string
+          description: e.g. Scripted, Reality, Documentary
+        language:
+          type:
+          - string
+          - 'null'
+        genres:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          description: e.g. Running, Ended, To Be Determined
+        runtime:
+          type:
+          - integer
+          - 'null'
+        averageRuntime:
+          type:
+          - integer
+          - 'null'
+        premiered:
+          type:
+          - string
+          - 'null'
+          format: date
+        ended:
+          type:
+          - string
+          - 'null'
+          format: date
+        officialSite:
+          type:
+          - string
+          - 'null'
+        schedule:
+          $ref: '#/components/schemas/Schedule'
+        rating:
+          $ref: '#/components/schemas/Rating'
+        weight:
+          type: integer
+        network:
+          allOf:
+          - $ref: '#/components/schemas/Network'
+        webChannel:
+          allOf:
+          - $ref: '#/components/schemas/WebChannel'
+        dvdCountry:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+        externals:
+          $ref: '#/components/schemas/Externals'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        summary:
+          type:
+          - string
+          - 'null'
+          description: HTML summary
+        updated:
+          type: integer
+          format: int64
+        _links:
+          $ref: '#/components/schemas/Links'
+    Rating:
+      type: object
+      properties:
+        average:
+          type:
+          - number
+          - 'null'
     WebChannel:
       allOf:
       - $ref: '#/components/schemas/Network'
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
     Schedule:
       type: object
       properties:
@@ -365,71 +436,3 @@ components:
         original:
           type: string
           format: uri
-    Rating:
-      type: object
-      properties:
-        average:
-          type: number
-          nullable: true
-    Network:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        country:
-          $ref: '#/components/schemas/Country'
-        officialSite:
-          type: string
-          nullable: true
-    Person:
-      type: object
-      properties:
-        id:
-          type: integer
-        url:
-          type: string
-          format: uri
-        name:
-          type: string
-        country:
-          allOf:
-          - $ref: '#/components/schemas/Country'
-          nullable: true
-        birthday:
-          type: string
-          format: date
-          nullable: true
-        deathday:
-          type: string
-          format: date
-          nullable: true
-        gender:
-          type: string
-          nullable: true
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-          nullable: true
-        updated:
-          type: integer
-          format: int64
-        _links:
-          $ref: '#/components/schemas/Links'
-    Externals:
-      type: object
-      properties:
-        tvrage:
-          type: integer
-          nullable: true
-        thetvdb:
-          type: integer
-          nullable: true
-        imdb:
-          type: string
-          nullable: true
-  securitySchemes:
-    usertoken:
-      scheme: basic
-      type: http

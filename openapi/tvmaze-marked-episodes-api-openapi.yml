@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TVmaze Premium User auth marked episodes API
+  title: TVmaze Premium User marked episodes API
   description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
 
-    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+    Premium subscription. A user can only access
 
     their own data.
 
@@ -12,9 +12,7 @@ info:
 
     the API key (visible on the user dashboard) is the basic-auth password. There is
 
-    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
-
-    '
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.'
   version: '1.0'
   contact:
     name: TVmaze
@@ -51,6 +49,8 @@ paths:
       summary: List the Marked Episodes
       tags:
       - marked episodes
+      operationId: getUserEpisodes
+      x-operation-id-source: derived
   /user/episodes/{episode_id}:
     parameters:
     - in: path
@@ -67,6 +67,8 @@ paths:
       summary: Unmark an Episode
       tags:
       - marked episodes
+      operationId: deleteUserEpisodesByEpisodeId
+      x-operation-id-source: derived
     get:
       responses:
         '200':
@@ -80,6 +82,8 @@ paths:
       summary: Check if an Episode is Marked
       tags:
       - marked episodes
+      operationId: getUserEpisodesByEpisodeId
+      x-operation-id-source: derived
     put:
       description: Set `marked_at` to `NULL` or leave it out to use the current time.
       requestBody:
@@ -98,7 +102,15 @@ paths:
       summary: Mark an Episode
       tags:
       - marked episodes
+      operationId: putUserEpisodesByEpisodeId
+      x-operation-id-source: derived
 components:
+  requestBodies:
+    MarkedEpisode:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MarkedEpisode'
   schemas:
     MarkedEpisode:
       properties:
@@ -120,12 +132,6 @@ components:
       type: object
     MarkType:
       description: 0 for watched, 1 for acquired, 2 for skipped
-  requestBodies:
-    MarkedEpisode:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MarkedEpisode'
   securitySchemes:
     usertoken:
       scheme: basic

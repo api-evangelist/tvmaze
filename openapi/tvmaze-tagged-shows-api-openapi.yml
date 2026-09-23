@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TVmaze Premium User auth tagged shows API
+  title: TVmaze Premium User tagged shows API
   description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
 
-    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+    Premium subscription. A user can only access
 
     their own data.
 
@@ -12,9 +12,7 @@ info:
 
     the API key (visible on the user dashboard) is the basic-auth password. There is
 
-    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
-
-    '
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.'
   version: '1.0'
   contact:
     name: TVmaze
@@ -44,6 +42,8 @@ paths:
       summary: List All Tags
       tags:
       - tagged shows
+      operationId: getUserTags
+      x-operation-id-source: derived
     post:
       requestBody:
         $ref: '#/components/requestBodies/Tag'
@@ -59,6 +59,8 @@ paths:
       summary: Create a New Tag
       tags:
       - tagged shows
+      operationId: postUserTags
+      x-operation-id-source: derived
   /user/tags/{tag_id}:
     delete:
       parameters:
@@ -75,6 +77,8 @@ paths:
       summary: Delete a Specific Tag
       tags:
       - tagged shows
+      operationId: deleteUserTagsByTagId
+      x-operation-id-source: derived
     patch:
       parameters:
       - in: path
@@ -98,6 +102,8 @@ paths:
       summary: Update a Specific Tag
       tags:
       - tagged shows
+      operationId: patchUserTagsByTagId
+      x-operation-id-source: derived
   /user/tags/{tag_id}/shows:
     get:
       parameters:
@@ -128,6 +134,8 @@ paths:
       summary: List All Shows Under This Tag
       tags:
       - tagged shows
+      operationId: getUserTagsByTagIdShows
+      x-operation-id-source: derived
   /user/tags/{tag_id}/shows/{show_id}:
     delete:
       parameters:
@@ -149,6 +157,8 @@ paths:
       summary: Untag a Show
       tags:
       - tagged shows
+      operationId: deleteUserTagsByTagIdShowsByShowId
+      x-operation-id-source: derived
     put:
       parameters:
       - in: path
@@ -173,8 +183,18 @@ paths:
       summary: Tag a Show
       tags:
       - tagged shows
+      operationId: putUserTagsByTagIdShowsByShowId
+      x-operation-id-source: derived
 components:
   schemas:
+    Tag:
+      properties:
+        id:
+          readOnly: true
+          type: integer
+        name:
+          type: string
+      type: object
     Show:
       type: object
     TagInstance:
@@ -186,14 +206,6 @@ components:
           type: object
         show_id:
           type: integer
-      type: object
-    Tag:
-      properties:
-        id:
-          readOnly: true
-          type: integer
-        name:
-          type: string
       type: object
   requestBodies:
     Tag:

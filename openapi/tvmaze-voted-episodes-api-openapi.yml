@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TVmaze Premium User auth voted episodes API
+  title: TVmaze Premium User voted episodes API
   description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
 
-    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+    Premium subscription. A user can only access
 
     their own data.
 
@@ -12,9 +12,7 @@ info:
 
     the API key (visible on the user dashboard) is the basic-auth password. There is
 
-    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
-
-    '
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.'
   version: '1.0'
   contact:
     name: TVmaze
@@ -44,6 +42,8 @@ paths:
       summary: List the Episodes Voted For
       tags:
       - voted episodes
+      operationId: getUserVotesEpisodes
+      x-operation-id-source: derived
   /user/votes/episodes/{episode_id}:
     parameters:
     - in: path
@@ -60,6 +60,8 @@ paths:
       summary: Remove an Episode Vote
       tags:
       - voted episodes
+      operationId: deleteUserVotesEpisodesByEpisodeId
+      x-operation-id-source: derived
     get:
       responses:
         '200':
@@ -73,6 +75,8 @@ paths:
       summary: Check if an Episode is Voted For
       tags:
       - voted episodes
+      operationId: getUserVotesEpisodesByEpisodeId
+      x-operation-id-source: derived
     put:
       requestBody:
         content:
@@ -93,6 +97,8 @@ paths:
       summary: Vote for an Episode
       tags:
       - voted episodes
+      operationId: putUserVotesEpisodesByEpisodeId
+      x-operation-id-source: derived
 components:
   schemas:
     EpisodeVote:

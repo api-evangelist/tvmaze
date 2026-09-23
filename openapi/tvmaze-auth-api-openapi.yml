@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TVmaze Premium User auth API
+  title: TVmaze Premium User Auth API
   description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
 
-    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+    Premium subscription. A user can only access
 
     their own data.
 
@@ -12,9 +12,7 @@ info:
 
     the API key (visible on the user dashboard) is the basic-auth password. There is
 
-    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
-
-    '
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.'
   version: '1.0'
   contact:
     name: TVmaze
@@ -28,7 +26,7 @@ servers:
 security:
 - usertoken: []
 tags:
-- name: auth
+- name: Auth
 paths:
   /auth/poll:
     post:
@@ -38,9 +36,7 @@ paths:
         When the user has confirmed the authentication request on their end, this endpoint will return the user''s API key that you can use in subsequent authenticated endpoints. Note that it''ll do so only once, subsequent requests after the initial 200 response will return a 404.
 
 
-        For as long as the user did not yet confirm their authentication request, this endpoint will return a 403.
-
-        '
+        For as long as the user did not yet confirm their authentication request, this endpoint will return a 403.'
       requestBody:
         content:
           application/json:
@@ -72,7 +68,9 @@ paths:
           description: You are polling too quickly, please back off
       summary: Poll Whether an Authentication Request Was Confirmed
       tags:
-      - auth
+      - Auth
+      operationId: postAuthPoll
+      x-operation-id-source: derived
   /auth/start:
     post:
       description: 'If you want to access the TVmaze API on behalf of a user without querying them for their password, use this endpoint.
@@ -81,9 +79,7 @@ paths:
         To get started, send a POST request containing the user''s email address. The response will contain a `token`, which you can use as input to the `poll` endpoint. The user will receive an email prompting them to confirm the authentication request.
 
 
-        Alternatively, if you expect the user to be logged in to TVmaze on the device they are currently interacting with, you can set `email_confirmation` to false and redirect them to the `confirm_url` URL. If they are logged in to TVmaze, they will be able to confirm the authentication request instantly.
-
-        '
+        Alternatively, if you expect the user to be logged in to TVmaze on the device they are currently interacting with, you can set `email_confirmation` to false and redirect them to the `confirm_url` URL. If they are logged in to TVmaze, they will be able to confirm the authentication request instantly.'
       requestBody:
         content:
           application/json:
@@ -120,7 +116,9 @@ paths:
           description: You are starting authentication requests too quickly, please back off
       summary: Start an Authentication Request
       tags:
-      - auth
+      - Auth
+      operationId: postAuthStart
+      x-operation-id-source: derived
   /auth/validate:
     get:
       description: If the credentials supplied as HTTP basic are valid, the user's level of premium - if any - is returned.
@@ -139,7 +137,9 @@ paths:
           description: The supplied credentials are not valid
       summary: Validate Your Authentication Credentials
       tags:
-      - auth
+      - Auth
+      operationId: getAuthValidate
+      x-operation-id-source: derived
 components:
   securitySchemes:
     usertoken:

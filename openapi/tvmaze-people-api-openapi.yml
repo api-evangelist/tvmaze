@@ -1,32 +1,30 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TVmaze Premium User auth People API
-  description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
+  title: TVmaze Public People API
+  description: 'The TVmaze API is a free RESTful API that returns rich television show, episode, season,
 
-    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+    cast, crew, and schedule data. The public endpoints require no authentication and are
 
-    their own data.
+    licensed under CC BY-SA — attribution to tvmaze.com is required. A paid Premium tier
+
+    unlocks a separate user-scoped API documented as `tvmaze-premium-openapi.yml`.
 
 
-    Authentication uses HTTP Basic: the TVmaze username is the basic-auth username and
+    Rate limit: at least 20 calls every 10 seconds per IP. HTTP 429 indicates the limit
 
-    the API key (visible on the user dashboard) is the basic-auth password. There is
-
-    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
-
-    '
+    was exceeded.'
   version: '1.0'
   contact:
     name: TVmaze
-    url: https://www.tvmaze.com
+    url: https://www.tvmaze.com/api
   license:
     name: CC BY-SA 4.0
     url: https://creativecommons.org/licenses/by-sa/4.0/
 servers:
-- url: https://api.tvmaze.com/v1
-- url: http://api.tvmaze.com/v1
-security:
-- usertoken: []
+- url: https://api.tvmaze.com
+  description: Production API (HTTPS)
+- url: http://api.tvmaze.com
+  description: Production API (HTTP)
 tags:
 - name: People
   description: Person profiles, cast credits, and crew credits.
@@ -171,6 +169,50 @@ paths:
                   additionalProperties: true
 components:
   schemas:
+    Image:
+      type: object
+      properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+        birthday:
+          type:
+          - string
+          - 'null'
+          format: date
+        deathday:
+          type:
+          - string
+          - 'null'
+          format: date
+        gender:
+          type:
+          - string
+          - 'null'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        updated:
+          type: integer
+          format: int64
+        _links:
+          $ref: '#/components/schemas/Links'
     Country:
       type: object
       properties:
@@ -190,50 +232,3 @@ components:
             format: uri
           name:
             type: string
-    Person:
-      type: object
-      properties:
-        id:
-          type: integer
-        url:
-          type: string
-          format: uri
-        name:
-          type: string
-        country:
-          allOf:
-          - $ref: '#/components/schemas/Country'
-          nullable: true
-        birthday:
-          type: string
-          format: date
-          nullable: true
-        deathday:
-          type: string
-          format: date
-          nullable: true
-        gender:
-          type: string
-          nullable: true
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-          nullable: true
-        updated:
-          type: integer
-          format: int64
-        _links:
-          $ref: '#/components/schemas/Links'
-    Image:
-      type: object
-      properties:
-        medium:
-          type: string
-          format: uri
-        original:
-          type: string
-          format: uri
-  securitySchemes:
-    usertoken:
-      scheme: basic
-      type: http

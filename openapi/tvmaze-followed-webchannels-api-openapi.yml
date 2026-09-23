@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TVmaze Premium User auth followed webchannels API
+  title: TVmaze Premium User followed webchannels API
   description: 'Premium-only user API for TVmaze. Access is restricted to users with a paid
 
-    [Premium subscription](https://www.tvmaze.com/premium). A user can only access
+    Premium subscription. A user can only access
 
     their own data.
 
@@ -12,9 +12,7 @@ info:
 
     the API key (visible on the user dashboard) is the basic-auth password. There is
 
-    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.
-
-    '
+    also a device-style auth-pairing flow exposed at `/auth/start` and `/auth/poll`.'
   version: '1.0'
   contact:
     name: TVmaze
@@ -53,6 +51,8 @@ paths:
       summary: List the Followed Webchannels
       tags:
       - followed webchannels
+      operationId: getUserFollowsWebchannels
+      x-operation-id-source: derived
   /user/follows/webchannels/{webchannel_id}:
     parameters:
     - in: path
@@ -69,6 +69,8 @@ paths:
       summary: Unfollow a Webchannel
       tags:
       - followed webchannels
+      operationId: deleteUserFollowsWebchannelsByWebchannelId
+      x-operation-id-source: derived
     get:
       responses:
         '200':
@@ -82,6 +84,8 @@ paths:
       summary: Check if a Webchannel is Followed
       tags:
       - followed webchannels
+      operationId: getUserFollowsWebchannelsByWebchannelId
+      x-operation-id-source: derived
     put:
       responses:
         '200':
@@ -95,6 +99,8 @@ paths:
       summary: Follow a Webchannel
       tags:
       - followed webchannels
+      operationId: putUserFollowsWebchannelsByWebchannelId
+      x-operation-id-source: derived
 components:
   schemas:
     Webchannel:
