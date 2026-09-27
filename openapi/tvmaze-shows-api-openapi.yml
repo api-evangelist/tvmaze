@@ -521,80 +521,15 @@ paths:
                   additionalProperties: true
 components:
   schemas:
-    CrewCredit:
+    Country:
       type: object
       properties:
-        type:
-          type: string
-          description: Crew role type, e.g. Director, Writer
-        person:
-          $ref: '#/components/schemas/Person'
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
-    Season:
-      type: object
-      properties:
-        id:
-          type: integer
-        url:
-          type: string
-          format: uri
-        number:
-          type: integer
         name:
           type: string
-        episodeOrder:
-          type:
-          - integer
-          - 'null'
-        premiereDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        network:
-          allOf:
-          - $ref: '#/components/schemas/Network'
-        webChannel:
-          allOf:
-          - $ref: '#/components/schemas/WebChannel'
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        summary:
-          type:
-          - string
-          - 'null'
-        _links:
-          $ref: '#/components/schemas/Links'
-    Externals:
-      type: object
-      properties:
-        tvrage:
-          type:
-          - integer
-          - 'null'
-        thetvdb:
-          type:
-          - integer
-          - 'null'
-        imdb:
-          type:
-          - string
-          - 'null'
+        code:
+          type: string
+        timezone:
+          type: string
     Person:
       type: object
       properties:
@@ -630,15 +565,6 @@ components:
           format: int64
         _links:
           $ref: '#/components/schemas/Links'
-    Country:
-      type: object
-      properties:
-        name:
-          type: string
-        code:
-          type: string
-        timezone:
-          type: string
     Episode:
       type: object
       properties:
@@ -687,6 +613,36 @@ components:
           - 'null'
         _links:
           $ref: '#/components/schemas/Links'
+    Externals:
+      type: object
+      properties:
+        tvrage:
+          type:
+          - integer
+          - 'null'
+        thetvdb:
+          type:
+          - integer
+          - 'null'
+        imdb:
+          type:
+          - string
+          - 'null'
+    Rating:
+      type: object
+      properties:
+        average:
+          type:
+          - number
+          - 'null'
+    CrewCredit:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Crew role type, e.g. Director, Writer
+        person:
+          $ref: '#/components/schemas/Person'
     CastCredit:
       type: object
       properties:
@@ -698,19 +654,66 @@ components:
           type: boolean
         voice:
           type: boolean
-    Network:
+    Season:
       type: object
       properties:
         id:
           type: integer
+        url:
+          type: string
+          format: uri
+        number:
+          type: integer
         name:
           type: string
-        country:
-          $ref: '#/components/schemas/Country'
-        officialSite:
+        episodeOrder:
+          type:
+          - integer
+          - 'null'
+        premiereDate:
           type:
           - string
           - 'null'
+          format: date
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date
+        network:
+          allOf:
+          - $ref: '#/components/schemas/Network'
+        webChannel:
+          allOf:
+          - $ref: '#/components/schemas/WebChannel'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        summary:
+          type:
+          - string
+          - 'null'
+        _links:
+          $ref: '#/components/schemas/Links'
+    Schedule:
+      type: object
+      properties:
+        time:
+          type: string
+        days:
+          type: array
+          items:
+            type: string
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
     Show:
       type: object
       properties:
@@ -787,18 +790,15 @@ components:
           format: int64
         _links:
           $ref: '#/components/schemas/Links'
-    WebChannel:
-      allOf:
-      - $ref: '#/components/schemas/Network'
-    Schedule:
+    Image:
       type: object
       properties:
-        time:
+        medium:
           type: string
-        days:
-          type: array
-          items:
-            type: string
+          format: uri
+        original:
+          type: string
+          format: uri
     Aka:
       type: object
       properties:
@@ -807,13 +807,9 @@ components:
         country:
           allOf:
           - $ref: '#/components/schemas/Country'
-    Rating:
-      type: object
-      properties:
-        average:
-          type:
-          - number
-          - 'null'
+    WebChannel:
+      allOf:
+      - $ref: '#/components/schemas/Network'
     Character:
       type: object
       properties:
@@ -829,15 +825,19 @@ components:
           - $ref: '#/components/schemas/Image'
         _links:
           $ref: '#/components/schemas/Links'
-    Image:
+    Network:
       type: object
       properties:
-        medium:
+        id:
+          type: integer
+        name:
           type: string
-          format: uri
-        original:
-          type: string
-          format: uri
+        country:
+          $ref: '#/components/schemas/Country'
+        officialSite:
+          type:
+          - string
+          - 'null'
   parameters:
     ShowId:
       name: id

@@ -103,8 +103,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Person:
-      type: object
     PersonFollow:
       properties:
         _embedded:
@@ -114,6 +112,8 @@ components:
           type: object
         person_id:
           type: integer
+      type: object
+    Person:
       type: object
   securitySchemes:
     usertoken:

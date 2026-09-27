@@ -51,7 +51,7 @@ tags:
   - Public APIs
 apis:
 - aid: tvmaze:tvmaze-auth-api
-  name: TVmaze auth API
+  name: TVmaze Auth API
   description: The auth API from TVmaze — 3 operation(s) for auth.
   humanURL: https://www.tvmaze.com/api
   baseURL: https://api.tvmaze.com
@@ -989,7 +989,7 @@ apis:
   - type: JSONSchema
     url: json-schema/tvmaze-premium-bulkresponse-schema.json
 - aid: tvmaze:tvmaze-scrobbling-api
-  name: TVmaze scrobbling API
+  name: TVmaze Scrobbling API
   description: The scrobbling API from TVmaze — 4 operation(s) for scrobbling.
   humanURL: https://www.tvmaze.com/api
   baseURL: https://api.tvmaze.com

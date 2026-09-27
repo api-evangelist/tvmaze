@@ -105,12 +105,6 @@ paths:
       operationId: putUserEpisodesByEpisodeId
       x-operation-id-source: derived
 components:
-  requestBodies:
-    MarkedEpisode:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MarkedEpisode'
   schemas:
     MarkedEpisode:
       properties:
@@ -128,10 +122,16 @@ components:
         type:
           $ref: '#/components/schemas/MarkType'
       type: object
-    Episode:
-      type: object
     MarkType:
       description: 0 for watched, 1 for acquired, 2 for skipped
+    Episode:
+      type: object
+  requestBodies:
+    MarkedEpisode:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MarkedEpisode'
   securitySchemes:
     usertoken:
       scheme: basic

@@ -169,15 +169,15 @@ paths:
                   additionalProperties: true
 components:
   schemas:
-    Image:
+    Country:
       type: object
       properties:
-        medium:
+        name:
           type: string
-          format: uri
-        original:
+        code:
           type: string
-          format: uri
+        timezone:
+          type: string
     Person:
       type: object
       properties:
@@ -213,15 +213,15 @@ components:
           format: int64
         _links:
           $ref: '#/components/schemas/Links'
-    Country:
+    Image:
       type: object
       properties:
-        name:
+        medium:
           type: string
-        code:
+          format: uri
+        original:
           type: string
-        timezone:
-          type: string
+          format: uri
     Links:
       type: object
       additionalProperties:

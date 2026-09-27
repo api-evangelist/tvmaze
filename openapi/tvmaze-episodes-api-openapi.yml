@@ -137,24 +137,15 @@ paths:
                   $ref: '#/components/schemas/CrewCredit'
 components:
   schemas:
-    CrewCredit:
+    Country:
       type: object
       properties:
-        type:
+        name:
           type: string
-          description: Crew role type, e.g. Director, Writer
-        person:
-          $ref: '#/components/schemas/Person'
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
+        code:
+          type: string
+        timezone:
+          type: string
     Person:
       type: object
       properties:
@@ -190,17 +181,6 @@ components:
           format: int64
         _links:
           $ref: '#/components/schemas/Links'
-    CastCredit:
-      type: object
-      properties:
-        person:
-          $ref: '#/components/schemas/Person'
-        character:
-          $ref: '#/components/schemas/Character'
-        self:
-          type: boolean
-        voice:
-          type: boolean
     Episode:
       type: object
       properties:
@@ -249,15 +229,6 @@ components:
           - 'null'
         _links:
           $ref: '#/components/schemas/Links'
-    Country:
-      type: object
-      properties:
-        name:
-          type: string
-        code:
-          type: string
-        timezone:
-          type: string
     Rating:
       type: object
       properties:
@@ -265,6 +236,44 @@ components:
           type:
           - number
           - 'null'
+    CrewCredit:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Crew role type, e.g. Director, Writer
+        person:
+          $ref: '#/components/schemas/Person'
+    CastCredit:
+      type: object
+      properties:
+        person:
+          $ref: '#/components/schemas/Person'
+        character:
+          $ref: '#/components/schemas/Character'
+        self:
+          type: boolean
+        voice:
+          type: boolean
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
+    Image:
+      type: object
+      properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri
     Character:
       type: object
       properties:
@@ -280,12 +289,3 @@ components:
           - $ref: '#/components/schemas/Image'
         _links:
           $ref: '#/components/schemas/Links'
-    Image:
-      type: object
-      properties:
-        medium:
-          type: string
-          format: uri
-        original:
-          type: string
-          format: uri

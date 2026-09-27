@@ -187,14 +187,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Tag:
-      properties:
-        id:
-          readOnly: true
-          type: integer
-        name:
-          type: string
-      type: object
     Show:
       type: object
     TagInstance:
@@ -206,6 +198,14 @@ components:
           type: object
         show_id:
           type: integer
+      type: object
+    Tag:
+      properties:
+        id:
+          readOnly: true
+          type: integer
+        name:
+          type: string
       type: object
   requestBodies:
     Tag:

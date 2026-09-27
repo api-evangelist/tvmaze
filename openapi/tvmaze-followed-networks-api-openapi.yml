@@ -103,8 +103,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Network:
-      type: object
     NetworkFollow:
       properties:
         _embedded:
@@ -114,6 +112,8 @@ components:
           type: object
         network_id:
           type: integer
+      type: object
+    Network:
       type: object
   securitySchemes:
     usertoken:

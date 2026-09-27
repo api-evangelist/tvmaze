@@ -263,15 +263,6 @@ components:
           type:
           - number
           - 'null'
-    Image:
-      type: object
-      properties:
-        medium:
-          type: string
-          format: uri
-        original:
-          type: string
-          format: uri
     Episode:
       type: object
       properties:
@@ -320,6 +311,15 @@ components:
           - 'null'
         _links:
           $ref: '#/components/schemas/Links'
+    Image:
+      type: object
+      properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri
     Links:
       type: object
       additionalProperties:

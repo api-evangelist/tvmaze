@@ -250,31 +250,15 @@ paths:
                       $ref: '#/components/schemas/Person'
 components:
   schemas:
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
-    Externals:
+    Country:
       type: object
       properties:
-        tvrage:
-          type:
-          - integer
-          - 'null'
-        thetvdb:
-          type:
-          - integer
-          - 'null'
-        imdb:
-          type:
-          - string
-          - 'null'
+        name:
+          type: string
+        code:
+          type: string
+        timezone:
+          type: string
     Person:
       type: object
       properties:
@@ -310,28 +294,47 @@ components:
           format: int64
         _links:
           $ref: '#/components/schemas/Links'
-    Country:
+    Externals:
       type: object
       properties:
-        name:
-          type: string
-        code:
-          type: string
-        timezone:
-          type: string
-    Network:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        country:
-          $ref: '#/components/schemas/Country'
-        officialSite:
+        tvrage:
+          type:
+          - integer
+          - 'null'
+        thetvdb:
+          type:
+          - integer
+          - 'null'
+        imdb:
           type:
           - string
           - 'null'
+    Rating:
+      type: object
+      properties:
+        average:
+          type:
+          - number
+          - 'null'
+    Schedule:
+      type: object
+      properties:
+        time:
+          type: string
+        days:
+          type: array
+          items:
+            type: string
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
     Show:
       type: object
       properties:
@@ -408,25 +411,6 @@ components:
           format: int64
         _links:
           $ref: '#/components/schemas/Links'
-    Rating:
-      type: object
-      properties:
-        average:
-          type:
-          - number
-          - 'null'
-    WebChannel:
-      allOf:
-      - $ref: '#/components/schemas/Network'
-    Schedule:
-      type: object
-      properties:
-        time:
-          type: string
-        days:
-          type: array
-          items:
-            type: string
     Image:
       type: object
       properties:
@@ -436,3 +420,19 @@ components:
         original:
           type: string
           format: uri
+    WebChannel:
+      allOf:
+      - $ref: '#/components/schemas/Network'
+    Network:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        country:
+          $ref: '#/components/schemas/Country'
+        officialSite:
+          type:
+          - string
+          - 'null'

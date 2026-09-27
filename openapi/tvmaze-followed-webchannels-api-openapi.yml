@@ -103,8 +103,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Webchannel:
-      type: object
     WebchannelFollow:
       properties:
         _embedded:
@@ -114,6 +112,8 @@ components:
           type: object
         webchannel_id:
           type: integer
+      type: object
+    Webchannel:
       type: object
   securitySchemes:
     usertoken:
