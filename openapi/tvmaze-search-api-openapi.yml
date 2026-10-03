@@ -250,91 +250,6 @@ paths:
                       $ref: '#/components/schemas/Person'
 components:
   schemas:
-    Country:
-      type: object
-      properties:
-        name:
-          type: string
-        code:
-          type: string
-        timezone:
-          type: string
-    Person:
-      type: object
-      properties:
-        id:
-          type: integer
-        url:
-          type: string
-          format: uri
-        name:
-          type: string
-        country:
-          allOf:
-          - $ref: '#/components/schemas/Country'
-        birthday:
-          type:
-          - string
-          - 'null'
-          format: date
-        deathday:
-          type:
-          - string
-          - 'null'
-          format: date
-        gender:
-          type:
-          - string
-          - 'null'
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        updated:
-          type: integer
-          format: int64
-        _links:
-          $ref: '#/components/schemas/Links'
-    Externals:
-      type: object
-      properties:
-        tvrage:
-          type:
-          - integer
-          - 'null'
-        thetvdb:
-          type:
-          - integer
-          - 'null'
-        imdb:
-          type:
-          - string
-          - 'null'
-    Rating:
-      type: object
-      properties:
-        average:
-          type:
-          - number
-          - 'null'
-    Schedule:
-      type: object
-      properties:
-        time:
-          type: string
-        days:
-          type: array
-          items:
-            type: string
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
     Show:
       type: object
       properties:
@@ -423,6 +338,15 @@ components:
     WebChannel:
       allOf:
       - $ref: '#/components/schemas/Network'
+    Schedule:
+      type: object
+      properties:
+        time:
+          type: string
+        days:
+          type: array
+          items:
+            type: string
     Network:
       type: object
       properties:
@@ -436,3 +360,79 @@ components:
           type:
           - string
           - 'null'
+    Rating:
+      type: object
+      properties:
+        average:
+          type:
+          - number
+          - 'null'
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
+    Externals:
+      type: object
+      properties:
+        tvrage:
+          type:
+          - integer
+          - 'null'
+        thetvdb:
+          type:
+          - integer
+          - 'null'
+        imdb:
+          type:
+          - string
+          - 'null'
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        timezone:
+          type: string
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+        birthday:
+          type:
+          - string
+          - 'null'
+          format: date
+        deathday:
+          type:
+          - string
+          - 'null'
+          format: date
+        gender:
+          type:
+          - string
+          - 'null'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        updated:
+          type: integer
+          format: int64
+        _links:
+          $ref: '#/components/schemas/Links'

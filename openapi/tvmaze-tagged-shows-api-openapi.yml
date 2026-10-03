@@ -189,6 +189,14 @@ components:
   schemas:
     Show:
       type: object
+    Tag:
+      properties:
+        id:
+          readOnly: true
+          type: integer
+        name:
+          type: string
+      type: object
     TagInstance:
       properties:
         _embedded:
@@ -198,14 +206,6 @@ components:
           type: object
         show_id:
           type: integer
-      type: object
-    Tag:
-      properties:
-        id:
-          readOnly: true
-          type: integer
-        name:
-          type: string
       type: object
   requestBodies:
     Tag:

@@ -311,15 +311,6 @@ components:
           - 'null'
         _links:
           $ref: '#/components/schemas/Links'
-    Image:
-      type: object
-      properties:
-        medium:
-          type: string
-          format: uri
-        original:
-          type: string
-          format: uri
     Links:
       type: object
       additionalProperties:
@@ -330,3 +321,12 @@ components:
             format: uri
           name:
             type: string
+    Image:
+      type: object
+      properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri

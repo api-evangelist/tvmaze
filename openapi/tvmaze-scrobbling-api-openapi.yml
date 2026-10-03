@@ -201,10 +201,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MarkType:
-      description: 0 for watched, 1 for acquired, 2 for skipped
     Episode:
       type: object
+    MarkedEpisode:
+      properties:
+        _embedded:
+          properties:
+            episode:
+              $ref: '#/components/schemas/Episode'
+          type: object
+        episode_id:
+          readOnly: true
+          type: integer
+        marked_at:
+          description: Epoch timestamp for when the user watched the episode, or 0 for unknown.
+          type: integer
+        type:
+          $ref: '#/components/schemas/MarkType'
+      type: object
+    MarkType:
+      description: 0 for watched, 1 for acquired, 2 for skipped
     BulkResponse:
       description: A list of responses to your bulk input, ordered the same as your input
       items:
@@ -225,22 +241,6 @@ components:
             description: The resulting created/updated object (in case of success)
             type: object
       type: array
-    MarkedEpisode:
-      properties:
-        _embedded:
-          properties:
-            episode:
-              $ref: '#/components/schemas/Episode'
-          type: object
-        episode_id:
-          readOnly: true
-          type: integer
-        marked_at:
-          description: Epoch timestamp for when the user watched the episode, or 0 for unknown.
-          type: integer
-        type:
-          $ref: '#/components/schemas/MarkType'
-      type: object
   requestBodies:
     MarkedEpisode:
       content:
