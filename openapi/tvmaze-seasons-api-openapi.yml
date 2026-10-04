@@ -103,47 +103,15 @@ paths:
                   $ref: '#/components/schemas/Episode'
 components:
   schemas:
-    Season:
+    Image:
       type: object
       properties:
-        id:
-          type: integer
-        url:
+        medium:
           type: string
           format: uri
-        number:
-          type: integer
-        name:
+        original:
           type: string
-        episodeOrder:
-          type:
-          - integer
-          - 'null'
-        premiereDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        network:
-          allOf:
-          - $ref: '#/components/schemas/Network'
-        webChannel:
-          allOf:
-          - $ref: '#/components/schemas/WebChannel'
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        summary:
-          type:
-          - string
-          - 'null'
-        _links:
-          $ref: '#/components/schemas/Links'
+          format: uri
     Episode:
       type: object
       properties:
@@ -192,15 +160,54 @@ components:
           - 'null'
         _links:
           $ref: '#/components/schemas/Links'
-    Image:
+    Season:
       type: object
       properties:
-        medium:
+        id:
+          type: integer
+        url:
           type: string
           format: uri
-        original:
+        number:
+          type: integer
+        name:
           type: string
-          format: uri
+        episodeOrder:
+          type:
+          - integer
+          - 'null'
+        premiereDate:
+          type:
+          - string
+          - 'null'
+          format: date
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date
+        network:
+          allOf:
+          - $ref: '#/components/schemas/Network'
+        webChannel:
+          allOf:
+          - $ref: '#/components/schemas/WebChannel'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        summary:
+          type:
+          - string
+          - 'null'
+        _links:
+          $ref: '#/components/schemas/Links'
+    Rating:
+      type: object
+      properties:
+        average:
+          type:
+          - number
+          - 'null'
     WebChannel:
       allOf:
       - $ref: '#/components/schemas/Network'
@@ -216,13 +223,6 @@ components:
         officialSite:
           type:
           - string
-          - 'null'
-    Rating:
-      type: object
-      properties:
-        average:
-          type:
-          - number
           - 'null'
     Links:
       type: object

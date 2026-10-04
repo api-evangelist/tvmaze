@@ -201,6 +201,8 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    MarkType:
+      description: 0 for watched, 1 for acquired, 2 for skipped
     Episode:
       type: object
     MarkedEpisode:
@@ -219,8 +221,6 @@ components:
         type:
           $ref: '#/components/schemas/MarkType'
       type: object
-    MarkType:
-      description: 0 for watched, 1 for acquired, 2 for skipped
     BulkResponse:
       description: A list of responses to your bulk input, ordered the same as your input
       items:

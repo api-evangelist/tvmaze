@@ -179,6 +179,15 @@ components:
             format: uri
           name:
             type: string
+    Image:
+      type: object
+      properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri
     Country:
       type: object
       properties:
@@ -223,12 +232,3 @@ components:
           format: int64
         _links:
           $ref: '#/components/schemas/Links'
-    Image:
-      type: object
-      properties:
-        medium:
-          type: string
-          format: uri
-        original:
-          type: string
-          format: uri

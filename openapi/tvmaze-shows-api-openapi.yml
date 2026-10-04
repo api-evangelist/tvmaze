@@ -521,82 +521,15 @@ paths:
                   additionalProperties: true
 components:
   schemas:
-    Show:
+    Image:
       type: object
       properties:
-        id:
-          type: integer
-        url:
+        medium:
           type: string
           format: uri
-        name:
+        original:
           type: string
-        type:
-          type: string
-          description: e.g. Scripted, Reality, Documentary
-        language:
-          type:
-          - string
-          - 'null'
-        genres:
-          type: array
-          items:
-            type: string
-        status:
-          type: string
-          description: e.g. Running, Ended, To Be Determined
-        runtime:
-          type:
-          - integer
-          - 'null'
-        averageRuntime:
-          type:
-          - integer
-          - 'null'
-        premiered:
-          type:
-          - string
-          - 'null'
-          format: date
-        ended:
-          type:
-          - string
-          - 'null'
-          format: date
-        officialSite:
-          type:
-          - string
-          - 'null'
-        schedule:
-          $ref: '#/components/schemas/Schedule'
-        rating:
-          $ref: '#/components/schemas/Rating'
-        weight:
-          type: integer
-        network:
-          allOf:
-          - $ref: '#/components/schemas/Network'
-        webChannel:
-          allOf:
-          - $ref: '#/components/schemas/WebChannel'
-        dvdCountry:
-          allOf:
-          - $ref: '#/components/schemas/Country'
-        externals:
-          $ref: '#/components/schemas/Externals'
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        summary:
-          type:
-          - string
-          - 'null'
-          description: HTML summary
-        updated:
-          type: integer
-          format: int64
-        _links:
-          $ref: '#/components/schemas/Links'
+          format: uri
     Episode:
       type: object
       properties:
@@ -686,112 +619,6 @@ components:
           - 'null'
         _links:
           $ref: '#/components/schemas/Links'
-    Image:
-      type: object
-      properties:
-        medium:
-          type: string
-          format: uri
-        original:
-          type: string
-          format: uri
-    Character:
-      type: object
-      properties:
-        id:
-          type: integer
-        url:
-          type: string
-          format: uri
-        name:
-          type: string
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        _links:
-          $ref: '#/components/schemas/Links'
-    WebChannel:
-      allOf:
-      - $ref: '#/components/schemas/Network'
-    CrewCredit:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Crew role type, e.g. Director, Writer
-        person:
-          $ref: '#/components/schemas/Person'
-    Schedule:
-      type: object
-      properties:
-        time:
-          type: string
-        days:
-          type: array
-          items:
-            type: string
-    Network:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        country:
-          $ref: '#/components/schemas/Country'
-        officialSite:
-          type:
-          - string
-          - 'null'
-    Rating:
-      type: object
-      properties:
-        average:
-          type:
-          - number
-          - 'null'
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
-    Aka:
-      type: object
-      properties:
-        name:
-          type: string
-        country:
-          allOf:
-          - $ref: '#/components/schemas/Country'
-    Externals:
-      type: object
-      properties:
-        tvrage:
-          type:
-          - integer
-          - 'null'
-        thetvdb:
-          type:
-          - integer
-          - 'null'
-        imdb:
-          type:
-          - string
-          - 'null'
-    Country:
-      type: object
-      properties:
-        name:
-          type: string
-        code:
-          type: string
-        timezone:
-          type: string
     Person:
       type: object
       properties:
@@ -827,6 +654,82 @@ components:
           format: int64
         _links:
           $ref: '#/components/schemas/Links'
+    Show:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        type:
+          type: string
+          description: e.g. Scripted, Reality, Documentary
+        language:
+          type:
+          - string
+          - 'null'
+        genres:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          description: e.g. Running, Ended, To Be Determined
+        runtime:
+          type:
+          - integer
+          - 'null'
+        averageRuntime:
+          type:
+          - integer
+          - 'null'
+        premiered:
+          type:
+          - string
+          - 'null'
+          format: date
+        ended:
+          type:
+          - string
+          - 'null'
+          format: date
+        officialSite:
+          type:
+          - string
+          - 'null'
+        schedule:
+          $ref: '#/components/schemas/Schedule'
+        rating:
+          $ref: '#/components/schemas/Rating'
+        weight:
+          type: integer
+        network:
+          allOf:
+          - $ref: '#/components/schemas/Network'
+        webChannel:
+          allOf:
+          - $ref: '#/components/schemas/WebChannel'
+        dvdCountry:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+        externals:
+          $ref: '#/components/schemas/Externals'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        summary:
+          type:
+          - string
+          - 'null'
+          description: HTML summary
+        updated:
+          type: integer
+          format: int64
+        _links:
+          $ref: '#/components/schemas/Links'
     CastCredit:
       type: object
       properties:
@@ -838,6 +741,103 @@ components:
           type: boolean
         voice:
           type: boolean
+    Network:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        country:
+          $ref: '#/components/schemas/Country'
+        officialSite:
+          type:
+          - string
+          - 'null'
+    WebChannel:
+      allOf:
+      - $ref: '#/components/schemas/Network'
+    Rating:
+      type: object
+      properties:
+        average:
+          type:
+          - number
+          - 'null'
+    Aka:
+      type: object
+      properties:
+        name:
+          type: string
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+    Character:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        _links:
+          $ref: '#/components/schemas/Links'
+    Externals:
+      type: object
+      properties:
+        tvrage:
+          type:
+          - integer
+          - 'null'
+        thetvdb:
+          type:
+          - integer
+          - 'null'
+        imdb:
+          type:
+          - string
+          - 'null'
+    Schedule:
+      type: object
+      properties:
+        time:
+          type: string
+        days:
+          type: array
+          items:
+            type: string
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
+    CrewCredit:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Crew role type, e.g. Director, Writer
+        person:
+          $ref: '#/components/schemas/Person'
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        timezone:
+          type: string
   parameters:
     ShowId:
       name: id

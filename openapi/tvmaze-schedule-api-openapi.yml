@@ -256,6 +256,16 @@ paths:
                   $ref: '#/components/schemas/Episode'
 components:
   schemas:
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
     Rating:
       type: object
       properties:
@@ -263,6 +273,15 @@ components:
           type:
           - number
           - 'null'
+    Image:
+      type: object
+      properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri
     Episode:
       type: object
       properties:
@@ -311,22 +330,3 @@ components:
           - 'null'
         _links:
           $ref: '#/components/schemas/Links'
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
-    Image:
-      type: object
-      properties:
-        medium:
-          type: string
-          format: uri
-        original:
-          type: string
-          format: uri
