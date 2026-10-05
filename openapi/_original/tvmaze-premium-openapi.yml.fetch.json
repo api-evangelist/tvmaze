@@ -1,0 +1,12 @@
+{
+ "url": "http://static.tvmaze.com/apidoc/v1.yaml",
+ "requested_url": "http://static.tvmaze.com/apidoc/v1.yaml",
+ "status": 200,
+ "content_type": "application/octet-stream",
+ "bytes": 26322,
+ "sha256": "4a251a7b32263cc460ac0a12e964b65a5479c704213bbecdb6b3ff66d4961ad1",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
