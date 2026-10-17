@@ -108,8 +108,6 @@ components:
   schemas:
     MarkType:
       description: 0 for watched, 1 for acquired, 2 for skipped
-    Episode:
-      type: object
     MarkedEpisode:
       properties:
         _embedded:
@@ -125,6 +123,8 @@ components:
           type: integer
         type:
           $ref: '#/components/schemas/MarkType'
+      type: object
+    Episode:
       type: object
   requestBodies:
     MarkedEpisode:

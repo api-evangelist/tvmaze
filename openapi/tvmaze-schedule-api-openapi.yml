@@ -256,16 +256,6 @@ paths:
                   $ref: '#/components/schemas/Episode'
 components:
   schemas:
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
     Rating:
       type: object
       properties:
@@ -282,6 +272,16 @@ components:
         original:
           type: string
           format: uri
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
     Episode:
       type: object
       properties:

@@ -201,10 +201,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MarkType:
-      description: 0 for watched, 1 for acquired, 2 for skipped
-    Episode:
-      type: object
     MarkedEpisode:
       properties:
         _embedded:
@@ -241,6 +237,10 @@ components:
             description: The resulting created/updated object (in case of success)
             type: object
       type: array
+    MarkType:
+      description: 0 for watched, 1 for acquired, 2 for skipped
+    Episode:
+      type: object
   requestBodies:
     MarkedEpisode:
       content:

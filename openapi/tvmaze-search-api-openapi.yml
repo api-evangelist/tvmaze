@@ -250,50 +250,34 @@ paths:
                       $ref: '#/components/schemas/Person'
 components:
   schemas:
-    Image:
+    Schedule:
       type: object
       properties:
-        medium:
+        time:
           type: string
-          format: uri
-        original:
-          type: string
-          format: uri
-    Person:
+        days:
+          type: array
+          items:
+            type: string
+    Country:
       type: object
       properties:
-        id:
-          type: integer
-        url:
-          type: string
-          format: uri
         name:
           type: string
-        country:
-          allOf:
-          - $ref: '#/components/schemas/Country'
-        birthday:
-          type:
-          - string
-          - 'null'
-          format: date
-        deathday:
-          type:
-          - string
-          - 'null'
-          format: date
-        gender:
-          type:
-          - string
-          - 'null'
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        updated:
-          type: integer
-          format: int64
-        _links:
-          $ref: '#/components/schemas/Links'
+        code:
+          type: string
+        timezone:
+          type: string
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
     Show:
       type: object
       properties:
@@ -370,38 +354,6 @@ components:
           format: int64
         _links:
           $ref: '#/components/schemas/Links'
-    Network:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        country:
-          $ref: '#/components/schemas/Country'
-        officialSite:
-          type:
-          - string
-          - 'null'
-    WebChannel:
-      allOf:
-      - $ref: '#/components/schemas/Network'
-    Rating:
-      type: object
-      properties:
-        average:
-          type:
-          - number
-          - 'null'
-    Schedule:
-      type: object
-      properties:
-        time:
-          type: string
-        days:
-          type: array
-          items:
-            type: string
     Externals:
       type: object
       properties:
@@ -417,22 +369,70 @@ components:
           type:
           - string
           - 'null'
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
-    Country:
+    Image:
       type: object
       properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
         name:
           type: string
-        code:
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+        birthday:
+          type:
+          - string
+          - 'null'
+          format: date
+        deathday:
+          type:
+          - string
+          - 'null'
+          format: date
+        gender:
+          type:
+          - string
+          - 'null'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        updated:
+          type: integer
+          format: int64
+        _links:
+          $ref: '#/components/schemas/Links'
+    Rating:
+      type: object
+      properties:
+        average:
+          type:
+          - number
+          - 'null'
+    WebChannel:
+      allOf:
+      - $ref: '#/components/schemas/Network'
+    Network:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
           type: string
-        timezone:
-          type: string
+        country:
+          $ref: '#/components/schemas/Country'
+        officialSite:
+          type:
+          - string
+          - 'null'

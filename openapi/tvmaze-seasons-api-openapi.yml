@@ -103,6 +103,66 @@ paths:
                   $ref: '#/components/schemas/Episode'
 components:
   schemas:
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        timezone:
+          type: string
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
+    Season:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        number:
+          type: integer
+        name:
+          type: string
+        episodeOrder:
+          type:
+          - integer
+          - 'null'
+        premiereDate:
+          type:
+          - string
+          - 'null'
+          format: date
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date
+        network:
+          allOf:
+          - $ref: '#/components/schemas/Network'
+        webChannel:
+          allOf:
+          - $ref: '#/components/schemas/WebChannel'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        summary:
+          type:
+          - string
+          - 'null'
+        _links:
+          $ref: '#/components/schemas/Links'
     Image:
       type: object
       properties:
@@ -112,6 +172,29 @@ components:
         original:
           type: string
           format: uri
+    Rating:
+      type: object
+      properties:
+        average:
+          type:
+          - number
+          - 'null'
+    WebChannel:
+      allOf:
+      - $ref: '#/components/schemas/Network'
+    Network:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        country:
+          $ref: '#/components/schemas/Country'
+        officialSite:
+          type:
+          - string
+          - 'null'
     Episode:
       type: object
       properties:
@@ -160,86 +243,3 @@ components:
           - 'null'
         _links:
           $ref: '#/components/schemas/Links'
-    Season:
-      type: object
-      properties:
-        id:
-          type: integer
-        url:
-          type: string
-          format: uri
-        number:
-          type: integer
-        name:
-          type: string
-        episodeOrder:
-          type:
-          - integer
-          - 'null'
-        premiereDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        network:
-          allOf:
-          - $ref: '#/components/schemas/Network'
-        webChannel:
-          allOf:
-          - $ref: '#/components/schemas/WebChannel'
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        summary:
-          type:
-          - string
-          - 'null'
-        _links:
-          $ref: '#/components/schemas/Links'
-    Rating:
-      type: object
-      properties:
-        average:
-          type:
-          - number
-          - 'null'
-    WebChannel:
-      allOf:
-      - $ref: '#/components/schemas/Network'
-    Network:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        country:
-          $ref: '#/components/schemas/Country'
-        officialSite:
-          type:
-          - string
-          - 'null'
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
-    Country:
-      type: object
-      properties:
-        name:
-          type: string
-        code:
-          type: string
-        timezone:
-          type: string

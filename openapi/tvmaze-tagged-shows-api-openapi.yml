@@ -186,13 +186,17 @@ paths:
       operationId: putUserTagsByTagIdShowsByShowId
       x-operation-id-source: derived
 components:
-  requestBodies:
-    Tag:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Tag'
   schemas:
+    Tag:
+      properties:
+        id:
+          readOnly: true
+          type: integer
+        name:
+          type: string
+      type: object
+    Show:
+      type: object
     TagInstance:
       properties:
         _embedded:
@@ -203,16 +207,12 @@ components:
         show_id:
           type: integer
       type: object
-    Show:
-      type: object
+  requestBodies:
     Tag:
-      properties:
-        id:
-          readOnly: true
-          type: integer
-        name:
-          type: string
-      type: object
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Tag'
   securitySchemes:
     usertoken:
       scheme: basic

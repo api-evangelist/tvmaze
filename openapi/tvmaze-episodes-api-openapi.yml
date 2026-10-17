@@ -137,6 +137,25 @@ paths:
                   $ref: '#/components/schemas/CrewCredit'
 components:
   schemas:
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        timezone:
+          type: string
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
     Image:
       type: object
       properties:
@@ -146,6 +165,82 @@ components:
         original:
           type: string
           format: uri
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+        birthday:
+          type:
+          - string
+          - 'null'
+          format: date
+        deathday:
+          type:
+          - string
+          - 'null'
+          format: date
+        gender:
+          type:
+          - string
+          - 'null'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        updated:
+          type: integer
+          format: int64
+        _links:
+          $ref: '#/components/schemas/Links'
+    Character:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        _links:
+          $ref: '#/components/schemas/Links'
+    Rating:
+      type: object
+      properties:
+        average:
+          type:
+          - number
+          - 'null'
+    CrewCredit:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Crew role type, e.g. Director, Writer
+        person:
+          $ref: '#/components/schemas/Person'
+    CastCredit:
+      type: object
+      properties:
+        person:
+          $ref: '#/components/schemas/Person'
+        character:
+          $ref: '#/components/schemas/Character'
+        self:
+          type: boolean
+        voice:
+          type: boolean
     Episode:
       type: object
       properties:
@@ -192,100 +287,5 @@ components:
           type:
           - string
           - 'null'
-        _links:
-          $ref: '#/components/schemas/Links'
-    CastCredit:
-      type: object
-      properties:
-        person:
-          $ref: '#/components/schemas/Person'
-        character:
-          $ref: '#/components/schemas/Character'
-        self:
-          type: boolean
-        voice:
-          type: boolean
-    Rating:
-      type: object
-      properties:
-        average:
-          type:
-          - number
-          - 'null'
-    Country:
-      type: object
-      properties:
-        name:
-          type: string
-        code:
-          type: string
-        timezone:
-          type: string
-    Character:
-      type: object
-      properties:
-        id:
-          type: integer
-        url:
-          type: string
-          format: uri
-        name:
-          type: string
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        _links:
-          $ref: '#/components/schemas/Links'
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
-    CrewCredit:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Crew role type, e.g. Director, Writer
-        person:
-          $ref: '#/components/schemas/Person'
-    Person:
-      type: object
-      properties:
-        id:
-          type: integer
-        url:
-          type: string
-          format: uri
-        name:
-          type: string
-        country:
-          allOf:
-          - $ref: '#/components/schemas/Country'
-        birthday:
-          type:
-          - string
-          - 'null'
-          format: date
-        deathday:
-          type:
-          - string
-          - 'null'
-          format: date
-        gender:
-          type:
-          - string
-          - 'null'
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        updated:
-          type: integer
-          format: int64
         _links:
           $ref: '#/components/schemas/Links'

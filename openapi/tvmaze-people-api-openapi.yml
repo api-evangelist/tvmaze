@@ -169,34 +169,6 @@ paths:
                   additionalProperties: true
 components:
   schemas:
-    Links:
-      type: object
-      additionalProperties:
-        type: object
-        properties:
-          href:
-            type: string
-            format: uri
-          name:
-            type: string
-    Image:
-      type: object
-      properties:
-        medium:
-          type: string
-          format: uri
-        original:
-          type: string
-          format: uri
-    Country:
-      type: object
-      properties:
-        name:
-          type: string
-        code:
-          type: string
-        timezone:
-          type: string
     Person:
       type: object
       properties:
@@ -232,3 +204,31 @@ components:
           format: int64
         _links:
           $ref: '#/components/schemas/Links'
+    Links:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          href:
+            type: string
+            format: uri
+          name:
+            type: string
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        timezone:
+          type: string
+    Image:
+      type: object
+      properties:
+        medium:
+          type: string
+          format: uri
+        original:
+          type: string
+          format: uri
